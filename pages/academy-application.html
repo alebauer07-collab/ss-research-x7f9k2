@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu Training Academy | Apply Now - March 2026 Cohort</title>
+    <meta name="description" content="Apply to join the first cohort of Bambu Training Academy. 15 spots only. Become an elite coach the Bambu way.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6351e77bf7b7a3148a2f4b8d_bambu-favi-32.png">
+    
+    <style>
+        /* ===== BAMBU ACADEMY - APPLICATION PAGE ===== */
+        
+        :root {
+            --bambu-black: #111111;
+            --bambu-dark: #1a1a1a;
+            --bambu-tan: #DCCAB7;
+            --bambu-tan-light: #E5D8C8;
+            --bambu-brown: #836E5F;
+            --bambu-gold: #C4A77D;
+            --text-white: #FFFFFF;
+            --text-light: #F5F5F5;
+            --text-muted: #9CA3AF;
+            --text-grey: #6B7280;
+            --bg-card: #232323;
+            --accent-green: #10B981;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bambu-black);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 45px;
+        }
+        
+        .nav-cta {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            padding: 10px 24px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            background: var(--bambu-tan-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            background: linear-gradient(180deg, rgba(17,17,17,0.9) 0%, var(--bambu-black) 100%),
+                        url('https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915e3a6c3c24a82bf7aac2c_Join-us-Bambu.png') center/cover;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(220, 202, 183, 0.15);
+            border: 1px solid var(--bambu-tan);
+            color: var(--bambu-tan);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 span {
+            color: var(--bambu-tan);
+        }
+        
+        .hero-subtitle {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--bambu-tan);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-grey);
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+        
+        .btn-primary:hover {
+            background: var(--bambu-tan-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(220, 202, 183, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-white);
+            border-color: var(--text-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--text-white);
+            color: var(--bambu-black);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        .section-label {
+            color: var(--bambu-tan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        
+        /* Who Is This For */
+        .who-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .who-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .who-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--bambu-tan);
+        }
+        
+        .who-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--bambu-tan);
+        }
+        
+        .who-card p {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* The Process */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            background: var(--bg-card);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--bambu-tan);
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+        
+        .step-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-content p {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        /* Payment Options */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+        }
+        
+        .payment-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .payment-card.featured {
+            border-color: var(--bambu-tan);
+            background: linear-gradient(180deg, rgba(220, 202, 183, 0.1) 0%, var(--bg-card) 100%);
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .payment-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .payment-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+        
+        .payment-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--bambu-tan);
+            margin-bottom: 0.5rem;
+        }
+        
+        .payment-desc {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+        }
+        
+        /* Application Form */
+        .form-section {
+            background: var(--bambu-dark);
+        }
+        
+        .application-form {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid rgba(220, 202, 183, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+        
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            background: var(--bambu-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--text-white);
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--bambu-tan);
+            box-shadow: 0 0 0 3px rgba(220, 202, 183, 0.1);
+        }
+        
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--text-grey);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        
+        .form-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-grey);
+        }
+        
+        /* WhatsApp CTA */
+        .whatsapp-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--bambu-dark) 0%, var(--bambu-black) 100%);
+        }
+        
+        .whatsapp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #25D366;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-badge svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        /* Career Ladder */
+        .ladder-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .ladder-step {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border-left: 3px solid var(--bambu-tan);
+            position: relative;
+        }
+        
+        .ladder-step::after {
+            content: '↓';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--bambu-tan);
+            font-size: 1.25rem;
+            z-index: 1;
+        }
+        
+        .ladder-step:last-child::after {
+            display: none;
+        }
+        
+        .ladder-icon {
+            font-size: 1.5rem;
+        }
+        
+        .ladder-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .ladder-content p {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            margin: 0;
+        }
+        
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 0;
+            cursor: pointer;
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: var(--bambu-tan);
+        }
+        
+        .faq-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+        
+        .faq-answer p {
+            padding-bottom: 1.25rem;
+            color: var(--text-muted);
+            font-family: 'Lato', sans-serif;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--bambu-dark);
+            padding: 3rem 20px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-text {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+        }
+        
+        .footer-tagline {
+            color: var(--bambu-tan);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            
+            .application-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="https://www.bambufitnessbali.com/">
+            <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu Fitness" class="logo">
+        </a>
+        <a href="#apply" class="nav-cta">Apply Now</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">🔥 MARCH 2026 COHORT — LIMITED SPOTS</span>
+            <h1>Become an <span>Elite Coach</span><br>The Bambu Way</h1>
+            <p class="hero-subtitle">
+                4 weeks. 15 spots. This isn't a certification you frame and forget. 
+                It's the start of a real coaching career.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Total Spots</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Reserved</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Remaining</div>
+                </div>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#apply" class="btn btn-primary">Apply Now →</a>
+                <a href="https://calendly.com/willhenke/bambu" target="_blank" class="btn btn-secondary">Book a Call with Will</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Is This For -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Who Is This For?</div>
+                <h2 class="section-title">Not everyone. And that's the point.</h2>
+                <p class="section-subtitle">We're not looking for numbers. We're looking for the right people.</p>
+            </div>
+            
+            <div class="who-cards">
+                <div class="who-card">
+                    <h3>Trainers Stuck in One Lane</h3>
+                    <p>Maybe you've only coached CrossFit, bodybuilding, or S&C. You know there's more to learn. The Academy builds versatility — you'll become a coach who can adapt to any client.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Certified but Not Confident</h3>
+                    <p>You've got the paper. But there's a gap between what you learned and what you can apply. This is where theory turns into practice. Where knowing becomes doing.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Future Leaders in Fitness</h3>
+                    <p>For those who see coaching as a career, not a side hustle. You'll build the skills, presence, and professionalism that define what it means to coach the Bambu way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Process -->
+    <section class="section" style="background: var(--bambu-dark);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">How It Works</div>
+                <h2 class="section-title">Simple. Selective. Straightforward.</h2>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Submit Your Application</h4>
+                        <p>Tell us about yourself — your background, why you want to coach, and what drives you. Takes 5 minutes.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Chat with Our Team</h4>
+                        <p>You'll get a WhatsApp message from us. Quick chat to learn more about you and answer your questions.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Call with Will</h4>
+                        <p>If you're a strong fit, you'll get a call with Will to talk about your goals and make sure we're aligned.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Decision & Payment</h4>
+                        <p>We'll let you know within 48 hours. If you're in, choose your payment option and lock your spot.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Options -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Investment</div>
+                <h2 class="section-title">Ways to Pay — We're Flexible</h2>
+                <p class="section-subtitle">Multiple options because we want the right people, not just the ones who can pay upfront.</p>
+            </div>
+            
+            <div class="payment-grid">
+                <div class="payment-card featured">
+                    <div class="payment-icon">🏆</div>
+                    <div class="payment-title">Early Bird</div>
+                    <div class="payment-price">$5,000</div>
+                    <div class="payment-desc">Pay in full, save $1,000<br>Best value</div>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">💵</div>
+                    <div class="payment-title">Standard</div>
+                    <div class="payment-price">$6,000</div>
+                    <div class="payment-desc">Full price<br>Pay before start</div>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">📆</div>
+                    <div class="payment-title">Monthly</div>
+                    <div class="payment-price">$599/mo</div>
+                    <div class="payment-desc">12 installments<br>$7,188 total</div>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">🤝</div>
+                    <div class="payment-title">Sponsor</div>
+                    <div class="payment-price">TBD</div>
+                    <div class="payment-desc">Revenue share<br>For rising stars</div>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">🏢</div>
+                    <div class="payment-title">Employer</div>
+                    <div class="payment-price">Invoice</div>
+                    <div class="payment-desc">Your gym pays<br>We'll talk to them</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Ladder -->
+    <section class="section" style="background: var(--bambu-dark);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">The Path Forward</div>
+                <h2 class="section-title">This Isn't Just a Course. It's a Career.</h2>
+                <p class="section-subtitle">Here's what the road looks like for Bambu-trained coaches.</p>
+            </div>
+            
+            <div class="ladder-container">
+                <div class="ladder-step">
+                    <div class="ladder-icon">🌱</div>
+                    <div class="ladder-content">
+                        <h4>Academy Graduate</h4>
+                        <p>Complete the 4-week program, earn certification</p>
+                    </div>
+                </div>
+                <div class="ladder-step">
+                    <div class="ladder-icon">💪</div>
+                    <div class="ladder-content">
+                        <h4>Elite Coach</h4>
+                        <p>Coach at Bambu or top gyms worldwide — $40K-$120K/year</p>
+                    </div>
+                </div>
+                <div class="ladder-step">
+                    <div class="ladder-icon">👑</div>
+                    <div class="ladder-content">
+                        <h4>Head Coach / Manager</h4>
+                        <p>Lead teams, manage programs, shape culture</p>
+                    </div>
+                </div>
+                <div class="ladder-step">
+                    <div class="ladder-icon">📚</div>
+                    <div class="ladder-content">
+                        <h4>Course Creator</h4>
+                        <p>Build your own programs, sell your expertise</p>
+                    </div>
+                </div>
+                <div class="ladder-step">
+                    <div class="ladder-icon">🏠</div>
+                    <div class="ladder-content">
+                        <h4>Gym Owner / Franchise</h4>
+                        <p>Open your own space — or run a Bambu location</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="apply" class="section form-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Apply Now</div>
+                <h2 class="section-title">Ready? Let's Talk.</h2>
+                <p class="section-subtitle">Fill this out. If you're a fit, we'll be in touch within 48 hours.</p>
+            </div>
+            
+            <form class="application-form" action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">First Name *</label>
+                        <input type="text" class="form-input" name="first_name" required placeholder="Your first name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name *</label>
+                        <input type="text" class="form-input" name="last_name" required placeholder="Your last name">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-input" name="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">WhatsApp Number *</label>
+                        <input type="tel" class="form-input" name="phone" required placeholder="+1 234 567 8900">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Where are you based? *</label>
+                    <input type="text" class="form-input" name="location" required placeholder="City, Country">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Current Role *</label>
+                    <select class="form-select" name="role" required>
+                        <option value="">Select your current situation...</option>
+                        <option value="coach">Currently coaching</option>
+                        <option value="trainer">Personal trainer</option>
+                        <option value="aspiring">Aspiring coach (not yet coaching)</option>
+                        <option value="athlete">Competitive athlete</option>
+                        <option value="other">Other fitness professional</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">How long have you been training/coaching?</label>
+                    <select class="form-select" name="experience">
+                        <option value="">Select...</option>
+                        <option value="0-1">Less than 1 year</option>
+                        <option value="1-3">1-3 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="5+">5+ years</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Why do you want to become an elite coach? *</label>
+                    <textarea class="form-textarea" name="motivation" required placeholder="What's driving you? What do you want to achieve?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">What's your biggest challenge right now as a coach?</label>
+                    <textarea class="form-textarea" name="challenge" placeholder="Be honest. We all have them."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Preferred Payment Option</label>
+                    <select class="form-select" name="payment_preference">
+                        <option value="">Select...</option>
+                        <option value="early_bird">Early Bird ($5,000 upfront)</option>
+                        <option value="standard">Standard ($6,000 upfront)</option>
+                        <option value="monthly">Monthly installments ($599/mo)</option>
+                        <option value="sponsor">Looking for a sponsor</option>
+                        <option value="employer">My employer may pay</option>
+                        <option value="unsure">Not sure yet</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">How did you hear about Bambu Academy?</label>
+                    <input type="text" class="form-input" name="source" placeholder="Instagram, email, friend, etc.">
+                </div>
+                
+                <button type="submit" class="btn btn-primary form-submit">Submit Application →</button>
+                
+                <p class="form-note">
+                    After submitting, you'll receive a WhatsApp message from our team to continue the conversation.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- WhatsApp CTA -->
+    <section class="whatsapp-section">
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">Questions before applying?</p>
+        <a href="https://wa.me/message/XXXXX" class="whatsapp-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Chat with Us on WhatsApp
+        </a>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What's included in the Academy price?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>4 weeks of intensive training with Will and senior Bambu coaches, all course materials, practical coaching sessions, written & practical assessments, and your Bambu Training Academy certification upon successful completion.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do I need to be in Bali for the program?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. This is an in-person, hands-on program at Bambu Fitness Bali. You'll need to arrange your own accommodation — we can recommend options nearby. Some meals and all training sessions are included.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>I'm already a coach. Will this still help me?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. Most participants have some coaching experience. This program fills the gaps between certification and real-world confidence. You'll refine your technique, communication, and coaching identity.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How selective is the application process?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Very. We're looking for 15 people who are serious about coaching as a career. We'll review your application, have a WhatsApp conversation, and potentially a call with Will. We want the right fit, not just numbers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What if I can't afford the full amount upfront?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer monthly installments, employer sponsorship options, and for exceptional candidates, we can connect you with sponsors who invest in rising talent for future revenue share. Talk to us — we'll figure it out.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What happens after I graduate?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You join the Bambu family. Graduates get access to our alumni network, potential coaching opportunities at Bambu or partner gyms, and ongoing mentorship. Some graduates have gone on to become Academy instructors themselves.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu Fitness" class="footer-logo">
+        <p class="footer-text">Bambu Training Academy — March 2026 Cohort</p>
+        <p class="footer-tagline">Coach Smarter. Lead Better. Stand Out.</p>
+    </footer>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu Training Academy | Apply for March 2026 Cohort</title>
+    <meta name="description" content="Go from certified to confident. Apply to join the first cohort of Bambu Training Academy. 15 spots only. Become an elite coach the Bambu way.">
+    
+    <!-- Fonts - Same as Bambu -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6351e77bf7b7a3148a2f4b8d_bambu-favi-32.png">
+    
+    <style>
+        /* ===== BAMBU ACADEMY V2 - Matching Main Website Style ===== */
+        
+        :root {
+            --bambu-black: #111111;
+            --bambu-dark: #1a1a1a;
+            --bambu-tan: #DCCAB7;
+            --bambu-tan-light: #E5D8C8;
+            --bambu-brown: #836E5F;
+            --bambu-gold: #C4A77D;
+            --text-white: #FFFFFF;
+            --text-light: #F5F5F5;
+            --text-muted: #9CA3AF;
+            --text-grey: #6B7280;
+            --bg-card: #232323;
+            --accent-green: #10B981;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bambu-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Page Wrapper - Matching Bambu */
+        .page-wrapper {
+            opacity: 1;
+        }
+        
+        /* Navigation - Exact Bambu Style */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(17, 17, 17, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .nav-cta {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            padding: 12px 28px;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            background: var(--bambu-tan-light);
+        }
+        
+        /* Hero with Video Background - Bambu Style */
+        .hero-video-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 120px 20px 80px;
+            max-width: 900px;
+        }
+        
+        .hero-label {
+            color: var(--bambu-tan);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+        }
+        
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--bambu-tan);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+        
+        /* Buttons - Bambu Style */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+        
+        .btn-primary:hover {
+            background: var(--bambu-tan-light);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-white);
+            border: 2px solid var(--text-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--text-white);
+            color: var(--bambu-black);
+        }
+        
+        /* Sections - Bambu Container Style */
+        .section {
+            padding: 100px 20px;
+        }
+        
+        .container {
+            max-width: 1184px;
+            margin: 0 auto;
+        }
+        
+        .container-medium {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-label {
+            color: var(--bambu-tan);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Who Is This For - Matching Academy Style */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 900px) {
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .benefit-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--bambu-tan);
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+        
+        .benefit-card p {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        
+        .benefit-card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+        
+        /* Picture Section - Bambu Style */
+        .picture-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .picture-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .picture-section img {
+            width: 100%;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+        
+        /* Timeline - Academy Style */
+        .timeline-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+        
+        .timeline-marker {
+            flex-shrink: 0;
+        }
+        
+        .timeline-marker img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+        
+        .timeline-content p {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* Skills Grid - Academy Style */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 900px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .skill-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .skill-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-card h5 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+        
+        .skill-card p {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-grey);
+        }
+        
+        /* Value Cards - What You Leave With */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .value-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .value-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .value-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .value-card p {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Payment Grid */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+        }
+        
+        @media (max-width: 1000px) {
+            .payment-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .payment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .payment-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .payment-card.featured {
+            border-color: var(--bambu-tan);
+            background: linear-gradient(180deg, rgba(220, 202, 183, 0.1) 0%, var(--bg-card) 100%);
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .payment-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .payment-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+        
+        .payment-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--bambu-tan);
+            margin-bottom: 0.25rem;
+        }
+        
+        .payment-desc {
+            font-size: 0.7rem;
+            color: var(--text-grey);
+            line-height: 1.4;
+        }
+        
+        /* Application Process */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 900px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--bambu-tan);
+            font-size: 1.5rem;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        @media (max-width: 900px) {
+            .process-step::after {
+                display: none;
+            }
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .process-step h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .process-step p {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+        }
+        
+        /* Career Ladder */
+        .ladder-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .ladder-step {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border-left: 3px solid var(--bambu-tan);
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .ladder-step::after {
+            content: '↓';
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--bambu-tan);
+            font-size: 1rem;
+            z-index: 1;
+        }
+        
+        .ladder-step:last-child::after {
+            display: none;
+        }
+        
+        .ladder-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .ladder-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .ladder-content p {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            margin: 0;
+        }
+        
+        /* Application Form */
+        .form-section {
+            background: var(--bambu-dark);
+        }
+        
+        .application-form {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid rgba(220, 202, 183, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            background: var(--bambu-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--text-white);
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--bambu-tan);
+        }
+        
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--text-grey);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .application-form {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            font-size: 1rem;
+            margin-top: 1rem;
+            border-radius: 0;
+        }
+        
+        .form-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-grey);
+        }
+        
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(180deg, rgba(220, 202, 183, 0.1) 0%, transparent 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .cta-banner h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Join Us Section - Matching Academy */
+        .join-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 900px) {
+            .join-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .join-image img {
+            width: 100%;
+            border-radius: 16px;
+        }
+        
+        .join-content h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        
+        .join-content p {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .join-content .btn-group {
+            justify-content: flex-start;
+        }
+        
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 0;
+            cursor: pointer;
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            gap: 1rem;
+        }
+        
+        .faq-question:hover {
+            color: var(--bambu-tan);
+        }
+        
+        .faq-number {
+            color: var(--text-grey);
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            width: 30px;
+        }
+        
+        .faq-text {
+            flex: 1;
+        }
+        
+        .faq-icon {
+            width: 35px;
+            height: 35px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+        
+        .faq-answer p {
+            padding: 0 0 1.25rem 45px;
+            color: var(--text-muted);
+            font-family: 'Lato', sans-serif;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--bambu-dark);
+            padding: 3rem 20px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-text {
+            color: var(--text-grey);
+            font-size: 0.85rem;
+        }
+        
+        .footer-tagline {
+            color: var(--bambu-tan);
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        
+        <!-- Navigation -->
+        <nav class="navbar">
+            <a href="https://www.bambufitnessbali.com/">
+                <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu Fitness" class="logo">
+            </a>
+            <a href="#apply" class="nav-cta">Apply Now</a>
+        </nav>
+
+        <!-- Hero with Video Background -->
+        <section class="hero-video-section">
+            <video class="background-video" autoplay loop muted playsinline>
+                <source src="https://cdn.prod.website-files.com/6760212da41938286ecf870d/678e0e89c14a1aebeab4bd9c_Meet-the-trainers-video-transcode.mp4" type="video/mp4">
+                <source src="https://cdn.prod.website-files.com/6760212da41938286ecf870d/678e0e89c14a1aebeab4bd9c_Meet-the-trainers-video-transcode.webm" type="video/webm">
+            </video>
+            <div class="video-overlay"></div>
+            
+            <div class="hero-content">
+                <div class="hero-label">Bambu Training Academy</div>
+                <h1 class="hero-title">Coach Smarter<br>Lead Better<br>Stand Out</h1>
+                <p class="hero-subtitle">
+                    Our 4-week course designed to level up your knowledge, confidence, and coaching career — the Bambu way.
+                </p>
+                
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Total Spots</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Reserved</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Remaining</div>
+                    </div>
+                </div>
+                
+                <div class="btn-group">
+                    <a href="#apply" class="btn btn-primary">Apply Now</a>
+                    <a href="https://calendly.com/willhenke/bambu" target="_blank" class="btn btn-secondary">Book a Call</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who Is This For -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Who is this for?</h2>
+                </div>
+                
+                <div class="benefit-grid">
+                    <div class="benefit-card">
+                        <h3>Trainers stuck in one lane</h3>
+                        <p>Maybe you've only coached Bodybuilding, CrossFit, or Strength & Conditioning and you know there's more to learn. The Academy builds versatility. You'll explore multiple training systems, learn how to connect the dots, and grow into a coach who can adapt to any client or environment.</p>
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf732c3ceb3de36a00_ccfb106288f7a09bdbfbf7ca04f8864f_image%207.png" alt="Trainers">
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Who feel they should know more</h3>
+                        <p>You've got the certification, but deep down you know there's a gap between what you learned and what you can apply. This is where theory turns into practice. Where you finally understand why you're doing what you're doing, and how to coach it with confidence.</p>
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eafef3adaadcdd5962c_6fd7694095050187a61f4bffcebd2ee6_image%209.png" alt="Certified coaches">
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Future leaders in fitness</h3>
+                        <p>For those who see coaching as a career, not a side hustle. You'll build the technical knowledge, people skills, and professionalism that define what it means to coach the Bambu way.</p>
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeef29560eaae0add2_e695d7222786983dd36e80de6cb9f139_image%208.png" alt="Future leaders">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Picture Section -->
+        <section style="padding: 0 20px;">
+            <div class="container">
+                <div class="picture-section">
+                    <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915be350d9798f74a21b34a_Macca%20image%201.png" alt="Coaching at Bambu">
+                    <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf35a7a8e0a596fbcb_Feature%20Card.png" alt="Training session">
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Process -->
+        <section class="section" style="background: var(--bambu-dark);">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">How to Apply</div>
+                    <h2 class="section-title">Here's how we turn that potential into real-world coaching skill</h2>
+                </div>
+                
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Apply</h4>
+                        <p>Fill out the application form. Tell us about yourself and why you want to coach.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Chat</h4>
+                        <p>We'll reach out via WhatsApp to learn more and answer your questions.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Call</h4>
+                        <p>Top candidates get a call with Will to discuss goals and fit.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Join</h4>
+                        <p>If you're in, choose your payment option and lock your spot.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Breakdown -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Course Breakdown</div>
+                    <h2 class="section-title">Inside the Academy</h2>
+                    <p class="section-subtitle">This isn't a sit-and-listen course. Each week blends learning, application, and real feedback so you leave not just knowing what to do, but how to do it under pressure, in real coaching environments.</p>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915c01c5adf858444509b23_Golder-circle.svg" alt="">
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Week 1 — Foundations of Great Coaching</h4>
+                            <p>Set the standard. You'll learn the key systems, frameworks, and communication tools that define professional coaching, and start applying them from day one.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915c01c5adf858444509b23_Golder-circle.svg" alt="">
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Week 2 — Communication, Cueing & Class Flow</h4>
+                            <p>It's not just what you know, it's how you deliver it. You'll refine how you see movement, cue efficiently, and manage individuals and groups with confidence.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915c01c5adf858444509b23_Golder-circle.svg" alt="">
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Week 3 — Movement, Mechanics & Program Design</h4>
+                            <p>We go deep on biomechanics, energy systems, and smart programming. You'll build your ability to assess, design, and progress clients across any training goal.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915c01c5adf858444509b23_Golder-circle.svg" alt="">
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Week 4 — Assessment & Certification</h4>
+                            <p>Your chance to put it all together. You'll be tested through practical coaching evaluations, a written exam, and a program design case study to earn your Bambu Training Academy certification.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915c19b016b427934e95432_Special-golden-cricle.svg" alt="">
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Designed Around our 4C Pillars</h4>
+                            <p>Every module is built around the Bambu framework: Clarity, Communication, Control, and Care — the standards that guide how we coach, teach, and lead.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Picture Section 2 -->
+        <section style="padding: 0 20px;">
+            <div class="container">
+                <div class="picture-section">
+                    <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eae252bc0f9d8316c66_Frame%2017.png" alt="Training">
+                    <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf1ff084a2880b5bf1_image%202.png" alt="Group session">
+                </div>
+            </div>
+        </section>
+
+        <!-- The Experience -->
+        <section class="section" style="background: var(--bambu-dark);">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">The Experience</div>
+                    <h2 class="section-title">More Than an Academy — You won't just learn, you'll live it.</h2>
+                    <p class="section-subtitle">Across four weeks, you'll move, coach, and grow alongside other driven coaches who share the same goal: to be better. Expect shared learning, challenge, laughter, and the kind of professional respect that comes from earning it together.</p>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915c6bf7417d698fbec0c27_Property%201%3D1_1%20coaching.svg" alt="">
+                        <h5>1:1 Coaching Skills</h5>
+                        <p>Build deeper trust, accountability, and outcomes through individualized attention and feedback</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df3400c1c4338edfbc89_Property%201%3DPhylosophy.svg" alt="">
+                        <h5>Coach Identity & Philosophy</h5>
+                        <p>Define what kind of coach you are, why you coach, and how to make your values clear in action</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df345b049681f9ad74d3_Property%201%3DCommunity.svg" alt="">
+                        <h5>Connection & Community</h5>
+                        <p>Grow through shared experiences, team challenges, and mentorship</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df346c5a40078a01a818_Property%201%3DLeadership.svg" alt="">
+                        <h5>Movement & Biomechanics</h5>
+                        <p>Understand anatomy, positions, and mechanics — what "good" looks like and why it matters</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df34cb9f6393da03b368_Property%201%3DEnergy.svg" alt="">
+                        <h5>Energy Systems & Program Design</h5>
+                        <p>Learn to build structured, purposeful programs that deliver results across all goals</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df34499e03f9ea156623_Property%201%3DFlow.svg" alt="">
+                        <h5>Coaching Intention & Session Flow</h5>
+                        <p>Build deeper trust, accountability, and outcomes through individualized attention</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df348532e9da0ac3b452_Property%201%3DCueing.svg" alt="">
+                        <h5>Communication & Cueing</h5>
+                        <p>Refine how you speak, demonstrate, and connect — both in words and body language</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df3413009aaeb2e670ae_Property%201%3DGroup.svg" alt="">
+                        <h5>Group Management & Class Control</h5>
+                        <p>Create safe, seamless, high-energy sessions for every client and environment</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df346c5a40078a01a818_Property%201%3DLeadership.svg" alt="">
+                        <h5>Professional Standards & Leadership</h5>
+                        <p>Own your craft, set the tone, and lead by example — on and off the floor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner">
+            <div class="container">
+                <h2>You'll walk out sharper, more confident, and surrounded by coaches who get it. Because you've done the work together.</h2>
+            </div>
+        </div>
+
+        <!-- Payment Options -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Investment</div>
+                    <h2 class="section-title">Ways to Pay — We're Flexible</h2>
+                    <p class="section-subtitle">Multiple options because we want the right people, not just the ones who can pay upfront.</p>
+                </div>
+                
+                <div class="payment-grid">
+                    <div class="payment-card featured">
+                        <div class="payment-icon">🏆</div>
+                        <div class="payment-title">Early Bird</div>
+                        <div class="payment-price">$5,000</div>
+                        <div class="payment-desc">Pay in full<br>Save $1,000</div>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-icon">💵</div>
+                        <div class="payment-title">Standard</div>
+                        <div class="payment-price">$6,000</div>
+                        <div class="payment-desc">Full price<br>Pay before start</div>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-icon">📆</div>
+                        <div class="payment-title">Monthly</div>
+                        <div class="payment-price">$599/mo</div>
+                        <div class="payment-desc">12 installments<br>$7,188 total</div>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-icon">🤝</div>
+                        <div class="payment-title">Sponsor</div>
+                        <div class="payment-price">TBD</div>
+                        <div class="payment-desc">Revenue share<br>For rising stars</div>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-icon">🏢</div>
+                        <div class="payment-title">Employer</div>
+                        <div class="payment-price">Invoice</div>
+                        <div class="payment-desc">Your gym pays<br>We'll talk to them</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What You Leave With -->
+        <section class="section" style="background: var(--bambu-dark);">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">What You Leave With</div>
+                    <h2 class="section-title">Where knowledge becomes applied confidence</h2>
+                </div>
+                
+                <div class="value-grid">
+                    <div class="value-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915e88be0377714f06f07e5_Bambu-hihgfive.png" alt="">
+                        <div>
+                            <h4>Real-World Coaching Skill</h4>
+                            <p>You'll leave knowing how to coach, not just what to coach. Every drill, cue, and conversation will make sense because you've practiced it in real time.</p>
+                        </div>
+                    </div>
+                    <div class="value-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaea8e7a5714cd6d454_Frame%201984078020.png" alt="">
+                        <div>
+                            <h4>Professional Confidence</h4>
+                            <p>You'll know what good movement looks like, how to fix it, and how to communicate that with clarity and control — the foundation of every great coach.</p>
+                        </div>
+                    </div>
+                    <div class="value-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeb541f55337558d26_e182f6f9fba06ca64cfef9bd3b07a4d6_Frame%201984078022.png" alt="">
+                        <div>
+                            <h4>Coaching Identity & Clarity of Purpose</h4>
+                            <p>You'll refine your philosophy, define your coaching style, and walk away knowing exactly who you are as a coach and where you're going next.</p>
+                        </div>
+                    </div>
+                    <div class="value-card">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eae7edd1eca48c8684f_Frame%201984078021.png" alt="">
+                        <div>
+                            <h4>Career Momentum</h4>
+                            <p>You'll leave with direction, mentorship, and the confidence to carve your path — whether that's leading teams, building your brand, or redefining what coaching means to you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Ladder -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">The Path Forward</div>
+                    <h2 class="section-title">This Isn't Just a Course. It's a Career.</h2>
+                    <p class="section-subtitle">Here's what the road looks like for Bambu-trained coaches.</p>
+                </div>
+                
+                <div class="ladder-container">
+                    <div class="ladder-step">
+                        <div class="ladder-icon">🌱</div>
+                        <div class="ladder-content">
+                            <h4>Academy Graduate</h4>
+                            <p>Complete the 4-week program, earn certification</p>
+                        </div>
+                    </div>
+                    <div class="ladder-step">
+                        <div class="ladder-icon">💪</div>
+                        <div class="ladder-content">
+                            <h4>Elite Coach</h4>
+                            <p>Coach at Bambu or top gyms worldwide — $40K-$120K/year</p>
+                        </div>
+                    </div>
+                    <div class="ladder-step">
+                        <div class="ladder-icon">👑</div>
+                        <div class="ladder-content">
+                            <h4>Head Coach / Manager</h4>
+                            <p>Lead teams, manage programs, shape culture</p>
+                        </div>
+                    </div>
+                    <div class="ladder-step">
+                        <div class="ladder-icon">📚</div>
+                        <div class="ladder-content">
+                            <h4>Course Creator</h4>
+                            <p>Build your own programs, sell your expertise</p>
+                        </div>
+                    </div>
+                    <div class="ladder-step">
+                        <div class="ladder-icon">🏠</div>
+                        <div class="ladder-content">
+                            <h4>Gym Owner / Franchise</h4>
+                            <p>Open your own space — or run a Bambu location</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Us Section -->
+        <section class="section" style="background: var(--bambu-dark);">
+            <div class="container">
+                <div class="join-section">
+                    <div class="join-image">
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915e3a6c3c24a82bf7aac2c_Join-us-Bambu.png" alt="Join Bambu Academy">
+                    </div>
+                    <div class="join-content">
+                        <h2>Your next chapter as a coach starts here</h2>
+                        <p>You've got the passion — now it's time to back it with precision, confidence, and experience. Bambu coaches are known worldwide for their professionalism, presence, and skill. This is where that standard begins.<br><br>Join the next intake of the Bambu Training Academy and take the step that turns potential into professionalism.</p>
+                        <div class="btn-group">
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                            <a href="https://calendly.com/willhenke/bambu" target="_blank" class="btn btn-secondary">Book a Call</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section id="apply" class="section form-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Apply Now</div>
+                    <h2 class="section-title">Ready? Let's Talk.</h2>
+                    <p class="section-subtitle">Fill this out. If you're a fit, we'll be in touch within 48 hours.</p>
+                </div>
+                
+                <form class="application-form" action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">First Name *</label>
+                            <input type="text" class="form-input" name="first_name" required placeholder="Your first name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name *</label>
+                            <input type="text" class="form-input" name="last_name" required placeholder="Your last name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-input" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">WhatsApp Number *</label>
+                            <input type="tel" class="form-input" name="phone" required placeholder="+1 234 567 8900">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Where are you based? *</label>
+                        <input type="text" class="form-input" name="location" required placeholder="City, Country">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Current Role *</label>
+                        <select class="form-select" name="role" required>
+                            <option value="">Select your current situation...</option>
+                            <option value="coach">Currently coaching</option>
+                            <option value="trainer">Personal trainer</option>
+                            <option value="aspiring">Aspiring coach (not yet coaching)</option>
+                            <option value="athlete">Competitive athlete</option>
+                            <option value="other">Other fitness professional</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">How long have you been training/coaching?</label>
+                        <select class="form-select" name="experience">
+                            <option value="">Select...</option>
+                            <option value="0-1">Less than 1 year</option>
+                            <option value="1-3">1-3 years</option>
+                            <option value="3-5">3-5 years</option>
+                            <option value="5+">5+ years</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Why do you want to become an elite coach? *</label>
+                        <textarea class="form-textarea" name="motivation" required placeholder="What's driving you? What do you want to achieve?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">What's your biggest challenge right now as a coach?</label>
+                        <textarea class="form-textarea" name="challenge" placeholder="Be honest. We all have them."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Preferred Payment Option</label>
+                        <select class="form-select" name="payment_preference">
+                            <option value="">Select...</option>
+                            <option value="early_bird">Early Bird ($5,000 upfront)</option>
+                            <option value="standard">Standard ($6,000 upfront)</option>
+                            <option value="monthly">Monthly installments ($599/mo)</option>
+                            <option value="sponsor">Looking for a sponsor</option>
+                            <option value="employer">My employer may pay</option>
+                            <option value="unsure">Not sure yet</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">How did you hear about Bambu Academy?</label>
+                        <input type="text" class="form-input" name="source" placeholder="Instagram, email, friend, etc.">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary form-submit">Submit Application</button>
+                    
+                    <p class="form-note">
+                        After submitting, you'll receive a WhatsApp message from our team to continue the conversation.
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-number">01</span>
+                            <span class="faq-text">What's included in the Academy price?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>4 weeks of intensive training with Will and senior Bambu coaches, all course materials, practical coaching sessions, written & practical assessments, and your Bambu Training Academy certification upon successful completion.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-number">02</span>
+                            <span class="faq-text">Do I need to be in Bali for the program?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. This is an in-person, hands-on program at Bambu Fitness Bali. You'll need to arrange your own accommodation — we can recommend options nearby.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-number">03</span>
+                            <span class="faq-text">Who is the Academy for?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Trainers stuck in one lane, coaches who feel they should know more, and future leaders in fitness who see coaching as a career, not a side hustle.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-number">04</span>
+                            <span class="faq-text">I already coach. Will this still benefit me?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely. Most participants have some coaching experience. This program fills the gaps between certification and real-world confidence.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-number">05</span>
+                            <span class="faq-text">How selective is the application process?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Very. We're looking for 15 people who are serious about coaching as a career. We'll review your application, have a WhatsApp conversation, and potentially a call with Will.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-number">06</span>
+                            <span class="faq-text">What if I can't afford the full amount upfront?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We offer monthly installments, employer sponsorship options, and for exceptional candidates, we can connect you with sponsors who invest in rising talent.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-number">07</span>
+                            <span class="faq-text">What does the weekly schedule look like?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sessions run Monday through Friday, typically 4-6 hours per day including theory, practical coaching, and feedback sessions. Weekends are yours to train, explore Bali, or rest.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-number">08</span>
+                            <span class="faq-text">What happens after I graduate?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You join the Bambu family. Graduates get access to our alumni network, potential coaching opportunities at Bambu or partner gyms, and ongoing mentorship.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-number">09</span>
+                            <span class="faq-text">Is accommodation included?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Accommodation is not included in the base price, but we can recommend nearby options and may offer package deals with Bambu Suites for Academy participants.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+            <div class="container">
+                <h2>Coach smarter. Lead better. Stand out.<br><span style="color: var(--bambu-tan);">The Bambu way.</span></h2>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu Fitness" class="footer-logo">
+            <p class="footer-text">Bambu Training Academy — March 2026 Cohort</p>
+            <p class="footer-tagline">15 spots. 7 weeks. Let's fill this cohort the right way.</p>
+        </footer>
+
+    </div>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
+

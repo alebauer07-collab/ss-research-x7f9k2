@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu Academy — Project Hub</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6351e77bf7b7a3148a2f4b8d_bambu-favi-32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bambu-black: #111111;
+            --bambu-dark: #1a1a1a;
+            --bambu-tan: #DCCAB7;
+            --bambu-tan-light: #E5D8C8;
+            --text-white: #FFFFFF;
+            --text-muted: #9CA3AF;
+            --text-grey: #6B7280;
+            --bg-card: #232323;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bambu-black);
+            color: var(--text-white);
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            height: 60px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(220, 202, 183, 0.15);
+            border: 1px solid var(--bambu-tan);
+            color: var(--bambu-tan);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: var(--text-muted);
+            font-family: 'Lato', sans-serif;
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+        
+        .page-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .page-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .page-card:hover {
+            border-color: var(--bambu-tan);
+            transform: translateX(5px);
+        }
+        
+        .page-card.featured {
+            border-color: var(--bambu-tan);
+            background: linear-gradient(90deg, rgba(220, 202, 183, 0.1) 0%, var(--bg-card) 100%);
+        }
+        
+        .page-info h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .page-info p {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .page-status {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .status-v2 {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+        
+        .status-v1 {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3B82F6;
+        }
+        
+        .status-doc {
+            background: rgba(139, 92, 246, 0.2);
+            color: #8B5CF6;
+        }
+        
+        .external-section {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+        }
+        
+        .ext-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .ext-link:hover {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+        
+        .info-box {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: rgba(220, 202, 183, 0.05);
+            border-radius: 12px;
+            border-left: 3px solid var(--bambu-tan);
+        }
+        
+        .info-box h4 {
+            color: var(--bambu-tan);
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .info-box ul {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .info-box li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-grey);
+            font-size: 0.8rem;
+        }
+        
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 1rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu" class="logo">
+            <span class="badge">🔒 INTERNAL PROJECT</span>
+            <h1>Bambu Academy Launch</h1>
+            <p class="subtitle">Application funnel & landing pages for March 2026 cohort</p>
+        </div>
+        
+        <h2>📄 Landing Page Versions</h2>
+        
+        <div class="page-list">
+            <a href="pages/academy-application-v2.html" class="page-card featured">
+                <div class="page-info">
+                    <h3>🎯 Academy Application V2 (Recommended)</h3>
+                    <p>Full page with videos, images, course breakdown, and application form</p>
+                </div>
+                <span class="page-status status-v2">✨ V2</span>
+            </a>
+            
+            <a href="pages/academy-application.html" class="page-card">
+                <div class="page-info">
+                    <h3>📄 Academy Application V1</h3>
+                    <p>Initial version — simpler design, same funnel</p>
+                </div>
+                <span class="page-status status-v1">V1</span>
+            </a>
+        </div>
+        
+        <h2>📋 Project Documents</h2>
+        
+        <div class="page-list">
+            <a href="docs/action-plan.html" class="page-card">
+                <div class="page-info">
+                    <h3>📊 Launch Action Plan</h3>
+                    <p>7-week timeline, funnel math, email templates, Instagram content ideas</p>
+                </div>
+                <span class="page-status status-doc">DOC</span>
+            </a>
+        </div>
+        
+        <div class="external-section">
+            <h2>🔗 Live Bambu Website</h2>
+            <div class="link-grid">
+                <a href="https://www.bambufitnessbali.com/" target="_blank" class="ext-link">🏠 Main Website</a>
+                <a href="https://www.bambutraining.com/academy" target="_blank" class="ext-link">🎓 Current Academy</a>
+                <a href="https://www.bambufitnessbali.com/meet-the-coaches" target="_blank" class="ext-link">👥 Coaches</a>
+                <a href="https://calendly.com/willhenke/bambu" target="_blank" class="ext-link">📅 Book a Call</a>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h4>📝 Project Summary</h4>
+            <ul>
+                <li><strong>Goal:</strong> Fill 15 elite coaching spots (12 remaining)</li>
+                <li><strong>Target:</strong> 200+ applications → 45 stars → 15 enrolled</li>
+                <li><strong>Funnel:</strong> Application → WhatsApp qualification → Call with Will → Payment</li>
+                <li><strong>Launch:</strong> March 1, 2026</li>
+                <li><strong>Payment Options:</strong> Early Bird ($5K), Standard ($6K), Monthly ($599×12), Sponsor, Employer</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu" class="footer-logo">
+            <p>Bambu Academy Launch Project</p>
+            <p>Will Henke + Alexey • January 2026</p>
+        </div>
+    </div>
+</body>
+</html>

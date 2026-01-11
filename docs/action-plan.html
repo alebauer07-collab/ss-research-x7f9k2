@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu Academy - Launch Action Plan | Follow-Up from Meeting with Will</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --bg-hover: #22222e;
+            --accent-orange: #ff6b35;
+            --accent-gold: #ffd700;
+            --accent-green: #00d68f;
+            --accent-red: #ff4757;
+            --accent-blue: #4dabf7;
+            --accent-purple: #9775fa;
+            --accent-cyan: #22d3ee;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6c6c7c;
+            --border: #2a2a3a;
+            --gradient-hero: linear-gradient(135deg, #ff6b35 0%, #ffd700 100%);
+            --gradient-green: linear-gradient(135deg, #00d68f 0%, #22d3ee 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-hero);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: var(--gradient-green);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mission Box */
+        .mission-box {
+            background: linear-gradient(135deg, rgba(0, 214, 143, 0.1) 0%, rgba(34, 211, 238, 0.05) 100%);
+            border: 1px solid rgba(0, 214, 143, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .mission-box h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-green);
+        }
+
+        .mission-box p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            padding: 1rem;
+            border-left: 3px solid var(--accent-green);
+            text-align: left;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            background: rgba(0, 214, 143, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            background: rgba(255, 107, 53, 0.15);
+        }
+
+        .section-icon.green { background: rgba(0, 214, 143, 0.15); }
+        .section-icon.blue { background: rgba(77, 171, 247, 0.15); }
+        .section-icon.purple { background: rgba(151, 117, 250, 0.15); }
+        .section-icon.gold { background: rgba(255, 215, 0, 0.15); }
+
+        .section-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+        }
+
+        /* Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        /* Stats */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-value.green {
+            background: var(--gradient-green);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Funnel */
+        .funnel {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .funnel-stage {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .funnel-stage::after {
+            content: '↓';
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent-orange);
+            font-size: 1rem;
+            z-index: 1;
+        }
+
+        .funnel-stage:last-child::after {
+            display: none;
+        }
+
+        .funnel-stage.highlight {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 215, 0, 0.1) 100%);
+            border-color: var(--accent-orange);
+        }
+
+        .funnel-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .funnel-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gradient-hero);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--bg-primary);
+        }
+
+        .funnel-name {
+            font-weight: 600;
+        }
+
+        .funnel-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .funnel-metric {
+            text-align: right;
+        }
+
+        .funnel-count {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+        }
+
+        .funnel-rate {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-orange), var(--accent-green));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent-orange);
+            border: 3px solid var(--bg-primary);
+        }
+
+        .timeline-dot.green {
+            background: var(--accent-green);
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--accent-orange);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Email Template */
+        .email-template {
+            background: #FFFFFF;
+            border: 2px solid #DCCAB7;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 1rem 0;
+            box-shadow: 0 4px 20px rgba(220, 202, 183, 0.2);
+        }
+
+        .email-header {
+            background: #DCCAB7;
+            padding: 1rem 1.5rem;
+            border-bottom: none;
+        }
+
+        .email-field {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            color: #836E5F;
+        }
+
+        .email-field strong {
+            color: #836E5F;
+            min-width: 60px;
+            font-weight: 600;
+        }
+
+        .email-body {
+            padding: 1.5rem;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #000000;
+            font-family: 'Montserrat', Verdana, sans-serif;
+        }
+
+        .email-body p {
+            margin-bottom: 0;
+            padding-bottom: 0.5em;
+        }
+
+        /* Bambu Brand Colors */
+        .bambu-tan { background: #DCCAB7; }
+        .bambu-brown { color: #836E5F; }
+        .bambu-btn {
+            display: inline-block;
+            background: #836E5F;
+            color: #FFFFFF !important;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+        .bambu-btn:hover {
+            background: #6d5a4d;
+        }
+
+        .email-body p {
+            margin-bottom: 1rem;
+        }
+
+        .email-cta {
+            display: inline-block;
+            background: var(--gradient-hero);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 1rem 0;
+        }
+
+        /* Payment Options */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .payment-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .payment-card.featured {
+            border-color: var(--accent-green);
+            background: linear-gradient(135deg, rgba(0, 214, 143, 0.1) 0%, transparent 100%);
+        }
+
+        .payment-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .payment-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Career Path */
+        .career-path {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+        }
+
+        .career-step {
+            flex: 0 0 200px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .career-step::after {
+            content: '→';
+            position: absolute;
+            right: -16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-orange);
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .career-step:last-child::after {
+            display: none;
+        }
+
+        .career-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .career-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .career-income {
+            color: var(--accent-green);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .career-time {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        /* Story Ideas */
+        .story-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .story-type {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.2);
+            color: var(--accent-orange);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .story-hook {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-content {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .tag-orange { background: rgba(255, 107, 53, 0.2); color: var(--accent-orange); }
+        .tag-green { background: rgba(0, 214, 143, 0.2); color: var(--accent-green); }
+        .tag-blue { background: rgba(77, 171, 247, 0.2); color: var(--accent-blue); }
+        .tag-purple { background: rgba(151, 117, 250, 0.2); color: var(--accent-purple); }
+        .tag-gold { background: rgba(255, 215, 0, 0.2); color: var(--accent-gold); }
+
+        /* Alert */
+        .alert {
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .alert-success {
+            background: rgba(0, 214, 143, 0.1);
+            border: 1px solid rgba(0, 214, 143, 0.3);
+        }
+
+        .alert-warning {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .alert-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.875rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .career-path {
+                flex-direction: column;
+            }
+
+            .career-step {
+                flex: none;
+            }
+
+            .career-step::after {
+                content: '↓';
+                right: auto;
+                left: 50%;
+                top: auto;
+                bottom: -16px;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <span class="header-badge">✅ LET'S GO</span>
+            <h1>Bambu Academy Launch Plan</h1>
+            <p class="header-subtitle">15 spots. 7 weeks. Let's fill this cohort the right way.</p>
+            <div class="header-meta">
+                <span>📅 Meeting: Jan 11, 2026</span>
+                <span>🎯 Academy Starts: March 1</span>
+                <span>⏱️ ~7 weeks to launch</span>
+            </div>
+        </div>
+
+        <!-- Mission Box -->
+        <div class="mission-box">
+            <h2>🌍 The Mission</h2>
+            <p style="font-size: 1.15rem; line-height: 1.6;">Most coaching courses teach information. Very few teach application.</p>
+            <p style="margin-top: 0.75rem;">That gap—between knowing and doing—is exactly why we built this. We spent years creating a system at Bambu. Thousands of athlete hours. Pressure-tested. Real gym-floor application. Not theory.</p>
+            <p style="margin-top: 0.75rem;">Now we're opening it up. For the first time ever.</p>
+        </div>
+
+        <!-- Key Numbers -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🎯</div>
+                <h2>The Goal: Fill 15 Elite Spots</h2>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">Total Spots</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: var(--accent-green);">3</div>
+                    <div class="stat-label">Already Reserved</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Spots to Fill</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value green">~7 wks</div>
+                    <div class="stat-label">Time Remaining</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <div class="alert-title">💡 How It Works</div>
+                <p style="color: var(--text-secondary);">
+                    <strong>3 Bambu coaches</strong> leading this—Will + 2 senior coaches (who each have 20% equity in the Academy).<br>
+                    Each coach takes <strong>5 students</strong>. That's the capacity. 15 total.<br>
+                    The goal? Coaches who are <strong>85% Bambu, 15% themselves</strong>. Application, not just information.
+                </p>
+            </div>
+        </div>
+
+        <!-- The Math -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon green">📊</div>
+                <h2>The Numbers — Simple</h2>
+            </div>
+
+            <div class="card">
+                <h3>🎯 Working Backwards from 15 Spots</h3>
+                <div class="funnel">
+                    <div class="funnel-stage">
+                        <div class="funnel-left">
+                            <div class="funnel-number">1</div>
+                            <div>
+                                <div class="funnel-name">Total Reach</div>
+                                <div class="funnel-desc">Email list + Instagram + Website visitors</div>
+                            </div>
+                        </div>
+                        <div class="funnel-metric">
+                            <div class="funnel-count">42,000+</div>
+                            <div class="funnel-rate">20K emails + 15K IG + 7K web</div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-stage">
+                        <div class="funnel-left">
+                            <div class="funnel-number">2</div>
+                            <div>
+                                <div class="funnel-name">See Application CTA</div>
+                                <div class="funnel-desc">Open email / See story / Visit page</div>
+                            </div>
+                        </div>
+                        <div class="funnel-metric">
+                            <div class="funnel-count">~8,000</div>
+                            <div class="funnel-rate">~20% of total reach</div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-stage">
+                        <div class="funnel-left">
+                            <div class="funnel-number">3</div>
+                            <div>
+                                <div class="funnel-name">Click to Apply</div>
+                                <div class="funnel-desc">Interested in learning more</div>
+                            </div>
+                        </div>
+                        <div class="funnel-metric">
+                            <div class="funnel-count">~800</div>
+                            <div class="funnel-rate">~10% click rate</div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-stage highlight">
+                        <div class="funnel-left">
+                            <div class="funnel-number">4</div>
+                            <div>
+                                <div class="funnel-name">Submit Application</div>
+                                <div class="funnel-desc">Fill out form + join WhatsApp</div>
+                            </div>
+                        </div>
+                        <div class="funnel-metric">
+                            <div class="funnel-count">200+</div>
+                            <div class="funnel-rate">25% completion rate</div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-stage">
+                        <div class="funnel-left">
+                            <div class="funnel-number">5</div>
+                            <div>
+                                <div class="funnel-name">Qualified by AI</div>
+                                <div class="funnel-desc">WhatsApp bot scores & qualifies</div>
+                            </div>
+                        </div>
+                        <div class="funnel-metric">
+                            <div class="funnel-count">~80</div>
+                            <div class="funnel-rate">40% qualification rate</div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-stage highlight">
+                        <div class="funnel-left">
+                            <div class="funnel-number">6</div>
+                            <div>
+                                <div class="funnel-name">⭐ Star Candidates</div>
+                                <div class="funnel-desc">High potential, call scheduled</div>
+                            </div>
+                        </div>
+                        <div class="funnel-metric">
+                            <div class="funnel-count">45</div>
+                            <div class="funnel-rate">Top ~50% of qualified</div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-stage">
+                        <div class="funnel-left">
+                            <div class="funnel-number">7</div>
+                            <div>
+                                <div class="funnel-name">Call with Will</div>
+                                <div class="funnel-desc">Personal interview</div>
+                            </div>
+                        </div>
+                        <div class="funnel-metric">
+                            <div class="funnel-count">45</div>
+                            <div class="funnel-rate">All stars get calls</div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-stage highlight" style="background: linear-gradient(135deg, rgba(0, 214, 143, 0.2) 0%, rgba(34, 211, 238, 0.1) 100%); border-color: var(--accent-green);">
+                        <div class="funnel-left">
+                            <div class="funnel-number" style="background: var(--gradient-green);">✓</div>
+                            <div>
+                                <div class="funnel-name">🎉 Enrolled</div>
+                                <div class="funnel-desc">Payment made, spot secured</div>
+                            </div>
+                        </div>
+                        <div class="funnel-metric">
+                            <div class="funnel-count" style="color: var(--accent-green);">15</div>
+                            <div class="funnel-rate">33% conversion (1 in 3)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning" style="margin-top: 1.5rem;">
+                    <div class="alert-title">⚡ Key Insight</div>
+                    <p style="color: var(--text-secondary);">If Will has <strong>45 quality calls</strong>, at least <strong>15 will convert</strong> (1 in 3). The job is to find those 45 stars from 200+ applications.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Traffic Sources -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon blue">📣</div>
+                <h2>Where Leads Come From — The Audience You Already Have</h2>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <span class="tag tag-orange" style="margin-bottom: 0.75rem; display: inline-block;">PRIMARY</span>
+                    <h3>📧 Email List</h3>
+                    <table class="data-table" style="margin-top: 0.5rem;">
+                        <tr><td>Total emails</td><td style="text-align: right; font-weight: 600;">20,000</td></tr>
+                        <tr><td>Expected open rate</td><td style="text-align: right;">20-25%</td></tr>
+                        <tr><td>Opens</td><td style="text-align: right; font-weight: 600;">4,000-5,000</td></tr>
+                        <tr><td>Click rate</td><td style="text-align: right;">10-15%</td></tr>
+                        <tr><td>Expected clicks</td><td style="text-align: right; font-weight: 600; color: var(--accent-orange);">400-750</td></tr>
+                    </table>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">Send 3-4 emails over 6 weeks</p>
+                </div>
+
+                <div class="card">
+                    <span class="tag tag-purple" style="margin-bottom: 0.75rem; display: inline-block;">SECONDARY</span>
+                    <h3>📱 Instagram</h3>
+                    <table class="data-table" style="margin-top: 0.5rem;">
+                        <tr><td>Will's followers</td><td style="text-align: right; font-weight: 600;">12,800</td></tr>
+                        <tr><td>Carrie's followers</td><td style="text-align: right; font-weight: 600;">15,800</td></tr>
+                        <tr><td>Story views (est.)</td><td style="text-align: right;">2,000-3,000</td></tr>
+                        <tr><td>Link clicks (est.)</td><td style="text-align: right; font-weight: 600; color: var(--accent-orange);">100-200</td></tr>
+                    </table>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">Daily stories + 2-3 posts/week</p>
+                </div>
+
+                <div class="card">
+                    <span class="tag tag-blue" style="margin-bottom: 0.75rem; display: inline-block;">ONGOING</span>
+                    <h3>🌐 Website</h3>
+                    <table class="data-table" style="margin-top: 0.5rem;">
+                        <tr><td>Monthly visitors</td><td style="text-align: right; font-weight: 600;">7,000</td></tr>
+                        <tr><td>Over 7 weeks</td><td style="text-align: right;">~12,000</td></tr>
+                        <tr><td>% see Academy page</td><td style="text-align: right;">10-15%</td></tr>
+                        <tr><td>Academy page visits</td><td style="text-align: right; font-weight: 600; color: var(--accent-orange);">1,200-1,800</td></tr>
+                    </table>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">Add banner/popup promoting Academy</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 1rem;">
+                <h3>📊 The Math — What We're Expecting</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Source</th>
+                            <th>Reach</th>
+                            <th>Est. Clicks</th>
+                            <th>Est. Applications</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Email campaigns (4x)</td>
+                            <td>20,000</td>
+                            <td>500-700</td>
+                            <td style="font-weight: 600;">100-150</td>
+                        </tr>
+                        <tr>
+                            <td>Instagram (Will + Carrie)</td>
+                            <td>28,600</td>
+                            <td>150-300</td>
+                            <td style="font-weight: 600;">40-75</td>
+                        </tr>
+                        <tr>
+                            <td>Website visitors</td>
+                            <td>12,000</td>
+                            <td>200-400</td>
+                            <td style="font-weight: 600;">50-100</td>
+                        </tr>
+                        <tr style="background: rgba(255, 107, 53, 0.1);">
+                            <td><strong>TOTAL</strong></td>
+                            <td><strong>60,600</strong></td>
+                            <td><strong>850-1,400</strong></td>
+                            <td style="font-weight: 700; color: var(--accent-green);">190-325 applications</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon gold">📅</div>
+                <h2>The Plan — 7 Weeks to Launch</h2>
+            </div>
+
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">WEEK 1 (Jan 13-19)</div>
+                        <div class="timeline-title">🔧 Setup Week</div>
+                        <div class="timeline-desc">
+                            <ul class="checklist">
+                                <li>Create application landing page</li>
+                                <li>Set up WhatsApp Business + AI agent</li>
+                                <li>Update Academy page with new copy</li>
+                                <li>Build Will's dashboard for tracking applications</li>
+                                <li>Write Email #1 draft</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">WEEK 2 (Jan 20-26)</div>
+                        <div class="timeline-title">🚀 Launch Week</div>
+                        <div class="timeline-desc">
+                            <ul class="checklist">
+                                <li><strong>Send Email #1</strong> to 20,000 subscribers</li>
+                                <li>Post Instagram announcement (Will + Carrie)</li>
+                                <li>Daily Instagram stories with CTA</li>
+                                <li>Add website banner/popup</li>
+                                <li>Target: 50-80 applications</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">WEEK 3 (Jan 27 - Feb 2)</div>
+                        <div class="timeline-title">📈 Momentum Week</div>
+                        <div class="timeline-desc">
+                            <ul class="checklist">
+                                <li><strong>Send Email #2</strong> - "Only X spots left"</li>
+                                <li>Share first 3-5 star candidate profiles (anonymized)</li>
+                                <li>Will starts calls with top applicants</li>
+                                <li>Instagram content: "Meet our candidates"</li>
+                                <li>Target: 40-60 more applications (90-140 total)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">WEEK 4 (Feb 3-9)</div>
+                        <div class="timeline-title">🔥 Urgency Week</div>
+                        <div class="timeline-desc">
+                            <ul class="checklist">
+                                <li><strong>Send Email #3</strong> - "Application deadline approaching"</li>
+                                <li>Announce first confirmed enrollments</li>
+                                <li>Will continues calls (aim for 15-20 completed)</li>
+                                <li>Instagram: Behind-the-scenes Academy prep</li>
+                                <li>Target: 30-50 more applications (120-190 total)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">WEEK 5 (Feb 10-16)</div>
+                        <div class="timeline-title">⏰ Final Push</div>
+                        <div class="timeline-desc">
+                            <ul class="checklist">
+                                <li><strong>Send Email #4</strong> - "Last call for applications"</li>
+                                <li>"Only X spots remaining" messaging</li>
+                                <li>Will completes remaining star calls</li>
+                                <li>Follow up with undecided candidates</li>
+                                <li>Target: 20-40 more applications (140-230 total)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">WEEK 6 (Feb 17-23)</div>
+                        <div class="timeline-title">✅ Selection Week</div>
+                        <div class="timeline-desc">
+                            <ul class="checklist">
+                                <li>Close applications</li>
+                                <li>Final selection of 15 elite candidates</li>
+                                <li>Payment collection / financing arrangements</li>
+                                <li>Send "Congratulations" to selected</li>
+                                <li>Send "Waitlist" notice to runners-up</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot green"></div>
+                        <div class="timeline-date">WEEK 7 (Feb 24-28)</div>
+                        <div class="timeline-title">🎉 Pre-Launch</div>
+                        <div class="timeline-desc">
+                            <ul class="checklist">
+                                <li>Welcome package to all 15 students</li>
+                                <li>Pre-work assignments sent</li>
+                                <li>Logistics coordination (travel, accommodation)</li>
+                                <li>Build anticipation content</li>
+                                <li>Announce full cohort publicly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Options -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon purple">💳</div>
+                <h2>The Investment — Multiple Ways In</h2>
+            </div>
+
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Money shouldn't be the thing that stops the right person from joining. Here are the options:</p>
+
+            <div class="payment-grid">
+                <div class="payment-card featured">
+                    <div class="payment-icon">🏆</div>
+                    <div class="payment-title">Pay Early, Save $1K</div>
+                    <div class="payment-price">$5,000</div>
+                    <div class="payment-desc">All in. One payment.<br><span style="color: var(--accent-green);">Best deal</span></div>
+                </div>
+
+                <div class="payment-card">
+                    <div class="payment-icon">💵</div>
+                    <div class="payment-title">Standard</div>
+                    <div class="payment-price">$6,000</div>
+                    <div class="payment-desc">Full price, single payment</div>
+                </div>
+
+                <div class="payment-card">
+                    <div class="payment-icon">📅</div>
+                    <div class="payment-title">Monthly</div>
+                    <div class="payment-price">$599/mo</div>
+                    <div class="payment-desc">12 payments. Easier on cash flow.<br>Total: $7,188</div>
+                </div>
+
+                <div class="payment-card">
+                    <div class="payment-icon">🤝</div>
+                    <div class="payment-title">Sponsorship</div>
+                    <div class="payment-price">$0 now</div>
+                    <div class="payment-desc">Investor backs you for % of future income<br><span style="color: var(--accent-blue);">Application required</span></div>
+                </div>
+
+                <div class="payment-card">
+                    <div class="payment-icon">🏢</div>
+                    <div class="payment-title">Employer Pays</div>
+                    <div class="payment-price">Varies</div>
+                    <div class="payment-desc">Your gym invests in your education<br><span style="color: var(--accent-blue);">We'll help make the case</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Path -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon green">🚀</div>
+                <h2>The Coach Career Ladder</h2>
+            </div>
+
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">This isn't a weekend certification you frame and forget. It's the start of something bigger. Here's what the path actually looks like:</p>
+
+            <div class="career-path">
+                <div class="career-step">
+                    <div class="career-icon">🌱</div>
+                    <div class="career-title">Junior Coach</div>
+                    <div class="career-income">$40-60K/year</div>
+                    <div class="career-time">Year 1-2</div>
+                </div>
+                <div class="career-step">
+                    <div class="career-icon">💪</div>
+                    <div class="career-title">Elite Coach</div>
+                    <div class="career-income">$80-120K/year</div>
+                    <div class="career-time">Year 2-4</div>
+                </div>
+                <div class="career-step">
+                    <div class="career-icon">👥</div>
+                    <div class="career-title">Head Coach / Manager</div>
+                    <div class="career-income">$100-150K/year</div>
+                    <div class="career-time">Year 3-5</div>
+                </div>
+                <div class="career-step">
+                    <div class="career-icon">📚</div>
+                    <div class="career-title">Course Creator</div>
+                    <div class="career-income">$150-300K/year</div>
+                    <div class="career-time">Year 4+</div>
+                </div>
+                <div class="career-step">
+                    <div class="career-icon">🏢</div>
+                    <div class="career-title">Gym Owner</div>
+                    <div class="career-income">$200K+/year</div>
+                    <div class="career-time">Year 5+</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1rem;">
+                <div class="alert-title">🌟 One Team. One Dream.</div>
+                <p style="color: var(--text-secondary);">You're not just getting a certification—you're joining a family. Graduates can become Academy instructors. Open their own gyms with Bambu support. Run future Bambu locations worldwide. This is the start of something that lasts.</p>
+            </div>
+        </div>
+
+        <!-- Email Template -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📧</div>
+                <h2>Email Template (Draft #1) — Bambu Style</h2>
+            </div>
+
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Based on Bambu's actual email voice: punchy, short paragraphs, no fluff, conversational tone.</p>
+
+            <div class="email-template" style="background: #FFFFFF; border: none;">
+                <div class="email-header" style="background: #DCCAB7; border-bottom: none;">
+                    <div class="email-field"><strong>From:</strong> Bambu Fitness Bali &lt;team@hello.bambufitnessbali.com&gt;</div>
+                    <div class="email-field"><strong>Subject:</strong> We're Looking for 15 Future Elite Coaches. You Might Be One.</div>
+                    <div class="email-field" style="color: var(--text-muted); font-size: 0.85rem;"><strong>Preview:</strong> This isn't a course. It's a 4-week intensive that changes how you coach forever.</div>
+                </div>
+                <div class="email-body" style="background: #FFFFFF; color: #000000; font-family: Montserrat, Verdana, sans-serif;">
+                    
+                    <div style="text-align: center; padding: 1rem 0 1.5rem;">
+                        <img src="https://d3k81ch9hvuctc.cloudfront.net/company/SghsXH/images/8129daf6-dfea-4ed4-9ad7-0b292b513e9f.png" alt="Bambu Fitness" style="width: 180px; height: auto;">
+                    </div>
+
+                    <p style="color: #000;">You've trained with us.</p>
+
+                    <p style="color: #000;">You've seen our coaches in action.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">Something's different about them. They're not just certified—they actually <em>know</em> how to coach. How to read a body. How to fix what's broken without overcomplicating it.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">That wasn't an accident.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">We spent years building a system. Thousands of athlete hours. Pressure-tested on real gym floors. Not just theory—application.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">Now we're opening it up. For the first time.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;"><strong style="color: #836E5F;">The Bambu Training Academy.</strong></p>
+
+                    <p style="color: #000;">4 weeks. In person. Bali. March 1–28, 2026.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">Here's the deal:</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: #000;">
+                        <li style="margin-bottom: 0.75rem;">We're only taking <strong>15 people</strong> for this first cohort</li>
+                        <li style="margin-bottom: 0.75rem;">You'll train directly with me and two of our senior coaches</li>
+                        <li style="margin-bottom: 0.75rem;">Not just movements—how to read bodies, cue clearly, coach with confidence</li>
+                        <li style="margin-bottom: 0.75rem;">The exact framework we use at Bambu. The stuff that took us years to figure out.</li>
+                    </ul>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">We're being selective. Not to be exclusive—because we're investing heavily in each person. We want the people who are serious about making coaching their actual profession.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;"><strong style="color: #836E5F;">The investment:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: #000;">
+                        <li style="margin-bottom: 0.5rem;">$5,000 if you pay early (save $1,000)</li>
+                        <li style="margin-bottom: 0.5rem;">$6,000 standard</li>
+                        <li style="margin-bottom: 0.5rem;">Monthly payments available</li>
+                        <li style="margin-bottom: 0.5rem;">Sponsorship options if that works better for you</li>
+                    </ul>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">If you're interested—or know someone who'd be perfect—apply below.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <a href="#" style="display: inline-block; background: #836E5F; color: #FFFFFF; padding: 14px 28px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 15px;">APPLY TO THE ACADEMY</a>
+                    </div>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">After you apply, we'll connect on WhatsApp. If you're a good fit, I'll jump on a quick call with you to make sure this is right for both of us.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">Not for you? Totally fine. Forward this to someone you think should apply.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">But if you've ever looked at our coaches and thought "I want to do that"—this is how it starts.</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <p style="text-align: center; color: #000;"><strong>Coach Will & The Bambu Crew</strong></p>
+
+                    <p style="color: #000;">&nbsp;</p>
+
+                    <div style="text-align: center; padding: 1.5rem 0; background: #DCCAB7; margin: 1.5rem -1.5rem -1.5rem; border-radius: 0 0 12px 12px;">
+                        <a href="#" style="color: #836E5F; text-decoration: none; font-weight: 500;">Bambu Fitness Website</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="alert alert-warning" style="margin-top: 1rem;">
+                <div class="alert-title">📝 Style Notes (from Will's actual emails)</div>
+                <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
+                    <li>Short paragraphs (often just one sentence)</li>
+                    <li>Lots of whitespace between ideas</li>
+                    <li>"We" voice, not "I"</li>
+                    <li>No emojis in body text (save for headers)</li>
+                    <li>Soft CTA option: "Not for you? Totally fine."</li>
+                    <li>Colors: #DCCAB7 (tan), #836E5F (brown), black text on white</li>
+                    <li>Font: Montserrat</li>
+                    <li>Signature: "Coach Will & The Bambu Crew"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Story Ideas -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon purple">📱</div>
+                <h2>Instagram Story Ideas — Will's Voice</h2>
+            </div>
+
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Written in Will's actual tone: direct, no fluff, authentic. Not "salesy."</p>
+
+            <div class="grid-3">
+                <div class="story-card">
+                    <span class="story-type">THE TRUTH</span>
+                    <div class="story-hook">"I've seen coaches who can't finish their own workouts..."</div>
+                    <div class="story-content">"Had someone in class the other day. Said they're a coach. Gassed after round 2. If you don't understand how your own body works, how can you coach someone else's?"</div>
+                </div>
+
+                <div class="story-card">
+                    <span class="story-type">THE DIFFERENCE</span>
+                    <div class="story-hook">"Our coaches aren't just certified."</div>
+                    <div class="story-content">"Certification teaches information. We teach application. That gap between knowing and doing? That's exactly what we built Bambu around. It took us years."</div>
+                </div>
+
+                <div class="story-card">
+                    <span class="story-type">THE INVITE</span>
+                    <div class="story-hook">"We're finally opening this up."</div>
+                    <div class="story-content">"People have asked us for years—can you teach me what you teach your coaches? So we built something. 4 weeks. In person. The exact system we use. Link in bio if you're serious."</div>
+                </div>
+
+                <div class="story-card">
+                    <span class="story-type">REAL TALK</span>
+                    <div class="story-hook">"This isn't for everyone."</div>
+                    <div class="story-content">"We're taking 15 people. That's it. Because we're investing heavily in each person. If coaching is a side thing for you—probably not the right fit. But if it's your career? Let's talk."</div>
+                </div>
+
+                <div class="story-card">
+                    <span class="story-type">THE PROCESS</span>
+                    <div class="story-hook">"Going through applications..."</div>
+                    <div class="story-content">[Show laptop/desk] "Looking for people who are serious. Not just about getting better—about actually doing the work. That's what we need."</div>
+                </div>
+
+                <div class="story-card">
+                    <span class="story-type">THE LONG GAME</span>
+                    <div class="story-hook">"This is bigger than a course."</div>
+                    <div class="story-content">"Where do coaches go after this? Head coach. Course creator. Gym owner. Build your own thing. This isn't a weekend cert—it's a career path."</div>
+                </div>
+
+                <div class="story-card">
+                    <span class="story-type">Q&A BOX</span>
+                    <div class="story-hook">"Got questions about the Academy?"</div>
+                    <div class="story-content">[Use Instagram Q&A sticker] "Drop them here. I'll answer everything—price, what's included, what you'll actually learn, who should apply. No fluff."</div>
+                </div>
+
+                <div class="story-card">
+                    <span class="story-type">UPDATE</span>
+                    <div class="story-hook">"[X] spots confirmed."</div>
+                    <div class="story-content">"Just got off a call with student #7. [X] spots left. Not trying to create FOMO—just keeping it real. We only have 15."</div>
+                </div>
+
+                <div class="story-card">
+                    <span class="story-type">INTRO</span>
+                    <div class="story-hook">"Meet [Name]"</div>
+                    <div class="story-content">"One of our first confirmed students. [Their story]. This is the kind of person we're looking for. Serious about the craft. Ready to level up."</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Flow -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon blue">🤖</div>
+                <h2>The Application Flow — Simple</h2>
+            </div>
+
+            <div class="card">
+                <h3>📋 What We Ask on the Form</h3>
+                <p style="color: var(--text-secondary); margin: 0.5rem 0 1rem; font-size: 0.9rem;">Short form. No essay. Just the basics.</p>
+                <table class="data-table" style="margin-top: 1rem;">
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Full Name</td><td>Text</td><td>Who are you</td></tr>
+                        <tr><td>Email</td><td>Email</td><td>Stay in touch</td></tr>
+                        <tr><td>Phone/WhatsApp</td><td>Phone</td><td>For the bot + calls</td></tr>
+                        <tr><td>Where are you?</td><td>Dropdown</td><td>Logistics</td></tr>
+                        <tr><td>What do you do now?</td><td>Text</td><td>Background check</td></tr>
+                        <tr><td>Currently coaching?</td><td>Yes/No</td><td>Segmentation</td></tr>
+                        <tr><td>How'd you find us?</td><td>Dropdown</td><td>Track what's working</td></tr>
+                        <tr><td>Why do you want in?</td><td>Textarea</td><td>The real answer matters</td></tr>
+                        <tr><td>Instagram?</td><td>Text</td><td>Quick background check</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>🤖 WhatsApp Bot Flow — Bambu Voice</h3>
+                <div style="margin-top: 1rem; color: var(--text-secondary);">
+                    <p><strong>1. Welcome Message:</strong></p>
+                    <div style="background: #FFFFFF; border: 2px solid #DCCAB7; padding: 1rem; border-radius: 8px; margin: 0.5rem 0 1rem; color: #000;">
+                        "Hey {Name}—thanks for applying.<br><br>
+                        Before we jump on a call, a few quick questions to make sure this is the right fit for both of us.<br><br>
+                        Takes about 2 minutes. Ready?"
+                    </div>
+
+                    <p><strong>2. Qualification Questions (one at a time):</strong></p>
+                    <div style="background: #FFFFFF; border: 2px solid #DCCAB7; padding: 1rem; border-radius: 8px; margin: 0.5rem 0 0.75rem; color: #000;">
+                        <strong>Q1:</strong> "How long have you been coaching? (Or training if you're not coaching yet)"
+                    </div>
+                    <div style="background: #FFFFFF; border: 2px solid #DCCAB7; padding: 1rem; border-radius: 8px; margin: 0.5rem 0 0.75rem; color: #000;">
+                        <strong>Q2:</strong> "What's the biggest gap you feel in your coaching right now? The thing that holds you back."
+                    </div>
+                    <div style="background: #FFFFFF; border: 2px solid #DCCAB7; padding: 1rem; border-radius: 8px; margin: 0.5rem 0 0.75rem; color: #000;">
+                        <strong>Q3:</strong> "Where do you want to be in 3 years? What does that look like for you?"
+                    </div>
+                    <div style="background: #FFFFFF; border: 2px solid #DCCAB7; padding: 1rem; border-radius: 8px; margin: 0.5rem 0 0.75rem; color: #000;">
+                        <strong>Q4:</strong> "The program runs March 1-28 in Bali. 4 weeks. In person. Can you make that work?"
+                    </div>
+                    <div style="background: #FFFFFF; border: 2px solid #DCCAB7; padding: 1rem; border-radius: 8px; margin: 0.5rem 0 1rem; color: #000;">
+                        <strong>Q5:</strong> "Quick one on the investment side—are you looking at paying upfront, monthly, or exploring sponsorship options?"
+                    </div>
+
+                    <p><strong>3. Scoring Logic (backend):</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                        <li>⭐⭐⭐ <strong>Star</strong> (85-100 pts): Fast-track to Will's calendar</li>
+                        <li>⭐⭐ <strong>Solid</strong> (60-84 pts): Add to consideration list</li>
+                        <li>⭐ <strong>Maybe</strong> (40-59 pts): Follow-up or waitlist</li>
+                        <li>❌ <strong>Not Now</strong> (&lt;40 pts): "Appreciate you applying. Not the right fit for this cohort—but keep us in mind."</li>
+                    </ul>
+
+                    <p><strong>4. Star Response:</strong></p>
+                    <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin: 0.5rem 0;">
+                        "You sound like exactly who we're looking for! 🔥 Will would love to chat with you personally. Here's his calendar to book a 20-minute call: [Calendly Link]"
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📊 Your Dashboard — One Place for Everything</h3>
+                <p style="color: var(--text-secondary); margin: 0.75rem 0;">No spreadsheets. One dashboard. Here's what you'll see:</p>
+                <ul class="checklist">
+                    <li><strong>Total Applications:</strong> Real-time count</li>
+                    <li><strong>⭐ Stars:</strong> Filtered list of top candidates</li>
+                    <li><strong>Calls Scheduled:</strong> How many have booked with Will</li>
+                    <li><strong>Calls Completed:</strong> How many he's spoken with</li>
+                    <li><strong>Enrolled:</strong> Confirmed payments</li>
+                    <li><strong>Pending:</strong> Interested but not paid yet</li>
+                    <li><strong>Each applicant card:</strong> Name, score, answers, status, notes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Website Changes -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon gold">🌐</div>
+                <h2>Website Updates — Keep It Clean</h2>
+            </div>
+
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Bambu aesthetic: clean, no fluff, straight to the point. Match their existing site style.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>📝 Academy Page Copy</h3>
+                    <ul class="checklist">
+                        <li>Headline: <em>"Coach Smarter. Lead Better. Stand Out."</em></li>
+                        <li>The gap: information vs. application</li>
+                        <li>The system: what Bambu figured out (years of work)</li>
+                        <li>What you'll learn: curriculum in plain language</li>
+                        <li>Who this is for (and who it's NOT for)</li>
+                        <li>The 3 coaches leading it: Will + team</li>
+                        <li>Investment options (5 paths)</li>
+                        <li>Career ladder: where this leads</li>
+                        <li>FAQ: real questions, straight answers</li>
+                        <li><strong>One CTA: "APPLY NOW"</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🔧 Technical Setup</h3>
+                    <ul class="checklist">
+                        <li>Add application form (no direct checkout)</li>
+                        <li>Connect form → WhatsApp Business API</li>
+                        <li>Remove Stripe link (applications first)</li>
+                        <li>Add spot counter ("12 of 15 spots open")</li>
+                        <li>Homepage banner: subtle Academy promo</li>
+                        <li>Optional: exit-intent for warm visitors</li>
+                        <li>UTMs: track email vs. social vs. direct</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon green">✅</div>
+                <h2>What Happens Next</h2>
+            </div>
+
+            <div class="card">
+                <h3>This Week — Jan 13-17</h3>
+                <ul class="checklist">
+                    <li><strong>Alexey:</strong> Build application form + WhatsApp bot</li>
+                    <li><strong>Alexey:</strong> Create dashboard for Will to see all applications</li>
+                    <li><strong>Will:</strong> Review email draft—make it sound like you</li>
+                    <li><strong>Will:</strong> Send over Calendly link for star candidates</li>
+                    <li><strong>Will:</strong> Quick list of what makes a "star" vs. "maybe"</li>
+                    <li><strong>Carrie:</strong> Let us know when she's good to post on her IG</li>
+                    <li><strong>Both:</strong> Quick sync call to make sure we're aligned</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-warning">
+                <div class="alert-title">⚡ The Timeline That Matters</div>
+                <p style="color: var(--text-secondary);">
+                    <strong>By Jan 19:</strong> Application system live. Email ready to send.<br>
+                    <strong>Jan 20-22:</strong> First email goes out. Applications start flowing.<br>
+                    <strong>Jan 27+:</strong> Will's first calls with star candidates.<br><br>
+                    <em style="color: var(--text-muted);">March can't come soon enough.</em> 🔥
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p style="font-size: 1rem; color: var(--text-primary);">One Team. One Dream. 💪</p>
+            <p style="margin-top: 0.5rem;">Will & The Bambu Crew + Alexey</p>
+            <p style="margin-top: 0.25rem; font-size: 0.8rem; color: var(--text-muted);">Plan created: January 11, 2026 | Launch: March 1, 2026</p>
+        </div>
+    </div>
+</body>
+</html>
+
