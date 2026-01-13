@@ -506,30 +506,49 @@
             margin: 0 auto;
         }
         
-        /* Who Is This For - Matching Academy Style */
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+        /* Who Is This For - Horizontal Carousel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
         }
         
-        @media (max-width: 900px) {
-            .benefit-grid {
-                grid-template-columns: 1fr;
-            }
+        .benefit-carousel {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 1rem 0 2rem;
+            scrollbar-width: none;
+        }
+        
+        .benefit-carousel::-webkit-scrollbar {
+            display: none;
         }
         
         .benefit-card {
+            flex: 0 0 calc(33.333% - 1rem);
+            min-width: 300px;
+            max-width: 400px;
             background: var(--bg-card);
             border-radius: 16px;
             padding: 2rem;
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid rgba(255,255,255,0.05);
+            scroll-snap-align: center;
+        }
+        
+        @media (max-width: 900px) {
+            .benefit-card {
+                flex: 0 0 85%;
+                min-width: 280px;
+            }
         }
         
         .benefit-card:hover {
-            transform: translateY(-5px);
             border-color: var(--bambu-tan);
         }
         
@@ -551,6 +570,61 @@
             width: 100%;
             border-radius: 12px;
             margin-top: 1.5rem;
+        }
+        
+        /* Carousel Indicators */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: var(--bambu-tan);
+            width: 24px;
+            border-radius: 5px;
+        }
+        
+        /* Coaches Carousel */
+        .coaches-carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 1rem 0 2rem;
+            scrollbar-width: none;
+        }
+        
+        .coaches-carousel::-webkit-scrollbar {
+            display: none;
+        }
+        
+        @media (min-width: 901px) {
+            .coaches-carousel {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                overflow: visible;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .coach-card {
+                flex: 0 0 85%;
+                min-width: 300px;
+                scroll-snap-align: center;
+            }
         }
         
         /* Venue Section - Bambu Gym */
@@ -662,16 +736,22 @@
         }
         
         .coach-card {
+            position: relative;
             background: var(--bg-card);
             border-radius: 20px;
-            overflow: hidden;
+            overflow: visible;
             border: 1px solid rgba(255,255,255,0.05);
             transition: all 0.3s ease;
         }
         
         .coach-card:hover {
-            transform: translateY(-5px);
             border-color: var(--bambu-tan);
+        }
+        
+        @media (min-width: 901px) {
+            .coach-card:hover {
+                transform: translateY(-5px);
+            }
         }
         
         .coach-image {
@@ -748,65 +828,156 @@
             font-weight: 700;
         }
         
-        /* Coach Slots */
-        .coach-slots {
-            background: rgba(0,0,0,0.3);
-            border-radius: 12px;
-            padding: 1rem;
+        /* Coach Slots - Compact Corner Design */
+        .coach-slots-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid rgba(220, 202, 183, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
         
-        .slots-header {
+        .coach-slots-badge:hover {
+            border-color: var(--bambu-tan);
+        }
+        
+        .slots-mini {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.75rem;
+            gap: 4px;
+            margin-bottom: 4px;
         }
         
-        .slots-title {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .slots-count {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--bambu-tan);
-        }
-        
-        .slots-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.5rem;
-        }
-        
-        .slot {
-            aspect-ratio: 1/1;
-            border-radius: 8px;
+        .slot-mini {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
-            font-weight: 600;
+            font-size: 8px;
         }
         
-        .slot.filled {
+        .slot-mini.filled {
             background: var(--bambu-tan);
             color: var(--bambu-black);
         }
         
-        .slot.reviewing {
+        .slot-mini.waiting {
             background: rgba(220, 202, 183, 0.2);
-            border: 1px dashed var(--bambu-tan);
+            border: 1px solid rgba(220, 202, 183, 0.4);
             color: var(--bambu-tan);
-            font-size: 0.6rem;
         }
         
-        .slot.available {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+        .slot-mini.waiting::before {
+            content: '⏳';
+            font-size: 10px;
+        }
+        
+        .slots-label {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        
+        /* Slot Tooltip */
+        .slot-tooltip {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: var(--bambu-dark);
+            border: 1px solid var(--bambu-tan);
+            border-radius: 12px;
+            padding: 1rem;
+            width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .coach-slots-badge:hover .slot-tooltip,
+        .coach-slots-badge.active .slot-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .slot-tooltip h5 {
+            font-size: 0.8rem;
+            color: var(--bambu-tan);
+            margin-bottom: 0.5rem;
+        }
+        
+        .slot-tooltip p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        /* Countdown Section */
+        .countdown-section {
+            background: linear-gradient(135deg, rgba(220, 202, 183, 0.1) 0%, rgba(0,0,0,0) 100%);
+            border: 1px solid rgba(220, 202, 183, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .countdown-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .countdown-item {
+            text-align: center;
+        }
+        
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--bambu-tan);
+            line-height: 1;
+        }
+        
+        .countdown-unit {
+            font-size: 0.7rem;
             color: var(--text-grey);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
+        }
+        
+        .deadline-note {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .deadline-note strong {
+            color: var(--bambu-tan);
+        }
+        
+        .urgency-text {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            font-style: italic;
         }
         
         .coaches-cta {
@@ -2231,14 +2402,6 @@
                         <div class="stat-number">15</div>
                         <div class="stat-label">Total Spots</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Reserved</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">12</div>
-                        <div class="stat-label">Remaining</div>
-                    </div>
                 </div>
                 
                 <div class="btn-group">
@@ -2248,34 +2411,7 @@
             </div>
         </section>
 
-        <!-- Who Is This For -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Who is this for?</h2>
-                </div>
-                
-                <div class="benefit-grid">
-                    <div class="benefit-card">
-                        <h3>Trainers Stuck in One Lane</h3>
-                        <p>Ready to break out of your specialty and become a versatile coach who can adapt to any client.</p>
-                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf732c3ceb3de36a00_ccfb106288f7a09bdbfbf7ca04f8864f_image%207.png" alt="Trainers">
-                    </div>
-                    <div class="benefit-card">
-                        <h3>Certified But Not Confident</h3>
-                        <p>Got the paper but know there's a gap between theory and real coaching. Time to close it.</p>
-                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eafef3adaadcdd5962c_6fd7694095050187a61f4bffcebd2ee6_image%209.png" alt="Certified coaches">
-                    </div>
-                    <div class="benefit-card">
-                        <h3>Future Leaders</h3>
-                        <p>Coaching is your career, not your side hustle. Build the skills that set you apart.</p>
-                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeef29560eaae0add2_e695d7222786983dd36e80de6cb9f139_image%208.png" alt="Future leaders">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- The Path Forward (Career Ladder) -->
+        <!-- The Path Forward (Career Ladder) - SECTION 2 -->
         <section class="section" style="background: var(--bambu-dark);">
             <div class="container">
                 <div class="section-header">
@@ -2317,12 +2453,46 @@
             </div>
         </section>
 
+        <!-- Who Is This For - SECTION 3 (Horizontal Carousel) -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Who is this for?</h2>
+                </div>
+                
+                <div class="carousel-container">
+                    <div class="benefit-carousel" id="benefitCarousel">
+                    <div class="benefit-card">
+                            <h3>Trainers Stuck in One Lane</h3>
+                            <p>Ready to break out of your specialty and become a versatile coach who can adapt to any client.</p>
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf732c3ceb3de36a00_ccfb106288f7a09bdbfbf7ca04f8864f_image%207.png" alt="Trainers">
+                    </div>
+                    <div class="benefit-card">
+                            <h3>Certified But Not Confident</h3>
+                            <p>Got the paper but know there's a gap between theory and real coaching. Time to close it.</p>
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eafef3adaadcdd5962c_6fd7694095050187a61f4bffcebd2ee6_image%209.png" alt="Certified coaches">
+                    </div>
+                    <div class="benefit-card">
+                            <h3>Future Leaders</h3>
+                            <p>Coaching is your career, not your side hustle. Build the skills that set you apart.</p>
+                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeef29560eaae0add2_e695d7222786983dd36e80de6cb9f139_image%208.png" alt="Future leaders">
+                        </div>
+                    </div>
+                    <div class="carousel-indicators" id="benefitIndicators">
+                        <div class="carousel-dot active" data-index="0"></div>
+                        <div class="carousel-dot" data-index="1"></div>
+                        <div class="carousel-dot" data-index="2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- The Venue: Bambu Gym -->
         <section class="section">
             <div class="container">
                 <div class="venue-section">
                     <div class="venue-image">
-                        <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6383ad1c8895b7f32ab6a5e0_Group%2025.png" alt="Bambu Fitness Bali">
+                        <img src="https://cdn.prod.website-files.com/6760212da41938286ecf870d/6760212da41938286ecf8876_IMG_6607.jpg" alt="Bambu Fitness Bali" id="venueImage">
                         <div class="venue-badge">
                             <span>36,000 sqft</span>
                             <small>World-class facility</small>
@@ -2361,107 +2531,134 @@
                     <p class="section-subtitle">Three coaches. 15 spots. Each slot is a commitment to one-on-one mentorship.</p>
                 </div>
                 
-                <div class="coaches-grid">
-                    <!-- Will Henke -->
-                    <div class="coach-card">
-                        <div class="coach-image">
-                            <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245abdaf3b0c971643acbd_Will.jpg" alt="Will Henke">
-                            <div class="coach-role-badge">Co-Founder</div>
+                <div class="carousel-container">
+                    <div class="coaches-carousel" id="coachesCarousel">
+                        <!-- Will Henke -->
+                        <div class="coach-card">
+                            <div class="coach-slots-badge" onclick="this.classList.toggle('active')">
+                                <div class="slots-mini">
+                                    <div class="slot-mini filled">✓</div>
+                                    <div class="slot-mini filled">✓</div>
+                                    <div class="slot-mini waiting"></div>
+                                    <div class="slot-mini waiting"></div>
+                                    <div class="slot-mini waiting"></div>
+                                </div>
+                                <div class="slots-label">2/5 Filled</div>
+                                <div class="slot-tooltip">
+                                    <h5>Cohort 1 Slots</h5>
+                                    <p>2 spots filled. 3 being reviewed from current applicants. Apply now for the best chance to work with Will.</p>
+                                </div>
+                            </div>
+                            <div class="coach-image">
+                                <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245abdaf3b0c971643acbd_Will.jpg" alt="Will Henke">
+                                <div class="coach-role-badge">Co-Founder</div>
+                            </div>
+                            <div class="coach-content">
+                                <h3 class="coach-name">Will Henke</h3>
+                                <div class="coach-title">Fitness Director</div>
+                                <p class="coach-bio">9 years US Army Special Operations. Driven to help people since day one. Natural leader who does so by example. Pretty handy athlete before shifting focus to coaching others.</p>
+                                <ul class="coach-credentials">
+                                    <li>Burgener Strength Lead Coach (Asia/AU)</li>
+                                    <li>CrossFit Level 2 Trainer</li>
+                                    <li>USA Weightlifting L1</li>
+                                    <li>200-hr Yoga Instructor</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="coach-content">
-                            <h3 class="coach-name">Will Henke</h3>
-                            <div class="coach-title">Fitness Director</div>
-                            <p class="coach-bio">9 years US Army Special Operations. Driven to help people since day one. Natural leader who does so by example. Pretty handy athlete before shifting focus to coaching others.</p>
-                            <ul class="coach-credentials">
-                                <li>Burgener Strength Lead Coach (Asia/AU)</li>
-                                <li>CrossFit Level 2 Trainer</li>
-                                <li>USA Weightlifting L1</li>
-                                <li>200-hr Yoga Instructor</li>
-                            </ul>
-                            <div class="coach-slots">
-                                <div class="slots-header">
-                                    <span class="slots-title">Cohort 1 Slots</span>
-                                    <span class="slots-count">2/5 Filled</span>
+                        
+                        <!-- Sam Craige -->
+                        <div class="coach-card">
+                            <div class="coach-slots-badge" onclick="this.classList.toggle('active')">
+                                <div class="slots-mini">
+                                    <div class="slot-mini filled">✓</div>
+                                    <div class="slot-mini waiting"></div>
+                                    <div class="slot-mini waiting"></div>
+                                    <div class="slot-mini waiting"></div>
+                                    <div class="slot-mini waiting"></div>
                                 </div>
-                                <div class="slots-grid">
-                                    <div class="slot filled">✓</div>
-                                    <div class="slot filled">✓</div>
-                                    <div class="slot reviewing">...</div>
-                                    <div class="slot reviewing">...</div>
-                                    <div class="slot available">?</div>
+                                <div class="slots-label">1/5 Filled</div>
+                                <div class="slot-tooltip">
+                                    <h5>Cohort 1 Slots</h5>
+                                    <p>1 spot filled. 4 being reviewed. Sam specializes in detail-oriented coaching.</p>
                                 </div>
+                            </div>
+                            <div class="coach-image">
+                                <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245c7b08445f8b74a9f2c9_Sam.jpg" alt="Sam Craige">
+                                <div class="coach-role-badge">Head Coach</div>
+                            </div>
+                            <div class="coach-content">
+                                <h3 class="coach-name">Sam Craige</h3>
+                                <div class="coach-title">Head Coach</div>
+                                <p class="coach-bio">Former professional basketball player. Moved from England to Bali to pursue his passion. Obsessed with the details that make the biggest differences. Loves watching athletes develop.</p>
+                                <ul class="coach-credentials">
+                                    <li>BSc Applied Sports Coaching Science</li>
+                                    <li>CrossFit Level 2 Trainer</li>
+                                    <li>Burgener Strength L1</li>
+                                    <li>Level 3 Personal Trainer</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Macca McDonald -->
+                        <div class="coach-card">
+                            <div class="coach-slots-badge" onclick="this.classList.toggle('active')">
+                                <div class="slots-mini">
+                                    <div class="slot-mini waiting"></div>
+                                    <div class="slot-mini waiting"></div>
+                                    <div class="slot-mini waiting"></div>
+                                    <div class="slot-mini waiting"></div>
+                                    <div class="slot-mini waiting"></div>
+                                </div>
+                                <div class="slots-label">0/5 Filled</div>
+                                <div class="slot-tooltip">
+                                    <h5>Cohort 1 Slots</h5>
+                                    <p>All 5 slots being reviewed. Great opportunity to work with Macca on functional training.</p>
+                                </div>
+                            </div>
+                            <div class="coach-image">
+                                <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Macca.jpg" alt="Macca McDonald">
+                                <div class="coach-role-badge">Senior Coach</div>
+                            </div>
+                            <div class="coach-content">
+                                <h3 class="coach-name">Macca McDonald</h3>
+                                <div class="coach-title">Senior Coach</div>
+                                <p class="coach-bio">Semi-pro footballer turned functional training specialist. Combines bodybuilding and performance for a balanced approach. Dedicated to education and holistic progress.</p>
+                                <ul class="coach-credentials">
+                                    <li>Burgener Strength L2</li>
+                                    <li>Level 3 Personal Training</li>
+                                    <li>Return-to-Sport Specialist</li>
+                                    <li>Hyrox Event Expert</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Sam Craige -->
-                    <div class="coach-card">
-                        <div class="coach-image">
-                            <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245c7b08445f8b74a9f2c9_Sam.jpg" alt="Sam Craige">
-                            <div class="coach-role-badge">Head Coach</div>
-                        </div>
-                        <div class="coach-content">
-                            <h3 class="coach-name">Sam Craige</h3>
-                            <div class="coach-title">Head Coach</div>
-                            <p class="coach-bio">Former professional basketball player. Moved from England to Bali to pursue his passion. Obsessed with the details that make the biggest differences. Loves watching athletes develop.</p>
-                            <ul class="coach-credentials">
-                                <li>BSc Applied Sports Coaching Science</li>
-                                <li>CrossFit Level 2 Trainer</li>
-                                <li>Burgener Strength L1</li>
-                                <li>Level 3 Personal Trainer</li>
-                            </ul>
-                            <div class="coach-slots">
-                                <div class="slots-header">
-                                    <span class="slots-title">Cohort 1 Slots</span>
-                                    <span class="slots-count">1/5 Filled</span>
-                                </div>
-                                <div class="slots-grid">
-                                    <div class="slot filled">✓</div>
-                                    <div class="slot reviewing">...</div>
-                                    <div class="slot reviewing">...</div>
-                                    <div class="slot available">?</div>
-                                    <div class="slot available">?</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Macca McDonald -->
-                    <div class="coach-card">
-                        <div class="coach-image">
-                            <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Macca.jpg" alt="Macca McDonald">
-                            <div class="coach-role-badge">Senior Coach</div>
-                        </div>
-                        <div class="coach-content">
-                            <h3 class="coach-name">Macca McDonald</h3>
-                            <div class="coach-title">Senior Coach</div>
-                            <p class="coach-bio">Semi-pro footballer turned functional training specialist. Combines bodybuilding and performance for a balanced approach. Dedicated to education and holistic progress.</p>
-                            <ul class="coach-credentials">
-                                <li>Burgener Strength L2</li>
-                                <li>Level 3 Personal Training</li>
-                                <li>Return-to-Sport Specialist</li>
-                                <li>Hyrox Event Expert</li>
-                            </ul>
-                            <div class="coach-slots">
-                                <div class="slots-header">
-                                    <span class="slots-title">Cohort 1 Slots</span>
-                                    <span class="slots-count">0/5 Filled</span>
-                                </div>
-                                <div class="slots-grid">
-                                    <div class="slot reviewing">...</div>
-                                    <div class="slot reviewing">...</div>
-                                    <div class="slot available">?</div>
-                                    <div class="slot available">?</div>
-                                    <div class="slot available">?</div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="carousel-indicators" id="coachIndicators">
+                        <div class="carousel-dot active" data-index="0"></div>
+                        <div class="carousel-dot" data-index="1"></div>
+                        <div class="carousel-dot" data-index="2"></div>
                     </div>
                 </div>
                 
-                <div class="coaches-cta">
-                    <p>We're reviewing applicants and matching them with coaches based on compatibility, goals, and learning style. <strong>Fill out the application</strong> to see who you'd work best with and get personalized insights on your coaching journey.</p>
-                    <a href="#apply" class="btn btn-primary">Apply Now</a>
+                <!-- Countdown Section -->
+                <div class="countdown-section">
+                    <div class="countdown-label">Program Starts In</div>
+                    <div class="countdown-timer" id="countdownTimer">
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="countdown-days">--</div>
+                            <div class="countdown-unit">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="countdown-hours">--</div>
+                            <div class="countdown-unit">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="countdown-mins">--</div>
+                            <div class="countdown-unit">Mins</div>
+                        </div>
+                    </div>
+                    <p class="deadline-note">Applications close <strong>Feb 15, 2026</strong>. Early applicants get priority matching.</p>
+                    <p class="urgency-text">The earlier you apply, the better your chance of getting your preferred coach.</p>
+                    <a href="#apply" class="btn btn-primary" style="margin-top: 1rem;">Apply Now</a>
                 </div>
             </div>
         </section>
@@ -3759,8 +3956,72 @@
             return false;
         }
         
+        // ===== CAROUSEL FUNCTIONALITY =====
+        function initCarousel(carouselId, indicatorsId) {
+            const carousel = document.getElementById(carouselId);
+            const indicators = document.getElementById(indicatorsId);
+            if (!carousel || !indicators) return;
+            
+            const dots = indicators.querySelectorAll('.carousel-dot');
+            
+            carousel.addEventListener('scroll', function() {
+                const scrollLeft = carousel.scrollLeft;
+                const cardWidth = carousel.querySelector('.benefit-card, .coach-card')?.offsetWidth || 300;
+                const gap = 24; // 1.5rem
+                const index = Math.round(scrollLeft / (cardWidth + gap));
+                
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            });
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    const card = carousel.querySelector('.benefit-card, .coach-card');
+                    if (card) {
+                        const cardWidth = card.offsetWidth;
+                        const gap = 24;
+                        carousel.scrollTo({
+                            left: index * (cardWidth + gap),
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // ===== COUNTDOWN TIMER =====
+        function updateCountdown() {
+            const programStart = new Date('2026-03-01T08:00:00+08:00'); // Bali time
+            const now = new Date();
+            const diff = programStart - now;
+            
+            if (diff <= 0) {
+                document.getElementById('countdown-days').textContent = '0';
+                document.getElementById('countdown-hours').textContent = '0';
+                document.getElementById('countdown-mins').textContent = '0';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('countdown-days').textContent = days;
+            document.getElementById('countdown-hours').textContent = hours;
+            document.getElementById('countdown-mins').textContent = mins;
+        }
+        
         // ===== CHECK FOR EXISTING APPLICATION ON PAGE LOAD =====
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize carousels
+            initCarousel('benefitCarousel', 'benefitIndicators');
+            initCarousel('coachesCarousel', 'coachIndicators');
+            
+            // Start countdown
+            updateCountdown();
+            setInterval(updateCountdown, 60000); // Update every minute
             const stored = localStorage.getItem('bambuAcademyApplication');
             if (stored) {
                 try {
