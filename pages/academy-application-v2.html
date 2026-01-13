@@ -534,15 +534,16 @@
         }
         
         .benefit-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--text-white);
+            font-weight: 700;
         }
         
         .benefit-card p {
             font-family: 'Lato', sans-serif;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             line-height: 1.7;
         }
         
@@ -550,6 +551,285 @@
             width: 100%;
             border-radius: 12px;
             margin-top: 1.5rem;
+        }
+        
+        /* Venue Section - Bambu Gym */
+        .venue-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 900px) {
+            .venue-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        .venue-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .venue-image img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+        
+        .venue-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--bambu-tan);
+        }
+        
+        .venue-badge span {
+            font-weight: 700;
+            color: var(--bambu-tan);
+            font-size: 1.25rem;
+        }
+        
+        .venue-badge small {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .venue-content h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .venue-content p {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .venue-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .venue-stat {
+            text-align: center;
+        }
+        
+        .venue-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--bambu-tan);
+            line-height: 1;
+        }
+        
+        .venue-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
+        }
+        
+        /* Coaches Section */
+        .coaches-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .coaches-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+        
+        .coach-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .coach-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--bambu-tan);
+        }
+        
+        .coach-image {
+            position: relative;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+        }
+        
+        .coach-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .coach-role-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .coach-content {
+            padding: 1.5rem;
+        }
+        
+        .coach-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .coach-title {
+            color: var(--bambu-tan);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .coach-bio {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .coach-credentials {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .coach-credentials li {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+            padding: 0.35rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .coach-credentials li::before {
+            content: '✓';
+            color: var(--bambu-tan);
+            font-weight: 700;
+        }
+        
+        /* Coach Slots */
+        .coach-slots {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        
+        .slots-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .slots-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .slots-count {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--bambu-tan);
+        }
+        
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .slot {
+            aspect-ratio: 1/1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .slot.filled {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+        
+        .slot.reviewing {
+            background: rgba(220, 202, 183, 0.2);
+            border: 1px dashed var(--bambu-tan);
+            color: var(--bambu-tan);
+            font-size: 0.6rem;
+        }
+        
+        .slot.available {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-grey);
+        }
+        
+        .coaches-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(220, 202, 183, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(220, 202, 183, 0.15);
+        }
+        
+        .coaches-cta p {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .coaches-cta strong {
+            color: var(--bambu-tan);
         }
         
         /* Picture Section - Bambu Style */
@@ -1977,36 +2257,217 @@
                 
                 <div class="benefit-grid">
                     <div class="benefit-card">
-                        <h3>Trainers stuck in one lane</h3>
-                        <p>Maybe you've only coached Bodybuilding, CrossFit, or Strength & Conditioning and you know there's more to learn. The Academy builds versatility. You'll explore multiple training systems, learn how to connect the dots, and grow into a coach who can adapt to any client or environment.</p>
+                        <h3>Trainers Stuck in One Lane</h3>
+                        <p>Ready to break out of your specialty and become a versatile coach who can adapt to any client.</p>
                         <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf732c3ceb3de36a00_ccfb106288f7a09bdbfbf7ca04f8864f_image%207.png" alt="Trainers">
                     </div>
                     <div class="benefit-card">
-                        <h3>Who feel they should know more</h3>
-                        <p>You've got the certification, but deep down you know there's a gap between what you learned and what you can apply. This is where theory turns into practice. Where you finally understand why you're doing what you're doing, and how to coach it with confidence.</p>
+                        <h3>Certified But Not Confident</h3>
+                        <p>Got the paper but know there's a gap between theory and real coaching. Time to close it.</p>
                         <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eafef3adaadcdd5962c_6fd7694095050187a61f4bffcebd2ee6_image%209.png" alt="Certified coaches">
                     </div>
                     <div class="benefit-card">
-                        <h3>Future leaders in fitness</h3>
-                        <p>For those who see coaching as a career, not a side hustle. You'll build the technical knowledge, people skills, and professionalism that define what it means to coach the Bambu way.</p>
+                        <h3>Future Leaders</h3>
+                        <p>Coaching is your career, not your side hustle. Build the skills that set you apart.</p>
                         <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeef29560eaae0add2_e695d7222786983dd36e80de6cb9f139_image%208.png" alt="Future leaders">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Picture Section -->
-        <section style="padding: 0 20px;">
+        <!-- The Path Forward (Career Ladder) -->
+        <section class="section" style="background: var(--bambu-dark);">
             <div class="container">
-                <div class="picture-section">
-                    <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915be350d9798f74a21b34a_Macca%20image%201.png" alt="Coaching at Bambu">
-                    <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf35a7a8e0a596fbcb_Feature%20Card.png" alt="Training session">
+                <div class="section-header">
+                    <div class="section-label">The Path Forward</div>
+                    <h2 class="section-title">This Isn't Just a Course. It's a Career.</h2>
+                    <p class="section-subtitle">Here's what the road looks like for Bambu-trained coaches.</p>
+                </div>
+                
+                <div class="ladder-container">
+                    <div class="ladder-step">
+                        <div class="ladder-icon">🌱</div>
+                        <div class="ladder-content">
+                            <h4>Academy Graduate</h4>
+                            <p>Complete the 4-week program, earn certification</p>
+                        </div>
+                    </div>
+                    <div class="ladder-step">
+                        <div class="ladder-icon">💪</div>
+                        <div class="ladder-content">
+                            <h4>Elite Coach</h4>
+                            <p>Coach at Bambu or top gyms worldwide</p>
+                        </div>
+                    </div>
+                    <div class="ladder-step">
+                        <div class="ladder-icon">👑</div>
+                        <div class="ladder-content">
+                            <h4>Head Coach / Manager</h4>
+                            <p>Lead teams, manage programs, shape culture</p>
+                        </div>
+                    </div>
+                    <div class="ladder-step">
+                        <div class="ladder-icon">🚀</div>
+                        <div class="ladder-content">
+                            <h4>Build Your Own Path</h4>
+                            <p>Online coaching, your own gym, courses — this is your stepping stone</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Venue: Bambu Gym -->
+        <section class="section">
+            <div class="container">
+                <div class="venue-section">
+                    <div class="venue-image">
+                        <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6383ad1c8895b7f32ab6a5e0_Group%2025.png" alt="Bambu Fitness Bali">
+                        <div class="venue-badge">
+                            <span>36,000 sqft</span>
+                            <small>World-class facility</small>
+                        </div>
+                    </div>
+                    <div class="venue-content">
+                        <div class="section-label">Where It Happens</div>
+                        <h3>Bambu Fitness Bali</h3>
+                        <p>This isn't a conference room. You'll train where real coaching happens — on our floor, with real clients, surrounded by a community that lives and breathes fitness.</p>
+                        <p>Olympic weightlifting platforms. Air-conditioned cardio and bodybuilding rooms. Rogue, Eleiko, and Torque equipment. Everything you need to master your craft in the best environment possible.</p>
+                        <div class="venue-stats">
+                            <div class="venue-stat">
+                                <div class="venue-stat-number">7K+</div>
+                                <div class="venue-stat-label">Members Served</div>
+                            </div>
+                            <div class="venue-stat">
+                                <div class="venue-stat-number">10+</div>
+                                <div class="venue-stat-label">Elite Coaches</div>
+                            </div>
+                            <div class="venue-stat">
+                                <div class="venue-stat-number">4+</div>
+                                <div class="venue-stat-label">Years Running</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Your Coaches -->
+        <section class="section" style="background: var(--bambu-dark);">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Your Coaches</div>
+                    <h2 class="section-title">Learn From the Best</h2>
+                    <p class="section-subtitle">Three coaches. 15 spots. Each slot is a commitment to one-on-one mentorship.</p>
+                </div>
+                
+                <div class="coaches-grid">
+                    <!-- Will Henke -->
+                    <div class="coach-card">
+                        <div class="coach-image">
+                            <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245abdaf3b0c971643acbd_Will.jpg" alt="Will Henke">
+                            <div class="coach-role-badge">Co-Founder</div>
+                        </div>
+                        <div class="coach-content">
+                            <h3 class="coach-name">Will Henke</h3>
+                            <div class="coach-title">Fitness Director</div>
+                            <p class="coach-bio">9 years US Army Special Operations. Driven to help people since day one. Natural leader who does so by example. Pretty handy athlete before shifting focus to coaching others.</p>
+                            <ul class="coach-credentials">
+                                <li>Burgener Strength Lead Coach (Asia/AU)</li>
+                                <li>CrossFit Level 2 Trainer</li>
+                                <li>USA Weightlifting L1</li>
+                                <li>200-hr Yoga Instructor</li>
+                            </ul>
+                            <div class="coach-slots">
+                                <div class="slots-header">
+                                    <span class="slots-title">Cohort 1 Slots</span>
+                                    <span class="slots-count">2/5 Filled</span>
+                                </div>
+                                <div class="slots-grid">
+                                    <div class="slot filled">✓</div>
+                                    <div class="slot filled">✓</div>
+                                    <div class="slot reviewing">...</div>
+                                    <div class="slot reviewing">...</div>
+                                    <div class="slot available">?</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sam Craige -->
+                    <div class="coach-card">
+                        <div class="coach-image">
+                            <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245c7b08445f8b74a9f2c9_Sam.jpg" alt="Sam Craige">
+                            <div class="coach-role-badge">Head Coach</div>
+                        </div>
+                        <div class="coach-content">
+                            <h3 class="coach-name">Sam Craige</h3>
+                            <div class="coach-title">Head Coach</div>
+                            <p class="coach-bio">Former professional basketball player. Moved from England to Bali to pursue his passion. Obsessed with the details that make the biggest differences. Loves watching athletes develop.</p>
+                            <ul class="coach-credentials">
+                                <li>BSc Applied Sports Coaching Science</li>
+                                <li>CrossFit Level 2 Trainer</li>
+                                <li>Burgener Strength L1</li>
+                                <li>Level 3 Personal Trainer</li>
+                            </ul>
+                            <div class="coach-slots">
+                                <div class="slots-header">
+                                    <span class="slots-title">Cohort 1 Slots</span>
+                                    <span class="slots-count">1/5 Filled</span>
+                                </div>
+                                <div class="slots-grid">
+                                    <div class="slot filled">✓</div>
+                                    <div class="slot reviewing">...</div>
+                                    <div class="slot reviewing">...</div>
+                                    <div class="slot available">?</div>
+                                    <div class="slot available">?</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Macca McDonald -->
+                    <div class="coach-card">
+                        <div class="coach-image">
+                            <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Macca.jpg" alt="Macca McDonald">
+                            <div class="coach-role-badge">Senior Coach</div>
+                        </div>
+                        <div class="coach-content">
+                            <h3 class="coach-name">Macca McDonald</h3>
+                            <div class="coach-title">Senior Coach</div>
+                            <p class="coach-bio">Semi-pro footballer turned functional training specialist. Combines bodybuilding and performance for a balanced approach. Dedicated to education and holistic progress.</p>
+                            <ul class="coach-credentials">
+                                <li>Burgener Strength L2</li>
+                                <li>Level 3 Personal Training</li>
+                                <li>Return-to-Sport Specialist</li>
+                                <li>Hyrox Event Expert</li>
+                            </ul>
+                            <div class="coach-slots">
+                                <div class="slots-header">
+                                    <span class="slots-title">Cohort 1 Slots</span>
+                                    <span class="slots-count">0/5 Filled</span>
+                                </div>
+                                <div class="slots-grid">
+                                    <div class="slot reviewing">...</div>
+                                    <div class="slot reviewing">...</div>
+                                    <div class="slot available">?</div>
+                                    <div class="slot available">?</div>
+                                    <div class="slot available">?</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="coaches-cta">
+                    <p>We're reviewing applicants and matching them with coaches based on compatibility, goals, and learning style. <strong>Fill out the application</strong> to see who you'd work best with and get personalized insights on your coaching journey.</p>
+                    <a href="#apply" class="btn btn-primary">Apply Now</a>
                 </div>
             </div>
         </section>
 
         <!-- Application Process -->
-        <section class="section" style="background: var(--bambu-dark);">
+        <section class="section">
             <div class="container">
                 <div class="section-header">
                     <div class="section-label">How to Apply</div>
@@ -2246,48 +2707,6 @@
                         <div>
                             <h4>Career Momentum</h4>
                             <p>You'll leave with direction, mentorship, and the confidence to carve your path — whether that's leading teams, building your brand, or redefining what coaching means to you.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Career Ladder -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">The Path Forward</div>
-                    <h2 class="section-title">This Isn't Just a Course. It's a Career.</h2>
-                    <p class="section-subtitle">Here's what the road looks like for Bambu-trained coaches.</p>
-                </div>
-                
-                <div class="ladder-container">
-                    <div class="ladder-step">
-                        <div class="ladder-icon">🌱</div>
-                        <div class="ladder-content">
-                            <h4>Academy Graduate</h4>
-                            <p>Complete the 4-week program, earn certification</p>
-                        </div>
-                    </div>
-                    <div class="ladder-step">
-                        <div class="ladder-icon">💪</div>
-                        <div class="ladder-content">
-                            <h4>Elite Coach</h4>
-                            <p>Coach at Bambu or top gyms worldwide</p>
-                        </div>
-                    </div>
-                    <div class="ladder-step">
-                        <div class="ladder-icon">👑</div>
-                        <div class="ladder-content">
-                            <h4>Head Coach / Manager</h4>
-                            <p>Lead teams, manage programs, shape culture</p>
-                        </div>
-                    </div>
-                    <div class="ladder-step">
-                        <div class="ladder-icon">🚀</div>
-                        <div class="ladder-content">
-                            <h4>Build Your Own Path</h4>
-                            <p>If you want to accelerate your business by becoming an online coach, opening your own gym, or creating courses for yourself, this is a great stepping stone</p>
                         </div>
                     </div>
                 </div>
