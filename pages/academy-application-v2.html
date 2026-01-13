@@ -1227,6 +1227,30 @@
             margin-top: 0.5rem;
         }
         
+        .profile-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--bambu-gold), var(--bambu-tan));
+            color: var(--bambu-black);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(196, 167, 125, 0.4);
+        }
+        
+        .profile-link-btn svg {
+            flex-shrink: 0;
+        }
+        
         /* XP / Points Display */
         .xp-display {
             display: flex;
@@ -2050,11 +2074,18 @@
                                 <span class="step-number">STEP 3</span>
                                 <span class="step-title">Review Your Profile</span>
                             </div>
-                            <p class="step-description">We'll generate your personalized profile page. You can add feedback and additional info there.</p>
-                            <div class="step-pending-badge">
+                            <p class="step-description">We'll generate your personalized profile page with AI analysis. You can track your application status there.</p>
+                            <div class="step-pending-badge" id="step3Badge">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-7v4h4l-5 7z"/></svg>
                                 Unlocks after Step 2
                             </div>
+                            <a href="#" class="profile-link-btn" id="viewProfileBtn" style="display: none;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                View Your Profile
+                            </a>
                         </div>
                     </div>
                     
@@ -2259,15 +2290,28 @@
             step3Card.classList.add('active');
             
             // Update pending badge
-            const pendingBadge = step3Card.querySelector('.step-pending-badge');
+            const pendingBadge = document.getElementById('step3Badge');
             if (pendingBadge) {
                 pendingBadge.innerHTML = `
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-7v4h4l-5 7z"/></svg>
-                    Profile generating... Check back soon!
+                    AI analyzing your profile... (~5 min)
                 `;
                 pendingBadge.style.background = 'rgba(34, 197, 94, 0.2)';
                 pendingBadge.style.color = '#22c55e';
             }
+            
+            // Show profile link button
+            const profileBtn = document.getElementById('viewProfileBtn');
+            if (profileBtn && currentApplicantId) {
+                profileBtn.href = `applicant-profile.html?id=${currentApplicantId}`;
+                profileBtn.style.display = 'inline-flex';
+            }
+            
+            // Send webhook to trigger AI analysis
+            sendWebhook('step2_completed', {
+                applicantId: currentApplicantId,
+                triggerAnalysis: true
+            });
             
             updateProgress();
             triggerConfetti();

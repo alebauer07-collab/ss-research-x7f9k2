@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Application | Bambu Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bambu-black: #111111;
+            --bambu-tan: #DCCAB7;
+            --bambu-tan-light: #E5D8C8;
+            --bambu-dark-gray: #232323;
+            --bambu-white: #FFFFFF;
+            --bambu-gold: #C4A962;
+            --success-green: #22c55e;
+            --pending-orange: #f59e0b;
+            --info-blue: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--bambu-black);
+            color: var(--bambu-white);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bambu-dark-gray);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(220, 202, 183, 0.2);
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .header-badge {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--bambu-tan);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+
+        /* Applicant ID Badge */
+        .applicant-id-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--bambu-gold), var(--bambu-tan));
+            color: var(--bambu-black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .applicant-id-badge svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--bambu-dark-gray);
+            padding-bottom: 0;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-btn:hover {
+            color: var(--bambu-tan);
+        }
+
+        .tab-btn.active {
+            color: var(--bambu-tan);
+            border-bottom-color: var(--bambu-tan);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Application Card */
+        .application-card {
+            background: var(--bambu-dark-gray);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(220, 202, 183, 0.2);
+        }
+
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--bambu-tan);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-badge.submitted {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success-green);
+        }
+
+        .status-badge.pending {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--pending-orange);
+        }
+
+        .status-badge.processing {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--info-blue);
+        }
+
+        /* Application Details Grid */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .detail-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .detail-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            font-size: 1.1rem;
+            color: var(--bambu-white);
+            font-weight: 500;
+        }
+
+        .detail-item.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .detail-value.text-block {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* AI Analysis Section */
+        .ai-analysis-card {
+            background: linear-gradient(135deg, var(--bambu-dark-gray), #1a1a1a);
+            border: 1px solid var(--bambu-gold);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-analysis-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--bambu-gold), var(--bambu-tan), var(--bambu-gold));
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(196, 169, 98, 0.2);
+            color: var(--bambu-gold);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        /* Loader */
+        .loader-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(220, 202, 183, 0.2);
+            border-top-color: var(--bambu-tan);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1.5rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: var(--bambu-tan);
+            margin-bottom: 0.5rem;
+        }
+
+        .loader-subtext {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .time-remaining {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--bambu-gold);
+            margin-top: 1rem;
+        }
+
+        /* Refresh Button */
+        .refresh-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 2px solid var(--bambu-tan);
+            color: var(--bambu-tan);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .refresh-btn:hover {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+
+        .refresh-btn.loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .refresh-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .refresh-btn.loading svg {
+            animation: spin 1s linear infinite;
+        }
+
+        /* AI Analysis Content */
+        .analysis-content {
+            display: none;
+        }
+
+        .analysis-content.visible {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .analysis-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .analysis-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--bambu-tan);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .analysis-text {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+        }
+
+        /* Scoring Display */
+        .scoring-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 700px) {
+            .scoring-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .score-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .score-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .score-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .score-value.high { color: var(--success-green); }
+        .score-value.medium { color: var(--pending-orange); }
+        .score-value.low { color: #ef4444; }
+
+        .score-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        /* Overall Score */
+        .overall-score {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(196, 169, 98, 0.2), rgba(220, 202, 183, 0.1));
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        .overall-score-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .overall-score-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--bambu-gold);
+        }
+
+        .overall-score-tier {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .tier-star { color: var(--bambu-gold); }
+        .tier-strong { color: var(--success-green); }
+        .tier-good { color: var(--info-blue); }
+        .tier-medium { color: var(--pending-orange); }
+
+        /* Insights List */
+        .insights-list {
+            list-style: none;
+        }
+
+        .insights-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .insights-list li:last-child {
+            border-bottom: none;
+        }
+
+        .insight-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            color: var(--bambu-tan);
+        }
+
+        /* WhatsApp CTA */
+        .whatsapp-cta {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .whatsapp-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-cta svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Error State */
+        .error-state {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .error-state h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #ef4444;
+            margin-bottom: 1rem;
+        }
+
+        .error-state p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(220, 202, 183, 0.1);
+            margin-top: 3rem;
+        }
+
+        .footer a {
+            color: var(--bambu-tan);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <img src="https://cdn.prod.website-files.com/6707a6dd15e1fbb0c65a9b99/6707a6dd15e1fbb0c65a9c03_Bambu%20Logo%20White.png" alt="Bambu Fitness" class="logo">
+        <span class="header-badge">Academy Application</span>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Page Title -->
+        <div class="page-title">
+            <h1>Your Application</h1>
+            <p>Track your progress and view your profile analysis</p>
+        </div>
+
+        <!-- Applicant ID Badge -->
+        <div style="text-align: center;">
+            <div class="applicant-id-badge" id="applicant-id-display">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span id="applicant-id-text">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="application">📋 Application</button>
+            <button class="tab-btn" data-tab="analysis">🤖 AI Analysis</button>
+        </div>
+
+        <!-- Tab: Application Details -->
+        <div class="tab-content active" id="tab-application">
+            <div class="application-card">
+                <div class="card-header">
+                    <span class="card-title">Application Details</span>
+                    <span class="status-badge submitted" id="application-status">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Submitted
+                    </span>
+                </div>
+
+                <div class="details-grid" id="application-details">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- WhatsApp CTA -->
+            <div style="text-align: center;">
+                <a href="#" class="whatsapp-cta" id="whatsapp-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    Continue on WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- Tab: AI Analysis -->
+        <div class="tab-content" id="tab-analysis">
+            <div class="ai-analysis-card">
+                <span class="ai-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    AI-Powered Analysis
+                </span>
+
+                <!-- Loader (shown while waiting) -->
+                <div class="loader-container" id="analysis-loader">
+                    <div class="loader"></div>
+                    <div class="loader-text">Analyzing your profile...</div>
+                    <div class="loader-subtext">Our AI is researching your background and generating insights</div>
+                    <div class="time-remaining" id="time-remaining">~5:00</div>
+                    <button class="refresh-btn" id="refresh-btn" onclick="checkForUpdates()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 4v6h-6"/>
+                            <path d="M1 20v-6h6"/>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                        </svg>
+                        Check for Updates
+                    </button>
+                </div>
+
+                <!-- Analysis Content (shown when ready) -->
+                <div class="analysis-content" id="analysis-content">
+                    <!-- Overall Score -->
+                    <div class="overall-score">
+                        <div class="overall-score-label">Overall Score</div>
+                        <div class="overall-score-value" id="overall-score">--</div>
+                        <div class="overall-score-tier" id="tier-label">Calculating...</div>
+                    </div>
+
+                    <!-- Scoring Grid -->
+                    <div class="analysis-section">
+                        <div class="analysis-section-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 20V10"/>
+                                <path d="M18 20V4"/>
+                                <path d="M6 20v-4"/>
+                            </svg>
+                            Scoring Breakdown
+                        </div>
+                        <div class="scoring-grid" id="scoring-grid">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Key Insights -->
+                    <div class="analysis-section">
+                        <div class="analysis-section-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="16" x2="12" y2="12"/>
+                                <line x1="12" y1="8" x2="12.01" y2="8"/>
+                            </svg>
+                            Key Insights
+                        </div>
+                        <ul class="insights-list" id="insights-list">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                    <!-- Recommendation -->
+                    <div class="analysis-section">
+                        <div class="analysis-section-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            Recommendation
+                        </div>
+                        <p class="analysis-text" id="recommendation-text">Loading...</p>
+                    </div>
+
+                    <button class="refresh-btn" onclick="checkForUpdates()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 4v6h-6"/>
+                            <path d="M1 20v-6h6"/>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                        </svg>
+                        Refresh Analysis
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Bambu Fitness Bali. All rights reserved.</p>
+        <p><a href="https://www.bambufitnessbali.com">Back to Bambu Fitness</a></p>
+    </footer>
+
+    <script>
+        // ===== CONFIGURATION =====
+        const WHATSAPP_NUMBER = '6281244997721';
+        const WEBHOOK_BASE_URL = 'https://alexbauer.app.n8n.cloud/webhook';
+        const ANALYSIS_TIMEOUT_MINUTES = 5;
+
+        // ===== STATE =====
+        let applicantId = null;
+        let applicantData = null;
+        let analysisData = null;
+        let countdownInterval = null;
+        let submissionTime = null;
+
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get applicant ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            applicantId = urlParams.get('id');
+
+            if (!applicantId) {
+                showError('No Application Found', 'Please submit an application first.');
+                return;
+            }
+
+            // Display applicant ID
+            document.getElementById('applicant-id-text').textContent = applicantId;
+
+            // Load from localStorage first (immediate display)
+            loadLocalData();
+
+            // Then fetch from MongoDB for AI analysis
+            fetchFromMongoDB();
+
+            // Start countdown timer
+            startCountdown();
+
+            // Setup tabs
+            setupTabs();
+
+            // Setup WhatsApp link
+            setupWhatsAppLink();
+        });
+
+        // ===== LOCAL DATA =====
+        function loadLocalData() {
+            const stored = localStorage.getItem('bambu_application');
+            if (stored) {
+                try {
+                    applicantData = JSON.parse(stored);
+                    if (applicantData.applicant_id === applicantId) {
+                        renderApplicationDetails(applicantData);
+                        submissionTime = new Date(applicantData.submitted_at);
+                    }
+                } catch (e) {
+                    console.error('Error parsing local data:', e);
+                }
+            }
+        }
+
+        // ===== MONGODB FETCH =====
+        async function fetchFromMongoDB() {
+            try {
+                const response = await fetch(`${WEBHOOK_BASE_URL}/bambu-get-profile?id=${applicantId}`);
+                
+                if (!response.ok) {
+                    console.log('Profile not yet in MongoDB, using local data');
+                    return;
+                }
+
+                const data = await response.json();
+                
+                // Update application data if we got more from MongoDB
+                if (data.application) {
+                    applicantData = { ...applicantData, ...data.application };
+                    renderApplicationDetails(applicantData);
+                }
+
+                // Check for AI analysis
+                if (data.ai_analysis) {
+                    analysisData = data.ai_analysis;
+                    renderAnalysis(analysisData);
+                }
+
+            } catch (error) {
+                console.log('MongoDB fetch error (expected if profile not ready):', error);
+            }
+        }
+
+        // ===== CHECK FOR UPDATES =====
+        async function checkForUpdates() {
+            const btn = document.getElementById('refresh-btn');
+            btn.classList.add('loading');
+            btn.textContent = 'Checking...';
+
+            try {
+                await fetchFromMongoDB();
+            } finally {
+                btn.classList.remove('loading');
+                btn.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 4v6h-6"/>
+                        <path d="M1 20v-6h6"/>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                    </svg>
+                    ${analysisData ? 'Refresh Analysis' : 'Check for Updates'}
+                `;
+            }
+        }
+
+        // ===== RENDER APPLICATION DETAILS =====
+        function renderApplicationDetails(data) {
+            const grid = document.getElementById('application-details');
+            
+            const fields = [
+                { label: 'First Name', value: data.first_name },
+                { label: 'Last Name', value: data.last_name },
+                { label: 'Email', value: data.email },
+                { label: 'WhatsApp', value: data.whatsapp },
+                { label: 'Location', value: data.location },
+                { label: 'Current Role', value: data.current_role },
+                { label: 'Why I Want to Join', value: data.why_apply, fullWidth: true }
+            ];
+
+            grid.innerHTML = fields.map(field => `
+                <div class="detail-item ${field.fullWidth ? 'full-width' : ''}">
+                    <div class="detail-label">${field.label}</div>
+                    <div class="detail-value ${field.fullWidth ? 'text-block' : ''}">${field.value || 'Not provided'}</div>
+                </div>
+            `).join('');
+
+            // Update submission time display
+            if (data.submitted_at) {
+                const submitted = new Date(data.submitted_at);
+                const formattedDate = submitted.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                // Add submission time to grid
+                const timeItem = document.createElement('div');
+                timeItem.className = 'detail-item';
+                timeItem.innerHTML = `
+                    <div class="detail-label">Submitted</div>
+                    <div class="detail-value">${formattedDate}</div>
+                `;
+                grid.appendChild(timeItem);
+            }
+        }
+
+        // ===== RENDER AI ANALYSIS =====
+        function renderAnalysis(analysis) {
+            // Hide loader, show content
+            document.getElementById('analysis-loader').style.display = 'none';
+            document.getElementById('analysis-content').classList.add('visible');
+
+            // Stop countdown
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+
+            // Overall score
+            const overallScore = analysis.overall_score || calculateOverallScore(analysis.scores);
+            document.getElementById('overall-score').textContent = overallScore;
+
+            // Tier label
+            const tier = getTier(overallScore);
+            const tierLabel = document.getElementById('tier-label');
+            tierLabel.textContent = tier.label;
+            tierLabel.className = `overall-score-tier tier-${tier.class}`;
+
+            // Scoring grid
+            const scoringGrid = document.getElementById('scoring-grid');
+            const scoreLabels = {
+                coaching_experience: 'Coaching Experience',
+                technical_foundation: 'Technical Foundation',
+                business_acumen: 'Business Acumen',
+                growth_mindset: 'Growth Mindset',
+                financial_readiness: 'Financial Readiness',
+                commitment_signal: 'Commitment Signal'
+            };
+
+            if (analysis.scores) {
+                scoringGrid.innerHTML = Object.entries(analysis.scores).map(([key, value]) => {
+                    const scoreClass = value >= 8 ? 'high' : value >= 5 ? 'medium' : 'low';
+                    const barColor = value >= 8 ? '#22c55e' : value >= 5 ? '#f59e0b' : '#ef4444';
+                    return `
+                        <div class="score-item">
+                            <div class="score-label">${scoreLabels[key] || key}</div>
+                            <div class="score-value ${scoreClass}">${value}/10</div>
+                            <div class="score-bar">
+                                <div class="score-bar-fill" style="width: ${value * 10}%; background: ${barColor};"></div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Key insights
+            const insightsList = document.getElementById('insights-list');
+            if (analysis.insights && analysis.insights.length > 0) {
+                insightsList.innerHTML = analysis.insights.map(insight => `
+                    <li>
+                        <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <span>${insight}</span>
+                    </li>
+                `).join('');
+            } else {
+                insightsList.innerHTML = '<li>No specific insights available yet.</li>';
+            }
+
+            // Recommendation
+            document.getElementById('recommendation-text').textContent = 
+                analysis.recommendation || 'Analysis complete. Our team will review your application and reach out soon.';
+        }
+
+        // ===== HELPER FUNCTIONS =====
+        function calculateOverallScore(scores) {
+            if (!scores) return 0;
+            const values = Object.values(scores);
+            const sum = values.reduce((a, b) => a + b, 0);
+            return Math.round((sum / (values.length * 10)) * 100);
+        }
+
+        function getTier(score) {
+            if (score >= 85) return { label: '⭐ STAR CANDIDATE', class: 'star' };
+            if (score >= 70) return { label: '💪 STRONG CANDIDATE', class: 'strong' };
+            if (score >= 55) return { label: '👍 GOOD CANDIDATE', class: 'good' };
+            return { label: '📊 UNDER REVIEW', class: 'medium' };
+        }
+
+        // ===== COUNTDOWN TIMER =====
+        function startCountdown() {
+            const timeDisplay = document.getElementById('time-remaining');
+            let secondsRemaining = ANALYSIS_TIMEOUT_MINUTES * 60;
+
+            // If we have submission time, calculate remaining
+            if (submissionTime) {
+                const elapsed = Math.floor((Date.now() - submissionTime.getTime()) / 1000);
+                secondsRemaining = Math.max(0, (ANALYSIS_TIMEOUT_MINUTES * 60) - elapsed);
+            }
+
+            countdownInterval = setInterval(() => {
+                if (secondsRemaining <= 0) {
+                    clearInterval(countdownInterval);
+                    timeDisplay.textContent = 'Ready!';
+                    checkForUpdates(); // Auto-check when timer ends
+                    return;
+                }
+
+                const minutes = Math.floor(secondsRemaining / 60);
+                const seconds = secondsRemaining % 60;
+                timeDisplay.textContent = `~${minutes}:${seconds.toString().padStart(2, '0')}`;
+                secondsRemaining--;
+            }, 1000);
+        }
+
+        // ===== TABS =====
+        function setupTabs() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.dataset.tab;
+
+                    // Update buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Update content
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `tab-${tabId}`) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+        }
+
+        // ===== WHATSAPP LINK =====
+        function setupWhatsAppLink() {
+            const link = document.getElementById('whatsapp-link');
+            const message = encodeURIComponent(
+                `Hi! I applied to Bambu Academy.\n\nMy Application ID: ${applicantId}\n\nI have a question about the program.`
+            );
+            link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+        }
+
+        // ===== ERROR STATE =====
+        function showError(title, message) {
+            document.querySelector('.container').innerHTML = `
+                <div class="error-state">
+                    <h2>${title}</h2>
+                    <p>${message}</p>
+                    <a href="academy-application-v2.html#apply" class="refresh-btn" style="text-decoration: none;">
+                        Apply Now
+                    </a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
+
