@@ -1251,6 +1251,181 @@
             flex-shrink: 0;
         }
         
+        /* Profile Generation Timer Styles */
+        .profile-generation-section {
+            margin-top: 16px;
+            text-align: center;
+        }
+        
+        .profile-timer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-timer-ring {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        
+        .profile-timer-ring svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+        
+        .timer-bg {
+            fill: none;
+            stroke: rgba(220, 202, 183, 0.2);
+            stroke-width: 6;
+        }
+        
+        .timer-progress {
+            fill: none;
+            stroke: var(--bambu-tan);
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-dasharray: 283;
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear;
+        }
+        
+        .timer-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .timer-value {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--bambu-tan);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .timer-label {
+            display: block;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .profile-timer-text {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            margin-top: 12px;
+            animation: timerPulse 2s infinite;
+        }
+        
+        @keyframes timerPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .profile-status {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+            text-align: left;
+            padding: 16px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .status-item.active {
+            color: var(--bambu-tan);
+        }
+        
+        .status-item.completed {
+            color: #22c55e;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .status-item.active .status-dot {
+            background: var(--bambu-tan);
+            animation: statusPulse 1.5s infinite;
+        }
+        
+        .status-item.completed .status-dot {
+            background: #22c55e;
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+        
+        .check-profile-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--bambu-tan);
+            border: 1px solid var(--bambu-tan);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .check-profile-btn:hover {
+            background: rgba(220, 202, 183, 0.1);
+        }
+        
+        .check-profile-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .profile-ready-section {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .profile-ready-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            animation: readyPulse 2s infinite;
+        }
+        
+        @keyframes readyPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+            50% { box-shadow: 0 0 20px 5px rgba(34, 197, 94, 0.2); }
+        }
+        
         /* XP / Points Display */
         .xp-display {
             display: flex;
@@ -2009,8 +2184,8 @@
                         <span class="progress-label"><span id="progressSteps">1</span>/3 Steps Complete</span>
                         <span class="progress-percent" id="progressPercent">33%</span>
                     </div>
-                </div>
-                
+    </div>
+
                 <!-- Applicant ID Badge -->
                 <div class="applicant-id-badge">
                     <span class="applicant-id-label">Your Application ID</span>
@@ -2028,9 +2203,45 @@
                         <div class="step-content">
                             <div class="step-header">
                                 <span class="step-number">STEP 1</span>
-                                <span class="step-title">Application Submitted</span>
+                                <span class="step-title">Application Submitted ✓</span>
                             </div>
                             <p class="step-description">Your details are locked in. We're reviewing your application now.</p>
+                            
+                            <!-- Application Details Toggle -->
+                            <button class="details-toggle" onclick="toggleApplicationDetails()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 9l-7 7-7-7"/>
+                                </svg>
+                                <span id="detailsToggleText">View Your Details</span>
+                            </button>
+                            
+                            <!-- Application Details Panel -->
+                            <div class="application-details-panel" id="applicationDetailsPanel">
+                                <div class="detail-row">
+                                    <span class="detail-label">Name</span>
+                                    <span class="detail-value" id="detailName">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Email</span>
+                                    <span class="detail-value" id="detailEmail">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">WhatsApp</span>
+                                    <span class="detail-value" id="detailPhone">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location</span>
+                                    <span class="detail-value" id="detailLocation">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Current Role</span>
+                                    <span class="detail-value" id="detailRole">-</span>
+                                </div>
+                                <div class="detail-row full-width">
+                                    <span class="detail-label">Why You Want to Join</span>
+                                    <span class="detail-value" id="detailWhy">-</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
@@ -2064,7 +2275,7 @@
                         </div>
                     </div>
                     
-                    <!-- Step 3: Profile Page -->
+                    <!-- Step 3: Profile Generation -->
                     <div class="step-card locked" id="step3Card">
                         <div class="step-checkbox locked" id="step3Checkbox">
                             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
@@ -2072,20 +2283,78 @@
                         <div class="step-content">
                             <div class="step-header">
                                 <span class="step-number">STEP 3</span>
-                                <span class="step-title">Review Your Profile</span>
+                                <span class="step-title">Profile Generation</span>
                             </div>
-                            <p class="step-description">We'll generate your personalized profile page with AI analysis. You can track your application status there.</p>
+                            <p class="step-description">Our AI analyzes your application and generates a personalized profile with insights.</p>
+                            
+                            <!-- Locked State Badge -->
                             <div class="step-pending-badge" id="step3Badge">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-7v4h4l-5 7z"/></svg>
                                 Unlocks after Step 2
                             </div>
-                            <a href="#" class="profile-link-btn" id="viewProfileBtn" style="display: none;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="12" cy="7" r="4"/>
-                                </svg>
-                                View Your Profile
-                            </a>
+                            
+                            <!-- Profile Generation Timer (hidden initially) -->
+                            <div class="profile-generation-section" id="profileGenerationSection" style="display: none;">
+                                <div class="profile-timer-container">
+                                    <div class="profile-timer-ring">
+                                        <svg viewBox="0 0 100 100">
+                                            <circle class="timer-bg" cx="50" cy="50" r="45"/>
+                                            <circle class="timer-progress" id="timerProgress" cx="50" cy="50" r="45"/>
+                                        </svg>
+                                        <div class="timer-center">
+                                            <span class="timer-value" id="profileTimerValue">5:00</span>
+                                            <span class="timer-label">remaining</span>
+                                        </div>
+                                    </div>
+                                    <p class="profile-timer-text">AI is analyzing your profile...</p>
+                                </div>
+                                
+                                <div class="profile-status" id="profileStatus">
+                                    <div class="status-item active">
+                                        <div class="status-dot"></div>
+                                        <span>Reviewing application data</span>
+                                    </div>
+                                    <div class="status-item" id="statusResearching">
+                                        <div class="status-dot"></div>
+                                        <span>Researching your background</span>
+                                    </div>
+                                    <div class="status-item" id="statusScoring">
+                                        <div class="status-dot"></div>
+                                        <span>Calculating scores</span>
+                                    </div>
+                                    <div class="status-item" id="statusGenerating">
+                                        <div class="status-dot"></div>
+                                        <span>Generating profile page</span>
+                                    </div>
+                                </div>
+                                
+                                <button class="check-profile-btn" id="checkProfileBtn" onclick="checkProfileStatus()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M23 4v6h-6"/>
+                                        <path d="M1 20v-6h6"/>
+                                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                                    </svg>
+                                    Check Status
+                                </button>
+                            </div>
+                            
+                            <!-- Profile Ready Section (hidden initially) -->
+                            <div class="profile-ready-section" id="profileReadySection" style="display: none;">
+                                <div class="profile-ready-badge">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                        <polyline points="22 4 12 14.01 9 11.01"/>
+                                    </svg>
+                                    Profile Ready!
+                                </div>
+                                <a href="#" class="profile-link-btn" id="viewProfileBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                    View Your Profile
+                                </a>
+                            </div>
                         </div>
                     </div>
                     
@@ -2289,22 +2558,17 @@
             step3Card.classList.remove('locked');
             step3Card.classList.add('active');
             
-            // Update pending badge
+            // Hide the pending badge and show the generation timer
             const pendingBadge = document.getElementById('step3Badge');
+            const generationSection = document.getElementById('profileGenerationSection');
+            
             if (pendingBadge) {
-                pendingBadge.innerHTML = `
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-7v4h4l-5 7z"/></svg>
-                    AI analyzing your profile... (~5 min)
-                `;
-                pendingBadge.style.background = 'rgba(34, 197, 94, 0.2)';
-                pendingBadge.style.color = '#22c55e';
+                pendingBadge.style.display = 'none';
             }
             
-            // Show profile link button
-            const profileBtn = document.getElementById('viewProfileBtn');
-            if (profileBtn && currentApplicantId) {
-                profileBtn.href = `applicant-profile.html?id=${currentApplicantId}`;
-                profileBtn.style.display = 'inline-flex';
+            if (generationSection) {
+                generationSection.style.display = 'block';
+                startProfileGenerationTimer();
             }
             
             // Send webhook to trigger AI analysis
@@ -2315,9 +2579,182 @@
             
             updateProgress();
             triggerConfetti();
+        }
+        
+        // ===== PROFILE GENERATION TIMER =====
+        let profileGenerationInterval = null;
+        const PROFILE_GENERATION_TIME = 300; // 5 minutes in seconds
+        
+        function startProfileGenerationTimer() {
+            let timeLeft = PROFILE_GENERATION_TIME;
+            const timerValue = document.getElementById('profileTimerValue');
+            const timerProgress = document.getElementById('timerProgress');
+            const circumference = 283; // 2 * π * 45
             
-            // Send webhook for step 2 completion
-            sendWebhook('step2_completed', { applicantId: currentApplicantId });
+            // Store timer start in localStorage
+            localStorage.setItem('bambuProfileTimerStart', Date.now().toString());
+            
+            // Clear any existing interval
+            if (profileGenerationInterval) {
+                clearInterval(profileGenerationInterval);
+            }
+            
+            profileGenerationInterval = setInterval(() => {
+                // Update timer display
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerValue.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                
+                // Update progress ring
+                const progress = (PROFILE_GENERATION_TIME - timeLeft) / PROFILE_GENERATION_TIME;
+                const offset = circumference * (1 - progress);
+                timerProgress.style.strokeDashoffset = offset;
+                
+                // Update status items based on progress
+                updateGenerationStatus(progress);
+                
+                if (timeLeft <= 0) {
+                    clearInterval(profileGenerationInterval);
+                    profileGenerationComplete();
+                }
+                
+                timeLeft--;
+            }, 1000);
+        }
+        
+        function updateGenerationStatus(progress) {
+            const statusReviewing = document.querySelector('.profile-status .status-item:first-child');
+            const statusResearching = document.getElementById('statusResearching');
+            const statusScoring = document.getElementById('statusScoring');
+            const statusGenerating = document.getElementById('statusGenerating');
+            
+            // Transition through statuses based on progress
+            if (progress >= 0.25 && statusResearching) {
+                statusReviewing.classList.remove('active');
+                statusReviewing.classList.add('completed');
+                statusResearching.classList.add('active');
+            }
+            if (progress >= 0.5 && statusScoring) {
+                statusResearching.classList.remove('active');
+                statusResearching.classList.add('completed');
+                statusScoring.classList.add('active');
+            }
+            if (progress >= 0.75 && statusGenerating) {
+                statusScoring.classList.remove('active');
+                statusScoring.classList.add('completed');
+                statusGenerating.classList.add('active');
+            }
+        }
+        
+        function profileGenerationComplete() {
+            // Hide generation section, show ready section
+            const generationSection = document.getElementById('profileGenerationSection');
+            const readySection = document.getElementById('profileReadySection');
+            const profileBtn = document.getElementById('viewProfileBtn');
+            const step3Checkbox = document.getElementById('step3Checkbox');
+            const step3Card = document.getElementById('step3Card');
+            
+            if (generationSection) generationSection.style.display = 'none';
+            if (readySection) readySection.style.display = 'block';
+            
+            // Update profile button URL
+            if (profileBtn && currentApplicantId) {
+                profileBtn.href = `applicant-profile.html?id=${currentApplicantId}`;
+            }
+            
+            // Mark step 3 as complete
+            step3Checkbox.classList.add('checked');
+            step3Card.classList.remove('active');
+            step3Card.classList.add('completed');
+            stepsCompleted.step3 = true;
+            
+            updateProgress();
+            triggerConfetti();
+            
+            // Store completion in localStorage
+            const saved = localStorage.getItem('bambuApplicationState');
+            if (saved) {
+                const state = JSON.parse(saved);
+                state.stepsCompleted.step3 = true;
+                state.profileReady = true;
+                localStorage.setItem('bambuApplicationState', JSON.stringify(state));
+            }
+            
+            // Notify via webhook
+            sendWebhook('profile_ready', { applicantId: currentApplicantId });
+        }
+        
+        function checkProfileStatus() {
+            const btn = document.getElementById('checkProfileBtn');
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin">
+                    <path d="M23 4v6h-6"/>
+                    <path d="M1 20v-6h6"/>
+                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                </svg>
+                Checking...
+            `;
+            
+            // Simulate checking profile status from MongoDB
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 4v6h-6"/>
+                        <path d="M1 20v-6h6"/>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                    </svg>
+                    Check Status
+                `;
+            }, 2000);
+        }
+        
+        function resumeProfileTimer() {
+            // Check if we have a stored timer
+            const timerStart = localStorage.getItem('bambuProfileTimerStart');
+            if (timerStart) {
+                const elapsed = Math.floor((Date.now() - parseInt(timerStart)) / 1000);
+                const remaining = PROFILE_GENERATION_TIME - elapsed;
+                
+                if (remaining > 0) {
+                    // Resume timer from stored position
+                    const generationSection = document.getElementById('profileGenerationSection');
+                    const pendingBadge = document.getElementById('step3Badge');
+                    
+                    if (pendingBadge) pendingBadge.style.display = 'none';
+                    if (generationSection) {
+                        generationSection.style.display = 'block';
+                        
+                        // Resume with remaining time
+                        let timeLeft = remaining;
+                        const timerValue = document.getElementById('profileTimerValue');
+                        const timerProgress = document.getElementById('timerProgress');
+                        const circumference = 283;
+                        
+                        profileGenerationInterval = setInterval(() => {
+                            const minutes = Math.floor(timeLeft / 60);
+                            const seconds = timeLeft % 60;
+                            timerValue.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                            
+                            const progress = (PROFILE_GENERATION_TIME - timeLeft) / PROFILE_GENERATION_TIME;
+                            const offset = circumference * (1 - progress);
+                            timerProgress.style.strokeDashoffset = offset;
+                            
+                            updateGenerationStatus(progress);
+                            
+                            if (timeLeft <= 0) {
+                                clearInterval(profileGenerationInterval);
+                                profileGenerationComplete();
+                            }
+                            timeLeft--;
+                        }, 1000);
+                    }
+                } else {
+                    // Timer already completed
+                    profileGenerationComplete();
+                }
+            }
         }
         
         // ===== WEBHOOK TO N8N =====
@@ -2436,6 +2873,30 @@
                             step2CanToggle = true;
                         }
                         console.log('Restored application state:', data);
+                        
+                        // If step 2 is completed but step 3 isn't, resume the profile timer
+                        if (stepsCompleted.step2 && !stepsCompleted.step3) {
+                            // Check if profile is already ready
+                            if (data.profileReady) {
+                                // Show the ready section immediately
+                                setTimeout(() => {
+                                    const generationSection = document.getElementById('profileGenerationSection');
+                                    const readySection = document.getElementById('profileReadySection');
+                                    const pendingBadge = document.getElementById('step3Badge');
+                                    const profileBtn = document.getElementById('viewProfileBtn');
+                                    
+                                    if (pendingBadge) pendingBadge.style.display = 'none';
+                                    if (generationSection) generationSection.style.display = 'none';
+                                    if (readySection) readySection.style.display = 'block';
+                                    if (profileBtn) profileBtn.href = `applicant-profile.html?id=${currentApplicantId}`;
+                                }, 100);
+                            } else {
+                                // Resume the profile generation timer
+                                setTimeout(() => {
+                                    resumeProfileTimer();
+                                }, 100);
+                            }
+                        }
                     }
                 } catch (e) {
                     console.log('Could not restore application state');
