@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Bambu Training Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bambu-black: #111111;
+            --bambu-tan: #DCCAB7;
+            --bambu-tan-light: #E5D8C8;
+            --bambu-dark: #232323;
+            --text-white: #FFFFFF;
+            --success-green: #22c55e;
+            --warning-orange: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--bambu-black);
+            color: var(--text-white);
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(220, 202, 183, 0.1);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .header-logo img {
+            height: 40px;
+        }
+        
+        .header-logo span {
+            color: var(--bambu-tan);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--bambu-tan);
+        }
+        
+        .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: rgba(220, 202, 183, 0.1);
+            border: 1px solid rgba(220, 202, 183, 0.2);
+            border-radius: 50px;
+        }
+        
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bambu-tan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--bambu-black);
+        }
+        
+        .user-name {
+            font-size: 0.85rem;
+            color: var(--text-white);
+        }
+        
+        .logout-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .logout-btn:hover {
+            color: #ef4444;
+        }
+        
+        /* Main Content */
+        .main {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Welcome Section */
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .welcome-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .welcome-subtitle {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+        }
+        
+        .application-id-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(220, 202, 183, 0.1);
+            border: 1px solid rgba(220, 202, 183, 0.3);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            margin-top: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .application-id-badge .label {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+        }
+        
+        .application-id-badge .id {
+            color: var(--bambu-tan);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        /* Progress Section */
+        .progress-section {
+            background: var(--bambu-dark);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .progress-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .progress-stats {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .progress-stat {
+            text-align: center;
+        }
+        
+        .progress-stat-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bambu-tan);
+        }
+        
+        .progress-stat-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .progress-bar-container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--bambu-tan), var(--success-green));
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        /* Steps Grid */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .step-card {
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .step-card.completed {
+            border-color: var(--success-green);
+        }
+        
+        .step-card.active {
+            border-color: var(--bambu-tan);
+        }
+        
+        .step-card.locked {
+            opacity: 0.5;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bambu-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--bambu-tan);
+            border: 1px solid rgba(220, 202, 183, 0.3);
+        }
+        
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .step-card.completed .step-icon {
+            background: rgba(34, 197, 94, 0.2);
+        }
+        
+        .step-card.active .step-icon {
+            background: rgba(220, 202, 183, 0.2);
+        }
+        
+        .step-card.locked .step-icon {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .step-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .step-action-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .step-action-btn.whatsapp:hover {
+            background: #128C7E;
+        }
+        
+        .step-action-btn.primary {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+        
+        .step-action-btn.primary:hover {
+            background: var(--bambu-tan-light);
+        }
+        
+        .step-action-btn.disabled {
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+            cursor: not-allowed;
+        }
+        
+        .step-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        .step-status.completed {
+            color: var(--success-green);
+        }
+        
+        .step-status.pending {
+            color: var(--warning-orange);
+        }
+        
+        /* Application Details Section */
+        .details-section {
+            background: var(--bambu-dark);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .details-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .details-toggle {
+            background: transparent;
+            border: none;
+            color: var(--bambu-tan);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .details-toggle.expanded {
+            transform: rotate(180deg);
+        }
+        
+        .details-content {
+            display: none;
+        }
+        
+        .details-content.visible {
+            display: block;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .detail-item {
+            padding: 1rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        
+        .detail-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+        
+        .detail-value {
+            font-size: 0.95rem;
+            color: var(--text-white);
+        }
+        
+        .detail-item.full-width {
+            grid-column: span 2;
+        }
+        
+        @media (max-width: 600px) {
+            .detail-item.full-width {
+                grid-column: span 1;
+            }
+        }
+        
+        /* Timer */
+        .timer-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(220, 202, 183, 0.1);
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+        
+        .timer-spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(220, 202, 183, 0.3);
+            border-top-color: var(--bambu-tan);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 3rem;
+        }
+        
+        .footer-text {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+        
+        /* Not Logged In State */
+        .not-logged-in {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+        }
+        
+        .not-logged-in h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .not-logged-in p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 2rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+        
+        .btn-primary:hover {
+            background: var(--bambu-tan-light);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--bambu-tan);
+            color: var(--bambu-tan);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(220, 202, 183, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-logo">
+            <a href="academy-application-v2.html">
+                <img src="https://cdn.prod.website-files.com/636e894b5e6256215c15c62f/6734c57cd9de3eab0b5c2c1b_Bambu-Logo-white-p-500.png" alt="Bambu">
+            </a>
+            <span>Training Academy</span>
+        </div>
+        <nav class="header-nav">
+            <a href="academy-application-v2.html" class="nav-link">Academy</a>
+            <a href="academy-application-v2.html#apply" class="nav-link">Apply</a>
+            <div class="user-badge" id="userBadge" style="display: none;">
+                <div class="user-avatar" id="userInitials">JD</div>
+                <span class="user-name" id="userName">John Doe</span>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Not Logged In State -->
+            <div id="notLoggedInState" class="not-logged-in">
+                <h2>Welcome to Your Account</h2>
+                <p>Log in to track your application progress or apply to join the Academy.</p>
+                <div class="btn-group">
+                    <a href="academy-application-v2.html#apply" class="btn btn-primary">Apply Now</a>
+                    <button class="btn btn-secondary" onclick="window.location.href='academy-application-v2.html'">Back to Academy</button>
+                </div>
+            </div>
+
+            <!-- Logged In State -->
+            <div id="loggedInState" style="display: none;">
+                <!-- Welcome Section -->
+                <section class="welcome-section">
+                    <h1 class="welcome-title">Welcome back, <span id="welcomeName">John</span>!</h1>
+                    <p class="welcome-subtitle">Track your application progress and complete the next steps</p>
+                    <div class="application-id-badge">
+                        <span class="label">APPLICATION ID</span>
+                        <span class="id" id="displayApplicantId">BAMBU-2026-XXXXXX</span>
+                    </div>
+                </section>
+
+                <!-- Progress Section -->
+                <section class="progress-section">
+                    <div class="progress-header">
+                        <h2 class="progress-title">Your Progress</h2>
+                        <div class="progress-stats">
+                            <div class="progress-stat">
+                                <div class="progress-stat-value"><span id="stepsComplete">1</span>/3</div>
+                                <div class="progress-stat-label">Steps</div>
+                            </div>
+                            <div class="progress-stat">
+                                <div class="progress-stat-value" id="progressPercent">33%</div>
+                                <div class="progress-stat-label">Complete</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="progressBarFill" style="width: 33%;"></div>
+                    </div>
+
+                    <div class="steps-grid">
+                        <!-- Step 1: Application -->
+                        <div class="step-card completed" id="step1Card">
+                            <span class="step-number">STEP 1</span>
+                            <div class="step-icon">✓</div>
+                            <h3 class="step-title">Application Submitted</h3>
+                            <p class="step-description">Your details are locked in. We're reviewing your application.</p>
+                            <div class="step-status completed">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                                Completed
+                            </div>
+                        </div>
+
+                        <!-- Step 2: WhatsApp -->
+                        <div class="step-card active" id="step2Card">
+                            <span class="step-number">STEP 2</span>
+                            <div class="step-icon">💬</div>
+                            <h3 class="step-title">Connect on WhatsApp</h3>
+                            <p class="step-description">Send us a quick message so we can fast-track your application.</p>
+                            <a href="#" class="step-action-btn whatsapp" id="whatsappBtn" onclick="handleWhatsAppClick(event)">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                Message Us Now
+                            </a>
+                            <div class="step-status pending" id="step2Status">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Waiting for your message
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Profile -->
+                        <div class="step-card locked" id="step3Card">
+                            <span class="step-number">STEP 3</span>
+                            <div class="step-icon">📊</div>
+                            <h3 class="step-title">Profile Generation</h3>
+                            <p class="step-description">Our AI analyzes your application and generates personalized insights.</p>
+                            <button class="step-action-btn disabled" id="viewProfileBtn" disabled>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                View Profile
+                            </button>
+                            <div class="step-status pending" id="step3Status">
+                                🔒 Unlocks after Step 2
+                            </div>
+                            <div class="timer-container" id="profileTimer" style="display: none; margin-top: 1rem;">
+                                <div class="timer-spinner"></div>
+                                <span>Generating profile... <span id="timerCount">5:00</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Application Details Section -->
+                <section class="details-section">
+                    <div class="details-header" onclick="toggleDetails()">
+                        <h2 class="details-title">📋 Your Application Details</h2>
+                        <button class="details-toggle" id="detailsToggle">▼</button>
+                    </div>
+                    <div class="details-content" id="detailsContent">
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <div class="detail-label">Full Name</div>
+                                <div class="detail-value" id="detailName">-</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Email</div>
+                                <div class="detail-value" id="detailEmail">-</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">WhatsApp</div>
+                                <div class="detail-value" id="detailPhone">-</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Location</div>
+                                <div class="detail-value" id="detailLocation">-</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Instagram</div>
+                                <div class="detail-value" id="detailInstagram">-</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">LinkedIn</div>
+                                <div class="detail-value" id="detailLinkedIn">-</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Current Role</div>
+                                <div class="detail-value" id="detailRole">-</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Experience</div>
+                                <div class="detail-value" id="detailExperience">-</div>
+                            </div>
+                            <div class="detail-item full-width">
+                                <div class="detail-label">Why You Want to Join</div>
+                                <div class="detail-value" id="detailWhy">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Bambu Training Academy — March 2026 Cohort</p>
+    </footer>
+
+    <script>
+        // ===== CONFIGURATION =====
+        const WHATSAPP_NUMBER = '6285190120311';
+        const WEBHOOK_URL = 'https://alexbauer.app.n8n.cloud/webhook/bambu-academy';
+        
+        // ===== STATE =====
+        let currentUser = null;
+        let stepsCompleted = { step1: false, step2: false, step3: false };
+        let profileTimerInterval = null;
+        
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            checkLoginStatus();
+        });
+        
+        function checkLoginStatus() {
+            const stored = localStorage.getItem('bambuAcademyApplication');
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    if (data.email && data.applicant_id) {
+                        // User is logged in
+                        currentUser = data;
+                        if (data.stepsCompleted) {
+                            stepsCompleted = data.stepsCompleted;
+                        }
+                        showLoggedInState();
+                        populateUserData();
+                        updateProgressDisplay();
+                        
+                        // Resume timer if needed
+                        if (stepsCompleted.step2 && !stepsCompleted.step3 && !data.profileReady) {
+                            startProfileTimer();
+                        }
+                    } else {
+                        showNotLoggedInState();
+                    }
+                } catch (e) {
+                    showNotLoggedInState();
+                }
+            } else {
+                showNotLoggedInState();
+            }
+        }
+        
+        function showLoggedInState() {
+            document.getElementById('notLoggedInState').style.display = 'none';
+            document.getElementById('loggedInState').style.display = 'block';
+            document.getElementById('userBadge').style.display = 'flex';
+        }
+        
+        function showNotLoggedInState() {
+            document.getElementById('notLoggedInState').style.display = 'flex';
+            document.getElementById('loggedInState').style.display = 'none';
+            document.getElementById('userBadge').style.display = 'none';
+        }
+        
+        function populateUserData() {
+            if (!currentUser) return;
+            
+            const firstName = currentUser.first_name || '';
+            const lastName = currentUser.last_name || '';
+            const fullName = `${firstName} ${lastName}`.trim() || 'User';
+            
+            // Header
+            document.getElementById('userInitials').textContent = getInitials(firstName, lastName);
+            document.getElementById('userName').textContent = fullName;
+            
+            // Welcome
+            document.getElementById('welcomeName').textContent = firstName || 'there';
+            document.getElementById('displayApplicantId').textContent = currentUser.applicant_id || 'N/A';
+            
+            // Details
+            document.getElementById('detailName').textContent = fullName;
+            document.getElementById('detailEmail').textContent = currentUser.email || '-';
+            document.getElementById('detailPhone').textContent = currentUser.phone || '-';
+            document.getElementById('detailLocation').textContent = currentUser.location || '-';
+            document.getElementById('detailInstagram').textContent = currentUser.instagram || '-';
+            document.getElementById('detailLinkedIn').textContent = currentUser.linkedin || 'Not provided';
+            document.getElementById('detailRole').textContent = currentUser.role || '-';
+            document.getElementById('detailExperience').textContent = currentUser.experience || '-';
+            document.getElementById('detailWhy').textContent = currentUser.why_coaching || '-';
+        }
+        
+        function getInitials(firstName, lastName) {
+            const f = firstName ? firstName.charAt(0).toUpperCase() : '';
+            const l = lastName ? lastName.charAt(0).toUpperCase() : '';
+            return f + l || 'U';
+        }
+        
+        function updateProgressDisplay() {
+            const completedCount = Object.values(stepsCompleted).filter(Boolean).length;
+            const percent = Math.round((completedCount / 3) * 100);
+            
+            document.getElementById('stepsComplete').textContent = completedCount;
+            document.getElementById('progressPercent').textContent = percent + '%';
+            document.getElementById('progressBarFill').style.width = percent + '%';
+            
+            // Step 1
+            if (stepsCompleted.step1) {
+                document.getElementById('step1Card').classList.add('completed');
+                document.getElementById('step1Card').classList.remove('active', 'locked');
+            }
+            
+            // Step 2
+            if (stepsCompleted.step2) {
+                document.getElementById('step2Card').classList.add('completed');
+                document.getElementById('step2Card').classList.remove('active', 'locked');
+                document.getElementById('step2Status').innerHTML = `
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                    Message sent
+                `;
+                document.getElementById('step2Status').classList.remove('pending');
+                document.getElementById('step2Status').classList.add('completed');
+                
+                // Unlock Step 3
+                document.getElementById('step3Card').classList.remove('locked');
+                document.getElementById('step3Card').classList.add('active');
+                document.getElementById('viewProfileBtn').disabled = false;
+                document.getElementById('viewProfileBtn').classList.remove('disabled');
+                document.getElementById('viewProfileBtn').classList.add('primary');
+                document.getElementById('step3Status').textContent = '⏳ Profile being generated...';
+            }
+            
+            // Step 3
+            if (stepsCompleted.step3 || (currentUser && currentUser.profileReady)) {
+                document.getElementById('step3Card').classList.add('completed');
+                document.getElementById('step3Card').classList.remove('active', 'locked');
+                document.getElementById('step3Status').innerHTML = `
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                    Profile ready
+                `;
+                document.getElementById('step3Status').classList.remove('pending');
+                document.getElementById('step3Status').classList.add('completed');
+                document.getElementById('profileTimer').style.display = 'none';
+                
+                const profileBtn = document.getElementById('viewProfileBtn');
+                profileBtn.disabled = false;
+                profileBtn.classList.remove('disabled');
+                profileBtn.classList.add('primary');
+                profileBtn.onclick = () => window.location.href = `applicant-profile.html?id=${currentUser.applicant_id}`;
+            }
+        }
+        
+        // ===== WHATSAPP HANDLER =====
+        function handleWhatsAppClick(e) {
+            e.preventDefault();
+            
+            if (!currentUser) return;
+            
+            const message = encodeURIComponent(
+                `Hi! I just applied to Bambu Training Academy.\n\nMy Application ID: ${currentUser.applicant_id}\n\nLooking forward to connecting!`
+            );
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Mark step 2 as completed after 10 seconds
+            setTimeout(() => {
+                stepsCompleted.step2 = true;
+                currentUser.stepsCompleted = stepsCompleted;
+                currentUser.whatsappClicked = true;
+                localStorage.setItem('bambuAcademyApplication', JSON.stringify(currentUser));
+                updateProgressDisplay();
+                startProfileTimer();
+                
+                // Send webhook
+                sendWebhook('whatsapp_clicked', { applicantId: currentUser.applicant_id });
+            }, 10000);
+        }
+        
+        // ===== PROFILE TIMER =====
+        function startProfileTimer() {
+            document.getElementById('profileTimer').style.display = 'flex';
+            let timeLeft = 300; // 5 minutes
+            
+            if (profileTimerInterval) clearInterval(profileTimerInterval);
+            
+            profileTimerInterval = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                document.getElementById('timerCount').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(profileTimerInterval);
+                    stepsCompleted.step3 = true;
+                    currentUser.stepsCompleted = stepsCompleted;
+                    currentUser.profileReady = true;
+                    localStorage.setItem('bambuAcademyApplication', JSON.stringify(currentUser));
+                    updateProgressDisplay();
+                    
+                    sendWebhook('profile_ready', { applicantId: currentUser.applicant_id });
+                }
+                timeLeft--;
+            }, 1000);
+        }
+        
+        // ===== DETAILS TOGGLE =====
+        function toggleDetails() {
+            const content = document.getElementById('detailsContent');
+            const toggle = document.getElementById('detailsToggle');
+            content.classList.toggle('visible');
+            toggle.classList.toggle('expanded');
+        }
+        
+        // ===== LOGOUT =====
+        function logout() {
+            localStorage.removeItem('bambuAcademyApplication');
+            currentUser = null;
+            stepsCompleted = { step1: false, step2: false, step3: false };
+            window.location.href = 'academy-application-v2.html';
+        }
+        
+        // ===== WEBHOOK =====
+        async function sendWebhook(event, data) {
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ event, ...data, timestamp: new Date().toISOString() })
+                });
+            } catch (e) {
+                console.log('Webhook failed:', e);
+            }
+        }
+    </script>
+</body>
+</html>
+
