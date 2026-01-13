@@ -648,10 +648,15 @@
             overflow: hidden;
         }
         
-        .venue-image img {
+        .venue-image img,
+        .venue-video {
             width: 100%;
             aspect-ratio: 4/3;
             object-fit: cover;
+        }
+        
+        .venue-video-wrapper {
+            overflow: hidden;
         }
         
         .venue-badge {
@@ -757,7 +762,12 @@
         .coach-image {
             position: relative;
             aspect-ratio: 1/1;
-            overflow: hidden;
+            overflow: visible;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .coach-image img {
+            border-radius: 20px 20px 0 0;
         }
         
         .coach-image img {
@@ -1209,9 +1219,18 @@
             gap: 1.5rem;
         }
         
+        .process-grid.simple {
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
         @media (max-width: 900px) {
             .process-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .process-grid.simple {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -2491,8 +2510,11 @@
         <section class="section">
             <div class="container">
                 <div class="venue-section">
-                    <div class="venue-image">
-                        <img src="https://cdn.prod.website-files.com/6760212da41938286ecf870d/6760212da41938286ecf8876_IMG_6607.jpg" alt="Bambu Fitness Bali" id="venueImage">
+                    <div class="venue-image venue-video-wrapper">
+                        <video autoplay loop muted playsinline class="venue-video">
+                            <source src="https://cdn.prod.website-files.com/6760212da41938286ecf870d/677e78aad192958d2c3b524a_Classes-Video-transcode.mp4" type="video/mp4">
+                            <source src="https://cdn.prod.website-files.com/6760212da41938286ecf870d/677e78aad192958d2c3b524a_Classes-Video-transcode.webm" type="video/webm">
+                        </video>
                         <div class="venue-badge">
                             <span>36,000 sqft</span>
                             <small>World-class facility</small>
@@ -2535,23 +2557,23 @@
                     <div class="coaches-carousel" id="coachesCarousel">
                         <!-- Will Henke -->
                         <div class="coach-card">
-                            <div class="coach-slots-badge" onclick="this.classList.toggle('active')">
-                                <div class="slots-mini">
-                                    <div class="slot-mini filled">✓</div>
-                                    <div class="slot-mini filled">✓</div>
-                                    <div class="slot-mini waiting"></div>
-                                    <div class="slot-mini waiting"></div>
-                                    <div class="slot-mini waiting"></div>
-                                </div>
-                                <div class="slots-label">2/5 Filled</div>
-                                <div class="slot-tooltip">
-                                    <h5>Cohort 1 Slots</h5>
-                                    <p>2 spots filled. 3 being reviewed from current applicants. Apply now for the best chance to work with Will.</p>
-                                </div>
-                            </div>
                             <div class="coach-image">
                                 <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245abdaf3b0c971643acbd_Will.jpg" alt="Will Henke">
                                 <div class="coach-role-badge">Co-Founder</div>
+                                <div class="coach-slots-badge" onclick="event.stopPropagation(); this.classList.toggle('active')">
+                                    <div class="slots-mini">
+                                        <div class="slot-mini filled">✓</div>
+                                        <div class="slot-mini filled">✓</div>
+                                        <div class="slot-mini waiting"></div>
+                                        <div class="slot-mini waiting"></div>
+                                        <div class="slot-mini waiting"></div>
+                                    </div>
+                                    <div class="slots-label">2/5</div>
+                                    <div class="slot-tooltip">
+                                        <h5>Cohort 1 Slots</h5>
+                                        <p>2 spots filled. 3 being reviewed from current applicants. Apply now for the best chance to work with Will.</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="coach-content">
                                 <h3 class="coach-name">Will Henke</h3>
@@ -2568,23 +2590,23 @@
                         
                         <!-- Sam Craige -->
                         <div class="coach-card">
-                            <div class="coach-slots-badge" onclick="this.classList.toggle('active')">
-                                <div class="slots-mini">
-                                    <div class="slot-mini filled">✓</div>
-                                    <div class="slot-mini waiting"></div>
-                                    <div class="slot-mini waiting"></div>
-                                    <div class="slot-mini waiting"></div>
-                                    <div class="slot-mini waiting"></div>
-                                </div>
-                                <div class="slots-label">1/5 Filled</div>
-                                <div class="slot-tooltip">
-                                    <h5>Cohort 1 Slots</h5>
-                                    <p>1 spot filled. 4 being reviewed. Sam specializes in detail-oriented coaching.</p>
-                                </div>
-                            </div>
                             <div class="coach-image">
                                 <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245c7b08445f8b74a9f2c9_Sam.jpg" alt="Sam Craige">
                                 <div class="coach-role-badge">Head Coach</div>
+                                <div class="coach-slots-badge" onclick="event.stopPropagation(); this.classList.toggle('active')">
+                                    <div class="slots-mini">
+                                        <div class="slot-mini filled">✓</div>
+                                        <div class="slot-mini waiting"></div>
+                                        <div class="slot-mini waiting"></div>
+                                        <div class="slot-mini waiting"></div>
+                                        <div class="slot-mini waiting"></div>
+                                    </div>
+                                    <div class="slots-label">1/5</div>
+                                    <div class="slot-tooltip">
+                                        <h5>Cohort 1 Slots</h5>
+                                        <p>1 spot filled. 4 being reviewed. Sam specializes in detail-oriented coaching.</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="coach-content">
                                 <h3 class="coach-name">Sam Craige</h3>
@@ -2601,23 +2623,23 @@
                         
                         <!-- Macca McDonald -->
                         <div class="coach-card">
-                            <div class="coach-slots-badge" onclick="this.classList.toggle('active')">
-                                <div class="slots-mini">
-                                    <div class="slot-mini waiting"></div>
-                                    <div class="slot-mini waiting"></div>
-                                    <div class="slot-mini waiting"></div>
-                                    <div class="slot-mini waiting"></div>
-                                    <div class="slot-mini waiting"></div>
-                                </div>
-                                <div class="slots-label">0/5 Filled</div>
-                                <div class="slot-tooltip">
-                                    <h5>Cohort 1 Slots</h5>
-                                    <p>All 5 slots being reviewed. Great opportunity to work with Macca on functional training.</p>
-                                </div>
-                            </div>
                             <div class="coach-image">
                                 <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Macca.jpg" alt="Macca McDonald">
                                 <div class="coach-role-badge">Senior Coach</div>
+                                <div class="coach-slots-badge" onclick="event.stopPropagation(); this.classList.toggle('active')">
+                                    <div class="slots-mini">
+                                        <div class="slot-mini waiting"></div>
+                                        <div class="slot-mini waiting"></div>
+                                        <div class="slot-mini waiting"></div>
+                                        <div class="slot-mini waiting"></div>
+                                        <div class="slot-mini waiting"></div>
+                                    </div>
+                                    <div class="slots-label">0/5</div>
+                                    <div class="slot-tooltip">
+                                        <h5>Cohort 1 Slots</h5>
+                                        <p>All 5 slots being reviewed. Great opportunity to work with Macca on functional training.</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="coach-content">
                                 <h3 class="coach-name">Macca McDonald</h3>
@@ -2655,6 +2677,10 @@
                             <div class="countdown-value" id="countdown-mins">--</div>
                             <div class="countdown-unit">Mins</div>
                         </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="countdown-secs">--</div>
+                            <div class="countdown-unit">Secs</div>
+                        </div>
                     </div>
                     <p class="deadline-note">Applications close <strong>Feb 15, 2026</strong>. Early applicants get priority matching.</p>
                     <p class="urgency-text">The earlier you apply, the better your chance of getting your preferred coach.</p>
@@ -2668,29 +2694,24 @@
             <div class="container">
                 <div class="section-header">
                     <div class="section-label">How to Apply</div>
-                    <h2 class="section-title">Here's how we turn that potential into real-world coaching skill</h2>
+                    <h2 class="section-title">Three Steps to Start Your Journey</h2>
                 </div>
                 
-                <div class="process-grid">
+                <div class="process-grid simple">
                     <div class="process-step">
                         <div class="step-number">1</div>
                         <h4>Apply</h4>
-                        <p>Fill out the application form. Tell us about yourself and why you want to coach.</p>
+                        <p>Fill out the form below. We'll review your background and goals.</p>
                     </div>
                     <div class="process-step">
                         <div class="step-number">2</div>
-                        <h4>Chat</h4>
-                        <p>We'll reach out via WhatsApp to learn more and answer your questions.</p>
+                        <h4>Call</h4>
+                        <p>Have a quick call with Will. We'll match you with the right coach.</p>
                     </div>
                     <div class="process-step">
                         <div class="step-number">3</div>
-                        <h4>Call</h4>
-                        <p>Top candidates get a call with Will to discuss goals and fit.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
                         <h4>Join</h4>
-                        <p>If you're in, choose your payment option and lock your spot.</p>
+                        <p>Lock your spot, choose your payment, and get ready to level up.</p>
                     </div>
                 </div>
             </div>
@@ -4001,16 +4022,19 @@
                 document.getElementById('countdown-days').textContent = '0';
                 document.getElementById('countdown-hours').textContent = '0';
                 document.getElementById('countdown-mins').textContent = '0';
+                document.getElementById('countdown-secs').textContent = '0';
                 return;
             }
             
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diff % (1000 * 60)) / 1000);
             
             document.getElementById('countdown-days').textContent = days;
             document.getElementById('countdown-hours').textContent = hours;
             document.getElementById('countdown-mins').textContent = mins;
+            document.getElementById('countdown-secs').textContent = secs;
         }
         
         // ===== CHECK FOR EXISTING APPLICATION ON PAGE LOAD =====
@@ -4019,9 +4043,9 @@
             initCarousel('benefitCarousel', 'benefitIndicators');
             initCarousel('coachesCarousel', 'coachIndicators');
             
-            // Start countdown
+            // Start countdown - tick every second
             updateCountdown();
-            setInterval(updateCountdown, 60000); // Update every minute
+            setInterval(updateCountdown, 1000);
             const stored = localStorage.getItem('bambuAcademyApplication');
             if (stored) {
                 try {
