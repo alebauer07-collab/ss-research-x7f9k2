@@ -1121,6 +1121,93 @@
             flex: 1;
         }
         
+        /* Application Details Toggle & Panel */
+        .details-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(220, 202, 183, 0.1);
+            border: 1px solid rgba(220, 202, 183, 0.3);
+            color: var(--bambu-tan);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .details-toggle:hover {
+            background: rgba(220, 202, 183, 0.2);
+        }
+        
+        .details-toggle .toggle-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .details-toggle.expanded .toggle-arrow {
+            transform: rotate(90deg);
+        }
+        
+        .application-details-panel {
+            margin-top: 12px;
+            padding: 16px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            border: 1px solid rgba(220, 202, 183, 0.15);
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-row.full-width {
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .detail-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .detail-value {
+            font-size: 0.9rem;
+            color: var(--text-white);
+            text-align: right;
+            max-width: 60%;
+            word-break: break-word;
+        }
+        
+        .detail-row.full-width .detail-value {
+            text-align: left;
+            max-width: 100%;
+        }
+        
         .step-header {
             display: flex;
             align-items: center;
@@ -2024,6 +2111,17 @@
                         </select>
                     </div>
                     
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Instagram Handle *</label>
+                            <input type="text" class="form-input" name="instagram" placeholder="@yourhandle" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">LinkedIn Profile</label>
+                            <input type="url" class="form-input" name="linkedin" placeholder="linkedin.com/in/yourprofile">
+                        </div>
+                    </div>
+                    
                     <div class="form-group">
                         <label class="form-label">How did you hear about Bambu Academy?</label>
                         <input type="text" class="form-input" name="source" placeholder="Instagram, email, friend, etc.">
@@ -2208,15 +2306,15 @@
                             <p class="step-description">Your details are locked in. We're reviewing your application now.</p>
                             
                             <!-- Application Details Toggle -->
-                            <button class="details-toggle" onclick="toggleApplicationDetails()">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M19 9l-7 7-7-7"/>
+                            <button class="details-toggle" onclick="toggleApplicationDetails()" id="detailsToggleBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="toggle-arrow">
+                                    <path d="M9 18l6-6-6-6"/>
                                 </svg>
                                 <span id="detailsToggleText">View Your Details</span>
                             </button>
                             
-                            <!-- Application Details Panel -->
-                            <div class="application-details-panel" id="applicationDetailsPanel">
+                            <!-- Application Details Panel (Hidden by default) -->
+                            <div class="application-details-panel" id="applicationDetailsPanel" style="display: none;">
                                 <div class="detail-row">
                                     <span class="detail-label">Name</span>
                                     <span class="detail-value" id="detailName">-</span>
@@ -2232,6 +2330,14 @@
                                 <div class="detail-row">
                                     <span class="detail-label">Location</span>
                                     <span class="detail-value" id="detailLocation">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Instagram</span>
+                                    <span class="detail-value" id="detailInstagram">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">LinkedIn</span>
+                                    <span class="detail-value" id="detailLinkedIn">-</span>
                                 </div>
                                 <div class="detail-row">
                                     <span class="detail-label">Current Role</span>
@@ -2392,8 +2498,8 @@
     <!-- FAQ Toggle Script & Enhanced Form Handler -->
     <script>
         // ===== CONFIGURATION =====
-        // TODO: Update this with your new WhatsApp Business number
-        const WHATSAPP_NUMBER = '6281244997721'; // Replace with new number when ready
+        // Bambu Training Academy WhatsApp Business Short Link
+        const WHATSAPP_SHORT_LINK = 'https://wa.me/message/HQQA5HEHTGOAL1';
         const WEBHOOK_URL = 'https://alexbauer.app.n8n.cloud/webhook/bambu-academy-application'; // n8n webhook
         
         // ===== STATE MANAGEMENT =====
@@ -2479,7 +2585,9 @@
                 `Excited to chat!`
             );
             
-            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+            // Use the short link - message is pre-configured in WhatsApp Business
+            // Add applicant ID as a query parameter that will be visible in the chat
+            const whatsappUrl = `${WHATSAPP_SHORT_LINK}`;
             
             // Update button href and open
             const btn = document.getElementById('whatsappStepBtn');
@@ -2789,6 +2897,40 @@
             return `BAMBU-${year}-${random}${timestamp}`;
         }
         
+        // ===== APPLICATION DETAILS FUNCTIONS =====
+        function toggleApplicationDetails() {
+            const panel = document.getElementById('applicationDetailsPanel');
+            const btn = document.getElementById('detailsToggleBtn');
+            const text = document.getElementById('detailsToggleText');
+            
+            if (panel.style.display === 'none') {
+                panel.style.display = 'block';
+                btn.classList.add('expanded');
+                text.textContent = 'Hide Details';
+            } else {
+                panel.style.display = 'none';
+                btn.classList.remove('expanded');
+                text.textContent = 'View Your Details';
+            }
+        }
+        
+        function populateApplicationDetails(data) {
+            // Populate the details panel with form data
+            const setDetail = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = value || '-';
+            };
+            
+            setDetail('detailName', `${data.first_name || ''} ${data.last_name || ''}`.trim() || '-');
+            setDetail('detailEmail', data.email);
+            setDetail('detailPhone', data.phone);
+            setDetail('detailLocation', data.location);
+            setDetail('detailInstagram', data.instagram);
+            setDetail('detailLinkedIn', data.linkedin || 'Not provided');
+            setDetail('detailRole', data.role);
+            setDetail('detailWhy', data.why_coaching);
+        }
+        
         // ===== FORM SUBMISSION HANDLER =====
         function handleFormSubmit(e) {
             e.preventDefault();
@@ -2814,6 +2956,14 @@
             
             // Update modal with applicant ID
             document.getElementById('modalApplicantId').textContent = currentApplicantId;
+            
+            // Populate application details in Step 1
+            populateApplicationDetails(data);
+            
+            // Reset details panel to collapsed state
+            document.getElementById('applicationDetailsPanel').style.display = 'none';
+            document.getElementById('detailsToggleBtn').classList.remove('expanded');
+            document.getElementById('detailsToggleText').textContent = 'View Your Details';
             
             // Reset step states for new submission
             stepsCompleted = { step1: true, step2: false, step3: false };
@@ -2873,6 +3023,13 @@
                             step2CanToggle = true;
                         }
                         console.log('Restored application state:', data);
+                        
+                        // Populate application details for Step 1
+                        populateApplicationDetails(data);
+                        
+                        // Update modal applicant ID
+                        const modalId = document.getElementById('modalApplicantId');
+                        if (modalId) modalId.textContent = currentApplicantId;
                         
                         // If step 2 is completed but step 3 isn't, resume the profile timer
                         if (stepsCompleted.step2 && !stepsCompleted.step3) {
