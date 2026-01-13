@@ -2498,8 +2498,8 @@
     <!-- FAQ Toggle Script & Enhanced Form Handler -->
     <script>
         // ===== CONFIGURATION =====
-        // Bambu Training Academy WhatsApp Business Short Link
-        const WHATSAPP_SHORT_LINK = 'https://wa.me/message/HQQA5HEHTGOAL1';
+        // Bambu Training Academy WhatsApp Business Number (from +62 851-9012-0311)
+        const WHATSAPP_NUMBER = '6285190120311';
         const WEBHOOK_URL = 'https://alexbauer.app.n8n.cloud/webhook/bambu-academy-application'; // n8n webhook
         
         // ===== STATE MANAGEMENT =====
@@ -2585,9 +2585,11 @@
                 `Excited to chat!`
             );
             
-            // Use the short link - message is pre-configured in WhatsApp Business
-            // Add applicant ID as a query parameter that will be visible in the chat
-            const whatsappUrl = `${WHATSAPP_SHORT_LINK}`;
+            // Generate WhatsApp URL with pre-filled message containing applicant ID
+            const message = encodeURIComponent(
+                `Hi! I just applied to Bambu Training Academy.\n\nMy Application ID: ${currentApplicantId}\n\nLooking forward to connecting!`
+            );
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
             
             // Update button href and open
             const btn = document.getElementById('whatsappStepBtn');
