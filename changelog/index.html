@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu Academy — Changelog & Tasks</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6351e77bf7b7a3148a2f4b8d_bambu-favi-32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bambu-black: #111111;
+            --bambu-dark: #1a1a1a;
+            --bambu-tan: #DCCAB7;
+            --bambu-tan-light: #E5D8C8;
+            --bambu-brown: #836E5F;
+            --text-white: #FFFFFF;
+            --text-muted: #9CA3AF;
+            --text-grey: #6B7280;
+            --bg-card: #232323;
+            --border-subtle: rgba(220, 202, 183, 0.15);
+            --status-done: #22c55e;
+            --status-progress: #f59e0b;
+            --status-pending: #6b7280;
+            --status-blocked: #ef4444;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Montserrat', -apple-system, sans-serif;
+            background: var(--bambu-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .header {
+            background: var(--bambu-dark);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo { height: 40px; }
+        .header-title { font-size: 1.5rem; font-weight: 800; }
+        .back-link { color: var(--bambu-tan); text-decoration: none; font-size: 0.9rem; }
+        .main { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 1rem;
+        }
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover { color: var(--text-white); background: rgba(255,255,255,0.05); }
+        .tab-btn.active { background: var(--bambu-tan); color: var(--bambu-black); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .section { margin-bottom: 3rem; }
+        .section-title { font-size: 1.25rem; font-weight: 700; color: var(--bambu-tan); margin-bottom: 1rem; }
+        .task-grid { display: grid; gap: 1rem; }
+        .task-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .task-status { width: 12px; height: 12px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+        .status-done { background: var(--status-done); }
+        .status-progress { background: var(--status-progress); animation: pulse 2s infinite; }
+        .status-pending { background: var(--status-pending); }
+        .status-blocked { background: var(--status-blocked); }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .task-content { flex: 1; }
+        .task-title { font-weight: 600; margin-bottom: 0.25rem; }
+        .task-desc { font-size: 0.85rem; color: var(--text-muted); }
+        .task-meta { display: flex; gap: 1rem; margin-top: 0.5rem; font-size: 0.75rem; }
+        .task-tag { padding: 0.2rem 0.5rem; border-radius: 4px; background: rgba(220, 202, 183, 0.15); color: var(--bambu-tan); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: var(--bg-card); border-radius: 12px; padding: 1.5rem; text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 900; }
+        .stat-label { color: var(--text-muted); font-size: 0.85rem; }
+        .changelog-entry { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; margin-bottom: 1.5rem; overflow: hidden; }
+        .changelog-header { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; }
+        .changelog-date { font-weight: 700; color: var(--bambu-tan); }
+        .changelog-badge { padding: 0.35rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .changelog-body { padding: 1.5rem; }
+        .changelog-section { margin-bottom: 1.5rem; }
+        .changelog-section:last-child { margin-bottom: 0; }
+        .changelog-section h4 { font-size: 0.9rem; font-weight: 700; color: var(--bambu-tan); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .changelog-list { list-style: none; font-size: 0.9rem; }
+        .changelog-list li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--text-muted); border-bottom: 1px solid var(--border-subtle); }
+        .changelog-list li:last-child { border-bottom: none; }
+        .changelog-list li::before { content: '→'; position: absolute; left: 0; color: var(--bambu-tan); }
+        .transcription { background: var(--bambu-dark); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; line-height: 1.8; max-height: 600px; overflow-y: auto; white-space: pre-wrap; }
+        .speaker-1 { color: var(--bambu-tan); }
+        .speaker-3 { color: #60a5fa; }
+        .timestamp { color: var(--text-grey); font-size: 0.7rem; }
+        .info-box { background: rgba(220, 202, 183, 0.08); border: 1px solid var(--border-subtle); border-left: 4px solid var(--bambu-tan); border-radius: 12px; padding: 1.25rem; margin-bottom: 2rem; }
+        .info-box h4 { color: var(--bambu-tan); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .info-box p { color: var(--text-muted); font-size: 0.85rem; }
+        .footer { text-align: center; padding: 2rem; color: var(--text-grey); font-size: 0.8rem; }
+        .key-decision { background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; }
+        .key-decision h5 { color: #f59e0b; font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .key-decision p { font-size: 0.85rem; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu" class="logo">
+                <div>
+                    <h1 class="header-title">Changelog & Tasks</h1>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Project Management Dashboard</p>
+                </div>
+            </div>
+            <a href="../" class="back-link">← Back to Hub</a>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="tasks">📋 Task Tracker</button>
+            <button class="tab-btn" data-tab="changelog">📝 Changelog</button>
+            <button class="tab-btn" data-tab="transcript">🎙️ Call Transcript</button>
+        </div>
+
+        <!-- TASKS TAB -->
+        <div id="tab-tasks" class="tab-content active">
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" style="color: var(--status-done);">12</div><div class="stat-label">Completed</div></div>
+                <div class="stat-card"><div class="stat-number" style="color: var(--status-progress);">3</div><div class="stat-label">In Progress</div></div>
+                <div class="stat-card"><div class="stat-number" style="color: var(--status-pending);">5</div><div class="stat-label">Pending</div></div>
+                <div class="stat-card"><div class="stat-number" style="color: var(--status-blocked);">0</div><div class="stat-label">Blocked</div></div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🔥 In Progress</h2>
+                <div class="task-grid">
+                    <div class="task-card">
+                        <div class="task-status status-progress"></div>
+                        <div class="task-content">
+                            <div class="task-title">📱 WhatsApp Business AI Agent Integration</div>
+                            <div class="task-desc">Building n8n workflow: WhatsApp Trigger → MongoDB → OpenRouter AI → Reply → Slack. Schema designed, awaiting phone number decision.</div>
+                            <div class="task-meta"><span class="task-tag">Integration</span><span class="task-tag">n8n</span><span class="task-tag">High Priority</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-progress"></div>
+                        <div class="task-content">
+                            <div class="task-title">🗄️ MongoDB Applicant Database Setup</div>
+                            <div class="task-desc">Schema designed. Need connection string to create bambu_academy database and applicants collection.</div>
+                            <div class="task-meta"><span class="task-tag">Database</span><span class="task-tag">MongoDB</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-progress"></div>
+                        <div class="task-content">
+                            <div class="task-title">🔔 Slack Notification Integration</div>
+                            <div class="task-desc">Connect to #all-team-frieds channel. Send alerts when new applicant completes WhatsApp conversation with score summary.</div>
+                            <div class="task-meta"><span class="task-tag">Slack</span><span class="task-tag">Notifications</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">⏳ Pending</h2>
+                <div class="task-grid">
+                    <div class="task-card">
+                        <div class="task-status status-pending"></div>
+                        <div class="task-content">
+                            <div class="task-title">🆔 Applicant ID System in Application Form</div>
+                            <div class="task-desc">Generate unique ID (BAMBU-2026-XXX) on form submit. Show in thank-you modal. Include in WhatsApp pre-filled message.</div>
+                            <div class="task-meta"><span class="task-tag">Website</span><span class="task-tag">UX</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-pending"></div>
+                        <div class="task-content">
+                            <div class="task-title">🤖 WhatsApp Agent User Identification Logic</div>
+                            <div class="task-desc">Agent extracts ID from first message. Fallback: ask for email. Pull applicant data from MongoDB for context.</div>
+                            <div class="task-meta"><span class="task-tag">AI Agent</span><span class="task-tag">Logic</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-pending"></div>
+                        <div class="task-content">
+                            <div class="task-title">🔬 WhatsApp Agent Deep Research Tool</div>
+                            <div class="task-desc">Enable agent to use Firecrawl/Perplexity for real-time applicant research during conversation.</div>
+                            <div class="task-meta"><span class="task-tag">AI Agent</span><span class="task-tag">MCP Tools</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-pending"></div>
+                        <div class="task-content">
+                            <div class="task-title">📊 Auto-Update Dashboard from MongoDB</div>
+                            <div class="task-desc">Dashboard pulls live data from MongoDB. New applicants appear automatically with scores and chat history.</div>
+                            <div class="task-meta"><span class="task-tag">Dashboard</span><span class="task-tag">Real-time</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-pending"></div>
+                        <div class="task-content">
+                            <div class="task-title">Deploy V2 to bamboo-training.com/academy/v2</div>
+                            <div class="task-desc">Create subdomain on official website. Test full flow before going live. Webflow access granted.</div>
+                            <div class="task-meta"><span class="task-tag">Deployment</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-pending"></div>
+                        <div class="task-content">
+                            <div class="task-title">Test full flow with 5 real people</div>
+                            <div class="task-desc">Get real users to go through: Application → WhatsApp → Scoring. Validate AI agent responses.</div>
+                            <div class="task-meta"><span class="task-tag">Testing</span><span class="task-tag">QA</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-pending"></div>
+                        <div class="task-content">
+                            <div class="task-title">Send email copy to Steph (email team)</div>
+                            <div class="task-desc">Provide final email templates with sending schedule. She handles actual sends.</div>
+                            <div class="task-meta"><span class="task-tag">Marketing</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-pending"></div>
+                        <div class="task-content">
+                            <div class="task-title">Coordinate content posting with Sam & Maka</div>
+                            <div class="task-desc">They can share/reshare content on their Instagram accounts. Carrie will reshare but won't film new content.</div>
+                            <div class="task-meta"><span class="task-tag">Social Media</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🚫 Blocked</h2>
+                <div class="task-grid">
+                    <div class="task-card">
+                        <div class="task-status status-blocked"></div>
+                        <div class="task-content">
+                            <div class="task-title">Access to Webflow</div>
+                            <div class="task-desc">Need Webflow access to deploy V2 to official bamboo-training.com website.</div>
+                            <div class="task-meta"><span class="task-tag">Waiting on Will</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">✅ Completed</h2>
+                <div class="task-grid">
+                    <div class="task-card" style="opacity: 0.7; border-left: 3px solid #4CAF50;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">🔍 Instagram Commenter Research (Perplexity)</div><div class="task-desc">93 unique profiles analyzed. 7 STAR tier, 9 STRONG tier. 3 hot leads with explicit sign-up interest. Full JSON + scoring complete.</div><div class="task-meta"><span class="task-tag">Jan 13</span></div></div></div>
+                    <div class="task-card" style="opacity: 0.7; border-left: 3px solid #4CAF50;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">✅ WhatsApp Integration VERIFIED</div><div class="task-desc">Our use case COMPLIANT with Jan 2026 Meta policy. Service conversations FREE. Full setup guide with n8n workflow documented.</div><div class="task-meta"><span class="task-tag">Jan 13</span></div></div></div>
+                    <div class="task-card" style="opacity: 0.7; border-left: 3px solid #4CAF50;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">💬 Generate 24 WhatsApp Simulations</div><div class="task-desc">Created realistic applicant profiles from Instagram research. Full chat histories with qualification conversations.</div><div class="task-meta"><span class="task-tag">Jan 13</span></div></div></div>
+                    <div class="task-card" style="opacity: 0.7; border-left: 3px solid #4CAF50;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">🆔 Applicant ID System</div><div class="task-desc">Generates BAMBU-2026-XXXXXX on form submit. Shown in thank-you modal. Included in WhatsApp pre-filled message.</div><div class="task-meta"><span class="task-tag">Jan 13</span></div></div></div>
+                    <div class="task-card" style="opacity: 0.7; border-left: 3px solid #4CAF50;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">💰 Pricing Updated</div><div class="task-desc">$6,999 standard / $4,299 early bird. Removed 12-month plan from public display per Will's call.</div><div class="task-meta"><span class="task-tag">Jan 13</span></div></div></div>
+                    <div class="task-card" style="opacity: 0.7; border-left: 3px solid #4CAF50;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">📅 Exact Dates Added</div><div class="task-desc">March 1-28, 2026 (Cohort 1) and October 4-31, 2026 (Cohort 2) throughout all pages.</div><div class="task-meta"><span class="task-tag">Jan 13</span></div></div></div>
+                    <div class="task-card" style="opacity: 0.7;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">Create Academy Application V2 page</div><div class="task-desc">New landing page with simplified flow: Apply → Chat → Call → Join</div></div></div>
+                    <div class="task-card" style="opacity: 0.7;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">Build WhatsApp AI Agent prompt</div><div class="task-desc">Complete conversation flow with Will's voice and communication style.</div></div></div>
+                    <div class="task-card" style="opacity: 0.7;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">Create Applicant Dashboard with scoring</div><div class="task-desc">CRM-style dashboard with 6-parameter scoring model. Now with 24 realistic profiles!</div></div></div>
+                    <div class="task-card" style="opacity: 0.7;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">Generate Content Plan (emails, stories, posts)</div><div class="task-desc">3 emails, 8 stories, 4 posts with calendar.</div></div></div>
+                    <div class="task-card" style="opacity: 0.7;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">Create Thank You modal with WhatsApp CTA</div><div class="task-desc">Post-application flow directing to WhatsApp conversation.</div></div></div>
+                    <div class="task-card" style="opacity: 0.7;"><div class="task-status status-done"></div><div class="task-content"><div class="task-title">Deploy to GitHub Pages for testing</div><div class="task-desc">All pages live at alebauer07-collab.github.io/ss-research-x7f9k2</div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHANGELOG TAB -->
+        <div id="tab-changelog" class="tab-content">
+            <div class="changelog-entry">
+                <div class="changelog-header">
+                    <div><div class="changelog-date">January 12, 2026 — Post-Call Updates</div><div style="font-size: 0.85rem; color: var(--text-muted);">Following review call with Will</div></div>
+                    <span class="changelog-badge">Latest</span>
+                </div>
+                <div class="changelog-body">
+                    <div class="key-decision">
+                        <h5>💰 Key Decision: Pricing Strategy</h5>
+                        <p><strong>Change:</strong> Use $6,999 (not $7,000) — Will prefers the .99 psychology<br><strong>Payment Plans:</strong> Remove 12-month option ($599/mo) from public page. Offer on calls only for first cohort. Can make public after first cohort completes.</p>
+                    </div>
+                    <div class="key-decision">
+                        <h5>📅 Key Decision: Exact Dates Confirmed</h5>
+                        <p><strong>Cohort 1:</strong> March 1-28, 2026<br><strong>Cohort 2:</strong> October 4-31, 2026</p>
+                    </div>
+                    <div class="changelog-section">
+                        <h4>🔧 Changes Made</h4>
+                        <ul class="changelog-list">
+                            <li>Updated pricing from $7,000 to $6,999 across all pages</li>
+                            <li>Removed 12-month payment plan ($599/mo) from public view</li>
+                            <li>Added exact dates: March 1-28, 2026 for Cohort 1</li>
+                            <li>Added Cohort 2 dates: October 4-31, 2026</li>
+                            <li>Combined "Course Creator" and "Gym Owner" career paths into single statement</li>
+                            <li>Removed specific salary figures ($120K) from career ladder</li>
+                            <li>Removed long dashes (—) from email templates</li>
+                            <li>Updated coaches list: Only Will, Sam, and Maka involved</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-section">
+                        <h4>📋 New Tasks Created</h4>
+                        <ul class="changelog-list">
+                            <li>Generate 20+ WhatsApp conversation simulations (currently have 5)</li>
+                            <li>Set up new WhatsApp Business number via eSIM</li>
+                            <li>Get Webflow access from Will</li>
+                            <li>Deploy V2 to bamboo-training.com/academy/v2</li>
+                            <li>Test full flow with 5 real users</li>
+                            <li>Coordinate with Sam, Maka, and Carrie for content sharing</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-section">
+                        <h4>💡 Key Insights from Call</h4>
+                        <ul class="changelog-list">
+                            <li>Carrie can reshare content but won't film new material</li>
+                            <li>Sam and Maka have ~2K followers each — valuable for targeted reach</li>
+                            <li>Email copy sounds like Will — Steph (email team) writes in his voice</li>
+                            <li>Rick will help organize tasks on Will's side</li>
+                            <li>Keep gym website (bambufitnessbali.com) completely separate</li>
+                            <li>Bambu Training is separate LLC (Florida) from gym (Indonesia PT)</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-section">
+                        <h4>⚠️ Important Notes</h4>
+                        <ul class="changelog-list">
+                            <li>3 people already signed up: 1 gym (full price $6,999), 2 individuals (early bird $4,299)</li>
+                            <li>Don't show new payment options to existing signups — they may feel unfair</li>
+                            <li>Using Partially for subscription payments — handles failed payments legally</li>
+                            <li>Will signs NDA for Alexey — same one Rick signed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="changelog-entry" style="opacity: 0.8;">
+                <div class="changelog-header">
+                    <div><div class="changelog-date">January 11-12, 2026 — Initial Build</div><div style="font-size: 0.85rem; color: var(--text-muted);">Project setup and core pages</div></div>
+                </div>
+                <div class="changelog-body">
+                    <div class="changelog-section">
+                        <h4>🚀 Created</h4>
+                        <ul class="changelog-list">
+                            <li>Academy Application V2 page with new funnel flow</li>
+                            <li>WhatsApp AI Agent prompt (Will's voice)</li>
+                            <li>Applicant Scoring System (6 parameters)</li>
+                            <li>Applicant Research Agent prompt</li>
+                            <li>CRM Dashboard with simulated applicants</li>
+                            <li>Content Plan (emails, stories, posts, calendar)</li>
+                            <li>Thank You modal with WhatsApp integration</li>
+                            <li>Project Hub with version navigation</li>
+                            <li>GitHub Pages deployment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRANSCRIPT TAB -->
+        <div id="tab-transcript" class="tab-content">
+            <div class="info-box">
+                <h4>🎙️ Call Recording — January 12, 2026 ~11:00</h4>
+                <p>Full transcription of review call with Will. Key decisions and action items extracted and tracked in Tasks tab.</p>
+            </div>
+            <div class="transcription"><span class="timestamp">[00:00:01]</span> <span class="speaker-1">Will:</span> You have all these gadgets, bro. Okay, so this is all great. The few things that I want to make sure that I understand and are clear on. Obviously, this is all internal, which is why it says internal.
+
+<span class="timestamp">[00:00:20]</span> <span class="speaker-1">Will:</span> So this is for us to understand. This all makes complete sense to me. Now, the one thing to talk about for Carrie is she is very open to like supporting by like sharing things, but she doesn't have the time to like film stuff and do that. So she's like any way that I can help where it's like easily sharing something, she's happy to. So we can still leverage this. We can also still leverage Sam and Maka's Instagram because they're obviously equally invested. They have like a couple thousand each, which is still very concerted for the people that follow them. This all looks great to me.
+
+<span class="timestamp">[00:01:37]</span> <span class="speaker-1">Will:</span> This price, are you recommending a different price?
+
+<span class="timestamp">[00:01:41]</span> <span class="speaker-3">Alexey:</span> No, it's an agent who came up with it.
+
+<span class="timestamp">[00:01:44]</span> <span class="speaker-1">Will:</span> Yeah, so that was one of the things, just to make sure of the pricing. My question to you is this. You've been around products that sell on subscription quite a bit. I am a fan of this pricing. I actually don't like 99. That's my preference, but the psychology that has been led up to now says 99 is better because 6999 looks cheaper than 7000. But for me... I prefer this, $7,000 even. I'm actually curious to hear what you think.
+
+<span class="timestamp">[00:02:18]</span> <span class="speaker-3">Alexey:</span> Yeah. To be honest, I think that if you jump on a call with people, they will not care about if it's $99 or $00.
+
+<span class="timestamp">[00:02:26]</span> <span class="speaker-1">Will:</span> Yeah, I agree. I think we just keep it the same as normal. So six nine. We've given away like discounts in the beginning to start. So like the three people that have signed up, one of them which is the gym, I told them that a discount is not available for commercial use. So if they wanted to invest in the person they need to pay the full price and they were happy with that. That was six nine. The other two that paid used discount code which is two thousand seven hundred dollars off. It brought it down to four thousand two hundred and nine nine.
+
+<span class="timestamp">[00:04:00]</span> <span class="speaker-1">Will:</span> My question for this is, you talked about, this has been something that you've solved in the past for people, meaning like, if somebody pays the $599 a month for 12 months, that obviously means, likely, they're gonna be paying after the course is done. So my first question is, like, security of making sure they pay, it's obviously a risk, right?
+
+<span class="timestamp">[00:04:15]</span> <span class="speaker-3">Alexey:</span> Yeah, so in my experience, we had some customers who were spending thousands of dollars for coaching with pros in video games, and we never met them in person. But we used Partially, that's basically a service that just charges you subscription every month, but at the same time, you sign the user agreement which is the contract where you are obligated to pay. Only ten percent ended up not paying.
+
+<span class="timestamp">[00:05:03]</span> <span class="speaker-1">Will:</span> I'm okay with this. The only thing is on this first course I've only given the two people that have payment plans... if we put out this new site and they see this they're gonna be like well why could I not have that. It might be smart to keep this off the page and offer this on calls instead. And then after the first cohort, make that public.
+
+<span class="timestamp">[00:07:29]</span> <span class="speaker-1">Will:</span> So what I want to make sure, this one down here about salary expectations, I'm not sure if this is smart to have on here. I think we could condense this into one and say, if you were looking at a future of coaching at Bamboo, this is a good stepping stone.
+
+<span class="timestamp">[00:07:59]</span> <span class="speaker-3">Alexey:</span> So the course creator and gym owner, etc, we just combine it all in one and say that the sky's the limit, you can grow whatever you want.
+
+<span class="timestamp">[00:08:08]</span> <span class="speaker-1">Will:</span> I think it's like if you wanted to accelerate your business by being an online coach, opening up your own gym, creating online courses for yourself, this would be a great stepping stone for that. This is good, I like this, this is really nice.
+
+<span class="timestamp">[00:08:44]</span> <span class="speaker-3">Alexey:</span> This page that is currently leading people to the Stripe is going to be changed to this page that leads people to the application. So we basically want to collect as many applications. And when they fill the application, they get the invitation to the WhatsApp. And then there's this AI agent that continues to talk with them.
+
+<span class="timestamp">[00:09:34]</span> <span class="speaker-1">Will:</span> It all reads still the same, which is good. You asked me to read through all the emails. I think the emails, in a very terrifying way, sound like me. Steph does a really good job, our current email marketing team. She talks like I do, and it's quite scary. It's just the only thing is these long dashes. I think everyone knows those as ChatGPT or some kind of AI system. I assume these would be tidied up, and then I would send this copy to our email team and say, send this email on this day.
+
+<span class="timestamp">[00:15:07]</span> <span class="speaker-3">Alexey:</span> It would be nice to have exact dates.
+
+<span class="timestamp">[00:15:08]</span> <span class="speaker-1">Will:</span> Okay, so it'd be March 1st to 28th. And we have dates for the second course too. It's October 4th to 31st.
+
+<span class="timestamp">[00:15:42]</span> <span class="speaker-1">Will:</span> The WhatsApp business bot, you said you've already connected it or not yet?
+
+<span class="timestamp">[00:15:47]</span> <span class="speaker-3">Alexey:</span> Not to your WhatsApp business, I didn't pack it if you want.
+
+<span class="timestamp">[00:16:14]</span> <span class="speaker-3">Alexey:</span> Yeah, so we can either use your current business WhatsApp that your team uses, it's just gonna create another folder there where these applicants are gonna be, but I think it's not necessary. I think we just create another business WhatsApp.
+
+<span class="timestamp">[00:16:37]</span> <span class="speaker-3">Alexey:</span> I can just buy the eSIM with the phone number that can get text and I'll transfer this into you. You can just give me some of your phones that we can register this business WhatsApp. You'll get an SMS, you get me the code and I'll do the rest.
+
+<span class="timestamp">[00:17:21]</span> <span class="speaker-3">Alexey:</span> The new website, I'll need access to the website.
+
+<span class="timestamp">[00:17:51]</span> <span class="speaker-3">Alexey:</span> If you want to edit the rest of the website, we can do it as well. This thing actually copies your website in 15 minutes.
+
+<span class="timestamp">[00:19:00]</span> <span class="speaker-3">Alexey:</span> Yes, so just give me access to the Webflow. I'll create another copy of the page of your current academy. We'll load this up on some of the sub-domains of Bamboo Fitness official website.
+
+<span class="timestamp">[00:19:14]</span> <span class="speaker-1">Will:</span> We have three businesses. We have the Bamboo Training, which is the online group programs. We have Bamboo Training Academy, which is a sub-brand. And we have the gym. The gym is completely separate business. Bamboo Training is an LLC out of Florida, whereas the gym here is a PT for Indonesia. I want to make sure that we're not doing anything to change the gym stuff for now.
+
+<span class="timestamp">[00:20:51]</span> <span class="speaker-3">Alexey:</span> The current information of the academy is on bamboo-training.com/academy.
+
+<span class="timestamp">[00:20:58]</span> <span class="speaker-3">Alexey:</span> Yeah, so it's gonna be bamboo-training.com/academy/v2. I'll show it to you, if you say that everything's fine we tested together, we'll try this whole flow with the WhatsApp. I'll also generate the simulations of 20+ conversations with some of your followers. We just go through these simulations and see if AI agent is doing a good job.
+
+<span class="timestamp">[00:22:12]</span> <span class="speaker-1">Will:</span> In the chat, I don't want to accidentally miss something that you need and I slow you down. In the chat whenever you need something just put it in the chat and he'll make sure and I'll make sure we do it. I just want to make sure that I'm respecting your time as much as possible.
+
+<span class="timestamp">[00:24:06]</span> <span class="speaker-3">Alexey:</span> All we need now is just a Webflow access, plus I'm going to send you, I'll need a phone number that you register this WhatsApp for. Those two things, I come up with the results, and then we just review, I get your feedback, I apply it, and green light, and we push it on production.
+
+<span class="timestamp">[00:24:36]</span> <span class="speaker-3">Alexey:</span> If you need me to sign some NDA or whatever, I can craft a document for you and send it to you.
+
+<span class="timestamp">[00:24:42]</span> <span class="speaker-1">Will:</span> I have an NDA that I'm having him sign as well. I'll just send you the same one. Thank you, man. I appreciate it.</div>
+        </div>
+
+        <div class="footer">
+            <p>Bambu Academy Project Management • Updated January 12, 2026</p>
+            <p style="margin-top: 0.5rem; color: var(--text-grey);">Will Henke + Alexey</p>
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu Academy — Content Plan</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6351e77bf7b7a3148a2f4b8d_bambu-favi-32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bambu-black: #111111;
+            --bambu-dark: #1a1a1a;
+            --bambu-tan: #DCCAB7;
+            --bambu-tan-light: #E5D8C8;
+            --text-white: #FFFFFF;
+            --text-muted: #9CA3AF;
+            --text-grey: #6B7280;
+            --bg-card: #232323;
+            --border-subtle: rgba(220, 202, 183, 0.15);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bambu-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bambu-dark);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .header-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .back-link {
+            color: var(--bambu-tan);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: var(--bambu-tan-light);
+        }
+
+        /* Main */
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-white);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .tab-btn.active {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--bambu-tan);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Email Card */
+        .email-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .email-card-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .email-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .email-number {
+            width: 36px;
+            height: 36px;
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .email-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .email-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .email-timing {
+            text-align: right;
+        }
+
+        .email-timing .day {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--bambu-tan);
+        }
+
+        .email-timing .desc {
+            font-size: 0.75rem;
+            color: var(--text-grey);
+        }
+
+        /* HTML Email Template Styles */
+        .email-template {
+            background: #FFFFFF;
+            border: 2px solid #DCCAB7;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 1rem;
+        }
+
+        .email-header {
+            background: #DCCAB7;
+            padding: 1rem 1.5rem;
+            border-bottom: none;
+        }
+
+        .email-field {
+            font-size: 0.85rem;
+            color: #111111;
+            margin-bottom: 0.35rem;
+        }
+
+        .email-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .email-body {
+            padding: 1.5rem;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #000000;
+            font-family: 'Montserrat', Verdana, sans-serif;
+            background: #FFFFFF;
+        }
+
+        .email-body p {
+            margin-bottom: 0;
+            padding-bottom: 0.75em;
+            color: #000;
+        }
+
+        .email-cta {
+            display: inline-block;
+            background: #836E5F;
+            color: #FFFFFF !important;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .email-footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background: #DCCAB7;
+            margin: 1.5rem -1.5rem -1.5rem;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .email-footer a {
+            color: #836E5F;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .email-actions {
+            padding: 1rem 1.5rem;
+            display: flex;
+            gap: 0.75rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .copy-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-white);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+
+        /* Bottom Tabs */
+        .tabs-bottom {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            justify-content: center;
+        }
+
+        /* Stories Grid */
+        .stories-grid {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        /* Story Frame - iPhone 16:9 aspect ratio for stories (9:16) */
+        .story-frame {
+            flex-shrink: 0;
+            width: 270px;
+            height: 480px;
+            background: var(--bambu-dark);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 3px solid #333;
+            position: relative;
+        }
+
+        .story-frame::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background: #333;
+            border-radius: 3px;
+            z-index: 10;
+        }
+
+        .story-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 16px 20px;
+        }
+
+        .story-label {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Story Styles */
+        .story-1 {
+            background: linear-gradient(180deg, var(--bambu-black) 0%, #1a1a1a 100%);
+        }
+
+        .story-2 {
+            background: linear-gradient(180deg, #1a1512 0%, var(--bambu-black) 100%);
+        }
+
+        .story-3 {
+            background: linear-gradient(180deg, var(--bambu-dark) 0%, #0a0a0a 100%);
+        }
+
+        .story-4 {
+            background: linear-gradient(180deg, #12100e 0%, var(--bambu-black) 100%);
+        }
+
+        .story-5 {
+            background: linear-gradient(180deg, #0f1419 0%, var(--bambu-black) 100%);
+        }
+
+        .story-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .story-text h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .story-text p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .story-text .highlight {
+            color: var(--bambu-tan);
+        }
+
+        .story-text .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .story-stat {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--bambu-tan);
+            margin-bottom: 0.5rem;
+        }
+
+        .story-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Link placeholder */
+        .link-placeholder {
+            margin-top: auto;
+            padding: 12px 20px;
+            border: 2px dashed var(--bambu-tan);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--bambu-tan);
+            opacity: 0.7;
+        }
+
+        /* Posts Grid */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .post-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .post-header {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bambu-tan);
+        }
+
+        .post-user {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .post-handle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .post-type {
+            margin-left: auto;
+            padding: 0.25rem 0.75rem;
+            background: rgba(220, 202, 183, 0.15);
+            color: var(--bambu-tan);
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .post-preview {
+            aspect-ratio: 1;
+            background: var(--bambu-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .post-preview h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-preview p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .post-caption {
+            padding: 1rem;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .post-caption .hashtags {
+            color: var(--bambu-tan);
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+        }
+
+        .post-schedule {
+            padding: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .post-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .post-status {
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-scheduled {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .status-draft {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        /* Calendar */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-header {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            padding: 0.5rem;
+            font-weight: 600;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            position: relative;
+        }
+
+        .calendar-day.has-content {
+            border-color: var(--bambu-tan);
+        }
+
+        .calendar-day .date {
+            font-weight: 600;
+        }
+
+        .calendar-day .dots {
+            display: flex;
+            gap: 3px;
+            margin-top: 0.25rem;
+        }
+
+        .calendar-day .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .dot-email { background: #3b82f6; }
+        .dot-post { background: #22c55e; }
+        .dot-story { background: #f59e0b; }
+
+        /* Info box */
+        .info-box {
+            background: rgba(220, 202, 183, 0.08);
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--bambu-tan);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-box h4 {
+            color: var(--bambu-tan);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-grey);
+            font-size: 0.8rem;
+        }
+
+        /* Carousel preview */
+        .carousel-slides {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+
+        .carousel-slide {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            background: var(--bambu-dark);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .carousel-slide .slide-num {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            border-radius: 50%;
+            font-size: 0.7rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-slide p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .main { padding: 1rem; }
+            .tabs { flex-wrap: wrap; }
+            .story-frame { width: 240px; height: 426px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu" class="logo">
+                <div>
+                    <h1 class="header-title">Content Plan</h1>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">March 2026 Academy Launch</p>
+                </div>
+            </div>
+            <a href="../" class="back-link">← Back to Hub</a>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="stories">📱 Instagram Stories</button>
+            <button class="tab-btn" data-tab="emails">📧 Email Sequence</button>
+            <button class="tab-btn" data-tab="posts">📸 Instagram Posts</button>
+            <button class="tab-btn" data-tab="calendar">📅 Content Calendar</button>
+        </div>
+
+        <!-- EMAIL TAB -->
+        <div id="tab-emails" class="tab-content">
+            <div class="info-box">
+                <h4>📧 Email Sequence Strategy</h4>
+                <p>3-email sequence for the Academy launch. Send to your email list over 7 days. Each email builds on the previous one with increasing urgency.</p>
+            </div>
+
+            <!-- Email 1 -->
+            <div class="email-card">
+                <div class="email-card-header">
+                    <div class="email-meta">
+                        <div class="email-number">1</div>
+                        <div class="email-info">
+                            <h3>The Announcement</h3>
+                            <p>Primary launch email — introduce the Academy</p>
+                        </div>
+                    </div>
+                    <div class="email-timing">
+                        <div class="day">Day 1</div>
+                        <div class="desc">Send immediately</div>
+                    </div>
+                </div>
+                
+                <div class="email-template">
+                    <div class="email-header">
+                        <div class="email-field"><strong>From:</strong> Bambu Fitness Bali &lt;team@hello.bambufitnessbali.com&gt;</div>
+                        <div class="email-field"><strong>Subject:</strong> We're doing something different.</div>
+                        <div class="email-field" style="color: #666; font-size: 0.85rem;"><strong>Preview:</strong> The Bambu Training Academy is now open for applications.</div>
+                    </div>
+                    <div class="email-body">
+                        <div style="text-align: center; padding: 1rem 0 1.5rem;">
+                            <img src="https://d3k81ch9hvuctc.cloudfront.net/company/SghsXH/images/8129daf6-dfea-4ed4-9ad7-0b292b513e9f.png" alt="Bambu Fitness" style="width: 180px; height: auto;">
+                        </div>
+
+                        <p>Quick one for you.</p>
+                        <p>&nbsp;</p>
+                        <p>We're launching the <strong style="color: #836E5F;">Bambu Training Academy</strong>.</p>
+                        <p>&nbsp;</p>
+                        <p>Not another online course. Not a weekend certification. Four weeks. In-person. Here in Bali. Real gym floor. Real clients. Real coaching.</p>
+                        <p>&nbsp;</p>
+                        <p>Here's the deal:</p>
+                        <p>&nbsp;</p>
+                        <p>We're taking 15 coaches through a complete transformation. Movement. Programming. Communication. Business. Everything you actually need to build a career that doesn't burn you out.</p>
+                        <p>&nbsp;</p>
+                        <p><strong style="color: #836E5F;">March 1-28, 2026.</strong></p>
+                        <p>&nbsp;</p>
+                        <p>If you've ever felt like you should know more than you do... or like you're coaching from a script instead of from understanding... this is for you.</p>
+                        <p>&nbsp;</p>
+                        <p>Application takes 2 minutes:</p>
+                        <p>&nbsp;</p>
+                        
+                        <div style="text-align: center; margin: 1.5rem 0;">
+                            <a href="#" class="email-cta">APPLY TO THE ACADEMY</a>
+                        </div>
+
+                        <p>&nbsp;</p>
+                        <p>We're reviewing applications as they come in. First cohort is already 20% full from word of mouth.</p>
+                        <p>&nbsp;</p>
+                        <p>- Will</p>
+                        <p>&nbsp;</p>
+                        <p style="font-size: 0.9em; color: #666;">P.S. If you have questions, just reply to this email. I read everything.</p>
+
+                        <div class="email-footer">
+                            <a href="#">Bambu Fitness Website</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="email-actions">
+                    <button class="copy-btn" onclick="copyEmail(1)">📋 Copy Email Text</button>
+                </div>
+            </div>
+
+            <!-- Email 2 -->
+            <div class="email-card">
+                <div class="email-card-header">
+                    <div class="email-meta">
+                        <div class="email-number">2</div>
+                        <div class="email-info">
+                            <h3>The Details</h3>
+                            <p>Break down what they'll learn — address objections</p>
+                        </div>
+                    </div>
+                    <div class="email-timing">
+                        <div class="day">Day 4</div>
+                        <div class="desc">3 days after Email 1</div>
+                    </div>
+                </div>
+                
+                <div class="email-template">
+                    <div class="email-header">
+                        <div class="email-field"><strong>From:</strong> Bambu Fitness Bali &lt;team@hello.bambufitnessbali.com&gt;</div>
+                        <div class="email-field"><strong>Subject:</strong> What 4 weeks actually looks like</div>
+                        <div class="email-field" style="color: #666; font-size: 0.85rem;"><strong>Preview:</strong> Week by week breakdown of the Academy curriculum.</div>
+                    </div>
+                    <div class="email-body">
+                        <div style="text-align: center; padding: 1rem 0 1.5rem;">
+                            <img src="https://d3k81ch9hvuctc.cloudfront.net/company/SghsXH/images/8129daf6-dfea-4ed4-9ad7-0b292b513e9f.png" alt="Bambu Fitness" style="width: 180px; height: auto;">
+                        </div>
+
+                        <p>Got a lot of questions after the last email.</p>
+                        <p>&nbsp;</p>
+                        <p>Most common one: "What do you actually cover in 4 weeks?"</p>
+                        <p>&nbsp;</p>
+                        <p>Fair question. Here's the breakdown:</p>
+                        <p>&nbsp;</p>
+                        
+                        <p><strong style="color: #836E5F;">WEEK 1: FOUNDATION</strong></p>
+                        <p>Movement mechanics. Not just "how" but why bodies move the way they do. You'll never look at a squat the same way again.</p>
+                        <p>&nbsp;</p>
+                        
+                        <p><strong style="color: #836E5F;">WEEK 2: COMMUNICATION</strong></p>
+                        <p>This is where most coaches fail. You know what's wrong. You just can't get it from your head into their body. We fix that.</p>
+                        <p>&nbsp;</p>
+                        
+                        <p><strong style="color: #836E5F;">WEEK 3: GROUP DYNAMICS</strong></p>
+                        <p>Running a class isn't the same as coaching 1:1. Session flow. Energy management. How to see 12 people at once. The stuff no one teaches.</p>
+                        <p>&nbsp;</p>
+                        
+                        <p><strong style="color: #836E5F;">WEEK 4: BUSINESS & INTEGRATION</strong></p>
+                        <p>Programming. Pricing. Building a client base that doesn't require you to work 60 hours a week. Plus putting it all together with real coaching scenarios.</p>
+                        <p>&nbsp;</p>
+                        
+                        <p>Every day: classroom in the morning, gym floor in the afternoon. You'll coach real sessions. Get real feedback. Make real mistakes in a safe environment.</p>
+                        <p>&nbsp;</p>
+                        <p><em>This isn't theory. It's practice.</em></p>
+                        <p>&nbsp;</p>
+                        <p>15 spots. We're at 5 confirmed.</p>
+                        <p>&nbsp;</p>
+                        
+                        <div style="text-align: center; margin: 1.5rem 0;">
+                            <a href="#" class="email-cta">APPLY NOW</a>
+                        </div>
+
+                        <p>&nbsp;</p>
+                        <p>See you in Bali.</p>
+                        <p>&nbsp;</p>
+                        <p>- Will</p>
+
+                        <div class="email-footer">
+                            <a href="#">Bambu Fitness Website</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="email-actions">
+                    <button class="copy-btn" onclick="copyEmail(2)">📋 Copy Email Text</button>
+                </div>
+            </div>
+
+            <!-- Email 3 -->
+            <div class="email-card">
+                <div class="email-card-header">
+                    <div class="email-meta">
+                        <div class="email-number">3</div>
+                        <div class="email-info">
+                            <h3>The Final Push</h3>
+                            <p>Urgency + social proof — last chance messaging</p>
+                        </div>
+                    </div>
+                    <div class="email-timing">
+                        <div class="day">Day 7</div>
+                        <div class="desc">3 days after Email 2</div>
+                    </div>
+                </div>
+                
+                <div class="email-template">
+                    <div class="email-header">
+                        <div class="email-field"><strong>From:</strong> Bambu Fitness Bali &lt;team@hello.bambufitnessbali.com&gt;</div>
+                        <div class="email-field"><strong>Subject:</strong> 7 spots left (not a marketing trick)</div>
+                        <div class="email-field" style="color: #666; font-size: 0.85rem;"><strong>Preview:</strong> Real numbers. Real deadline. Your call.</div>
+                    </div>
+                    <div class="email-body">
+                        <div style="text-align: center; padding: 1rem 0 1.5rem;">
+                            <img src="https://d3k81ch9hvuctc.cloudfront.net/company/SghsXH/images/8129daf6-dfea-4ed4-9ad7-0b292b513e9f.png" alt="Bambu Fitness" style="width: 180px; height: auto;">
+                        </div>
+
+                        <p>Real talk.</p>
+                        <p>&nbsp;</p>
+                        <p>We're at 8 confirmed for the March cohort. <strong style="color: #836E5F;">7 spots remain.</strong></p>
+                        <p>&nbsp;</p>
+                        <p>I'm not going to manufacture urgency. This is just math. 15 spots. 8 filled. You can do the rest.</p>
+                        <p>&nbsp;</p>
+                        <p>Here's what I've noticed about the people who've applied:</p>
+                        <p>&nbsp;</p>
+                        
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: #000;">
+                            <li style="margin-bottom: 0.5rem;">Most run their own gyms or training businesses</li>
+                            <li style="margin-bottom: 0.5rem;">Average 3-5 years coaching experience</li>
+                            <li style="margin-bottom: 0.5rem;">They're good at what they do but know they could be better</li>
+                            <li style="margin-bottom: 0.5rem;">They're tired of learning from videos and want hands-on</li>
+                        </ul>
+                        
+                        <p>&nbsp;</p>
+                        <p>If that sounds like you, you probably already know whether this is right.</p>
+                        <p>&nbsp;</p>
+                        <p>If you're on the fence, ask yourself one question:</p>
+                        <p>&nbsp;</p>
+                        <p style="text-align: center; font-style: italic; font-size: 1.1em;"><em>"Where will my coaching be in 6 months if I don't change anything?"</em></p>
+                        <p>&nbsp;</p>
+                        <p>If you're good with that answer, no stress. Keep doing what you're doing.</p>
+                        <p>&nbsp;</p>
+                        <p>If you're not... we should talk.</p>
+                        <p>&nbsp;</p>
+                        
+                        <div style="text-align: center; margin: 1.5rem 0;">
+                            <a href="#" class="email-cta">APPLY TO THE ACADEMY</a>
+                        </div>
+
+                        <p>&nbsp;</p>
+                        <p>Applications close when we hit 15. Could be this week. Could be next month. I genuinely don't know.</p>
+                        <p>&nbsp;</p>
+                        <p>What I do know: the people in this room in March are going to be different coaches by April.</p>
+                        <p>&nbsp;</p>
+                        <p>- Will</p>
+                        <p>&nbsp;</p>
+                        <p style="font-size: 0.9em; color: #666;">P.S. Payment plans available. DM me if that's a barrier.</p>
+
+                        <div class="email-footer">
+                            <a href="#">Bambu Fitness Website</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="email-actions">
+                    <button class="copy-btn" onclick="copyEmail(3)">📋 Copy Email Text</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- STORIES TAB -->
+        <div id="tab-stories" class="tab-content active">
+            <div class="info-box">
+                <h4>📱 Screenshot These Stories</h4>
+                <p>Open this page on your phone, scroll to each story, and screenshot. The format is optimized for iPhone (9:16 aspect ratio). There's a placeholder at the bottom where you can add your link sticker in Instagram.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Week 1 Stories</h2>
+                        <p class="section-subtitle">Announcement & Awareness</p>
+                    </div>
+                </div>
+
+                <div class="stories-grid">
+                    <!-- Story 1 -->
+                    <div style="position: relative; margin-bottom: 40px;">
+                        <div class="story-frame">
+                            <div class="story-content story-1">
+                                <div class="story-text">
+                                    <div class="emoji">🚀</div>
+                                    <h2>It's<br><span class="highlight">Official</span></h2>
+                                    <p>The Bambu Training Academy is open for applications.</p>
+                                    <p style="margin-top: 1rem; font-weight: 600;">March 2026 • Bali</p>
+                                </div>
+                                <div class="link-placeholder">
+                                    📎 Add link sticker here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-label">Story 1: Announcement</div>
+                    </div>
+
+                    <!-- Story 2 -->
+                    <div style="position: relative; margin-bottom: 40px;">
+                        <div class="story-frame">
+                            <div class="story-content story-2">
+                                <div class="story-text">
+                                    <div class="story-stat">15</div>
+                                    <div class="story-stat-label">Spots Only</div>
+                                    <p style="margin-top: 1.5rem;">Not 50. Not 100.<br>Fifteen coaches who want to actually get better.</p>
+                                </div>
+                                <div class="link-placeholder">
+                                    📎 Add link sticker here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-label">Story 2: Scarcity</div>
+                    </div>
+
+                    <!-- Story 3 -->
+                    <div style="position: relative; margin-bottom: 40px;">
+                        <div class="story-frame">
+                            <div class="story-content story-3">
+                                <div class="story-text">
+                                    <h2 style="font-size: 1.2rem; margin-bottom: 1.5rem;">What you'll<br><span class="highlight">actually learn:</span></h2>
+                                    <div style="text-align: left; font-size: 0.85rem; line-height: 2;">
+                                        <p>✓ Movement & Biomechanics</p>
+                                        <p>✓ Communication & Cueing</p>
+                                        <p>✓ Group Management</p>
+                                        <p>✓ Program Design</p>
+                                        <p>✓ Business Fundamentals</p>
+                                    </div>
+                                </div>
+                                <div class="link-placeholder">
+                                    📎 Add link sticker here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-label">Story 3: Curriculum</div>
+                    </div>
+
+                    <!-- Story 4 -->
+                    <div style="position: relative; margin-bottom: 40px;">
+                        <div class="story-frame">
+                            <div class="story-content story-4">
+                                <div class="story-text">
+                                    <h2 style="font-size: 1.1rem; line-height: 1.4;">
+                                        "Most coaching courses<br>teach <span style="text-decoration: line-through; opacity: 0.5;">information</span>"
+                                    </h2>
+                                    <p style="margin-top: 1.5rem; font-size: 1.1rem; font-weight: 700; color: var(--bambu-tan);">
+                                        We teach application.
+                                    </p>
+                                    <p style="margin-top: 1rem; font-size: 0.8rem;">
+                                        4 weeks. Real gym floor.<br>Real clients. Real feedback.
+                                    </p>
+                                </div>
+                                <div class="link-placeholder">
+                                    📎 Add link sticker here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-label">Story 4: Differentiator</div>
+                    </div>
+
+                    <!-- Story 5 -->
+                    <div style="position: relative; margin-bottom: 40px;">
+                        <div class="story-frame">
+                            <div class="story-content story-5">
+                                <div class="story-text">
+                                    <div class="emoji">💬</div>
+                                    <h2 style="font-size: 1.1rem;">Got questions?</h2>
+                                    <p style="margin-top: 1rem;">DM me "ACADEMY"<br>and I'll send you the details.</p>
+                                    <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--bambu-tan);">Or tap below to apply directly 👇</p>
+                                </div>
+                                <div class="link-placeholder">
+                                    📎 Add link sticker here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-label">Story 5: CTA</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Week 2 Stories</h2>
+                        <p class="section-subtitle">Social Proof & Urgency</p>
+                    </div>
+                </div>
+
+                <div class="stories-grid">
+                    <!-- Story 6 -->
+                    <div style="position: relative; margin-bottom: 40px;">
+                        <div class="story-frame">
+                            <div class="story-content story-2">
+                                <div class="story-text">
+                                    <div class="story-stat">5</div>
+                                    <div class="story-stat-label">Spots Filled</div>
+                                    <p style="margin-top: 1.5rem;">10 remaining.<br>Applications coming in daily.</p>
+                                </div>
+                                <div class="link-placeholder">
+                                    📎 Add link sticker here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-label">Story 6: Progress Update</div>
+                    </div>
+
+                    <!-- Story 7 -->
+                    <div style="position: relative; margin-bottom: 40px;">
+                        <div class="story-frame">
+                            <div class="story-content story-1">
+                                <div class="story-text">
+                                    <h2 style="font-size: 1rem; margin-bottom: 1rem;">Who's applying?</h2>
+                                    <div style="text-align: left; font-size: 0.8rem; line-height: 1.8; color: var(--text-muted);">
+                                        <p>🇬🇧 Gym owners from UK</p>
+                                        <p>🇦🇺 CrossFit coaches from Australia</p>
+                                        <p>🇸🇬 Head coaches from Singapore</p>
+                                        <p>🇺🇸 PTs from the US</p>
+                                    </div>
+                                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--bambu-tan);">
+                                        Average: 4 years experience
+                                    </p>
+                                </div>
+                                <div class="link-placeholder">
+                                    📎 Add link sticker here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-label">Story 7: Social Proof</div>
+                    </div>
+
+                    <!-- Story 8 -->
+                    <div style="position: relative; margin-bottom: 40px;">
+                        <div class="story-frame">
+                            <div class="story-content story-4">
+                                <div class="story-text">
+                                    <h2 style="font-size: 1rem; margin-bottom: 1.5rem; color: var(--bambu-tan);">
+                                        Quick question:
+                                    </h2>
+                                    <p style="font-size: 1.1rem; line-height: 1.5;">
+                                        Where will your coaching be in 6 months if you don't change anything?
+                                    </p>
+                                </div>
+                                <div class="link-placeholder">
+                                    📎 Add link sticker here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-label">Story 8: Reflective</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- POSTS TAB -->
+        <div id="tab-posts" class="tab-content">
+            <div class="info-box">
+                <h4>📸 Instagram Post Ideas</h4>
+                <p>Carousel posts perform best for educational content. Each carousel should have 5-7 slides. Post 2-3 times per week leading up to the application deadline.</p>
+            </div>
+
+            <div class="posts-grid">
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop'); background-size: cover;"></div>
+                        <div>
+                            <div class="post-user">Will Henke</div>
+                            <div class="post-handle">@wjhenke</div>
+                        </div>
+                        <span class="post-type">CAROUSEL</span>
+                    </div>
+                    <div class="post-preview" style="background: linear-gradient(135deg, var(--bambu-dark) 0%, #1a1512 100%);">
+                        <div>
+                            <h3>5 Things Most Coaching Courses Don't Teach</h3>
+                            <p>Swipe to learn what's missing →</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slides">
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">1</span>
+                            <h4>Cover</h4>
+                            <p>5 Things Most Coaching Courses Don't Teach</p>
+                        </div>
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">2</span>
+                            <h4>Session Flow</h4>
+                            <p>How to structure a class so it builds, not drains</p>
+                        </div>
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">3</span>
+                            <h4>Live Cueing</h4>
+                            <p>What to say when someone's mid-lift</p>
+                        </div>
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">4</span>
+                            <h4>Energy Management</h4>
+                            <p>Reading the room and adjusting on the fly</p>
+                        </div>
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">5</span>
+                            <h4>CTA</h4>
+                            <p>We teach all of this. Link in bio.</p>
+                        </div>
+                    </div>
+                    <div class="post-caption">
+                        <p>Most coaching courses hand you information.</p>
+                        <p>Very few teach you how to actually apply it when you're standing in front of 12 people who all need something different.</p>
+                        <p>That's what we built the Academy for.</p>
+                        <p class="hashtags">#coachinglife #fitnesseducation #bambutraining #coachbetter</p>
+                    </div>
+                    <div class="post-schedule">
+                        <span class="post-date">📅 Week 1, Day 2</span>
+                        <span class="post-status status-scheduled">Scheduled</span>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop'); background-size: cover;"></div>
+                        <div>
+                            <div class="post-user">Will Henke</div>
+                            <div class="post-handle">@wjhenke</div>
+                        </div>
+                        <span class="post-type">CAROUSEL</span>
+                    </div>
+                    <div class="post-preview" style="background: linear-gradient(135deg, #0f1419 0%, var(--bambu-dark) 100%);">
+                        <div>
+                            <h3>What 4 Weeks at the Academy Looks Like</h3>
+                            <p>Week by week breakdown →</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slides">
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">1</span>
+                            <h4>Cover</h4>
+                            <p>4 Weeks. The Full Breakdown.</p>
+                        </div>
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">2</span>
+                            <h4>Week 1</h4>
+                            <p>Movement & Biomechanics</p>
+                        </div>
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">3</span>
+                            <h4>Week 2</h4>
+                            <p>Communication & Cueing</p>
+                        </div>
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">4</span>
+                            <h4>Week 3</h4>
+                            <p>Group Management & Flow</p>
+                        </div>
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">5</span>
+                            <h4>Week 4</h4>
+                            <p>Business & Integration</p>
+                        </div>
+                        <div class="carousel-slide" style="position: relative;">
+                            <span class="slide-num">6</span>
+                            <h4>CTA</h4>
+                            <p>15 spots. March 2026. Apply now.</p>
+                        </div>
+                    </div>
+                    <div class="post-caption">
+                        <p>Every morning: classroom.</p>
+                        <p>Every afternoon: gym floor.</p>
+                        <p>Not theory. Application. You'll coach real sessions and get real feedback every single day.</p>
+                        <p>Link in bio to apply.</p>
+                        <p class="hashtags">#bambuacademy #coacheducation #bali #fitnessprofessional</p>
+                    </div>
+                    <div class="post-schedule">
+                        <span class="post-date">📅 Week 1, Day 5</span>
+                        <span class="post-status status-scheduled">Scheduled</span>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop'); background-size: cover;"></div>
+                        <div>
+                            <div class="post-user">Will Henke</div>
+                            <div class="post-handle">@wjhenke</div>
+                        </div>
+                        <span class="post-type">SINGLE</span>
+                    </div>
+                    <div class="post-preview" style="background: var(--bambu-dark);">
+                        <div>
+                            <h3 style="color: var(--bambu-tan);">8 / 15</h3>
+                            <p>Spots filled</p>
+                        </div>
+                    </div>
+                    <div class="post-caption">
+                        <p>Not a marketing trick. Just math.</p>
+                        <p>8 coaches confirmed for March. 7 spots left.</p>
+                        <p>If you've been thinking about it, now's the time to decide.</p>
+                        <p>Link in bio.</p>
+                        <p class="hashtags">#bambuacademy #limitedspots #coachingcourse</p>
+                    </div>
+                    <div class="post-schedule">
+                        <span class="post-date">📅 Week 2, Day 3</span>
+                        <span class="post-status status-draft">Draft</span>
+                    </div>
+                </div>
+
+                <!-- Post 4 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop'); background-size: cover;"></div>
+                        <div>
+                            <div class="post-user">Will Henke</div>
+                            <div class="post-handle">@wjhenke</div>
+                        </div>
+                        <span class="post-type">VIDEO/REEL</span>
+                    </div>
+                    <div class="post-preview" style="background: linear-gradient(135deg, #1a1512 0%, var(--bambu-black) 100%);">
+                        <div>
+                            <h3>Why I Built This Academy</h3>
+                            <p>60-second talking head</p>
+                        </div>
+                    </div>
+                    <div class="post-caption">
+                        <p>I've been coaching for over a decade.</p>
+                        <p>And the thing I wish someone had told me earlier? Most of what makes a great coach isn't in any certification manual.</p>
+                        <p>It's the stuff you only learn by doing it wrong first.</p>
+                        <p>That's why we built the Academy different. 4 weeks of doing it wrong in a safe environment so you can do it right when it matters.</p>
+                        <p class="hashtags">#coachingjourney #bambutraining #fitnesseducation</p>
+                    </div>
+                    <div class="post-schedule">
+                        <span class="post-date">📅 Week 2, Day 6</span>
+                        <span class="post-status status-draft">Draft</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CALENDAR TAB -->
+        <div id="tab-calendar" class="tab-content">
+            <div class="info-box">
+                <h4>📅 7-Week Content Calendar</h4>
+                <p>Overview of all content scheduled for the launch campaign. Blue = Email, Green = Post, Orange = Story.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">January 2026</h2>
+                </div>
+                
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; min-width: 700px;">
+                        <thead>
+                            <tr>
+                                <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.8rem;">Week</th>
+                                <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.8rem;">Mon</th>
+                                <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.8rem;">Tue</th>
+                                <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.8rem;">Wed</th>
+                                <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.8rem;">Thu</th>
+                                <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.8rem;">Fri</th>
+                                <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.8rem;">Sat</th>
+                                <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.8rem;">Sun</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle); font-weight: 600; color: var(--bambu-tan);">Week 1</td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 13</div>
+                                    <div style="margin-top: 0.5rem;">
+                                        <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(59, 130, 246, 0.2); color: #3b82f6; border-radius: 4px; font-size: 0.7rem; margin-bottom: 0.25rem;">📧 Email 1</span>
+                                        <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(245, 158, 11, 0.2); color: #f59e0b; border-radius: 4px; font-size: 0.7rem;">📱 Stories 1-5</span>
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 14</div>
+                                    <div style="margin-top: 0.5rem;">
+                                        <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(34, 197, 94, 0.2); color: #22c55e; border-radius: 4px; font-size: 0.7rem;">📸 Post 1</span>
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 15</div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 16</div>
+                                    <div style="margin-top: 0.5rem;">
+                                        <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(59, 130, 246, 0.2); color: #3b82f6; border-radius: 4px; font-size: 0.7rem;">📧 Email 2</span>
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 17</div>
+                                    <div style="margin-top: 0.5rem;">
+                                        <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(34, 197, 94, 0.2); color: #22c55e; border-radius: 4px; font-size: 0.7rem;">📸 Post 2</span>
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 18</div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 19</div>
+                                    <div style="margin-top: 0.5rem;">
+                                        <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(59, 130, 246, 0.2); color: #3b82f6; border-radius: 4px; font-size: 0.7rem;">📧 Email 3</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle); font-weight: 600; color: var(--bambu-tan);">Week 2</td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 20</div>
+                                    <div style="margin-top: 0.5rem;">
+                                        <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(245, 158, 11, 0.2); color: #f59e0b; border-radius: 4px; font-size: 0.7rem;">📱 Stories 6-8</span>
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 21</div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 22</div>
+                                    <div style="margin-top: 0.5rem;">
+                                        <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(34, 197, 94, 0.2); color: #22c55e; border-radius: 4px; font-size: 0.7rem;">📸 Post 3</span>
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 23</div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 24</div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 25</div>
+                                    <div style="margin-top: 0.5rem;">
+                                        <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(34, 197, 94, 0.2); color: #22c55e; border-radius: 4px; font-size: 0.7rem;">📸 Post 4 (Reel)</span>
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);">Jan 26</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Content Summary</h2>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="background: var(--bg-card); border-radius: 12px; padding: 1.5rem; text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 900; color: #3b82f6;">3</div>
+                        <div style="color: var(--text-muted); font-size: 0.85rem;">Emails</div>
+                    </div>
+                    <div style="background: var(--bg-card); border-radius: 12px; padding: 1.5rem; text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 900; color: #f59e0b;">8</div>
+                        <div style="color: var(--text-muted); font-size: 0.85rem;">Stories</div>
+                    </div>
+                    <div style="background: var(--bg-card); border-radius: 12px; padding: 1.5rem; text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 900; color: #22c55e;">4</div>
+                        <div style="color: var(--text-muted); font-size: 0.85rem;">Posts</div>
+                    </div>
+                    <div style="background: var(--bg-card); border-radius: 12px; padding: 1.5rem; text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 900; color: var(--bambu-tan);">2</div>
+                        <div style="color: var(--text-muted); font-size: 0.85rem;">Weeks</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Tabs -->
+        <div class="tabs-bottom">
+            <button class="tab-btn" data-tab="stories">📱 Instagram Stories</button>
+            <button class="tab-btn" data-tab="emails">📧 Email Sequence</button>
+            <button class="tab-btn" data-tab="posts">📸 Instagram Posts</button>
+            <button class="tab-btn" data-tab="calendar">📅 Content Calendar</button>
+        </div>
+
+        <div class="footer">
+            <p>Bambu Academy Content Plan • January 2026</p>
+            <p style="margin-top: 0.5rem; color: var(--text-grey);">Will Henke + Alexey</p>
+        </div>
+    </main>
+
+    <script>
+        // Tab switching - sync both top and bottom tabs
+        function switchTab(tabName) {
+            // Update all buttons
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                if (b.dataset.tab === tabName) {
+                    b.classList.add('active');
+                } else {
+                    b.classList.remove('active');
+                }
+            });
+            
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById('tab-' + tabName).classList.add('active');
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchTab(btn.dataset.tab);
+            });
+        });
+
+        // Set initial active state for bottom tabs
+        document.querySelectorAll('.tabs-bottom .tab-btn').forEach(btn => {
+            if (btn.dataset.tab === 'stories') btn.classList.add('active');
+        });
+
+        // Copy email function
+        function copyEmail(num) {
+            const emailContents = {
+                1: `Subject: We're doing something different.
+
+Quick one for you.
+
+We're launching the Bambu Training Academy.
+
+Not another online course. Not a weekend certification. Four weeks. In-person. Here in Bali. Real gym floor. Real clients. Real coaching.
+
+Here's the deal:
+
+We're taking 15 coaches through a complete transformation. Movement. Programming. Communication. Business. Everything you actually need to build a career that doesn't burn you out.
+
+March 1-28, 2026.
+
+If you've ever felt like you should know more than you do... or like you're coaching from a script instead of from understanding... this is for you.
+
+Application takes 2 minutes:
+[LINK TO APPLICATION]
+
+We're reviewing applications as they come in. First cohort is already 20% full from word of mouth.
+
+- Will
+
+P.S. If you have questions, just reply to this email. I read everything.`,
+
+                2: `Subject: What 4 weeks actually looks like
+
+Got a lot of questions after the last email.
+
+Most common one: "What do you actually cover in 4 weeks?"
+
+Fair question. Here's the breakdown:
+
+WEEK 1: FOUNDATION
+Movement mechanics. Not just "how" but why bodies move the way they do. You'll never look at a squat the same way again.
+
+WEEK 2: COMMUNICATION
+This is where most coaches fail. You know what's wrong. You just can't get it from your head into their body. We fix that.
+
+WEEK 3: GROUP DYNAMICS
+Running a class isn't the same as coaching 1:1. Session flow. Energy management. How to see 12 people at once. The stuff no one teaches.
+
+WEEK 4: BUSINESS & INTEGRATION
+Programming. Pricing. Building a client base that doesn't require you to work 60 hours a week. Plus putting it all together with real coaching scenarios.
+
+Every day: classroom in the morning, gym floor in the afternoon. You'll coach real sessions. Get real feedback. Make real mistakes in a safe environment.
+
+This isn't theory. It's practice.
+
+15 spots. We're at 5 confirmed.
+
+[LINK TO APPLICATION]
+
+See you in Bali.
+
+- Will`,
+
+                3: `Subject: 7 spots left (not a marketing trick)
+
+Real talk.
+
+We're at 8 confirmed for the March cohort. 7 spots remain.
+
+I'm not going to manufacture urgency. This is just math. 15 spots. 8 filled. You can do the rest.
+
+Here's what I've noticed about the people who've applied:
+
+• Most run their own gyms or training businesses
+• Average 3-5 years coaching experience  
+• They're good at what they do but know they could be better
+• They're tired of learning from videos and want hands-on
+
+If that sounds like you, you probably already know whether this is right.
+
+If you're on the fence, ask yourself one question:
+
+"Where will my coaching be in 6 months if I don't change anything?"
+
+If you're good with that answer, no stress. Keep doing what you're doing.
+
+If you're not... we should talk.
+
+[LINK TO APPLICATION]
+
+Applications close when we hit 15. Could be this week. Could be next month. I genuinely don't know.
+
+What I do know: the people in this room in March are going to be different coaches by April.
+
+- Will
+
+P.S. Payment plans available. DM me if that's a barrier.`
+            };
+
+            navigator.clipboard.writeText(emailContents[num]).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Copied!';
+                btn.style.background = 'var(--bambu-tan)';
+                btn.style.color = 'var(--bambu-black)';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
+

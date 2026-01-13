@@ -1,0 +1,851 @@
+{
+  "lastUpdated": "2026-01-13T15:30:00Z",
+  "totalApplicants": 24,
+  "applicants": [
+    {
+      "id": "BAMBU-2026-KH8F4A",
+      "name": "Kaylah Holmes",
+      "email": "kaylahannholmes@gmail.com",
+      "instagram": "@kaylah.holmes",
+      "location": "Uluwatu, Bali",
+      "avatar": "https://ui-avatars.com/api/?name=Kaylah+Holmes&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T09:15:00Z",
+      "status": "qualified",
+      "tier": "STAR",
+      "scoring": {
+        "coachingExperience": 9,
+        "technicalFoundation": 8,
+        "businessAcumen": 9,
+        "growthMindset": 9,
+        "financialReadiness": 8,
+        "commitmentSignal": 10,
+        "total": 53
+      },
+      "profile": {
+        "currentRole": "Nutrition & Fitness Coach",
+        "yearsCoaching": "5+",
+        "business": "FLEX Coaching (129K followers)",
+        "certifications": ["NASM CPT", "Precision Nutrition"],
+        "specialization": "Women's Transformation",
+        "goals": "Scale coaching methodology, create certification program"
+      },
+      "research": {
+        "instagramFollowers": 129000,
+        "verified": true,
+        "engagement": "4.2%",
+        "businessOwner": true,
+        "competitiveAthlete": true,
+        "baliResident": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T09:20:00Z", "direction": "inbound", "message": "Hey Bambu team! I just submitted my Academy application.\\n\\nMy Application ID: BAMBU-2026-KH8F4A\\nName: Kaylah Holmes\\nEmail: kaylahannholmes@gmail.com\\n\\nExcited to chat!"},
+        {"timestamp": "2026-01-12T09:22:00Z", "direction": "outbound", "message": "Hey Kaylah! 👋 Stoked to see your application come through.\\n\\nI checked out @flexcoaching_ - seriously impressive what you've built. 129K followers and that transformation portfolio? 🔥\\n\\nQuick question: What's driving you to level up your coaching skills at this stage?"},
+        {"timestamp": "2026-01-12T09:28:00Z", "direction": "inbound", "message": "Thanks! I've been coaching for 5 years now and built Flex from the ground up here in Bali.\\n\\nHonestly, I feel like I've hit a ceiling. I know my clients get results but I want to understand the WHY deeper - biomechanics, programming principles, the science behind what works.\\n\\nPlus being here in Bali, attending in-person would be incredible!"},
+        {"timestamp": "2026-01-12T09:32:00Z", "direction": "outbound", "message": "Love that self-awareness. And yeah, being Bali-based is perfect timing!\\n\\nWith your experience and following, you'd fit well in our Elite track. The program covers exactly what you mentioned - deeper programming science, biomechanics application, plus business scaling since you're already running a 6-figure operation.\\n\\nCan you do a quick call this week? I'd love to discuss how we can customize parts of the curriculum for your level."},
+        {"timestamp": "2026-01-12T09:38:00Z", "direction": "inbound", "message": "Yes absolutely! I'm flexible most mornings before 10am Bali time. Would Thursday work?"},
+        {"timestamp": "2026-01-12T09:40:00Z", "direction": "outbound", "message": "Thursday 9am Bali works perfectly. I'll send you a calendar invite.\\n\\nIn the meantime, any questions about the program?"},
+        {"timestamp": "2026-01-12T09:45:00Z", "direction": "inbound", "message": "Actually yes - is there a pathway to potentially guest coach or collaborate after completing the Academy? I'd love to bring some of my nutrition expertise to your community."},
+        {"timestamp": "2026-01-12T09:48:00Z", "direction": "outbound", "message": "100%. Our career ladder includes exactly that. Top graduates get opportunities to assist coach future cohorts, create content for our platform, and some have even opened affiliate locations.\\n\\nWith your profile, I could see a nutrition module collaboration down the line. Let's discuss Thursday! 🤙"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-BC7X2M",
+      "name": "Ben Crawshaw",
+      "email": "ben@bcfitnesshq.com",
+      "instagram": "@ben_crawsh",
+      "location": "Carlisle, UK",
+      "avatar": "https://ui-avatars.com/api/?name=Ben+Crawshaw&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T14:30:00Z",
+      "status": "qualified",
+      "tier": "STAR",
+      "scoring": {
+        "coachingExperience": 9,
+        "technicalFoundation": 8,
+        "businessAcumen": 10,
+        "growthMindset": 10,
+        "financialReadiness": 9,
+        "commitmentSignal": 10,
+        "total": 56
+      },
+      "profile": {
+        "currentRole": "Gym Owner & Head Coach",
+        "yearsCoaching": "8+",
+        "business": "BC Fitness HQ + PT Academy",
+        "certifications": ["Level 3 PT", "Sports Nutrition"],
+        "specialization": "Transformation Coaching",
+        "goals": "Enhance PT Academy curriculum, learn Bambu methodology"
+      },
+      "research": {
+        "instagramFollowers": 2990,
+        "verified": false,
+        "businessOwner": true,
+        "runsPTAcademy": true,
+        "multipleBusinesses": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T14:35:00Z", "direction": "inbound", "message": "Hey! Just applied - where do I sign up? 😍\\n\\nID: BAMBU-2026-BC7X2M\\nBen Crawshaw"},
+        {"timestamp": "2026-01-12T14:38:00Z", "direction": "outbound", "message": "Ben! Your comment on Insta made my day 😂\\n\\nJust looked at your setup - BC Fitness HQ AND you run your own PT Academy? That's exactly the kind of person we built this for.\\n\\nWhat made you want to add Bambu training to what you're already doing?"},
+        {"timestamp": "2026-01-12T14:45:00Z", "direction": "inbound", "message": "Ha thanks! Been following Will's content for years. The way you guys coach is different - there's a methodology there I can't quite crack on my own.\\n\\nI run a PT Academy here in Carlisle training up new coaches, but I want to bring something more systematic to it. The way Bambu breaks down movement, cueing, the whole client experience... that's what I'm after."},
+        {"timestamp": "2026-01-12T14:50:00Z", "direction": "outbound", "message": "That's exactly it mate. We've spent years refining a system that's teachable, not just 'feel your way through it.'\\n\\nWith your background running a PT Academy, you'd be able to take the Bambu framework and implement it directly into your curriculum. Some of our graduates have done exactly that.\\n\\nAre you looking at March cohort? That's our first one - March 1-28."},
+        {"timestamp": "2026-01-12T14:55:00Z", "direction": "inbound", "message": "March works! I can arrange coverage at the gym. What's the investment looking like?"},
+        {"timestamp": "2026-01-12T14:58:00Z", "direction": "outbound", "message": "Full program is $6,999. Early bird (closes Jan 31) is $4,299 - that's $2,700 off.\\n\\nGiven you're running a PT Academy, there might be some business collaboration opportunities we can discuss too. Want to jump on a call?"},
+        {"timestamp": "2026-01-12T15:05:00Z", "direction": "inbound", "message": "Definitely. Early bird makes sense for me. Let's do a call - I want to understand the curriculum depth so I know how to integrate it into my Academy."},
+        {"timestamp": "2026-01-12T15:08:00Z", "direction": "outbound", "message": "Perfect. How's tomorrow afternoon UK time? I'll send details. This could be a really good fit 🤙"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-NL3K9P",
+      "name": "Neridah Lock",
+      "email": "neridah@thebaygames.com.au",
+      "instagram": "@foulmouthedtattooedgirl",
+      "location": "Australia",
+      "avatar": "https://ui-avatars.com/api/?name=Neridah+Lock&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T11:00:00Z",
+      "status": "call_scheduled",
+      "tier": "STAR",
+      "scoring": {
+        "coachingExperience": 7,
+        "technicalFoundation": 7,
+        "businessAcumen": 9,
+        "growthMindset": 10,
+        "financialReadiness": 8,
+        "commitmentSignal": 10,
+        "total": 51
+      },
+      "profile": {
+        "currentRole": "Gym Owner (Building)",
+        "yearsCoaching": "3",
+        "business": "HUB Performance Centre + HYROX Training Club",
+        "specialization": "HYROX, Functional Fitness",
+        "goals": "Learn coaching methodology for new gym"
+      },
+      "research": {
+        "instagramFollowers": 563,
+        "buildingGym": true,
+        "eventOrganizer": true,
+        "hyroxFocused": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T11:05:00Z", "direction": "inbound", "message": "i'd like to book a call @wjhenke - would absolutely love to be considered for the Academy!\\n\\nNeridah - BAMBU-2026-NL3K9P"},
+        {"timestamp": "2026-01-12T11:10:00Z", "direction": "outbound", "message": "Neridah! Your application just came through. Building The HUB Performance Centre - that's exciting!\\n\\nTell me more about where you're at with the build and what's driving you to the Academy."},
+        {"timestamp": "2026-01-12T11:18:00Z", "direction": "inbound", "message": "We're about 4 months out from opening. It's been my dream for years - a proper HYROX training facility.\\n\\nI've been coaching for 3 years but always felt like I was making it up as I go. With a gym opening, I can't afford to do that anymore. I need a real system.\\n\\nPlus I run The Bay Games (fitness events) so I know what good coaching looks like from the competition side."},
+        {"timestamp": "2026-01-12T11:25:00Z", "direction": "outbound", "message": "Perfect timing then. Opening a gym without systematic coaching is how most fail in year one.\\n\\nThe Academy would give you a complete framework BEFORE you open. You'd be able to train your staff in Bambu methodology from day one.\\n\\nMarch 1-28 - would that timeline work with your build?"},
+        {"timestamp": "2026-01-12T11:32:00Z", "direction": "inbound", "message": "Actually yes! We're in fit-out phase in March so I could step away. My partner can handle the build while I'm getting trained up.\\n\\nThis feels like exactly what I need."},
+        {"timestamp": "2026-01-12T11:35:00Z", "direction": "outbound", "message": "Love it. Let's get you on a call with Will this week. He'd want to hear about The Bay Games and the HUB build.\\n\\nWhen works for you? We're +8 GMT here in Bali."},
+        {"timestamp": "2026-01-12T11:40:00Z", "direction": "inbound", "message": "I'm flexible - running my own schedule now. How about Wednesday 7pm AEDT? That should be late afternoon for you."},
+        {"timestamp": "2026-01-12T11:42:00Z", "direction": "outbound", "message": "Done. Wednesday 4pm Bali / 7pm AEDT. Sending calendar invite now. See you then! 🤙"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-AA5T7J",
+      "name": "Alessio Angelucci",
+      "email": "alessio@tribehq.com.au",
+      "instagram": "@_alessioangelucci_",
+      "location": "Sydney, Australia",
+      "avatar": "https://ui-avatars.com/api/?name=Alessio+Angelucci&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T08:45:00Z",
+      "status": "qualified",
+      "tier": "STAR",
+      "scoring": {
+        "coachingExperience": 8,
+        "technicalFoundation": 8,
+        "businessAcumen": 10,
+        "growthMindset": 8,
+        "financialReadiness": 9,
+        "commitmentSignal": 8,
+        "total": 51
+      },
+      "profile": {
+        "currentRole": "Gym Owner & Coach",
+        "yearsCoaching": "6",
+        "business": "Tribe HQ",
+        "specialization": "HYROX Prep, Functional Fitness",
+        "goals": "Systematize coaching across team"
+      },
+      "research": {
+        "instagramFollowers": 10500,
+        "gymOwner": true,
+        "hyroxFocused": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T08:50:00Z", "direction": "inbound", "message": "Applied! BAMBU-2026-AA5T7J - Alessio from Tribe HQ"},
+        {"timestamp": "2026-01-12T09:00:00Z", "direction": "outbound", "message": "Alessio! Nice to connect. Tribe HQ looks solid - that HYROX prep program you're running is getting results.\\n\\nWhat's bringing you to the Academy?"},
+        {"timestamp": "2026-01-12T09:15:00Z", "direction": "inbound", "message": "Appreciate it! We've grown quickly but my coaching team is inconsistent. Some coaches nail it, others struggle.\\n\\nI need a framework I can teach everyone so the experience is the same regardless of who's coaching."},
+        {"timestamp": "2026-01-12T09:20:00Z", "direction": "outbound", "message": "Classic scaling problem. The good news - that's exactly what we teach. A repeatable system that works across your whole team.\\n\\nAre you looking to attend yourself or thinking about sending coaches?"},
+        {"timestamp": "2026-01-12T09:28:00Z", "direction": "inbound", "message": "I want to go first. Lead from the front. Then potentially send my senior coaches in future cohorts if it's as good as I'm expecting."},
+        {"timestamp": "2026-01-12T09:32:00Z", "direction": "outbound", "message": "Smart approach. March cohort is our first - limited spots. Early bird is $4,299 until Jan 31.\\n\\nWant to lock in a spot while we chat more?"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-AH9R2W",
+      "name": "Andy Hickey",
+      "email": "andy@andyhickeyfitness.com",
+      "instagram": "@andyhickeyfitness",
+      "location": "UK",
+      "avatar": "https://ui-avatars.com/api/?name=Andy+Hickey&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T16:20:00Z",
+      "status": "qualifying",
+      "tier": "STRONG",
+      "scoring": {
+        "coachingExperience": 8,
+        "technicalFoundation": 7,
+        "businessAcumen": 7,
+        "growthMindset": 8,
+        "financialReadiness": 7,
+        "commitmentSignal": 7,
+        "total": 44
+      },
+      "profile": {
+        "currentRole": "Online Coach",
+        "yearsCoaching": "5",
+        "business": "1-1 Bespoke Coaching (16K followers)",
+        "specialization": "Body Transformation",
+        "goals": "Transition from online to in-person methodology"
+      },
+      "research": {
+        "instagramFollowers": 16000,
+        "onlineCoach": true,
+        "transformationFocus": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T16:25:00Z", "direction": "inbound", "message": "Hey! Application ID: BAMBU-2026-AH9R2W - Andy Hickey Fitness"},
+        {"timestamp": "2026-01-12T16:30:00Z", "direction": "outbound", "message": "Andy! Great to hear from you. Checked out your page - those transformations speak for themselves. 16K followers too 👏\\n\\nWhat's got you interested in the Academy?"},
+        {"timestamp": "2026-01-12T16:40:00Z", "direction": "inbound", "message": "Thanks! I've built a solid online coaching business but I feel like I'm missing something. My clients get results but I'm mostly doing it through programming and nutrition - the actual coaching skills, movement assessment, cueing... I know I'm weak there."},
+        {"timestamp": "2026-01-12T16:45:00Z", "direction": "outbound", "message": "Honest assessment. A lot of online coaches hit that wall - results come from the program but the 1-1 coaching craft gets neglected.\\n\\nThe Academy is heavy on exactly that - movement assessment, cueing, real-time coaching. It's hands-on, not more online modules.\\n\\nCould you see yourself doing 4 weeks in Bali?"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-SM4P8L",
+      "name": "Sam Molineaux",
+      "email": "sam@movewelltraining.com",
+      "instagram": "@sam.molineaux",
+      "location": "Australia",
+      "avatar": "https://ui-avatars.com/api/?name=Sam+Molineaux&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T07:30:00Z",
+      "status": "qualifying",
+      "tier": "STRONG",
+      "scoring": {
+        "coachingExperience": 8,
+        "technicalFoundation": 8,
+        "businessAcumen": 7,
+        "growthMindset": 9,
+        "financialReadiness": 7,
+        "commitmentSignal": 8,
+        "total": 47
+      },
+      "profile": {
+        "currentRole": "Coach & Athlete",
+        "yearsCoaching": "4",
+        "business": "MOVEWELL Training",
+        "certifications": ["CrossFit L2"],
+        "specialization": "HYROX, Triathlon",
+        "goals": "Improve coaching methodology for competitive athletes"
+      },
+      "research": {
+        "instagramFollowers": 7874,
+        "sponsoredAthlete": true,
+        "hyroxFocused": true,
+        "ironmanFinisher": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T07:35:00Z", "direction": "inbound", "message": "BAMBU-2026-SM4P8L - Sam from MOVEWELL. Keen to chat!"},
+        {"timestamp": "2026-01-12T07:45:00Z", "direction": "outbound", "message": "Sam! 21 competitions in 2025? That's serious. And an 11:27 Ironman - respect.\\n\\nTell me about MOVEWELL and what you're hoping to get from the Academy."},
+        {"timestamp": "2026-01-12T07:55:00Z", "direction": "inbound", "message": "Cheers! I compete and coach simultaneously. My athletes are getting good but I know I'm coaching by feel more than system.\\n\\nI want to learn a proper methodology so I can scale beyond just me working with clients 1-1."}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-MJ6N3Q",
+      "name": "Manu Jans",
+      "email": "manu@movewithmanu.com",
+      "instagram": "@movewithmanu",
+      "location": "Antwerp, Belgium",
+      "avatar": "https://ui-avatars.com/api/?name=Manu+Jans&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T10:15:00Z",
+      "status": "qualifying",
+      "tier": "GOOD",
+      "scoring": {
+        "coachingExperience": 6,
+        "technicalFoundation": 6,
+        "businessAcumen": 6,
+        "growthMindset": 8,
+        "financialReadiness": 6,
+        "commitmentSignal": 7,
+        "total": 39
+      },
+      "profile": {
+        "currentRole": "Personal Trainer",
+        "yearsCoaching": "3",
+        "business": "Move With Manu",
+        "specialization": "Small Group Training",
+        "goals": "Level up coaching skills, grow business"
+      },
+      "research": {
+        "instagramFollowers": 1093,
+        "personalTrainer": true,
+        "europeBasd": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T10:20:00Z", "direction": "inbound", "message": "Hey! BAMBU-2026-MJ6N3Q - Manu from Belgium 🇧🇪"},
+        {"timestamp": "2026-01-12T10:30:00Z", "direction": "outbound", "message": "Manu! Good to hear from you. Saw you're at The Brick Antwerp - nice setup.\\n\\nWhat's got you looking at the Academy?"},
+        {"timestamp": "2026-01-12T10:45:00Z", "direction": "inbound", "message": "I've been a PT for 3 years but feel stuck. I know there's a better way to coach but I've just been doing what I learned in my cert.\\n\\nWatching Will's content opened my eyes to what's possible."}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-RM8K5D",
+      "name": "Redon Manushi",
+      "email": "redon.manushi@gmail.com",
+      "instagram": "@redonmanushi",
+      "location": "Bali (French National Team)",
+      "avatar": "https://ui-avatars.com/api/?name=Redon+Manushi&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T13:00:00Z",
+      "status": "qualifying",
+      "tier": "STRONG",
+      "scoring": {
+        "coachingExperience": 5,
+        "technicalFoundation": 10,
+        "businessAcumen": 4,
+        "growthMindset": 9,
+        "financialReadiness": 6,
+        "commitmentSignal": 9,
+        "total": 43
+      },
+      "profile": {
+        "currentRole": "National Team Athlete",
+        "yearsCoaching": "1",
+        "business": "None (transitioning)",
+        "specialization": "Olympic Weightlifting",
+        "goals": "Transition from athlete to coach"
+      },
+      "research": {
+        "instagramFollowers": 16700,
+        "nationalTeamAthlete": true,
+        "baliResident": true,
+        "weightlifting": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T13:05:00Z", "direction": "inbound", "message": "Salut! BAMBU-2026-RM8K5D - Redon from the French Weightlifting team. I live here in Bali!"},
+        {"timestamp": "2026-01-12T13:15:00Z", "direction": "outbound", "message": "Redon! A national team weightlifter living in Bali - small world!\\n\\nAre you looking to transition into coaching?"},
+        {"timestamp": "2026-01-12T13:25:00Z", "direction": "inbound", "message": "Exactly. I've been competing for 10 years but starting to think about what's next. I know lifting technique inside out but coaching is different.\\n\\nBeing local means I could even attend without travel expenses!"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-BW2H9F",
+      "name": "Brittany Wills",
+      "email": "brittany@nxtlvlperformance.com",
+      "instagram": "@brittanywills_",
+      "location": "Australia",
+      "avatar": "https://ui-avatars.com/api/?name=Brittany+Wills&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T12:30:00Z",
+      "status": "qualifying",
+      "tier": "GOOD",
+      "scoring": {
+        "coachingExperience": 6,
+        "technicalFoundation": 6,
+        "businessAcumen": 7,
+        "growthMindset": 8,
+        "financialReadiness": 7,
+        "commitmentSignal": 8,
+        "total": 42
+      },
+      "profile": {
+        "currentRole": "Fitness Trainer & Business Owner",
+        "yearsCoaching": "4",
+        "business": "NXTLVL Performance",
+        "specialization": "Fitness Challenges",
+        "goals": "Enhance coaching for challenge programs"
+      },
+      "research": {
+        "instagramFollowers": 1387,
+        "businessOwner": true,
+        "previouslyTrainedAtBambu": true,
+        "sponsoredAthlete": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T12:35:00Z", "direction": "inbound", "message": "BAMBU-2026-BW2H9F - Brittany from NXTLVL Performance. I actually trained at Bambu when I visited Bali last year! 🔥"},
+        {"timestamp": "2026-01-12T12:45:00Z", "direction": "outbound", "message": "Brittany! I remember seeing you mentioned that on one of our posts. You experienced it firsthand - what made you want to come back for the Academy?"},
+        {"timestamp": "2026-01-12T12:55:00Z", "direction": "inbound", "message": "The coaching there was just different. I run 6-week challenges and get results, but when I trained with your coaches I realized there's a whole other level I'm not reaching.\\n\\nI want to bring that same quality to my clients."}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-ES7L4C",
+      "name": "Ela Si",
+      "email": "ela@indoorcyclingstuttgart.de",
+      "instagram": "@ela_si_",
+      "location": "Stuttgart, Germany",
+      "avatar": "https://ui-avatars.com/api/?name=Ela+Si&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T15:45:00Z",
+      "status": "qualifying",
+      "tier": "GOOD",
+      "scoring": {
+        "coachingExperience": 7,
+        "technicalFoundation": 6,
+        "businessAcumen": 8,
+        "growthMindset": 8,
+        "financialReadiness": 7,
+        "commitmentSignal": 7,
+        "total": 43
+      },
+      "profile": {
+        "currentRole": "Business Owner",
+        "yearsCoaching": "4",
+        "business": "Indoor Cycling Stuttgart + MumFit Stuttgart",
+        "specialization": "Indoor Cycling, Mom Fitness",
+        "goals": "Add strength coaching to offerings"
+      },
+      "research": {
+        "instagramFollowers": 859,
+        "ownsMultipleBusinesses": true,
+        "europeBased": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T15:50:00Z", "direction": "inbound", "message": "BAMBU-2026-ES7L4C - Ela from Stuttgart! I run two fitness businesses here."},
+        {"timestamp": "2026-01-12T16:00:00Z", "direction": "outbound", "message": "Ela! Indoor Cycling AND MumFit Stuttgart - impressive to run two businesses.\\n\\nWhat's making you look at strength coaching now?"},
+        {"timestamp": "2026-01-12T16:10:00Z", "direction": "inbound", "message": "I want to expand. My cycling and mom fitness clients keep asking about strength training but I don't feel qualified to coach it at the level I want.\\n\\nBambu's approach looks like what I need."}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-SD4M8P",
+      "name": "Sammy D",
+      "email": "sammy@inbalanceeducation.com",
+      "instagram": "@_sammyd",
+      "location": "Australia",
+      "avatar": "https://ui-avatars.com/api/?name=Sammy+D&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T09:45:00Z",
+      "status": "qualifying",
+      "tier": "STRONG",
+      "scoring": {
+        "coachingExperience": 8,
+        "technicalFoundation": 7,
+        "businessAcumen": 9,
+        "growthMindset": 8,
+        "financialReadiness": 8,
+        "commitmentSignal": 8,
+        "total": 48
+      },
+      "profile": {
+        "currentRole": "Director of Education",
+        "yearsCoaching": "6",
+        "business": "InBalance Wellness + InBalance Education",
+        "specialization": "Pilates, Wellness",
+        "goals": "Add strength methodology to education offerings"
+      },
+      "research": {
+        "instagramFollowers": 3610,
+        "runsEducationBusiness": true,
+        "pilatesBackground": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T09:50:00Z", "direction": "inbound", "message": "BAMBU-2026-SD4M8P - Sammy from InBalance Education. Already run my own instructor training, interested in Bambu methodology!"},
+        {"timestamp": "2026-01-12T10:00:00Z", "direction": "outbound", "message": "Sammy! This is interesting - you're already in the education space. What's drawing you to add Bambu training?"},
+        {"timestamp": "2026-01-12T10:10:00Z", "direction": "inbound", "message": "My background is Pilates and wellness but my students keep asking about strength training principles. Rather than figure it out myself, I want to learn from the best.\\n\\nMight even send some of my instructors in future cohorts!"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-CF9W3H",
+      "name": "CrossFit Winter Garden",
+      "email": "coach@crossfitwintergarden.com",
+      "instagram": "@crossfitwg",
+      "location": "Florida, USA",
+      "avatar": "https://ui-avatars.com/api/?name=CFWG&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T18:00:00Z",
+      "status": "partnership_discussion",
+      "tier": "PARTNER",
+      "scoring": {
+        "coachingExperience": 8,
+        "technicalFoundation": 8,
+        "businessAcumen": 9,
+        "growthMindset": 8,
+        "financialReadiness": 9,
+        "commitmentSignal": 8,
+        "total": 50
+      },
+      "profile": {
+        "currentRole": "CrossFit Box Owner",
+        "yearsCoaching": "7+",
+        "business": "CrossFit Winter Garden",
+        "specialization": "CrossFit, Functional Fitness",
+        "goals": "Send coaches, potential guest coaching collaboration"
+      },
+      "research": {
+        "instagramFollowers": 3809,
+        "verified": true,
+        "crossfitAffiliate": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T18:05:00Z", "direction": "inbound", "message": "Hey! BAMBU-2026-CF9W3H - CrossFit Winter Garden here. We commented about Summer in Bali guest coaching - is that something you'd consider?"},
+        {"timestamp": "2026-01-12T18:15:00Z", "direction": "outbound", "message": "Yes! We saw that comment and loved the idea. Tell us more about what you're thinking."},
+        {"timestamp": "2026-01-12T18:25:00Z", "direction": "inbound", "message": "We have 8 coaches on staff. I'd love to send our lead coaches through the Academy to level up, and potentially organize a 'Summer in Bali' trip where our members could train at Bambu while on vacation.\\n\\nCould also see guest coaching opportunities - maybe we send coaches there, you send coaches here?"},
+        {"timestamp": "2026-01-12T18:30:00Z", "direction": "outbound", "message": "This sounds like exactly the kind of partnership we want to build. Let's get on a call to explore all the options.\\n\\nHow many coaches would you want to send for the first cohort?"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-TB6K2R",
+      "name": "Toby Buckland",
+      "email": "toby@tobybuckland.com",
+      "instagram": "@toby_buckland",
+      "location": "Australia",
+      "avatar": "https://ui-avatars.com/api/?name=Toby+Buckland&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-13T02:15:00Z",
+      "status": "qualifying",
+      "tier": "GOOD",
+      "scoring": {
+        "coachingExperience": 4,
+        "technicalFoundation": 9,
+        "businessAcumen": 5,
+        "growthMindset": 9,
+        "financialReadiness": 6,
+        "commitmentSignal": 8,
+        "total": 41
+      },
+      "profile": {
+        "currentRole": "CrossFit Games Athlete",
+        "yearsCoaching": "1",
+        "business": "None yet",
+        "specialization": "CrossFit Competition",
+        "goals": "Transition from athlete to coach"
+      },
+      "research": {
+        "instagramFollowers": 10300,
+        "verified": true,
+        "crossfitGamesAthlete": true,
+        "type1Diabetic": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-13T02:20:00Z", "direction": "inbound", "message": "BAMBU-2026-TB6K2R - Toby here. Games athlete looking to get into coaching properly."},
+        {"timestamp": "2026-01-13T02:35:00Z", "direction": "outbound", "message": "Toby! CrossFit Games '25 - congrats on that. Making the jump to coaching?"},
+        {"timestamp": "2026-01-13T02:45:00Z", "direction": "inbound", "message": "Yeah, thinking long-term. Athletic career won't last forever. I know how to perform but coaching is a different skill set. Want to learn it right from the start."}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-AJ3N7X",
+      "name": "Aurimas Juodka",
+      "email": "aurimas@humanoptimized.co",
+      "instagram": "@humanoptimizedofficial",
+      "location": "Bali",
+      "avatar": "https://ui-avatars.com/api/?name=Aurimas+Juodka&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T11:30:00Z",
+      "status": "networking",
+      "tier": "INFLUENCER",
+      "scoring": {
+        "coachingExperience": 5,
+        "technicalFoundation": 5,
+        "businessAcumen": 10,
+        "growthMindset": 9,
+        "financialReadiness": 10,
+        "commitmentSignal": 6,
+        "total": 45
+      },
+      "profile": {
+        "currentRole": "Entrepreneur & Content Creator",
+        "business": "9D Breathwork",
+        "specialization": "Wellness, Breathwork",
+        "goals": "Explore fitness industry expansion"
+      },
+      "research": {
+        "instagramFollowers": 72300,
+        "verified": true,
+        "baliResident": true,
+        "entrepreneur": true,
+        "breathworkFounder": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T11:35:00Z", "direction": "inbound", "message": "Hey! Aurimas here - we've crossed paths at a few Bali events. Saw your Academy launch and wanted to connect."},
+        {"timestamp": "2026-01-12T11:45:00Z", "direction": "outbound", "message": "Aurimas! Yeah I know 9D Breathwork - great to connect properly.\\n\\nAre you interested in the Academy personally or thinking about it from a business angle?"},
+        {"timestamp": "2026-01-12T11:55:00Z", "direction": "inbound", "message": "Both honestly. Fitness has always been part of my life and I'm curious about the methodology. But also thinking about potential cross-promotion - our audiences overlap.\\n\\nWould love to grab coffee and discuss!"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-NM5Y8K",
+      "name": "Natalie Maree",
+      "email": "natalie@kikiandthequads.com",
+      "instagram": "@kikiandthequads",
+      "location": "Australia",
+      "avatar": "https://ui-avatars.com/api/?name=Natalie+Maree&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-13T04:00:00Z",
+      "status": "not_fit",
+      "tier": "INFLUENCER",
+      "scoring": {
+        "coachingExperience": 2,
+        "technicalFoundation": 3,
+        "businessAcumen": 5,
+        "growthMindset": 7,
+        "financialReadiness": 7,
+        "commitmentSignal": 6,
+        "total": 30
+      },
+      "profile": {
+        "currentRole": "Content Creator",
+        "business": "Kiki and the Quads (41K followers)",
+        "specialization": "Lifestyle, Mom Content",
+        "goals": "Personal fitness improvement"
+      },
+      "research": {
+        "instagramFollowers": 41200,
+        "contentCreator": true,
+        "visitedBambu": true,
+        "quadMom": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-13T04:05:00Z", "direction": "inbound", "message": "Hi! BAMBU-2026-NM5Y8K - Natalie from Kiki and the Quads. Visited Bambu earlier this year and was VERY impressed!"},
+        {"timestamp": "2026-01-13T04:20:00Z", "direction": "outbound", "message": "Natalie! Great to hear from you. Your visit post got a lot of engagement - appreciate the kind words.\\n\\nAre you looking to train as a coach or interested in personal training?"},
+        {"timestamp": "2026-01-13T04:35:00Z", "direction": "inbound", "message": "Honestly I'm a fitness enthusiast not looking to coach. More interested in understanding what makes your coaching so good for my own training.\\n\\nDo you have anything for people who just want to be better clients?"},
+        {"timestamp": "2026-01-13T04:45:00Z", "direction": "outbound", "message": "Appreciate the honesty! The Academy is specifically for coaches, but we do run guest weeks at the gym for people who want the Bambu training experience.\\n\\nWould that be more up your alley?"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-JB4T9H",
+      "name": "Jake Bird",
+      "email": "jake@jakebird.com",
+      "instagram": "@jakeebird",
+      "location": "Australia",
+      "avatar": "https://ui-avatars.com/api/?name=Jake+Bird&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T17:00:00Z",
+      "status": "qualifying",
+      "tier": "GOOD",
+      "scoring": {
+        "coachingExperience": 3,
+        "technicalFoundation": 6,
+        "businessAcumen": 6,
+        "growthMindset": 8,
+        "financialReadiness": 8,
+        "commitmentSignal": 7,
+        "total": 38
+      },
+      "profile": {
+        "currentRole": "Entrepreneur & Triathlete",
+        "business": "Various ventures",
+        "specialization": "Triathlon, Endurance",
+        "goals": "Potentially build coaching business"
+      },
+      "research": {
+        "instagramFollowers": 12100,
+        "verified": true,
+        "entrepreneur": true,
+        "ironman703Qualifier": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T17:05:00Z", "direction": "inbound", "message": "BAMBU-2026-JB4T9H - Jake Bird. Called Will 'the very best' in my comment - meant it!"},
+        {"timestamp": "2026-01-12T17:15:00Z", "direction": "outbound", "message": "Jake! Appreciate that. Saw you qualified for Ironman 70.3 Worlds - solid.\\n\\nWhat's your interest in the coaching side?"},
+        {"timestamp": "2026-01-12T17:25:00Z", "direction": "inbound", "message": "I've built businesses in other industries but always wanted something in fitness. Thinking about whether coaching could be that.\\n\\nWanted to learn from the best before deciding if it's for me."}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-SF2R6M",
+      "name": "Sofi Dialeva",
+      "email": "sofi@spiritofcoaching.com",
+      "instagram": "@sofidinamitaa",
+      "location": "Vail, CO, USA",
+      "avatar": "https://ui-avatars.com/api/?name=Sofi+Dialeva&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T19:30:00Z",
+      "status": "qualifying",
+      "tier": "GOOD",
+      "scoring": {
+        "coachingExperience": 6,
+        "technicalFoundation": 5,
+        "businessAcumen": 6,
+        "growthMindset": 9,
+        "financialReadiness": 7,
+        "commitmentSignal": 7,
+        "total": 40
+      },
+      "profile": {
+        "currentRole": "Ontological Coach",
+        "yearsCoaching": "4",
+        "business": "Wellness Community",
+        "specialization": "Mindset, Wellness",
+        "goals": "Add physical coaching to offerings"
+      },
+      "research": {
+        "instagramFollowers": 6372,
+        "wellnessCoach": true,
+        "extremeSports": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T19:35:00Z", "direction": "inbound", "message": "BAMBU-2026-SF2R6M - Sofi from Colorado. I'm an ontological coach looking to expand into physical coaching."},
+        {"timestamp": "2026-01-12T19:45:00Z", "direction": "outbound", "message": "Sofi! Interesting background. Ontological coaching + physical training could be a powerful combo.\\n\\nTell me more about what you're looking to add."},
+        {"timestamp": "2026-01-12T19:55:00Z", "direction": "inbound", "message": "I work with entrepreneurs on mindset and growth, but many of them want help with their physical training too. I'm an extreme sports enthusiast myself but haven't formalized coaching skills.\\n\\nBambu's approach seems holistic - not just reps and sets."}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-PG8N4L",
+      "name": "Paul Gillingham",
+      "email": "paul@paulgillingham.com",
+      "instagram": "@paulgillingham_",
+      "location": "UK",
+      "avatar": "https://ui-avatars.com/api/?name=Paul+Gillingham&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T14:00:00Z",
+      "status": "qualifying",
+      "tier": "STRONG",
+      "scoring": {
+        "coachingExperience": 8,
+        "technicalFoundation": 7,
+        "businessAcumen": 6,
+        "growthMindset": 8,
+        "financialReadiness": 7,
+        "commitmentSignal": 8,
+        "total": 44
+      },
+      "profile": {
+        "currentRole": "Coach",
+        "yearsCoaching": "5+",
+        "business": "Personal Brand",
+        "specialization": "Fitness Coaching"
+      },
+      "research": {
+        "instagramFollowers": null,
+        "verified": true,
+        "repeatEngager": true
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T14:05:00Z", "direction": "inbound", "message": "BAMBU-2026-PG8N4L - Paul G here. Been engaging with your content for a while. 'The best in the business' as I said!"},
+        {"timestamp": "2026-01-12T14:15:00Z", "direction": "outbound", "message": "Paul! I noticed you've been commenting regularly - appreciate the support.\\n\\nWhat finally made you want to apply?"},
+        {"timestamp": "2026-01-12T14:25:00Z", "direction": "inbound", "message": "Watching from afar wasn't cutting it anymore. I can see there's something you're doing that I'm not, and the only way to learn it is to be there in person."}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-FC7M2Q",
+      "name": "Fit Coach Prospect 20",
+      "email": "prospect20@example.com",
+      "instagram": "@fitcoach20",
+      "location": "Various",
+      "avatar": "https://ui-avatars.com/api/?name=Fit+Coach&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T20:00:00Z",
+      "status": "new",
+      "tier": "MEDIUM",
+      "scoring": {
+        "coachingExperience": 5,
+        "technicalFoundation": 5,
+        "businessAcumen": 5,
+        "growthMindset": 7,
+        "financialReadiness": 6,
+        "commitmentSignal": 6,
+        "total": 34
+      },
+      "profile": {
+        "currentRole": "Personal Trainer",
+        "yearsCoaching": "2",
+        "business": "Independent PT",
+        "specialization": "General Fitness"
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T20:05:00Z", "direction": "inbound", "message": "BAMBU-2026-FC7M2Q - Just applied! Excited to learn more."}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-FC8N3R",
+      "name": "Fit Coach Prospect 21",
+      "email": "prospect21@example.com",
+      "instagram": "@fitcoach21",
+      "location": "Various",
+      "avatar": "https://ui-avatars.com/api/?name=Fit+Coach&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T21:00:00Z",
+      "status": "new",
+      "tier": "MEDIUM",
+      "scoring": {
+        "coachingExperience": 4,
+        "technicalFoundation": 5,
+        "businessAcumen": 4,
+        "growthMindset": 7,
+        "financialReadiness": 5,
+        "commitmentSignal": 6,
+        "total": 31
+      },
+      "profile": {
+        "currentRole": "Aspiring Coach",
+        "yearsCoaching": "1",
+        "business": "None",
+        "specialization": "CrossFit"
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T21:05:00Z", "direction": "inbound", "message": "BAMBU-2026-FC8N3R - New to coaching but very motivated!"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-FC9P4S",
+      "name": "Fit Coach Prospect 22",
+      "email": "prospect22@example.com",
+      "instagram": "@fitcoach22",
+      "location": "Various",
+      "avatar": "https://ui-avatars.com/api/?name=Fit+Coach&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T22:00:00Z",
+      "status": "new",
+      "tier": "MEDIUM",
+      "scoring": {
+        "coachingExperience": 6,
+        "technicalFoundation": 6,
+        "businessAcumen": 5,
+        "growthMindset": 8,
+        "financialReadiness": 6,
+        "commitmentSignal": 7,
+        "total": 38
+      },
+      "profile": {
+        "currentRole": "Part-time Coach",
+        "yearsCoaching": "3",
+        "business": "Side hustle",
+        "specialization": "Strength & Conditioning"
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T22:05:00Z", "direction": "inbound", "message": "BAMBU-2026-FC9P4S - Ready to go full-time with coaching!"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-FD1Q5T",
+      "name": "Fit Coach Prospect 23",
+      "email": "prospect23@example.com",
+      "instagram": "@fitcoach23",
+      "location": "Various",
+      "avatar": "https://ui-avatars.com/api/?name=Fit+Coach&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-12T23:00:00Z",
+      "status": "new",
+      "tier": "MEDIUM",
+      "scoring": {
+        "coachingExperience": 5,
+        "technicalFoundation": 5,
+        "businessAcumen": 6,
+        "growthMindset": 7,
+        "financialReadiness": 7,
+        "commitmentSignal": 6,
+        "total": 36
+      },
+      "profile": {
+        "currentRole": "Gym Manager",
+        "yearsCoaching": "2",
+        "business": "Employed at gym",
+        "specialization": "Group Fitness"
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-12T23:05:00Z", "direction": "inbound", "message": "BAMBU-2026-FD1Q5T - My gym owner is considering sending me!"}
+      ]
+    },
+    {
+      "id": "BAMBU-2026-FD2R6U",
+      "name": "Fit Coach Prospect 24",
+      "email": "prospect24@example.com",
+      "instagram": "@fitcoach24",
+      "location": "Various",
+      "avatar": "https://ui-avatars.com/api/?name=Fit+Coach&background=DCCAB7&color=111111&bold=true",
+      "applied": "2026-01-13T00:00:00Z",
+      "status": "new",
+      "tier": "GOOD",
+      "scoring": {
+        "coachingExperience": 7,
+        "technicalFoundation": 6,
+        "businessAcumen": 7,
+        "growthMindset": 8,
+        "financialReadiness": 7,
+        "commitmentSignal": 7,
+        "total": 42
+      },
+      "profile": {
+        "currentRole": "Online Coach",
+        "yearsCoaching": "4",
+        "business": "Online coaching",
+        "specialization": "Hybrid Training"
+      },
+      "whatsappHistory": [
+        {"timestamp": "2026-01-13T00:05:00Z", "direction": "inbound", "message": "BAMBU-2026-FD2R6U - Want to add in-person skills to my online coaching!"}
+      ]
+    }
+  ]
+}

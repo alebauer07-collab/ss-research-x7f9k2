@@ -1,0 +1,337 @@
+{
+  "research_date": "2026-01-13",
+  "source": "Perplexity Comet - Instagram Commenter Research",
+  "target_account": "@wjhenke",
+  "posts_analyzed": 8,
+  "total_unique_commenters": 93,
+  "summary": {
+    "star_tier": 7,
+    "strong_tier": 9,
+    "good_tier": 12,
+    "medium_tier": 46,
+    "excluded_internal": 4,
+    "business_accounts": 10,
+    "industry_partners": 5
+  },
+  "hot_leads": [
+    {
+      "handle": "@ben_crawsh",
+      "comment": "where do I sign up?",
+      "action": "CONTACT IMMEDIATELY"
+    },
+    {
+      "handle": "@foulmouthedtattooedgirl", 
+      "comment": "i'd like to book a call @wjhenke",
+      "action": "SCHEDULE CALL"
+    },
+    {
+      "handle": "@crossfitwg",
+      "comment": "Summer in Bali guest coaching?",
+      "action": "PARTNERSHIP DISCUSSION"
+    }
+  ],
+  "star_profiles": [
+    {
+      "id": 1,
+      "handle": "@kaylah.holmes",
+      "name": "Kaylah Holmes",
+      "verified": true,
+      "followers": 129000,
+      "bio": "Nutrition & Fitness Coach, Uluwatu Bali, Owner @flexcoaching_",
+      "website": "linktr.ee/flexcoachingpt",
+      "email": "kaylahannholmes@gmail.com",
+      "location": "BALI",
+      "scoring": {
+        "coaching_experience": 9,
+        "business_revenue": 9,
+        "engagement_intent": 8,
+        "reach_influence": 10,
+        "fit_with_academy": 9,
+        "total": 45
+      },
+      "tier": "STAR",
+      "flags": ["VERIFIED", "MEGA_INFLUENCER", "BALI_BASED", "COACHING_BUSINESS", "PRO_COMPETITOR"],
+      "notes": "129K followers! Pro bikini competitor & coach BASED IN BALI. TOP PRIORITY!"
+    },
+    {
+      "id": 2,
+      "handle": "@ben_crawsh",
+      "name": "BEN CRAWSHAW",
+      "verified": false,
+      "followers": 2990,
+      "bio": "TRANSFORMATION COACH, Founder @bcfitness_hq, PT Academy @bc_fitness_pt__academy",
+      "website": "linktr.ee/BCFITNESSHQ",
+      "location": "Carlisle, UK",
+      "scoring": {
+        "coaching_experience": 9,
+        "business_revenue": 10,
+        "engagement_intent": 10,
+        "reach_influence": 5,
+        "fit_with_academy": 9,
+        "total": 43
+      },
+      "tier": "STAR",
+      "flags": ["DIRECT_INTEREST", "GYM_OWNER", "RUNS_PT_ACADEMY"],
+      "notes": "OWNS gym AND PT Academy. Asked 'where do I sign up?' - HIGHEST INTENT!"
+    },
+    {
+      "id": 3,
+      "handle": "@foulmouthedtattooedgirl",
+      "name": "Neridah Lock",
+      "verified": false,
+      "followers": 563,
+      "bio": "Building a gym, HYROX Training Club, The Bay Games organizer",
+      "website": "www.thebaygames.com.au",
+      "location": "Australia",
+      "scoring": {
+        "coaching_experience": 7,
+        "business_revenue": 9,
+        "engagement_intent": 10,
+        "reach_influence": 3,
+        "fit_with_academy": 9,
+        "total": 38
+      },
+      "tier": "STAR",
+      "flags": ["DIRECT_INTEREST", "GYM_OWNER", "HYROX_FOCUSED", "EVENT_ORGANIZER"],
+      "notes": "EXPLICITLY asked to book a call! Building gym, runs HYROX events."
+    },
+    {
+      "id": 4,
+      "handle": "@_alessioangelucci_",
+      "name": "Alessio Angelucci",
+      "verified": false,
+      "followers": 10500,
+      "bio": "Coach, Owner @tribe.hq, HYROX prep",
+      "website": "www.tribeheadquarters.com.au",
+      "location": "Australia",
+      "scoring": {
+        "coaching_experience": 8,
+        "business_revenue": 10,
+        "engagement_intent": 5,
+        "reach_influence": 7,
+        "fit_with_academy": 8,
+        "total": 38
+      },
+      "tier": "STAR",
+      "flags": ["GYM_OWNER", "HYROX_FOCUSED", "AUSTRALIA"],
+      "notes": "Owns Tribe HQ gym in Australia. Does HYROX prep."
+    },
+    {
+      "id": 5,
+      "handle": "@crossfitwg",
+      "name": "CrossFit Winter Garden",
+      "verified": true,
+      "followers": 3809,
+      "bio": "CrossFit Affiliate, Florida USA",
+      "website": "www.crossfitwintergarden.com",
+      "location": "Florida, USA",
+      "scoring": {
+        "coaching_experience": 8,
+        "business_revenue": 9,
+        "engagement_intent": 8,
+        "reach_influence": 5,
+        "fit_with_academy": 9,
+        "total": 39
+      },
+      "tier": "STAR",
+      "flags": ["CROSSFIT_BOX", "VERIFIED", "GUEST_COACHING_INTEREST"],
+      "notes": "CrossFit affiliate interested in sending coaches/collaborating!"
+    },
+    {
+      "id": 6,
+      "handle": "@sophiekburgener",
+      "name": "Sophie Burgener",
+      "verified": true,
+      "followers": 40700,
+      "bio": "Burgener Strength family member",
+      "location": "San Diego, USA",
+      "scoring": {
+        "coaching_experience": 8,
+        "business_revenue": 7,
+        "engagement_intent": 9,
+        "reach_influence": 7,
+        "fit_with_academy": 10,
+        "total": 41
+      },
+      "tier": "STAR",
+      "flags": ["VERIFIED", "BURGENER_FAMILY", "STRONG_ENDORSEMENT"],
+      "notes": "Part of legendary Burgener weightlifting family. Said 'A MUST for all coaches'"
+    },
+    {
+      "id": 7,
+      "handle": "@iamkhanporter",
+      "name": "Khan Porter",
+      "verified": true,
+      "followers": 184000,
+      "bio": "9x CrossFit Games, Licensed Counsellor",
+      "location": "Australia",
+      "scoring": {
+        "coaching_experience": 8,
+        "business_revenue": 7,
+        "engagement_intent": 7,
+        "reach_influence": 9,
+        "fit_with_academy": 9,
+        "total": 40
+      },
+      "tier": "STAR",
+      "flags": ["VERIFIED", "CF_GAMES_ATHLETE", "HIGH_PROFILE"],
+      "notes": "9x CrossFit Games athlete - excellent social proof/guest coach potential"
+    }
+  ],
+  "strong_profiles": [
+    {
+      "id": 8,
+      "handle": "@flexcoaching_",
+      "name": "FLEX COACHING",
+      "followers": 8495,
+      "bio": "Women's Transformation Specialist, The Flex App",
+      "scoring": {"total": 35},
+      "tier": "STRONG",
+      "flags": ["COACHING_BUSINESS", "HAS_APP"]
+    },
+    {
+      "id": 9,
+      "handle": "@andyhickeyfitness",
+      "name": "Andy Hickey",
+      "followers": 16000,
+      "bio": "Coach - 1-1 Bespoke Coaching",
+      "scoring": {"total": 35},
+      "tier": "STRONG",
+      "flags": ["ONLINE_COACH", "HIGH_FOLLOWERS"]
+    },
+    {
+      "id": 10,
+      "handle": "@sam.molineaux",
+      "name": "MOVEWELL",
+      "followers": 7874,
+      "bio": "Coach, HYROX specialist, sponsored athlete",
+      "scoring": {"total": 35},
+      "tier": "STRONG",
+      "flags": ["HYROX_FOCUSED", "SPONSORED_ATHLETE"]
+    },
+    {
+      "id": 11,
+      "handle": "@humanoptimizedofficial",
+      "name": "Aurimas Juodka",
+      "verified": true,
+      "followers": 72300,
+      "bio": "Entrepreneur, @9dbreathwork founder, Bali-based",
+      "scoring": {"total": 35},
+      "tier": "STRONG",
+      "flags": ["MEGA_INFLUENCER", "BALI_BASED", "ENTREPRENEUR"]
+    },
+    {
+      "id": 12,
+      "handle": "@matlockofficial",
+      "name": "Mat Lock",
+      "verified": true,
+      "followers": 1933,
+      "bio": "Director of Sports - HYROX",
+      "scoring": {"total": 35},
+      "tier": "STRONG",
+      "flags": ["HYROX_DIRECTOR", "INDUSTRY_LEADER"]
+    },
+    {
+      "id": 13,
+      "handle": "@redonmanushi",
+      "name": "Redon Manushi",
+      "followers": 16700,
+      "bio": "Weightlifting French Team, BALI BASED",
+      "scoring": {"total": 31},
+      "tier": "STRONG",
+      "flags": ["NATIONAL_TEAM_ATHLETE", "BALI_BASED", "WEIGHTLIFTING"]
+    },
+    {
+      "id": 14,
+      "handle": "@_sammyd",
+      "name": "Sammy D",
+      "followers": 3610,
+      "bio": "Founder @InBalanceEducation, Pilates instructor",
+      "scoring": {"total": 38},
+      "tier": "STRONG",
+      "flags": ["RUNS_EDUCATION_BUSINESS", "PILATES"]
+    },
+    {
+      "id": 15,
+      "handle": "@brittanywills_",
+      "name": "NXTLVL Performance",
+      "followers": 1387,
+      "bio": "Fitness Trainer, Business Owner, Sponsored Athlete",
+      "scoring": {"total": 28},
+      "tier": "GOOD",
+      "flags": ["BUSINESS_OWNER", "TRAINED_AT_BAMBU"]
+    },
+    {
+      "id": 16,
+      "handle": "@ela_si_",
+      "name": "Ela",
+      "followers": 859,
+      "bio": "Founder @indoorcyclingstuttgart and @mumfitstuttgart",
+      "scoring": {"total": 30},
+      "tier": "GOOD",
+      "flags": ["TWO_FITNESS_BUSINESSES", "GERMANY"]
+    }
+  ],
+  "industry_partners": [
+    {
+      "handle": "@burgenerstrength",
+      "name": "Burgener Strength",
+      "followers": 362000,
+      "bio": "Lift Better, Coach Better. Burgener Weightlifting Courses",
+      "opportunity": "Cross-promotion, certification alignment"
+    },
+    {
+      "handle": "@jamesnewbury",
+      "name": "James Newbury",
+      "followers": 213000,
+      "bio": "5x CrossFit Games, Team Champions 2024",
+      "opportunity": "Ambassador/Endorsement"
+    },
+    {
+      "handle": "@fitnesswithessa",
+      "name": "Essa AlAnsari",
+      "followers": 427000,
+      "bio": "Middle East fitness influencer",
+      "opportunity": "Middle East market expansion"
+    }
+  ],
+  "bali_network": [
+    "@kaylah.holmes",
+    "@humanoptimizedofficial", 
+    "@redonmanushi",
+    "@michaelswaterpark",
+    "@steph.connolly",
+    "@onfit.official"
+  ],
+  "excluded_internal": [
+    "@coach_samcraige",
+    "@coach.macca",
+    "@carrie.henke",
+    "@wjhenke"
+  ],
+  "all_handles": [
+    "@palmillabali", "@stellar_wanderer", "@afifisa", "@jumana_aldarwish",
+    "@melsrz", "@soul.lucky", "@harrie789", "@naddi_kn", "@misspowx",
+    "@pipitdjatma", "@jeffdovey", "@hejohno", "@jamesnewbury",
+    "@paulgillingham_", "@beauyboi", "@abigaillllsav", "@burgenerstrength",
+    "@fitnesswithessa", "@iamkhanporter", "@isabel__fm", "@tahliaskaines",
+    "@kikiandthequads", "@sophiekburgener", "@rhita_worg_96", "@ben_crawsh",
+    "@alba.iranzo", "@daniel_ebert_official", "@foulmouthedtattooedgirl",
+    "@foubn", "@jakeebird", "@jessgazal", "@alekhaim", "@sam.molineaux",
+    "@_alessioangelucci_", "@movewithmanu", "@crossfitwg", "@michaelswaterpark",
+    "@laranchecostay", "@delavieja", "@herbinator90", "@baileyobrien_",
+    "@ifjamesbondwasakook", "@conner_greene", "@conan_maestrom",
+    "@brittanywills_", "@steph.connolly", "@_sammyd", "@jacktmalone",
+    "@sofidinamitaa", "@mediaforsocialsbali", "@pabli.74", "@dana.raywhitekuta",
+    "@drinkhomeibiza", "@ibrahim_rag", "@ambra_maddalena", "@dessy____________",
+    "@iamoliviasage", "@robertt_gray", "@palomacenti", "@silveryury",
+    "@sarah_fox_7", "@amberilla", "@burtyk", "@max_loong", "@kylejpkenny",
+    "@ela_si_", "@rickgodds", "@jamie_b_new_", "@jaffi90", "@popmarius7472",
+    "@matlockofficial", "@jono.hendricks", "@burak.rl", "@jay_cuneyt",
+    "@rodneyleelong", "@onfit.official", "@wbrooks8", "@rotationalenertia",
+    "@mmurf7", "@humanoptimizedofficial", "@redonmanushi", "@andyhickeyfitness",
+    "@mkristo.bruce", "@toby_buckland", "@kaylah.holmes", "@flexcoaching_",
+    "@georgia.murrayy"
+  ]
+}
+

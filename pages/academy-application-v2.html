@@ -878,6 +878,475 @@
             margin-top: 0.5rem;
             font-size: 1rem;
         }
+        
+        /* ===== THANK YOU MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--bambu-black);
+            border: 2px solid var(--bambu-tan);
+            border-radius: 16px;
+            max-width: 520px;
+            width: 100%;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.4s ease;
+            position: relative;
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            background: var(--bg-card);
+            border: none;
+            border-radius: 50%;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+        
+        .modal-logo {
+            height: 50px;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* ===== ENHANCED 3-STEP PROGRESS MODAL ===== */
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+        
+        .modal-subtitle {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+        
+        .progress-bar-wrapper {
+            position: relative;
+            height: 8px;
+            background: rgba(220, 202, 183, 0.15);
+            border-radius: 100px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--bambu-tan) 0%, var(--bambu-gold) 100%);
+            border-radius: 100px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 33%;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+        
+        .progress-label {
+            color: var(--bambu-tan);
+            font-weight: 600;
+        }
+        
+        .progress-percent {
+            color: var(--text-muted);
+        }
+        
+        /* Applicant ID Badge */
+        .applicant-id-badge {
+            background: rgba(220, 202, 183, 0.1);
+            border: 1px solid var(--bambu-tan);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .applicant-id-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .applicant-id-value {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--bambu-tan);
+            letter-spacing: 1px;
+            font-family: 'JetBrains Mono', monospace, 'Montserrat', sans-serif;
+        }
+        
+        /* Steps Container */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .step-card {
+            background: rgba(35, 35, 35, 0.8);
+            border: 1px solid rgba(220, 202, 183, 0.1);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--text-grey);
+            transition: background 0.3s ease;
+        }
+        
+        .step-card.completed::before {
+            background: #22c55e;
+        }
+        
+        .step-card.active::before {
+            background: var(--bambu-tan);
+            animation: pulse-border 2s infinite;
+        }
+        
+        .step-card.locked {
+            opacity: 0.5;
+        }
+        
+        @keyframes pulse-border {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Checkbox */
+        .step-checkbox {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--text-grey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: transparent;
+        }
+        
+        .step-checkbox.checked {
+            background: #22c55e;
+            border-color: #22c55e;
+        }
+        
+        .step-checkbox.locked {
+            cursor: not-allowed;
+        }
+        
+        .step-checkbox svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.2s ease;
+        }
+        
+        .step-checkbox.checked svg {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Step Content */
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .step-number {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--bambu-tan);
+            background: rgba(220, 202, 183, 0.15);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .step-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-white);
+        }
+        
+        .step-description {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        
+        .step-action {
+            margin-top: 0.75rem;
+        }
+        
+        /* WhatsApp Button in Step */
+        .whatsapp-step-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .whatsapp-step-btn:hover {
+            background: #128C7E;
+            transform: translateY(-1px);
+        }
+        
+        .whatsapp-step-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+        
+        .whatsapp-step-btn.clicked {
+            background: #128C7E;
+        }
+        
+        /* Timer Badge */
+        .timer-badge {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: var(--bambu-tan);
+            margin-top: 0.5rem;
+        }
+        
+        .timer-badge.active {
+            display: flex;
+        }
+        
+        .timer-spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(220, 202, 183, 0.3);
+            border-top-color: var(--bambu-tan);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Step 3 Special State */
+        .step-pending-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: rgba(107, 114, 128, 0.2);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+        
+        /* XP / Points Display */
+        .xp-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, rgba(220, 202, 183, 0.1) 0%, rgba(196, 167, 125, 0.1) 100%);
+            border: 1px solid rgba(220, 202, 183, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .xp-item {
+            text-align: center;
+        }
+        
+        .xp-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--bambu-tan);
+        }
+        
+        .xp-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .xp-divider {
+            width: 1px;
+            height: 40px;
+            background: rgba(220, 202, 183, 0.2);
+        }
+        
+        /* Confetti Animation */
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+        }
+        
+        .confetti.active {
+            animation: confetti-fall 3s ease-out forwards;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(400px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Modal Footer */
+        .modal-footer {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(220, 202, 183, 0.1);
+        }
+        
+        .modal-footer-text {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .modal-footer-text strong {
+            color: var(--text-muted);
+        }
+        
+        .modal-note {
+            background: rgba(220, 202, 183, 0.1);
+            border-left: 3px solid var(--bambu-tan);
+            padding: 1rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+        
+        .modal-note p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+        }
+        
+        .modal-note strong {
+            color: var(--bambu-tan);
+        }
+        
+        /* WhatsApp pulse animation */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .whatsapp-step-btn {
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-step-btn:hover,
+        .whatsapp-step-btn.clicked {
+            animation: none;
+        }
     </style>
 </head>
 <body>
@@ -1146,20 +1615,14 @@
                     <div class="payment-card featured">
                         <div class="payment-icon">🏆</div>
                         <div class="payment-title">Early Bird</div>
-                        <div class="payment-price">$5,000</div>
-                        <div class="payment-desc">Pay in full<br>Save $1,000</div>
+                        <div class="payment-price">$4,299</div>
+                        <div class="payment-desc">Pay in full<br>Save $2,700</div>
                     </div>
                     <div class="payment-card">
                         <div class="payment-icon">💵</div>
                         <div class="payment-title">Standard</div>
-                        <div class="payment-price">$6,000</div>
+                        <div class="payment-price">$6,999</div>
                         <div class="payment-desc">Full price<br>Pay before start</div>
-                    </div>
-                    <div class="payment-card">
-                        <div class="payment-icon">📆</div>
-                        <div class="payment-title">Monthly</div>
-                        <div class="payment-price">$599/mo</div>
-                        <div class="payment-desc">12 installments<br>$7,188 total</div>
                     </div>
                     <div class="payment-card">
                         <div class="payment-icon">🤝</div>
@@ -1239,7 +1702,7 @@
                         <div class="ladder-icon">💪</div>
                         <div class="ladder-content">
                             <h4>Elite Coach</h4>
-                            <p>Coach at Bambu or top gyms worldwide — $40K-$120K/year</p>
+                            <p>Coach at Bambu or top gyms worldwide</p>
                         </div>
                     </div>
                     <div class="ladder-step">
@@ -1250,17 +1713,10 @@
                         </div>
                     </div>
                     <div class="ladder-step">
-                        <div class="ladder-icon">📚</div>
+                        <div class="ladder-icon">🚀</div>
                         <div class="ladder-content">
-                            <h4>Course Creator</h4>
-                            <p>Build your own programs, sell your expertise</p>
-                        </div>
-                    </div>
-                    <div class="ladder-step">
-                        <div class="ladder-icon">🏠</div>
-                        <div class="ladder-content">
-                            <h4>Gym Owner / Franchise</h4>
-                            <p>Open your own space — or run a Bambu location</p>
+                            <h4>Build Your Own Path</h4>
+                            <p>If you want to accelerate your business by becoming an online coach, opening your own gym, or creating courses for yourself, this is a great stepping stone</p>
                         </div>
                     </div>
                 </div>
@@ -1295,7 +1751,7 @@
                     <p class="section-subtitle">Fill this out. If you're a fit, we'll be in touch within 48 hours.</p>
                 </div>
                 
-                <form class="application-form" action="#" method="POST">
+                <form class="application-form" onsubmit="return handleFormSubmit(event)">
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label">First Name *</label>
@@ -1360,8 +1816,8 @@
                         <label class="form-label">Preferred Payment Option</label>
                         <select class="form-select" name="payment_preference">
                             <option value="">Select...</option>
-                            <option value="early_bird">Early Bird ($5,000 upfront)</option>
-                            <option value="standard">Standard ($6,000 upfront)</option>
+                            <option value="early_bird">Early Bird ($4,299 - Save $2,700)</option>
+                            <option value="standard">Standard ($6,999)</option>
                             <option value="monthly">Monthly installments ($599/mo)</option>
                             <option value="sponsor">Looking for a sponsor</option>
                             <option value="employer">My employer may pay</option>
@@ -1507,19 +1963,440 @@
             <p class="footer-tagline">15 spots. 7 weeks. Let's fill this cohort the right way.</p>
         </footer>
 
+        <!-- Enhanced 3-Step Progress Modal -->
+        <div id="thankYouModal" class="modal-overlay">
+            <div class="modal-content" style="max-width: 520px;">
+                <button class="modal-close" onclick="closeModal()">×</button>
+                
+                <!-- Confetti Container -->
+                <div class="confetti-container" id="confettiContainer"></div>
+                
+                <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu" class="modal-logo">
+                
+                <h2 class="modal-title">You're In The Pipeline! 🎯</h2>
+                <p class="modal-subtitle">Complete these steps to secure your spot</p>
+                
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar-wrapper">
+                        <div class="progress-bar-fill" id="progressBarFill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span class="progress-label"><span id="progressSteps">1</span>/3 Steps Complete</span>
+                        <span class="progress-percent" id="progressPercent">33%</span>
+                    </div>
+                </div>
+                
+                <!-- Applicant ID Badge -->
+                <div class="applicant-id-badge">
+                    <span class="applicant-id-label">Your Application ID</span>
+                    <span class="applicant-id-value" id="modalApplicantId">BAMBU-2026-XXXXXX</span>
+                </div>
+                
+                <!-- 3-Step Progress Tracker -->
+                <div class="steps-container">
+                    
+                    <!-- Step 1: Application Completed (Locked) -->
+                    <div class="step-card completed" id="step1Card">
+                        <div class="step-checkbox checked locked" id="step1Checkbox">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-header">
+                                <span class="step-number">STEP 1</span>
+                                <span class="step-title">Application Submitted</span>
+                            </div>
+                            <p class="step-description">Your details are locked in. We're reviewing your application now.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: WhatsApp Message -->
+                    <div class="step-card active" id="step2Card">
+                        <div class="step-checkbox" id="step2Checkbox" onclick="toggleStep2()">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-header">
+                                <span class="step-number">STEP 2</span>
+                                <span class="step-title">Connect on WhatsApp</span>
+                            </div>
+                            <p class="step-description">Send us a quick message so we can fast-track your application. Your ID is pre-filled!</p>
+                            <div class="step-action">
+                                <a href="#" 
+                                   id="whatsappStepBtn"
+                                   onclick="handleWhatsAppClick(event)"
+                                   target="_blank" 
+                                   class="whatsapp-step-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                    </svg>
+                                    Message Us Now
+                                </a>
+                                <div class="timer-badge" id="step2Timer">
+                                    <div class="timer-spinner"></div>
+                                    <span>Auto-confirming in <span id="timerCount">10</span>s...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Profile Page -->
+                    <div class="step-card locked" id="step3Card">
+                        <div class="step-checkbox locked" id="step3Checkbox">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-header">
+                                <span class="step-number">STEP 3</span>
+                                <span class="step-title">Review Your Profile</span>
+                            </div>
+                            <p class="step-description">We'll generate your personalized profile page. You can add feedback and additional info there.</p>
+                            <div class="step-pending-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-7v4h4l-5 7z"/></svg>
+                                Unlocks after Step 2
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- XP / Gamification Display -->
+                <div class="xp-display">
+                    <div class="xp-item">
+                        <div class="xp-value" id="xpEarned">100</div>
+                        <div class="xp-label">XP Earned</div>
+                    </div>
+                    <div class="xp-divider"></div>
+                    <div class="xp-item">
+                        <div class="xp-value" id="xpTotal">300</div>
+                        <div class="xp-label">To Complete</div>
+                    </div>
+                    <div class="xp-divider"></div>
+                    <div class="xp-item">
+                        <div class="xp-value" style="color: #22c55e;">🔥</div>
+                        <div class="xp-label">Streak Active</div>
+                    </div>
+                </div>
+                
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <p class="modal-footer-text">
+                        <strong>Pro tip:</strong> Complete all steps within 24 hours to earn bonus priority in our review queue!
+                    </p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <!-- FAQ Toggle Script -->
+    <!-- FAQ Toggle Script & Enhanced Form Handler -->
     <script>
+        // ===== CONFIGURATION =====
+        // TODO: Update this with your new WhatsApp Business number
+        const WHATSAPP_NUMBER = '6281244997721'; // Replace with new number when ready
+        const WEBHOOK_URL = 'https://alexbauer.app.n8n.cloud/webhook/bambu-academy-application'; // n8n webhook
+        
+        // ===== STATE MANAGEMENT =====
+        let currentApplicantId = null;
+        let currentApplicantData = null;
+        let step2TimerInterval = null;
+        let step2CanToggle = false;
+        let stepsCompleted = { step1: true, step2: false, step3: false };
+        
+        // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const item = button.parentElement;
-                // Close other items
                 document.querySelectorAll('.faq-item').forEach(other => {
                     if (other !== item) other.classList.remove('active');
                 });
                 item.classList.toggle('active');
             });
+        });
+        
+        // ===== MODAL FUNCTIONS =====
+        function openModal() {
+            document.getElementById('thankYouModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            triggerConfetti();
+        }
+        
+        function closeModal() {
+            document.getElementById('thankYouModal').classList.remove('active');
+            document.body.style.overflow = '';
+            clearInterval(step2TimerInterval);
+        }
+        
+        document.getElementById('thankYouModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+        
+        // ===== CONFETTI ANIMATION =====
+        function triggerConfetti() {
+            const container = document.getElementById('confettiContainer');
+            container.innerHTML = '';
+            const colors = ['#DCCAB7', '#C4A77D', '#22c55e', '#FFD700', '#FF6B6B'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                container.appendChild(confetti);
+                
+                setTimeout(() => confetti.classList.add('active'), 100);
+            }
+        }
+        
+        // ===== PROGRESS UPDATE =====
+        function updateProgress() {
+            const completedCount = Object.values(stepsCompleted).filter(Boolean).length;
+            const percent = Math.round((completedCount / 3) * 100);
+            
+            document.getElementById('progressBarFill').style.width = percent + '%';
+            document.getElementById('progressSteps').textContent = completedCount;
+            document.getElementById('progressPercent').textContent = percent + '%';
+            
+            // Update XP
+            const xpPerStep = 100;
+            document.getElementById('xpEarned').textContent = completedCount * xpPerStep;
+        }
+        
+        // ===== STEP 2: WHATSAPP CLICK HANDLER =====
+        function handleWhatsAppClick(e) {
+            // Build WhatsApp URL with applicant data
+            const message = encodeURIComponent(
+                `Hey Bambu team! I just submitted my Academy application.\n\n` +
+                `📋 Application ID: ${currentApplicantId}\n` +
+                `👤 Name: ${currentApplicantData.first_name} ${currentApplicantData.last_name}\n` +
+                `📧 Email: ${currentApplicantData.email}\n\n` +
+                `Excited to chat!`
+            );
+            
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+            
+            // Update button href and open
+            const btn = document.getElementById('whatsappStepBtn');
+            btn.href = whatsappUrl;
+            btn.classList.add('clicked');
+            
+            // Show timer badge
+            const timerBadge = document.getElementById('step2Timer');
+            timerBadge.classList.add('active');
+            
+            // Start 10-second countdown
+            let countdown = 10;
+            document.getElementById('timerCount').textContent = countdown;
+            
+            step2TimerInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('timerCount').textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(step2TimerInterval);
+                    timerBadge.classList.remove('active');
+                    
+                    // Auto-check step 2
+                    completeStep2();
+                    step2CanToggle = true;
+                }
+            }, 1000);
+            
+            // Track WhatsApp click in localStorage
+            const storedData = JSON.parse(localStorage.getItem('bambuAcademyApplication') || '{}');
+            storedData.whatsappClicked = true;
+            storedData.whatsappClickedAt = new Date().toISOString();
+            localStorage.setItem('bambuAcademyApplication', JSON.stringify(storedData));
+            
+            // Send webhook to n8n for WhatsApp click tracking
+            sendWebhook('whatsapp_clicked', { applicantId: currentApplicantId });
+        }
+        
+        // ===== STEP 2: TOGGLE (AFTER 10 SECONDS) =====
+        function toggleStep2() {
+            if (!step2CanToggle) return;
+            
+            const checkbox = document.getElementById('step2Checkbox');
+            const card = document.getElementById('step2Card');
+            
+            if (stepsCompleted.step2) {
+                // Uncheck
+                checkbox.classList.remove('checked');
+                card.classList.remove('completed');
+                card.classList.add('active');
+                stepsCompleted.step2 = false;
+                
+                // Lock step 3 again
+                const step3Card = document.getElementById('step3Card');
+                step3Card.classList.add('locked');
+                step3Card.classList.remove('active');
+            } else {
+                // Check
+                completeStep2();
+            }
+            
+            updateProgress();
+        }
+        
+        function completeStep2() {
+            const checkbox = document.getElementById('step2Checkbox');
+            const card = document.getElementById('step2Card');
+            const step3Card = document.getElementById('step3Card');
+            
+            checkbox.classList.add('checked');
+            card.classList.remove('active');
+            card.classList.add('completed');
+            stepsCompleted.step2 = true;
+            
+            // Unlock step 3
+            step3Card.classList.remove('locked');
+            step3Card.classList.add('active');
+            
+            // Update pending badge
+            const pendingBadge = step3Card.querySelector('.step-pending-badge');
+            if (pendingBadge) {
+                pendingBadge.innerHTML = `
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-7v4h4l-5 7z"/></svg>
+                    Profile generating... Check back soon!
+                `;
+                pendingBadge.style.background = 'rgba(34, 197, 94, 0.2)';
+                pendingBadge.style.color = '#22c55e';
+            }
+            
+            updateProgress();
+            triggerConfetti();
+            
+            // Send webhook for step 2 completion
+            sendWebhook('step2_completed', { applicantId: currentApplicantId });
+        }
+        
+        // ===== WEBHOOK TO N8N =====
+        async function sendWebhook(eventType, data) {
+            try {
+                const payload = {
+                    event: eventType,
+                    timestamp: new Date().toISOString(),
+                    applicant: currentApplicantData,
+                    ...data
+                };
+                
+                // Send to n8n webhook (non-blocking)
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                    mode: 'no-cors' // For cross-origin
+                }).catch(err => console.log('Webhook sent (no-cors mode)'));
+                
+                console.log('Webhook sent:', eventType, payload);
+            } catch (err) {
+                console.error('Webhook error:', err);
+            }
+        }
+        
+        // ===== GENERATE APPLICANT ID =====
+        function generateApplicantId() {
+            const year = new Date().getFullYear();
+            const random = Math.random().toString(36).substring(2, 8).toUpperCase();
+            const timestamp = Date.now().toString(36).toUpperCase().slice(-4);
+            return `BAMBU-${year}-${random}${timestamp}`;
+        }
+        
+        // ===== FORM SUBMISSION HANDLER =====
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const form = document.querySelector('.application-form');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Generate unique applicant ID
+            currentApplicantId = generateApplicantId();
+            data.applicant_id = currentApplicantId;
+            currentApplicantData = data;
+            
+            console.log('Application submitted:', data);
+            
+            // Store in localStorage
+            localStorage.setItem('bambuAcademyApplication', JSON.stringify({
+                ...data,
+                submittedAt: new Date().toISOString(),
+                stepsCompleted: { step1: true, step2: false, step3: false }
+            }));
+            
+            // Update modal with applicant ID
+            document.getElementById('modalApplicantId').textContent = currentApplicantId;
+            
+            // Reset step states for new submission
+            stepsCompleted = { step1: true, step2: false, step3: false };
+            step2CanToggle = false;
+            
+            // Reset step 2 UI
+            document.getElementById('step2Checkbox').classList.remove('checked');
+            document.getElementById('step2Card').classList.remove('completed');
+            document.getElementById('step2Card').classList.add('active');
+            document.getElementById('step2Timer').classList.remove('active');
+            document.getElementById('whatsappStepBtn').classList.remove('clicked');
+            
+            // Reset step 3 UI
+            document.getElementById('step3Card').classList.add('locked');
+            document.getElementById('step3Card').classList.remove('active', 'completed');
+            document.getElementById('step3Checkbox').classList.remove('checked');
+            
+            // Update progress bar
+            updateProgress();
+            
+            // Send webhook to n8n for application submission
+            sendWebhook('application_submitted', {
+                applicantId: currentApplicantId,
+                formData: data
+            });
+            
+            // Show the modal
+            openModal();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Reset form
+            setTimeout(() => form.reset(), 500);
+            
+            return false;
+        }
+        
+        // ===== CHECK FOR EXISTING APPLICATION ON PAGE LOAD =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const stored = localStorage.getItem('bambuAcademyApplication');
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    // If application was submitted less than 24 hours ago, restore state
+                    const submittedAt = new Date(data.submittedAt);
+                    const now = new Date();
+                    const hoursSince = (now - submittedAt) / (1000 * 60 * 60);
+                    
+                    if (hoursSince < 24 && data.applicant_id) {
+                        currentApplicantId = data.applicant_id;
+                        currentApplicantData = data;
+                        if (data.stepsCompleted) {
+                            stepsCompleted = data.stepsCompleted;
+                        }
+                        if (data.whatsappClicked) {
+                            step2CanToggle = true;
+                        }
+                        console.log('Restored application state:', data);
+                    }
+                } catch (e) {
+                    console.log('Could not restore application state');
+                }
+            }
         });
     </script>
 </body>

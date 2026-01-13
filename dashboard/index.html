@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu Academy — Applicant Dashboard</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6351e77bf7b7a3148a2f4b8d_bambu-favi-32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bambu-black: #111111;
+            --bambu-dark: #1a1a1a;
+            --bambu-tan: #DCCAB7;
+            --bambu-tan-light: #E5D8C8;
+            --text-white: #FFFFFF;
+            --text-muted: #9CA3AF;
+            --text-grey: #6B7280;
+            --bg-card: #232323;
+            --border-subtle: rgba(220, 202, 183, 0.15);
+            
+            /* Score colors */
+            --col-ce: #22c55e;      /* Coaching Experience - Green */
+            --col-tf: #3b82f6;      /* Technical Foundation - Blue */
+            --col-ba: #f59e0b;      /* Business Acumen - Amber */
+            --col-gm: #8b5cf6;      /* Growth Mindset - Purple */
+            --col-fr: #14b8a6;      /* Financial Readiness - Teal */
+            --col-cs: #ef4444;      /* Commitment Signal - Red */
+            
+            /* Tier colors */
+            --tier-hot: #ef4444;
+            --tier-warm: #f59e0b;
+            --tier-cool: #3b82f6;
+            --tier-cold: #6b7280;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bambu-black);
+            color: var(--text-white);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bambu-dark);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .header-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--bambu-tan);
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--bambu-tan);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Controls */
+        .controls {
+            background: var(--bambu-dark);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .controls-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-subtle);
+            background: transparent;
+            color: var(--text-muted);
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--bambu-tan);
+            color: var(--text-white);
+        }
+
+        .filter-btn.active {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            border-color: var(--bambu-tan);
+        }
+
+        .filter-btn.tier-hot.active { background: var(--tier-hot); border-color: var(--tier-hot); }
+        .filter-btn.tier-warm.active { background: var(--tier-warm); border-color: var(--tier-warm); }
+        .filter-btn.tier-cool.active { background: var(--tier-cool); border-color: var(--tier-cool); }
+        .filter-btn.tier-cold.active { background: var(--tier-cold); border-color: var(--tier-cold); }
+
+        .search-box {
+            flex: 1;
+            max-width: 300px;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-subtle);
+            background: rgba(255,255,255,0.05);
+            color: var(--text-white);
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .search-box::placeholder {
+            color: var(--text-grey);
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-subtle);
+            background: rgba(255,255,255,0.05);
+            color: var(--text-white);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* Main content */
+        .main {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Grid */
+        .applicants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Applicant Card */
+        .applicant-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .applicant-card:hover {
+            border-color: var(--bambu-tan);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--bambu-tan);
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .applicant-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .applicant-handle {
+            font-size: 0.85rem;
+            color: var(--bambu-tan);
+            margin-bottom: 0.25rem;
+        }
+
+        .applicant-location {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .tier-badge {
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tier-1 { background: var(--tier-hot); color: white; }
+        .tier-2 { background: var(--tier-warm); color: var(--bambu-black); }
+        .tier-3 { background: var(--tier-cool); color: white; }
+        .tier-4 { background: var(--tier-cold); color: white; }
+
+        /* Overall Score */
+        .overall-score {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: rgba(220, 202, 183, 0.08);
+            border-radius: 10px;
+        }
+
+        .score-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--bambu-tan);
+        }
+
+        .score-bar-container {
+            flex: 1;
+        }
+
+        .score-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--bambu-tan), var(--bambu-tan-light));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .score-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+
+        /* Score breakdown */
+        .scores-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .score-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.6rem;
+            background: rgba(255,255,255,0.04);
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .score-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .score-dot.ce { background: var(--col-ce); }
+        .score-dot.tf { background: var(--col-tf); }
+        .score-dot.ba { background: var(--col-ba); }
+        .score-dot.gm { background: var(--col-gm); }
+        .score-dot.fr { background: var(--col-fr); }
+        .score-dot.cs { background: var(--col-cs); }
+
+        .score-name {
+            flex: 1;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .score-value {
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Business info */
+        .business-info {
+            padding: 0.75rem;
+            background: rgba(220, 202, 183, 0.05);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .business-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--bambu-tan);
+        }
+
+        .business-role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Intent quote */
+        .intent-quote {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--text-muted);
+            padding: 0.75rem;
+            background: rgba(255,255,255,0.03);
+            border-left: 3px solid var(--bambu-tan);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+        }
+
+        /* Card footer */
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.1);
+            color: var(--text-muted);
+        }
+
+        .status-badge.call_scheduled { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .status-badge.contacted { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .status-badge.nurturing { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+        .status-badge.email_list { background: rgba(107, 114, 128, 0.2); color: #9ca3af; }
+
+        .view-btn {
+            padding: 0.5rem 1rem;
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .view-btn:hover {
+            background: var(--bambu-tan-light);
+        }
+
+        /* Modal */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 2rem;
+        }
+
+        .modal-backdrop.show {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bambu-dark);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .modal-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--bambu-tan);
+        }
+
+        .modal-title {
+            flex: 1;
+        }
+
+        .modal-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .modal-subtitle {
+            font-size: 1rem;
+            color: var(--bambu-tan);
+        }
+
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--text-white);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .modal-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-section h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Modal scores */
+        .modal-scores {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .modal-score-item {
+            padding: 1rem;
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .modal-score-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-score-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .modal-score-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .modal-score-value {
+            font-size: 1.75rem;
+            font-weight: 900;
+        }
+
+        .modal-score-bar {
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .modal-score-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        /* WhatsApp chat */
+        .chat-container {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            display: flex;
+            margin-bottom: 0.75rem;
+        }
+
+        .chat-message.from-applicant {
+            justify-content: flex-start;
+        }
+
+        .chat-message.from-bambu {
+            justify-content: flex-end;
+        }
+
+        .chat-bubble {
+            max-width: 75%;
+            padding: 0.75rem 1rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .from-applicant .chat-bubble {
+            background: rgba(255,255,255,0.1);
+            border-bottom-left-radius: 4px;
+        }
+
+        .from-bambu .chat-bubble {
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-time {
+            font-size: 0.7rem;
+            color: var(--text-grey);
+            margin-top: 0.25rem;
+            text-align: right;
+        }
+
+        .from-applicant .chat-time {
+            text-align: left;
+        }
+
+        /* Signals */
+        .signals-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .signal-chip {
+            padding: 0.4rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+        }
+
+        .signal-positive {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .signal-negative {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .applicants-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-scores {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .controls-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--bambu-tan);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            color: var(--bambu-tan-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu" class="logo">
+            <h1 class="header-title">Academy Applicant Dashboard</h1>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="stat-total">0</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="stat-hot">0</div>
+                    <div class="stat-label">Tier 1 Hot</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="stat-warm">0</div>
+                    <div class="stat-label">Tier 2 Warm</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Controls -->
+    <div class="controls">
+        <div class="controls-content">
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn tier-hot" data-filter="1">🔥 Hot</button>
+                <button class="filter-btn tier-warm" data-filter="2">⚡ Warm</button>
+                <button class="filter-btn tier-cool" data-filter="3">❄️ Cool</button>
+                <button class="filter-btn tier-cold" data-filter="4">🧊 Cold</button>
+            </div>
+            <input type="search" class="search-box" id="search-input" placeholder="Search by name, location...">
+            <select class="sort-select" id="sort-select">
+                <option value="overall-desc">Highest Score</option>
+                <option value="overall-asc">Lowest Score</option>
+                <option value="name-asc">Name A-Z</option>
+                <option value="recent">Most Recent</option>
+                <option value="ce">Coaching Experience</option>
+                <option value="cs">Commitment Signal</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+        <a href="../" class="back-link">← Back to Project Hub</a>
+        <div class="applicants-grid" id="applicants-grid">
+            <!-- Cards will be rendered here -->
+        </div>
+        <div class="empty-state" id="empty-state" style="display:none">
+            <div class="empty-state-icon">👥</div>
+            <h3>No applicants match your filters</h3>
+            <p>Try adjusting your search or filters</p>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-backdrop" id="modal-backdrop">
+        <div class="modal">
+            <div class="modal-header">
+                <img src="" alt="" class="modal-avatar" id="modal-avatar">
+                <div class="modal-title">
+                    <div class="modal-name" id="modal-name"></div>
+                    <div class="modal-subtitle" id="modal-subtitle"></div>
+                </div>
+                <span id="modal-tier" class="tier-badge"></span>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Content rendered dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let applicants = [];
+        let currentFilter = 'all';
+        let currentSort = 'overall-desc';
+        let searchText = '';
+
+        // Fetch data
+        async function loadApplicants() {
+            try {
+                const res = await fetch('./applicants.json');
+                applicants = await res.json();
+                updateStats();
+                renderGrid();
+            } catch (err) {
+                console.error('Failed to load applicants:', err);
+                document.getElementById('applicants-grid').innerHTML = '<div class="empty-state"><p>Failed to load applicants data</p></div>';
+            }
+        }
+
+        // Update stats
+        function updateStats() {
+            document.getElementById('stat-total').textContent = applicants.length;
+            document.getElementById('stat-hot').textContent = applicants.filter(a => a.tier === 1).length;
+            document.getElementById('stat-warm').textContent = applicants.filter(a => a.tier === 2).length;
+        }
+
+        // Filter and sort
+        function getFilteredApplicants() {
+            let filtered = [...applicants];
+            
+            // Filter by tier
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(a => a.tier === parseInt(currentFilter));
+            }
+            
+            // Search
+            if (searchText) {
+                const s = searchText.toLowerCase();
+                filtered = filtered.filter(a => 
+                    a.name.toLowerCase().includes(s) ||
+                    (a.location?.city || '').toLowerCase().includes(s) ||
+                    (a.location?.country || '').toLowerCase().includes(s) ||
+                    (a.instagram?.handle || '').toLowerCase().includes(s)
+                );
+            }
+            
+            // Sort
+            switch (currentSort) {
+                case 'overall-desc':
+                    filtered.sort((a, b) => b.overall_score - a.overall_score);
+                    break;
+                case 'overall-asc':
+                    filtered.sort((a, b) => a.overall_score - b.overall_score);
+                    break;
+                case 'name-asc':
+                    filtered.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'recent':
+                    filtered.sort((a, b) => new Date(b.applied_at) - new Date(a.applied_at));
+                    break;
+                case 'ce':
+                    filtered.sort((a, b) => b.scores.coaching_experience - a.scores.coaching_experience);
+                    break;
+                case 'cs':
+                    filtered.sort((a, b) => b.scores.commitment_signal - a.scores.commitment_signal);
+                    break;
+            }
+            
+            return filtered;
+        }
+
+        // Render grid
+        function renderGrid() {
+            const grid = document.getElementById('applicants-grid');
+            const empty = document.getElementById('empty-state');
+            const filtered = getFilteredApplicants();
+            
+            if (filtered.length === 0) {
+                grid.style.display = 'none';
+                empty.style.display = 'block';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            empty.style.display = 'none';
+            
+            grid.innerHTML = filtered.map(a => `
+                <article class="applicant-card" onclick="openModal('${a.id}')">
+                    <div class="card-header">
+                        <img src="${a.avatar_url}" alt="${a.name}" class="avatar">
+                        <div class="card-info">
+                            <div class="applicant-name">${a.name}</div>
+                            <div class="applicant-handle">@${a.instagram?.handle || 'N/A'}</div>
+                            <div class="applicant-location">📍 ${a.location?.city}, ${a.location?.country}</div>
+                        </div>
+                        <span class="tier-badge tier-${a.tier}">${a.tier_label}</span>
+                    </div>
+                    
+                    <div class="overall-score">
+                        <div class="score-number">${a.overall_score}</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar">
+                                <div class="score-bar-fill" style="width: ${a.overall_score}%"></div>
+                            </div>
+                            <div class="score-label">Overall Score</div>
+                        </div>
+                    </div>
+                    
+                    <div class="scores-grid">
+                        <div class="score-item">
+                            <span class="score-dot ce"></span>
+                            <span class="score-name">Coaching</span>
+                            <span class="score-value">${a.scores.coaching_experience}</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-dot tf"></span>
+                            <span class="score-name">Technical</span>
+                            <span class="score-value">${a.scores.technical_foundation}</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-dot ba"></span>
+                            <span class="score-name">Business</span>
+                            <span class="score-value">${a.scores.business_acumen}</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-dot gm"></span>
+                            <span class="score-name">Growth</span>
+                            <span class="score-value">${a.scores.growth_mindset}</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-dot fr"></span>
+                            <span class="score-name">Financial</span>
+                            <span class="score-value">${a.scores.financial_readiness}</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-dot cs"></span>
+                            <span class="score-name">Commitment</span>
+                            <span class="score-value">${a.scores.commitment_signal}</span>
+                        </div>
+                    </div>
+                    
+                    ${a.business ? `
+                        <div class="business-info">
+                            <div class="business-name">${a.business.name}</div>
+                            <div class="business-role">${a.business.role}</div>
+                        </div>
+                    ` : ''}
+                    
+                    ${a.signals?.buying_intent_quote ? `
+                        <div class="intent-quote">"${a.signals.buying_intent_quote}"</div>
+                    ` : ''}
+                    
+                    <div class="card-footer">
+                        <span class="status-badge ${a.status}">${formatStatus(a.status)}</span>
+                        <button class="view-btn">View Details</button>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Format status
+        function formatStatus(status) {
+            const map = {
+                'call_scheduled': '📞 Call Scheduled',
+                'contacted': '💬 Contacted',
+                'nurturing': '🌱 Nurturing',
+                'email_list': '📧 Email List'
+            };
+            return map[status] || status;
+        }
+
+        // Open modal
+        function openModal(id) {
+            const a = applicants.find(x => x.id === id);
+            if (!a) return;
+            
+            document.getElementById('modal-avatar').src = a.avatar_url;
+            document.getElementById('modal-name').textContent = a.name;
+            document.getElementById('modal-subtitle').textContent = `@${a.instagram?.handle} • ${a.location?.city}, ${a.location?.country}`;
+            
+            const tierEl = document.getElementById('modal-tier');
+            tierEl.textContent = a.tier_label;
+            tierEl.className = `tier-badge tier-${a.tier}`;
+            
+            const scoreColors = {
+                coaching_experience: 'var(--col-ce)',
+                technical_foundation: 'var(--col-tf)',
+                business_acumen: 'var(--col-ba)',
+                growth_mindset: 'var(--col-gm)',
+                financial_readiness: 'var(--col-fr)',
+                commitment_signal: 'var(--col-cs)'
+            };
+            
+            const scoreLabels = {
+                coaching_experience: 'Coaching Experience',
+                technical_foundation: 'Technical Foundation',
+                business_acumen: 'Business Acumen',
+                growth_mindset: 'Growth Mindset',
+                financial_readiness: 'Financial Readiness',
+                commitment_signal: 'Commitment Signal'
+            };
+            
+            document.getElementById('modal-body').innerHTML = `
+                <div class="modal-section">
+                    <h3>Overall Score</h3>
+                    <div class="overall-score">
+                        <div class="score-number">${a.overall_score}</div>
+                        <div class="score-bar-container">
+                            <div class="score-bar">
+                                <div class="score-bar-fill" style="width: ${a.overall_score}%"></div>
+                            </div>
+                            <div class="score-label">Out of 100</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Score Breakdown</h3>
+                    <div class="modal-scores">
+                        ${Object.entries(a.scores).map(([key, val]) => `
+                            <div class="modal-score-item">
+                                <div class="modal-score-header">
+                                    <span class="modal-score-dot" style="background: ${scoreColors[key]}"></span>
+                                    <span class="modal-score-label">${scoreLabels[key]}</span>
+                                </div>
+                                <div class="modal-score-value">${val}</div>
+                                <div class="modal-score-bar">
+                                    <div class="modal-score-bar-fill" style="width: ${val}%; background: ${scoreColors[key]}"></div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Signals</h3>
+                    <div class="signals-list">
+                        ${(a.signals?.positive || []).map(s => `<span class="signal-chip signal-positive">✓ ${s}</span>`).join('')}
+                        ${(a.signals?.negative || []).map(s => `<span class="signal-chip signal-negative">✗ ${s}</span>`).join('')}
+                    </div>
+                </div>
+                
+                ${a.business ? `
+                    <div class="modal-section">
+                        <h3>Business Info</h3>
+                        <div class="business-info">
+                            <div class="business-name">${a.business.name}</div>
+                            <div class="business-role">${a.business.role} • ${a.business.type}</div>
+                        </div>
+                    </div>
+                ` : ''}
+                
+                ${a.certifications?.length ? `
+                    <div class="modal-section">
+                        <h3>Certifications</h3>
+                        <div class="signals-list">
+                            ${a.certifications.map(c => `<span class="signal-chip signal-positive">${c}</span>`).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                ${a.whatsapp_history?.length ? `
+                    <div class="modal-section">
+                        <h3>WhatsApp Conversation</h3>
+                        <div class="chat-container">
+                            ${a.whatsapp_history.map(msg => `
+                                <div class="chat-message from-${msg.from === 'applicant' ? 'applicant' : 'bambu'}">
+                                    <div>
+                                        <div class="chat-bubble">${msg.message}</div>
+                                        <div class="chat-time">${formatTime(msg.timestamp)}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                <div class="modal-section">
+                    <h3>Contact</h3>
+                    <p style="color: var(--text-muted)">
+                        📧 ${a.email || 'Not provided'}<br>
+                        📱 ${a.whatsapp || 'Not provided'}<br>
+                        📸 <a href="${a.instagram?.url}" target="_blank" style="color: var(--bambu-tan)">@${a.instagram?.handle}</a>
+                    </p>
+                </div>
+            `;
+            
+            document.getElementById('modal-backdrop').classList.add('show');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('modal-backdrop').classList.remove('show');
+        }
+
+        // Format time
+        function formatTime(ts) {
+            const d = new Date(ts);
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + 
+                   ' ' + d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+        }
+
+        // Event listeners
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                renderGrid();
+            });
+        });
+
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            searchText = e.target.value;
+            renderGrid();
+        });
+
+        document.getElementById('sort-select').addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            renderGrid();
+        });
+
+        document.getElementById('modal-backdrop').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Initialize
+        loadApplicants();
+    </script>
+</body>
+</html>
+

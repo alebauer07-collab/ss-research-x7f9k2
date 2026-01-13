@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu Website Mirror — Navigation Hub</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6351e77bf7b7a3148a2f4b8d_bambu-favi-32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bambu-black: #111111;
+            --bambu-dark: #1a1a1a;
+            --bambu-tan: #DCCAB7;
+            --bambu-tan-light: #E5D8C8;
+            --text-white: #FFFFFF;
+            --text-muted: #9CA3AF;
+            --text-grey: #6B7280;
+            --bg-card: #232323;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bambu-black);
+            color: var(--text-white);
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            height: 60px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(220, 202, 183, 0.15);
+            border: 1px solid var(--bambu-tan);
+            color: var(--bambu-tan);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: var(--text-muted);
+            font-family: 'Lato', sans-serif;
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--bambu-tan);
+            margin-top: 2rem;
+        }
+        
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .page-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .page-card:hover {
+            border-color: var(--bambu-tan);
+            transform: translateY(-3px);
+        }
+        
+        .page-card.featured {
+            border-color: var(--bambu-tan);
+            background: linear-gradient(135deg, rgba(220, 202, 183, 0.15) 0%, var(--bg-card) 100%);
+            grid-column: span 2;
+        }
+        
+        @media (max-width: 700px) {
+            .page-card.featured {
+                grid-column: span 1;
+            }
+        }
+        
+        .page-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-card p {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            flex-grow: 1;
+        }
+        
+        .page-card .tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-top: 0.75rem;
+            width: fit-content;
+        }
+        
+        .tag-main { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+        .tag-services { background: rgba(59, 130, 246, 0.2); color: #3B82F6; }
+        .tag-coaches { background: rgba(168, 85, 247, 0.2); color: #A855F7; }
+        .tag-academy { background: rgba(245, 158, 11, 0.2); color: #F59E0B; }
+        .tag-other { background: rgba(107, 114, 128, 0.2); color: #9CA3AF; }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--bambu-tan);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: opacity 0.2s;
+        }
+        
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        
+        .info-box {
+            margin-top: 2rem;
+            padding: 1.25rem;
+            background: rgba(220, 202, 183, 0.05);
+            border-radius: 12px;
+            border-left: 3px solid var(--bambu-tan);
+        }
+        
+        .info-box h4 {
+            color: var(--bambu-tan);
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+        
+        .info-box p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-grey);
+            font-size: 0.75rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Project Hub</a>
+        
+        <div class="header">
+            <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu" class="logo">
+            <span class="badge">🌐 WEBSITE REFERENCE</span>
+            <h1>Bambu Website Mirror</h1>
+            <p class="subtitle">Quick navigation to all Bambu Fitness Bali pages</p>
+        </div>
+        
+        <h2>🏠 Main Pages</h2>
+        <div class="page-grid">
+            <a href="https://www.bambufitnessbali.com/" target="_blank" class="page-card featured">
+                <h3>🏠 Home — bambufitnessbali.com</h3>
+                <p>Main landing page: Hero video, community section, approach pillars (Premium Playground, World-Class Coaching, Programs for Every Body), Instagram feed</p>
+                <span class="tag tag-main">MAIN</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/about-us" target="_blank" class="page-card">
+                <h3>ℹ️ About Us</h3>
+                <p>Welcome to Bambu, state-of-the-art facilities, group classes, Pilates/Cycle studios, recovery center</p>
+                <span class="tag tag-main">MAIN</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/contact" target="_blank" class="page-card">
+                <h3>📞 Contact</h3>
+                <p>Location in Bingin, Uluwatu. Contact form and hours</p>
+                <span class="tag tag-main">MAIN</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/frequently-asked-questions" target="_blank" class="page-card">
+                <h3>❓ FAQ</h3>
+                <p>Booking, drop-ins, class experience requirements</p>
+                <span class="tag tag-main">MAIN</span>
+            </a>
+        </div>
+        
+        <h2>💪 Training & Classes</h2>
+        <div class="page-grid">
+            <a href="https://www.bambufitnessbali.com/bambu-classes" target="_blank" class="page-card">
+                <h3>📅 Classes & Schedule</h3>
+                <p>Shred, Booty, HYROX, Lift, CrossFit, Gymnastics, Mobility, Swolemate sessions + Open Gym</p>
+                <span class="tag tag-services">SERVICES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/bambu-pricing" target="_blank" class="page-card">
+                <h3>💰 Pricing & Packages</h3>
+                <p>Memberships: Unlimited (2.1M), Open Gym (1.8M), Drop-ins (275k), Passes, Cycle/Pilates pricing</p>
+                <span class="tag tag-services">SERVICES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/the-gym" target="_blank" class="page-card">
+                <h3>🏋️ The Gym</h3>
+                <p>Rogue, Eleiko, Concept 2 equipment. Dedicated weightlifting platforms, cardio rooms</p>
+                <span class="tag tag-services">SERVICES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/pilates-by-bambu" target="_blank" class="page-card">
+                <h3>🧘 Pilates Studio</h3>
+                <p>Strength meets flow, dynamic Pilates sessions</p>
+                <span class="tag tag-services">SERVICES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/cycle-by-bambu" target="_blank" class="page-card">
+                <h3>🚴 Cycle Studio</h3>
+                <p>High-intensity cycling classes</p>
+                <span class="tag tag-services">SERVICES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/bambu-oasis" target="_blank" class="page-card">
+                <h3>🌴 Recovery Center (Oasis)</h3>
+                <p>Relax, Recover, Recharge. Ice baths, saunas, massage</p>
+                <span class="tag tag-services">SERVICES</span>
+            </a>
+        </div>
+        
+        <h2>👥 Coaches</h2>
+        <div class="page-grid">
+            <a href="https://www.bambufitnessbali.com/meet-the-coaches" target="_blank" class="page-card featured">
+                <h3>👥 Meet the Coaches</h3>
+                <p>Our coaches bring vibes, support and education. Hero video, coach grid, work with a coach form</p>
+                <span class="tag tag-coaches">COACHES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/trainer/will-henke" target="_blank" class="page-card">
+                <h3>Will Henke</h3>
+                <p>Co-founder & Fitness Director</p>
+                <span class="tag tag-coaches">COACHES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/trainer/sam-craige" target="_blank" class="page-card">
+                <h3>Sam Craige</h3>
+                <p>Head Coach</p>
+                <span class="tag tag-coaches">COACHES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/trainer/macca-mcdonald" target="_blank" class="page-card">
+                <h3>Macca McDonald</h3>
+                <p>Senior Coach</p>
+                <span class="tag tag-coaches">COACHES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/trainer/tawny-wilkinson" target="_blank" class="page-card">
+                <h3>Tawny Wilkinson</h3>
+                <p>Coach</p>
+                <span class="tag tag-coaches">COACHES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/trainer/courtney-muscat" target="_blank" class="page-card">
+                <h3>Courtney Muscat</h3>
+                <p>Coach & Sports Nutritionist</p>
+                <span class="tag tag-coaches">COACHES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/trainer/dean-vallis" target="_blank" class="page-card">
+                <h3>Dean Vallis</h3>
+                <p>Coach</p>
+                <span class="tag tag-coaches">COACHES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/trainer/sophia-lau" target="_blank" class="page-card">
+                <h3>Sophia Lau</h3>
+                <p>Coach & Pilates Instructor</p>
+                <span class="tag tag-coaches">COACHES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/trainer/alice-avery" target="_blank" class="page-card">
+                <h3>Alice Avery</h3>
+                <p>Cycle Studio Manager</p>
+                <span class="tag tag-coaches">COACHES</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/trainer/camila-arreaga" target="_blank" class="page-card">
+                <h3>Camila Arreaga</h3>
+                <p>Pilates Studio Manager</p>
+                <span class="tag tag-coaches">COACHES</span>
+            </a>
+        </div>
+        
+        <h2>🎓 Academy & Online Training</h2>
+        <div class="page-grid">
+            <a href="https://www.bambutraining.com/academy" target="_blank" class="page-card featured">
+                <h3>🎓 Current Academy Page (bambutraining.com)</h3>
+                <p>4-week coach development course: Who Is This For, Course Breakdown (4 weeks), 9 Skills, What You Leave With, Join Us CTA, FAQ</p>
+                <span class="tag tag-academy">ACADEMY</span>
+            </a>
+            <a href="../pages/academy-application-v2.html" class="page-card" style="border-color: #10B981;">
+                <h3>✨ NEW Academy Application Page</h3>
+                <p>Our new funnel: Application → WhatsApp → Call → Enrollment. 5 payment options, career ladder</p>
+                <span class="tag tag-academy">NEW V2</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/bambu-training-online-training" target="_blank" class="page-card">
+                <h3>💻 Online Training Programs</h3>
+                <p>Glute programs, HYROX prep, athlete training</p>
+                <span class="tag tag-academy">ONLINE</span>
+            </a>
+        </div>
+        
+        <h2>🍽️ Food & Accommodation</h2>
+        <div class="page-grid">
+            <a href="https://www.bambufitnessbali.com/cafe" target="_blank" class="page-card">
+                <h3>☕ Bambu Café</h3>
+                <p>Pre/post-workout fueling station, healthy treats, PranaOn shakes</p>
+                <span class="tag tag-other">LIFESTYLE</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/fuel" target="_blank" class="page-card">
+                <h3>🥗 Fuel by Bambu</h3>
+                <p>Healthy meal delivery in Bali, ready-to-eat meals</p>
+                <span class="tag tag-other">LIFESTYLE</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/meal-delivery-service" target="_blank" class="page-card">
+                <h3>🚚 Meal Delivery Service</h3>
+                <p>Fresh ingredients, coconut & olive oil, no prep</p>
+                <span class="tag tag-other">LIFESTYLE</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/bambu-suites" target="_blank" class="page-card">
+                <h3>🏨 Bambu Suites</h3>
+                <p>Boutique accommodation near the gym</p>
+                <span class="tag tag-other">LIFESTYLE</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/bambu-accommodations" target="_blank" class="page-card">
+                <h3>🛏️ Better You Package</h3>
+                <p>Stay, train, transform - all-inclusive experience</p>
+                <span class="tag tag-other">LIFESTYLE</span>
+            </a>
+            <a href="https://www.bambufitnessbali.com/host-a-retreat" target="_blank" class="page-card">
+                <h3>🧘‍♀️ Host a Retreat</h3>
+                <p>Bring groups for fitness/wellness retreats</p>
+                <span class="tag tag-other">LIFESTYLE</span>
+            </a>
+        </div>
+        
+        <div class="info-box">
+            <h4>📋 Reference Notes</h4>
+            <p>This mirror serves as a quick navigation hub to all live Bambu pages. Use this to reference design patterns, content structure, and page layouts when building new Academy materials. All links open in new tabs to the live bambufitnessbali.com site.</p>
+        </div>
+        
+        <div class="footer">
+            <p>Bambu Website Reference Hub • Internal Use Only</p>
+            <p>Will Henke + Alexey • January 2026</p>
+        </div>
+    </div>
+</body>
+</html>
+
