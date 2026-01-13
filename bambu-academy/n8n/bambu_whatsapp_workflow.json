@@ -1,0 +1,385 @@
+{
+  "name": "Bambu Academy WhatsApp AI Agent",
+  "nodes": [
+    {
+      "id": "whatsapp-trigger",
+      "name": "WhatsApp Trigger",
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "parameters": {
+        "updates": ["messages"]
+      },
+      "notes": "Receives incoming WhatsApp messages from Bambu Business number"
+    },
+    {
+      "id": "parse-message",
+      "name": "Parse Message & Extract ID",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [470, 300],
+      "parameters": {
+        "jsCode": "// Extract message details from WhatsApp webhook\nconst messageData = $input.first().json;\nconst message = messageData.messages?.[0];\n\nif (!message) {\n  throw new Error('No message found in webhook payload');\n}\n\n// Extract applicant ID from message (format: BAMBU-2026-XXXXXX)\nconst messageBody = message.text?.body || '';\nconst idMatch = messageBody.match(/BAMBU-2026-\\d{6}/);\nconst applicantId = idMatch ? idMatch[0] : null;\n\n// Extract phone number (remove + and format)\nconst phoneNumber = message.from || '';\n\n// Check if this is a new conversation (contains application ID) or ongoing\nconst isNewConversation = idMatch !== null;\n\nreturn {\n  applicantId,\n  phone: phoneNumber,\n  phoneFormatted: '+' + phoneNumber,\n  messageBody,\n  messageId: message.id,\n  timestamp: new Date().toISOString(),\n  isNewConversation,\n  waId: messageData.contacts?.[0]?.wa_id\n};"
+      },
+      "notes": "Extracts applicant ID (BAMBU-2026-XXXXXX) and phone from incoming message"
+    },
+    {
+      "id": "get-applicant",
+      "name": "Get Applicant",
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1,
+      "position": [690, 200],
+      "parameters": {
+        "operation": "findOne",
+        "collection": "applicants",
+        "query": "={{ $json.applicantId ? { applicantId: $json.applicantId } : { 'contact.whatsapp': $json.phone } }}"
+      },
+      "credentials": {
+        "mongoDb": {
+          "id": "MONGO_CREDENTIAL_ID",
+          "name": "Bambu MongoDB"
+        }
+      },
+      "notes": "Lookup applicant by ID or phone number"
+    },
+    {
+      "id": "get-chat-history",
+      "name": "Get Chat History",
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1,
+      "position": [690, 400],
+      "parameters": {
+        "operation": "find",
+        "collection": "messages",
+        "query": "={{ { applicantId: $json.applicantId || $('Get Applicant').item.json.applicantId } }}",
+        "options": {
+          "sort": { "timestamp": 1 },
+          "limit": 20
+        }
+      },
+      "credentials": {
+        "mongoDb": {
+          "id": "MONGO_CREDENTIAL_ID",
+          "name": "Bambu MongoDB"
+        }
+      },
+      "notes": "Get last 20 messages for conversation context"
+    },
+    {
+      "id": "insert-user-message",
+      "name": "Insert User Message",
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1,
+      "position": [910, 400],
+      "parameters": {
+        "operation": "insertOne",
+        "collection": "messages",
+        "document": "={{ { applicantId: $('Get Applicant').item.json.applicantId, role: 'user', content: $('Parse Message & Extract ID').item.json.messageBody, timestamp: new Date().toISOString(), messageId: $('Parse Message & Extract ID').item.json.messageId } }}"
+      },
+      "credentials": {
+        "mongoDb": {
+          "id": "MONGO_CREDENTIAL_ID",
+          "name": "Bambu MongoDB"
+        }
+      },
+      "notes": "Store incoming user message"
+    },
+    {
+      "id": "build-context",
+      "name": "Build AI Context",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [1130, 300],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "aiContext",
+              "type": "object",
+              "value": "={{ { applicantId: $('Get Applicant').item.json.applicantId, currentMessage: $('Parse Message & Extract ID').item.json.messageBody, chatHistory: $('Get Chat History').item.json, applicantProfile: { name: $('Get Applicant').item.json.name, email: $('Get Applicant').item.json.email, location: $('Get Applicant').item.json.location, currentRole: $('Get Applicant').item.json.formData?.currentRole, yearsExperience: $('Get Applicant').item.json.formData?.yearsExperience, motivation: $('Get Applicant').item.json.formData?.motivation, biggestChallenge: $('Get Applicant').item.json.formData?.biggestChallenge, preferredPayment: $('Get Applicant').item.json.formData?.preferredPayment }, stage: $('Get Applicant').item.json.stage || 1, qualificationScore: $('Get Applicant').item.json.qualificationScore || 0 } }}"
+            }
+          ]
+        }
+      },
+      "notes": "Prepare context object for AI agent"
+    },
+    {
+      "id": "bambu-ai-agent",
+      "name": "Bambu AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1,
+      "position": [1350, 300],
+      "parameters": {
+        "promptType": "define",
+        "text": "You are the WhatsApp qualification assistant for Bambu Training Academy. You represent the Bambu team and communicate on behalf of Will Henke.\n\n## COMMUNICATION STYLE\nWrite like Will talks:\n- Be direct. Short sentences. No corporate speak.\n- Be warm but professional. Friendly, not fake.\n- Be confident.\n- Use casual punctuation. Dashes, ellipses.\n- Break up text into multiple short messages.\n- Match their energy.\n- No excessive emojis (1-2 max, usually none)\n\n## CURRENT CONTEXT\nApplicant ID: {{ $json.aiContext.applicantId }}\nName: {{ $json.aiContext.applicantProfile.name }}\nLocation: {{ $json.aiContext.applicantProfile.location?.city }}, {{ $json.aiContext.applicantProfile.location?.country }}\nCurrent Role: {{ $json.aiContext.applicantProfile.currentRole }}\nYears Experience: {{ $json.aiContext.applicantProfile.yearsExperience }}\nMotivation: {{ $json.aiContext.applicantProfile.motivation }}\nBiggest Challenge: {{ $json.aiContext.applicantProfile.biggestChallenge }}\nCurrent Stage: {{ $json.aiContext.stage }}\nQualification Score: {{ $json.aiContext.qualificationScore }}\n\n## CHAT HISTORY\n{{ $json.aiContext.chatHistory }}\n\n## CURRENT MESSAGE\n{{ $json.aiContext.currentMessage }}\n\n## STAGES\n1. OPENING - Welcome, reference application, ask why Bambu\n2. QUALIFICATION - Ask 2-3 follow-up questions\n3. INFORMATION - Answer questions about program\n4. BOOKING - Move qualified candidates to call with Will\n5. COMPLETE - Conversation concluded\n\n## PROGRAM INFO\n- 4 weeks in-person, Bali\n- March 2026 cohort\n- 15 spots, 12 remaining\n- Early Bird: $4,299 | Standard: $6,999\n- Calendly: https://calendly.com/willhenke/bambu\n\n## OUTPUT FORMAT (JSON)\n{\n  \"response\": { \"messages\": [\"msg1\", \"msg2\"] },\n  \"stageUpdate\": { \"currentStage\": 2, \"reason\": \"...\" },\n  \"scoreUpdate\": { \"delta\": 10, \"reason\": \"...\" },\n  \"escalation\": { \"required\": false, \"reason\": null },\n  \"metadata\": { \"intent\": \"...\", \"sentiment\": \"...\" }\n}",
+        "options": {
+          "systemMessage": "You are Bambu Academy's WhatsApp qualification assistant. Always respond in valid JSON format."
+        }
+      },
+      "notes": "Main AI agent for generating responses"
+    },
+    {
+      "id": "openrouter-model",
+      "name": "OpenRouter Claude",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [1350, 500],
+      "parameters": {
+        "model": "anthropic/claude-3.5-sonnet",
+        "options": {
+          "temperature": 0.7,
+          "maxTokens": 1024
+        }
+      },
+      "credentials": {
+        "openRouterApi": {
+          "id": "OPENROUTER_CREDENTIAL_ID",
+          "name": "OpenRouter API"
+        }
+      },
+      "notes": "Claude 3.5 Sonnet via OpenRouter"
+    },
+    {
+      "id": "parse-response",
+      "name": "Parse AI Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1570, 300],
+      "parameters": {
+        "jsCode": "const agentOutput = $input.first().json.output;\n\n// Try to parse as JSON\nlet parsed;\ntry {\n  // Handle if output is already an object\n  if (typeof agentOutput === 'object') {\n    parsed = agentOutput;\n  } else {\n    // Try to extract JSON from text\n    const jsonMatch = agentOutput.match(/\\{[\\s\\S]*\\}/);\n    if (jsonMatch) {\n      parsed = JSON.parse(jsonMatch[0]);\n    } else {\n      throw new Error('No JSON found in output');\n    }\n  }\n} catch (e) {\n  // Fallback response\n  return {\n    valid: false,\n    error: 'JSON_PARSE_FAILURE',\n    fallbackMessages: ['Thanks for your message! Give me a moment to get back to you.'],\n    escalation: { required: true, reason: 'Agent output parse failure' }\n  };\n}\n\n// Validate required fields\nconst messages = parsed.response?.messages || [];\nconst stage = parsed.stageUpdate?.currentStage || $('Build AI Context').item.json.aiContext.stage;\nconst scoreDelta = parsed.scoreUpdate?.delta || 0;\nconst escalation = parsed.escalation || { required: false };\n\n// Calculate new score\nconst currentScore = $('Build AI Context').item.json.aiContext.qualificationScore || 0;\nconst newScore = Math.max(0, Math.min(100, currentScore + scoreDelta));\n\nreturn {\n  valid: true,\n  messages,\n  stageUpdate: {\n    newStage: stage,\n    reason: parsed.stageUpdate?.reason\n  },\n  scoreUpdate: {\n    newScore,\n    delta: scoreDelta,\n    reason: parsed.scoreUpdate?.reason\n  },\n  escalation,\n  metadata: parsed.metadata || {},\n  applicantId: $('Build AI Context').item.json.aiContext.applicantId\n};"
+      },
+      "notes": "Parse and validate AI response, extract messages"
+    },
+    {
+      "id": "update-applicant",
+      "name": "Update Applicant",
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1,
+      "position": [1790, 200],
+      "parameters": {
+        "operation": "updateOne",
+        "collection": "applicants",
+        "query": "={{ { applicantId: $json.applicantId } }}",
+        "update": "={{ { $set: { stage: $json.stageUpdate.newStage, qualificationScore: $json.scoreUpdate.newScore, lastActivity: new Date().toISOString(), updatedAt: new Date().toISOString() } } }}"
+      },
+      "credentials": {
+        "mongoDb": {
+          "id": "MONGO_CREDENTIAL_ID",
+          "name": "Bambu MongoDB"
+        }
+      },
+      "notes": "Update applicant stage and score"
+    },
+    {
+      "id": "insert-ai-message",
+      "name": "Insert AI Message",
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1,
+      "position": [1790, 400],
+      "parameters": {
+        "operation": "insertOne",
+        "collection": "messages",
+        "document": "={{ { applicantId: $json.applicantId, role: 'assistant', content: $json.messages.join('\\n\\n'), timestamp: new Date().toISOString(), metadata: $json.metadata } }}"
+      },
+      "credentials": {
+        "mongoDb": {
+          "id": "MONGO_CREDENTIAL_ID",
+          "name": "Bambu MongoDB"
+        }
+      },
+      "notes": "Store AI response in messages collection"
+    },
+    {
+      "id": "send-whatsapp-reply",
+      "name": "Send WhatsApp Reply",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [2010, 300],
+      "parameters": {
+        "operation": "sendMessage",
+        "phoneNumberId": "={{ $env.WHATSAPP_PHONE_NUMBER_ID }}",
+        "recipientPhoneNumber": "={{ $('Parse Message & Extract ID').item.json.phone }}",
+        "textBody": "={{ $json.messages.join('\\n\\n') }}"
+      },
+      "credentials": {
+        "whatsAppBusinessCloudApi": {
+          "id": "WHATSAPP_CREDENTIAL_ID",
+          "name": "WhatsApp Business Cloud"
+        }
+      },
+      "notes": "Send AI response back via WhatsApp"
+    },
+    {
+      "id": "check-escalation",
+      "name": "Check Escalation",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [2230, 300],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $('Parse AI Response').item.json.escalation.required }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "notes": "Check if human escalation needed"
+    },
+    {
+      "id": "slack-escalation",
+      "name": "Slack - Escalation Alert",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [2450, 200],
+      "parameters": {
+        "channel": "#all-team-friends",
+        "text": "🚨 *WhatsApp Escalation Required*\n\n*Applicant:* {{ $('Get Applicant').item.json.name }}\n*ID:* {{ $('Parse AI Response').item.json.applicantId }}\n*Reason:* {{ $('Parse AI Response').item.json.escalation.reason }}\n\n*Last Message:*\n> {{ $('Parse Message & Extract ID').item.json.messageBody }}\n\n<https://wa.me/{{ $('Parse Message & Extract ID').item.json.phone }}|Reply on WhatsApp>"
+      },
+      "credentials": {
+        "slackApi": {
+          "id": "SLACK_CREDENTIAL_ID",
+          "name": "Bambu Slack"
+        }
+      },
+      "notes": "Alert team on Slack for escalations"
+    },
+    {
+      "id": "check-qualified",
+      "name": "Check Qualified Lead",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [2450, 400],
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "leftValue": "={{ $('Parse AI Response').item.json.stageUpdate.newStage }}",
+              "rightValue": 4,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ]
+        }
+      },
+      "notes": "Check if lead reached booking stage"
+    },
+    {
+      "id": "slack-qualified",
+      "name": "Slack - Qualified Lead",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [2670, 400],
+      "parameters": {
+        "channel": "#all-team-friends",
+        "text": "🎯 *Qualified Lead!*\n\n*Name:* {{ $('Get Applicant').item.json.name }}\n*Score:* {{ $('Parse AI Response').item.json.scoreUpdate.newScore }}/100\n*Location:* {{ $('Get Applicant').item.json.location?.city }}, {{ $('Get Applicant').item.json.location?.country }}\n\n✅ Ready for call with Will\n\n<https://wa.me/{{ $('Parse Message & Extract ID').item.json.phone }}|Open WhatsApp>"
+      },
+      "credentials": {
+        "slackApi": {
+          "id": "SLACK_CREDENTIAL_ID",
+          "name": "Bambu Slack"
+        }
+      },
+      "notes": "Notify team of qualified lead"
+    }
+  ],
+  "connections": {
+    "WhatsApp Trigger": {
+      "main": [
+        [{ "node": "Parse Message & Extract ID", "type": "main", "index": 0 }]
+      ]
+    },
+    "Parse Message & Extract ID": {
+      "main": [
+        [
+          { "node": "Get Applicant", "type": "main", "index": 0 },
+          { "node": "Get Chat History", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Get Applicant": {
+      "main": [
+        [{ "node": "Insert User Message", "type": "main", "index": 0 }]
+      ]
+    },
+    "Get Chat History": {
+      "main": [
+        [{ "node": "Insert User Message", "type": "main", "index": 0 }]
+      ]
+    },
+    "Insert User Message": {
+      "main": [
+        [{ "node": "Build AI Context", "type": "main", "index": 0 }]
+      ]
+    },
+    "Build AI Context": {
+      "main": [
+        [{ "node": "Bambu AI Agent", "type": "main", "index": 0 }]
+      ]
+    },
+    "Bambu AI Agent": {
+      "main": [
+        [{ "node": "Parse AI Response", "type": "main", "index": 0 }]
+      ]
+    },
+    "OpenRouter Claude": {
+      "ai_languageModel": [
+        [{ "node": "Bambu AI Agent", "type": "ai_languageModel", "index": 0 }]
+      ]
+    },
+    "Parse AI Response": {
+      "main": [
+        [
+          { "node": "Update Applicant", "type": "main", "index": 0 },
+          { "node": "Insert AI Message", "type": "main", "index": 0 },
+          { "node": "Send WhatsApp Reply", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Send WhatsApp Reply": {
+      "main": [
+        [{ "node": "Check Escalation", "type": "main", "index": 0 }]
+      ]
+    },
+    "Check Escalation": {
+      "main": [
+        [{ "node": "Slack - Escalation Alert", "type": "main", "index": 0 }],
+        [{ "node": "Check Qualified Lead", "type": "main", "index": 0 }]
+      ]
+    },
+    "Check Qualified Lead": {
+      "main": [
+        [{ "node": "Slack - Qualified Lead", "type": "main", "index": 0 }],
+        []
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveManualExecutions": true,
+    "timezone": "Asia/Makassar"
+  },
+  "staticData": null,
+  "tags": ["bambu", "whatsapp", "ai-agent"],
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": "bambu-academy"
+  },
+  "_comment": "CREDENTIAL IDs need to be replaced with actual values after import"
+}
+

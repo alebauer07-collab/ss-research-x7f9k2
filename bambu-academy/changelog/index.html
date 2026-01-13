@@ -149,9 +149,9 @@
         <!-- TASKS TAB -->
         <div id="tab-tasks" class="tab-content active">
             <div class="stats-grid">
-                <div class="stat-card"><div class="stat-number" style="color: var(--status-done);">12</div><div class="stat-label">Completed</div></div>
-                <div class="stat-card"><div class="stat-number" style="color: var(--status-progress);">3</div><div class="stat-label">In Progress</div></div>
-                <div class="stat-card"><div class="stat-number" style="color: var(--status-pending);">5</div><div class="stat-label">Pending</div></div>
+                <div class="stat-card"><div class="stat-number" style="color: var(--status-done);">19</div><div class="stat-label">Completed</div></div>
+                <div class="stat-card"><div class="stat-number" style="color: var(--status-progress);">2</div><div class="stat-label">In Progress</div></div>
+                <div class="stat-card"><div class="stat-number" style="color: var(--status-pending);">4</div><div class="stat-label">Pending</div></div>
                 <div class="stat-card"><div class="stat-number" style="color: var(--status-blocked);">0</div><div class="stat-label">Blocked</div></div>
             </div>
 
@@ -161,25 +161,95 @@
                     <div class="task-card">
                         <div class="task-status status-progress"></div>
                         <div class="task-content">
-                            <div class="task-title">📱 WhatsApp Business AI Agent Integration</div>
-                            <div class="task-desc">Building n8n workflow: WhatsApp Trigger → MongoDB → OpenRouter AI → Reply → Slack. Schema designed, awaiting phone number decision.</div>
-                            <div class="task-meta"><span class="task-tag">Integration</span><span class="task-tag">n8n</span><span class="task-tag">High Priority</span></div>
+                            <div class="task-title">📱 WhatsApp Business Cloud API Setup</div>
+                            <div class="task-desc">n8n workflow JSON created. Prompts ready. Awaiting Meta Business verification and phone number decision (Twilio virtual vs Will's existing).</div>
+                            <div class="task-meta"><span class="task-tag">Integration</span><span class="task-tag">Meta API</span><span class="task-tag">High Priority</span></div>
                         </div>
                     </div>
                     <div class="task-card">
                         <div class="task-status status-progress"></div>
                         <div class="task-content">
-                            <div class="task-title">🗄️ MongoDB Applicant Database Setup</div>
-                            <div class="task-desc">Schema designed. Need connection string to create bambu_academy database and applicants collection.</div>
+                            <div class="task-title">🎨 Webflow Academy Page Update</div>
+                            <div class="task-desc">Webflow audit task created for Comet. Awaiting credentials to analyze current structure and plan V2 updates.</div>
+                            <div class="task-meta"><span class="task-tag">Webflow</span><span class="task-tag">Design</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">✅ Recently Completed (Jan 13)</h2>
+                <div class="task-grid">
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">🔧 CRM Dashboard Fixed & Working</div>
+                            <div class="task-desc">Fixed JSON data transformation, tier mapping, scoring display. Dashboard now loads all 24 applicants with profiles, scoring, and WhatsApp history.</div>
+                            <div class="task-meta"><span class="task-tag">Dashboard</span><span class="task-tag">Bug Fix</span><span class="task-tag">✓ Tested</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">🆔 Applicant ID System Implemented</div>
+                            <div class="task-desc">Generates unique BAMBU-2026-XXXXXX on form submit. Shown in thank-you modal. Included in WhatsApp pre-filled message.</div>
+                            <div class="task-meta"><span class="task-tag">Website</span><span class="task-tag">UX</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">🤖 WhatsApp Agent User ID Logic</div>
+                            <div class="task-desc">Agent extracts ID from first message. Fallback: ask for email. Pull applicant data from MongoDB for context. Implemented in n8n workflow.</div>
+                            <div class="task-meta"><span class="task-tag">AI Agent</span><span class="task-tag">Logic</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">🔬 WhatsApp Agent Deep Research Tool</div>
+                            <div class="task-desc">Existing n8n workflow adapted. Firecrawl integration included in workflow JSON. Ready to deploy.</div>
+                            <div class="task-meta"><span class="task-tag">AI Agent</span><span class="task-tag">MCP Tools</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">🔄 n8n Workflow Configuration Created</div>
+                            <div class="task-desc">Full workflow JSON with 15 nodes: WhatsApp Trigger → Parse → MongoDB → AI Agent → Parser → Reply → Slack. Ready for import.</div>
+                            <div class="task-meta"><span class="task-tag">n8n</span><span class="task-tag">Workflow</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">📝 Original Workflow Analysis Complete</div>
+                            <div class="task-desc">Analyzed Manychat V3 workflow (35 nodes). Created adaptation plan: simplified to 15 nodes, removed KB routing, added stage progression.</div>
+                            <div class="task-meta"><span class="task-tag">Analysis</span><span class="task-tag">Documentation</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">🤖 AI Agent + Parser Prompts Created</div>
+                            <div class="task-desc">Bambu-specific prompts with Will's voice, 5-stage qualification, JSON output schema, escalation triggers. Ready for n8n integration.</div>
+                            <div class="task-meta"><span class="task-tag">AI</span><span class="task-tag">Prompts</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">🌐 Webflow AI Agent Task Created</div>
+                            <div class="task-desc">Comprehensive audit task for Perplexity Comet: site structure, Academy page analysis, required changes, integration check. JSON output format.</div>
+                            <div class="task-meta"><span class="task-tag">Webflow</span><span class="task-tag">Comet</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">🗄️ MongoDB Database Initialized</div>
+                            <div class="task-desc">Created bambu_academy database with applicants (24 profiles) and messages collections. Indexes created for efficient querying.</div>
                             <div class="task-meta"><span class="task-tag">Database</span><span class="task-tag">MongoDB</span></div>
-                        </div>
-                    </div>
-                    <div class="task-card">
-                        <div class="task-status status-progress"></div>
-                        <div class="task-content">
-                            <div class="task-title">🔔 Slack Notification Integration</div>
-                            <div class="task-desc">Connect to #all-team-frieds channel. Send alerts when new applicant completes WhatsApp conversation with score summary.</div>
-                            <div class="task-meta"><span class="task-tag">Slack</span><span class="task-tag">Notifications</span></div>
                         </div>
                     </div>
                 </div>
@@ -191,47 +261,15 @@
                     <div class="task-card">
                         <div class="task-status status-pending"></div>
                         <div class="task-content">
-                            <div class="task-title">🆔 Applicant ID System in Application Form</div>
-                            <div class="task-desc">Generate unique ID (BAMBU-2026-XXX) on form submit. Show in thank-you modal. Include in WhatsApp pre-filled message.</div>
-                            <div class="task-meta"><span class="task-tag">Website</span><span class="task-tag">UX</span></div>
-                        </div>
-                    </div>
-                    <div class="task-card">
-                        <div class="task-status status-pending"></div>
-                        <div class="task-content">
-                            <div class="task-title">🤖 WhatsApp Agent User Identification Logic</div>
-                            <div class="task-desc">Agent extracts ID from first message. Fallback: ask for email. Pull applicant data from MongoDB for context.</div>
-                            <div class="task-meta"><span class="task-tag">AI Agent</span><span class="task-tag">Logic</span></div>
-                        </div>
-                    </div>
-                    <div class="task-card">
-                        <div class="task-status status-pending"></div>
-                        <div class="task-content">
-                            <div class="task-title">🔬 WhatsApp Agent Deep Research Tool</div>
-                            <div class="task-desc">Enable agent to use Firecrawl/Perplexity for real-time applicant research during conversation.</div>
-                            <div class="task-meta"><span class="task-tag">AI Agent</span><span class="task-tag">MCP Tools</span></div>
-                        </div>
-                    </div>
-                    <div class="task-card">
-                        <div class="task-status status-pending"></div>
-                        <div class="task-content">
-                            <div class="task-title">📊 Auto-Update Dashboard from MongoDB</div>
-                            <div class="task-desc">Dashboard pulls live data from MongoDB. New applicants appear automatically with scores and chat history.</div>
-                            <div class="task-meta"><span class="task-tag">Dashboard</span><span class="task-tag">Real-time</span></div>
-                        </div>
-                    </div>
-                    <div class="task-card">
-                        <div class="task-status status-pending"></div>
-                        <div class="task-content">
-                            <div class="task-title">Deploy V2 to bamboo-training.com/academy/v2</div>
+                            <div class="task-title">🌐 Deploy V2 to bamboo-training.com/academy/v2</div>
                             <div class="task-desc">Create subdomain on official website. Test full flow before going live. Webflow access granted.</div>
-                            <div class="task-meta"><span class="task-tag">Deployment</span></div>
+                            <div class="task-meta"><span class="task-tag">Deployment</span><span class="task-tag">Webflow</span></div>
                         </div>
                     </div>
                     <div class="task-card">
                         <div class="task-status status-pending"></div>
                         <div class="task-content">
-                            <div class="task-title">Test full flow with 5 real people</div>
+                            <div class="task-title">🧪 Test full flow with 5 real people</div>
                             <div class="task-desc">Get real users to go through: Application → WhatsApp → Scoring. Validate AI agent responses.</div>
                             <div class="task-meta"><span class="task-tag">Testing</span><span class="task-tag">QA</span></div>
                         </div>
@@ -239,7 +277,7 @@
                     <div class="task-card">
                         <div class="task-status status-pending"></div>
                         <div class="task-content">
-                            <div class="task-title">Send email copy to Steph (email team)</div>
+                            <div class="task-title">📧 Send email copy to Steph (email team)</div>
                             <div class="task-desc">Provide final email templates with sending schedule. She handles actual sends.</div>
                             <div class="task-meta"><span class="task-tag">Marketing</span></div>
                         </div>
@@ -247,23 +285,9 @@
                     <div class="task-card">
                         <div class="task-status status-pending"></div>
                         <div class="task-content">
-                            <div class="task-title">Coordinate content posting with Sam & Maka</div>
+                            <div class="task-title">📱 Coordinate content posting with Sam & Maka</div>
                             <div class="task-desc">They can share/reshare content on their Instagram accounts. Carrie will reshare but won't film new content.</div>
                             <div class="task-meta"><span class="task-tag">Social Media</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">🚫 Blocked</h2>
-                <div class="task-grid">
-                    <div class="task-card">
-                        <div class="task-status status-blocked"></div>
-                        <div class="task-content">
-                            <div class="task-title">Access to Webflow</div>
-                            <div class="task-desc">Need Webflow access to deploy V2 to official bamboo-training.com website.</div>
-                            <div class="task-meta"><span class="task-tag">Waiting on Will</span></div>
                         </div>
                     </div>
                 </div>
@@ -443,7 +467,7 @@
         </div>
 
         <div class="footer">
-            <p>Bambu Academy Project Management • Updated January 12, 2026</p>
+            <p>Bambu Academy Project Management • Updated January 13, 2026</p>
             <p style="margin-top: 0.5rem; color: var(--text-grey);">Will Henke + Alexey</p>
         </div>
     </main>

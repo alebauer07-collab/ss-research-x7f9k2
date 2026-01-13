@@ -2950,18 +2950,13 @@
         
         // ===== STEP 2: WHATSAPP CLICK HANDLER =====
         function handleWhatsAppClick(e) {
-            // Build WhatsApp URL with applicant data
+            // Generate WhatsApp URL with pre-filled message containing applicant ID
             const message = encodeURIComponent(
                 `Hey Bambu team! I just submitted my Academy application.\n\n` +
                 `📋 Application ID: ${currentApplicantId}\n` +
                 `👤 Name: ${currentApplicantData.first_name} ${currentApplicantData.last_name}\n` +
                 `📧 Email: ${currentApplicantData.email}\n\n` +
                 `Excited to chat!`
-            );
-            
-            // Generate WhatsApp URL with pre-filled message containing applicant ID
-            const message = encodeURIComponent(
-                `Hi! I just applied to Bambu Training Academy.\n\nMy Application ID: ${currentApplicantId}\n\nLooking forward to connecting!`
             );
             const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
             
@@ -3323,54 +3318,24 @@
             
             console.log('Application submitted:', data);
             
-            // Store in localStorage
+            // Store in localStorage for the account page
             localStorage.setItem('bambuAcademyApplication', JSON.stringify({
                 ...data,
                 submittedAt: new Date().toISOString(),
                 stepsCompleted: { step1: true, step2: false, step3: false }
             }));
             
-            // Update modal with applicant ID
-            document.getElementById('modalApplicantId').textContent = currentApplicantId;
+            // Store logged in email
+            localStorage.setItem('bambuLoggedInEmail', data.email);
             
-            // Populate application details in Step 1
-            populateApplicationDetails(data);
-            
-            // Reset details panel to collapsed state
-            document.getElementById('applicationDetailsPanel').style.display = 'none';
-            document.getElementById('detailsToggleBtn').classList.remove('expanded');
-            document.getElementById('detailsToggleText').textContent = 'View Your Details';
-            
-            // Reset step states for new submission
-            stepsCompleted = { step1: true, step2: false, step3: false };
-            step2CanToggle = false;
-            
-            // Reset step 2 UI
-            document.getElementById('step2Checkbox').classList.remove('checked');
-            document.getElementById('step2Card').classList.remove('completed');
-            document.getElementById('step2Card').classList.add('active');
-            document.getElementById('step2Timer').classList.remove('active');
-            document.getElementById('whatsappStepBtn').classList.remove('clicked');
-            
-            // Reset step 3 UI
-            document.getElementById('step3Card').classList.add('locked');
-            document.getElementById('step3Card').classList.remove('active', 'completed');
-            document.getElementById('step3Checkbox').classList.remove('checked');
-            
-            // Update progress bar
-            updateProgress();
-            
-            // Send webhook to n8n for application submission
+            // Send webhook to n8n for application submission (async, don't wait)
             sendWebhook('application_submitted', {
                 applicantId: currentApplicantId,
                 formData: data
             });
             
-            // Auto-login: Redirect to account page
-            window.location.href = 'account.html';
-            
-            // Reset form (happens before redirect)
-            form.reset();
+            // Redirect to personal account page
+            window.location.href = `account.html?email=${encodeURIComponent(data.email)}&id=${encodeURIComponent(currentApplicantId)}`;
             
             return false;
         }

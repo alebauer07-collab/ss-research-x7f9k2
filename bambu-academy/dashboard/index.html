@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Dashboard v2.1 - Cache bust: 2026-01-13T00:30:00Z -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -758,16 +759,104 @@
         let currentSort = 'overall-desc';
         let searchText = '';
 
+        // Transform raw JSON data to expected format
+        function transformApplicant(raw) {
+            // Map tier strings to numbers and labels
+            const tierMap = {
+                'STAR': { num: 1, label: '🔥 STAR' },
+                'STRONG': { num: 2, label: '🟡 STRONG' },
+                'GOOD': { num: 3, label: '🔵 GOOD' },
+                'MEDIUM': { num: 4, label: '⚪ MEDIUM' }
+            };
+            const tierInfo = tierMap[raw.tier] || { num: 4, label: raw.tier };
+            
+            // Parse location string (e.g., "Uluwatu, Bali" -> {city, country})
+            const locParts = (raw.location || '').split(',').map(s => s.trim());
+            const location = {
+                city: locParts[0] || 'Unknown',
+                country: locParts[1] || ''
+            };
+            
+            // Parse instagram handle (remove @ if present)
+            const igHandle = (raw.instagram || '').replace('@', '');
+            
+            // Calculate overall score as percentage (max 60 points = 100%)
+            const overallScore = Math.round((raw.scoring?.total || 0) / 60 * 100);
+            
+            // Transform scores to snake_case
+            const scores = {
+                coaching_experience: raw.scoring?.coachingExperience || 0,
+                technical_foundation: raw.scoring?.technicalFoundation || 0,
+                business_acumen: raw.scoring?.businessAcumen || 0,
+                growth_mindset: raw.scoring?.growthMindset || 0,
+                financial_readiness: raw.scoring?.financialReadiness || 0,
+                commitment_signal: raw.scoring?.commitmentSignal || 0
+            };
+            
+            // Build business info from profile
+            const business = raw.profile?.business ? {
+                name: raw.profile.business,
+                role: raw.profile.currentRole || 'Coach',
+                type: raw.profile.specialization || 'Fitness'
+            } : null;
+            
+            // Build signals from research
+            const signals = {
+                positive: [],
+                negative: [],
+                buying_intent_quote: null
+            };
+            if (raw.research?.businessOwner) signals.positive.push('Business Owner');
+            if (raw.research?.verified) signals.positive.push('Verified Account');
+            if (raw.research?.baliResident) signals.positive.push('Bali Resident');
+            if (raw.research?.competitiveAthlete) signals.positive.push('Competitive Athlete');
+            if (raw.research?.runsPTAcademy) signals.positive.push('Runs PT Academy');
+            if (raw.research?.instagramFollowers > 10000) signals.positive.push(`${(raw.research.instagramFollowers/1000).toFixed(0)}K Followers`);
+            
+            // Transform WhatsApp history to expected format
+            const whatsappHistory = (raw.whatsappHistory || []).map(msg => ({
+                timestamp: msg.timestamp,
+                message: msg.message,
+                from: msg.direction === 'inbound' ? 'applicant' : 'bambu'
+            }));
+            
+            return {
+                id: raw.id,
+                name: raw.name,
+                email: raw.email,
+                avatar_url: raw.avatar,
+                instagram: { 
+                    handle: igHandle,
+                    url: `https://instagram.com/${igHandle}`
+                },
+                location: location,
+                tier: tierInfo.num,
+                tier_label: tierInfo.label,
+                overall_score: overallScore,
+                scores: scores,
+                status: raw.status || 'contacted',
+                business: business,
+                certifications: raw.profile?.certifications || [],
+                signals: signals,
+                whatsapp_history: whatsappHistory,
+                whatsapp: raw.phone || null,
+                applied_at: raw.applied
+            };
+        }
+
         // Fetch data
         async function loadApplicants() {
             try {
                 const res = await fetch('./applicants.json');
-                applicants = await res.json();
+                const data = await res.json();
+                // Extract applicants array and transform each one
+                const rawApplicants = data.applicants || data || [];
+                applicants = rawApplicants.map(transformApplicant);
                 updateStats();
                 renderGrid();
             } catch (err) {
                 console.error('Failed to load applicants:', err);
-                document.getElementById('applicants-grid').innerHTML = '<div class="empty-state"><p>Failed to load applicants data</p></div>';
+                document.getElementById('applicants-grid').innerHTML = '<div class="empty-state"><p>Failed to load applicants data. Error: ' + err.message + '</p></div>';
             }
         }
 
@@ -979,7 +1068,7 @@
                                 </div>
                                 <div class="modal-score-value">${val}</div>
                                 <div class="modal-score-bar">
-                                    <div class="modal-score-bar-fill" style="width: ${val}%; background: ${scoreColors[key]}"></div>
+                                    <div class="modal-score-bar-fill" style="width: ${val * 10}%; background: ${scoreColors[key]}"></div>
                                 </div>
                             </div>
                         `).join('')}
