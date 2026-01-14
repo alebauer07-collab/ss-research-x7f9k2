@@ -1113,6 +1113,13 @@
                                 <div class="timer-spinner"></div>
                                 <span>Generating profile... <span id="timerCount">5:00</span></span>
                             </div>
+                            <!-- Book a Call while waiting -->
+                            <div class="waiting-cta" id="waitingCta" style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">While you wait, schedule a discovery call with Will:</p>
+                                <a href="https://calendly.com/willhenke/bambu" target="_blank" class="book-call-btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: transparent; border: 1px solid var(--bambu-tan); color: var(--bambu-tan); border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                                    📅 Book a Call with Will
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -1720,6 +1727,9 @@
                 document.getElementById('viewProfileBtn').classList.remove('disabled');
                 document.getElementById('viewProfileBtn').classList.add('primary');
                 document.getElementById('step3Status').textContent = '⏳ Profile being generated...';
+                // Show Book a Call button while waiting
+                const waitingCta = document.getElementById('waitingCta');
+                if (waitingCta) waitingCta.style.display = 'block';
             }
             
             // Step 3
@@ -1733,6 +1743,9 @@
                 document.getElementById('step3Status').classList.remove('pending');
                 document.getElementById('step3Status').classList.add('completed');
                 document.getElementById('profileTimer').style.display = 'none';
+                // Hide waiting CTA when profile is ready
+                const waitingCta = document.getElementById('waitingCta');
+                if (waitingCta) waitingCta.style.display = 'none';
                 
                 const profileBtn = document.getElementById('viewProfileBtn');
                 profileBtn.disabled = false;
