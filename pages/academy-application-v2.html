@@ -513,6 +513,44 @@
             overflow: visible;
         }
         
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(220, 202, 183, 0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--bambu-black);
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-nav:hover {
+            background: var(--bambu-tan);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-nav.prev {
+            left: -25px;
+        }
+        
+        .carousel-nav.next {
+            right: -25px;
+        }
+        
+        @media (max-width: 900px) {
+            .carousel-nav {
+                display: none;
+            }
+        }
+        
         .benefit-carousel {
             display: flex;
             gap: 2rem;
@@ -520,6 +558,7 @@
             scroll-snap-type: x mandatory;
             padding: 1rem 0 2rem;
             cursor: grab;
+            scroll-behavior: smooth;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             padding: 1rem 0 2rem;
@@ -531,40 +570,41 @@
         }
         
         .benefit-card {
-            flex: 0 0 calc(50% - 1rem);
-            min-width: 450px;
-            max-width: 550px;
+            flex: 0 0 85%;
+            min-width: 600px;
+            max-width: 800px;
             background: var(--bg-card);
-            border-radius: 20px;
-            padding: 2.5rem;
+            border-radius: 24px;
+            padding: 3rem;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
             scroll-snap-align: center;
         }
         
-        @media (max-width: 1100px) {
+        @media (max-width: 900px) {
             .benefit-card {
-                flex: 0 0 80%;
-                min-width: 380px;
+                flex: 0 0 90%;
+                min-width: 340px;
+                padding: 2rem;
             }
         }
         
-        @media (max-width: 600px) {
+        @media (max-width: 500px) {
             .benefit-card {
-                flex: 0 0 90%;
+                flex: 0 0 95%;
                 min-width: 280px;
-                padding: 2rem;
+                padding: 1.5rem;
             }
         }
         
         .benefit-card:hover {
             border-color: var(--bambu-tan);
-            transform: translateY(-4px);
+            transform: scale(1.02);
         }
         
         .benefit-card h3 {
-            font-size: 1.75rem;
+            font-size: 2rem;
             margin-bottom: 1.25rem;
             color: var(--text-white);
             font-weight: 700;
@@ -579,21 +619,24 @@
         .benefit-card p {
             font-family: 'Lato', sans-serif;
             color: var(--text-muted);
-            font-size: 1.15rem;
-            line-height: 1.7;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 500px;
+            margin: 0 auto;
         }
         
         .benefit-card img {
             width: 100%;
-            height: 280px;
+            height: 350px;
             object-fit: cover;
-            border-radius: 16px;
-            margin-top: 1.5rem;
+            border-radius: 20px;
+            margin-top: 2rem;
         }
         
         @media (max-width: 600px) {
             .benefit-card img {
-                height: 200px;
+                height: 220px;
+                border-radius: 16px;
             }
         }
         
@@ -1374,7 +1417,7 @@
             }
         }
         
-        /* Value Cards - What You Leave With (matching original Bambu design) */
+        /* Value Cards - What You Leave With (matching original Bambu design - VERTICAL LAYOUT) */
         .value-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -1392,35 +1435,32 @@
         
         .value-card {
             display: flex;
-            flex-direction: row;
-            gap: 1.5rem;
-            align-items: flex-start;
+            flex-direction: column;
+            gap: 0;
             background: transparent;
         }
         
         .value-card img {
-            width: 180px;
-            height: 180px;
+            width: 100%;
+            height: 280px;
             border-radius: 16px;
             object-fit: cover;
-            flex-shrink: 0;
+            margin-bottom: 1.5rem;
         }
         
-        @media (max-width: 900px) {
+        @media (max-width: 600px) {
             .value-card img {
-                width: 140px;
-                height: 140px;
+                height: 220px;
             }
         }
         
         .value-card-content {
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
         
         .value-card h4 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
             color: var(--text-white);
@@ -1429,8 +1469,8 @@
         .value-card p {
             font-family: 'Lato', sans-serif;
             color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
         
         /* Payment Grid */
@@ -2986,21 +3026,23 @@
                 </div>
                 
                 <div class="carousel-container">
+                    <button class="carousel-nav prev" onclick="scrollCarousel('benefitCarousel', -1)">←</button>
+                    <button class="carousel-nav next" onclick="scrollCarousel('benefitCarousel', 1)">→</button>
                     <div class="benefit-carousel" id="benefitCarousel">
-                    <div class="benefit-card">
+                        <div class="benefit-card">
                             <h3>Trainers Stuck in One Lane</h3>
                             <p>Ready to break out of your specialty and become a versatile coach who can adapt to any client.</p>
-                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf732c3ceb3de36a00_ccfb106288f7a09bdbfbf7ca04f8864f_image%207.png" alt="Trainers">
-                    </div>
-                    <div class="benefit-card">
+                            <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf732c3ceb3de36a00_ccfb106288f7a09bdbfbf7ca04f8864f_image%207.png" alt="Trainers">
+                        </div>
+                        <div class="benefit-card">
                             <h3>Certified But Not Confident</h3>
                             <p>Got the paper but know there's a gap between theory and real coaching. Time to close it.</p>
-                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eafef3adaadcdd5962c_6fd7694095050187a61f4bffcebd2ee6_image%209.png" alt="Certified coaches">
-                    </div>
-                    <div class="benefit-card">
+                            <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eafef3adaadcdd5962c_6fd7694095050187a61f4bffcebd2ee6_image%209.png" alt="Certified coaches">
+                        </div>
+                        <div class="benefit-card">
                             <h3>Future Leaders</h3>
                             <p>Coaching is your career, not your side hustle. Build the skills that set you apart.</p>
-                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeef29560eaae0add2_e695d7222786983dd36e80de6cb9f139_image%208.png" alt="Future leaders">
+                            <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeef29560eaae0add2_e695d7222786983dd36e80de6cb9f139_image%208.png" alt="Future leaders">
                         </div>
                     </div>
                     <div class="carousel-indicators" id="benefitIndicators">
@@ -4670,6 +4712,23 @@
         }
         
         // ===== CAROUSEL FUNCTIONALITY =====
+        function scrollCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            if (!carousel) return;
+            
+            const card = carousel.querySelector('.benefit-card, .coach-card');
+            if (!card) return;
+            
+            const cardWidth = card.offsetWidth;
+            const gap = 32; // 2rem
+            const scrollAmount = direction * (cardWidth + gap);
+            
+            carousel.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+        
         function initCarousel(carouselId, indicatorsId) {
             const carousel = document.getElementById(carouselId);
             const indicators = document.getElementById(indicatorsId);
