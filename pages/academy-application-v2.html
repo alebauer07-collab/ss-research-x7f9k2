@@ -1671,6 +1671,121 @@
             border: 1px solid rgba(220, 202, 183, 0.2);
         }
         
+        /* Skills Assessment Section */
+        .skills-assessment-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(220, 202, 183, 0.2);
+        }
+        
+        .skills-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--bambu-tan);
+        }
+        
+        .skills-subtitle {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.5rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        
+        @media (max-width: 700px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .skill-slider-group {
+            background: rgba(255,255,255,0.03);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .skill-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 800;
+            min-width: 24px;
+            text-align: center;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+        }
+        
+        .skill-slider {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: linear-gradient(to right, 
+                #ef4444 0%, 
+                #f97316 25%, 
+                #eab308 50%, 
+                #84cc16 75%, 
+                #22c55e 100%
+            );
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        .skill-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--bambu-tan);
+            cursor: grab;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            transition: transform 0.15s;
+        }
+        
+        .skill-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+        
+        .skill-slider::-webkit-slider-thumb:active {
+            cursor: grabbing;
+            transform: scale(1.1);
+        }
+        
+        .skill-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--bambu-tan);
+            cursor: grab;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -3399,6 +3514,94 @@
                         <input type="text" class="form-input" name="source" placeholder="Instagram, email, friend, etc.">
                     </div>
                     
+                    <!-- Skills Self-Assessment Section -->
+                    <div class="skills-assessment-section">
+                        <h3 class="skills-title">📊 Rate Your Current Coaching Skills</h3>
+                        <p class="skills-subtitle">Be honest — this helps us personalize your Academy experience. (1 = Beginner, 10 = Expert)</p>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-slider-group">
+                                <div class="skill-header">
+                                    <span class="skill-name">1-on-1 Coaching</span>
+                                    <span class="skill-value" id="skill1Value">5</span>
+                                </div>
+                                <input type="range" class="skill-slider" name="skill_coaching" min="1" max="10" value="5" oninput="updateSkillSlider(this, 'skill1Value')">
+                            </div>
+                            
+                            <div class="skill-slider-group">
+                                <div class="skill-header">
+                                    <span class="skill-name">Coach Identity & Philosophy</span>
+                                    <span class="skill-value" id="skill2Value">5</span>
+                                </div>
+                                <input type="range" class="skill-slider" name="skill_identity" min="1" max="10" value="5" oninput="updateSkillSlider(this, 'skill2Value')">
+                            </div>
+                            
+                            <div class="skill-slider-group">
+                                <div class="skill-header">
+                                    <span class="skill-name">Connection & Community</span>
+                                    <span class="skill-value" id="skill3Value">5</span>
+                                </div>
+                                <input type="range" class="skill-slider" name="skill_community" min="1" max="10" value="5" oninput="updateSkillSlider(this, 'skill3Value')">
+                            </div>
+                            
+                            <div class="skill-slider-group">
+                                <div class="skill-header">
+                                    <span class="skill-name">Energy Systems & Program Design</span>
+                                    <span class="skill-value" id="skill4Value">5</span>
+                                </div>
+                                <input type="range" class="skill-slider" name="skill_programming" min="1" max="10" value="5" oninput="updateSkillSlider(this, 'skill4Value')">
+                            </div>
+                            
+                            <div class="skill-slider-group">
+                                <div class="skill-header">
+                                    <span class="skill-name">Coaching Intention & Session Flow</span>
+                                    <span class="skill-value" id="skill5Value">5</span>
+                                </div>
+                                <input type="range" class="skill-slider" name="skill_sessionflow" min="1" max="10" value="5" oninput="updateSkillSlider(this, 'skill5Value')">
+                            </div>
+                            
+                            <div class="skill-slider-group">
+                                <div class="skill-header">
+                                    <span class="skill-name">Movement & Biomechanics</span>
+                                    <span class="skill-value" id="skill6Value">5</span>
+                                </div>
+                                <input type="range" class="skill-slider" name="skill_movement" min="1" max="10" value="5" oninput="updateSkillSlider(this, 'skill6Value')">
+                            </div>
+                            
+                            <div class="skill-slider-group">
+                                <div class="skill-header">
+                                    <span class="skill-name">Communication Skills</span>
+                                    <span class="skill-value" id="skill7Value">5</span>
+                                </div>
+                                <input type="range" class="skill-slider" name="skill_communication" min="1" max="10" value="5" oninput="updateSkillSlider(this, 'skill7Value')">
+                            </div>
+                            
+                            <div class="skill-slider-group">
+                                <div class="skill-header">
+                                    <span class="skill-name">Group Management & Class Control</span>
+                                    <span class="skill-value" id="skill8Value">5</span>
+                                </div>
+                                <input type="range" class="skill-slider" name="skill_groupmgmt" min="1" max="10" value="5" oninput="updateSkillSlider(this, 'skill8Value')">
+                            </div>
+                            
+                            <div class="skill-slider-group">
+                                <div class="skill-header">
+                                    <span class="skill-name">Professional Standards</span>
+                                    <span class="skill-value" id="skill9Value">5</span>
+                                </div>
+                                <input type="range" class="skill-slider" name="skill_profstandards" min="1" max="10" value="5" oninput="updateSkillSlider(this, 'skill9Value')">
+                            </div>
+                            
+                            <div class="skill-slider-group">
+                                <div class="skill-header">
+                                    <span class="skill-name">Leadership</span>
+                                    <span class="skill-value" id="skill10Value">5</span>
+                                </div>
+                                <input type="range" class="skill-slider" name="skill_leadership" min="1" max="10" value="5" oninput="updateSkillSlider(this, 'skill10Value')">
+                            </div>
+                        </div>
+                    </div>
+                    
                     <button type="submit" class="btn btn-primary form-submit">Submit Application</button>
                     
                     <p class="form-note">
@@ -3773,7 +3976,45 @@
         // Bambu Training Academy WhatsApp Business Number (from +62 851-9012-0311)
         const WHATSAPP_NUMBER = '6285190120311';
         const WEBHOOK_URL = 'https://alexbauer.app.n8n.cloud/webhook/bambu-academy-application'; // n8n webhook
+        const PROFILE_RESEARCH_WEBHOOK = 'https://alexbauer.app.n8n.cloud/webhook-test/b6264e89-d6d7-451b-85c4-75ed97bc82c2'; // Deep research trigger
         const MONGODB_WEBHOOK = 'https://alexbauer.app.n8n.cloud/webhook/bambu-check-email'; // MongoDB check
+        
+        // ===== SKILL SLIDER FUNCTION =====
+        function updateSkillSlider(slider, valueId) {
+            const value = slider.value;
+            const valueEl = document.getElementById(valueId);
+            valueEl.textContent = value;
+            
+            // Update color based on value
+            const colors = {
+                1: '#ef4444', 2: '#f97316', 3: '#f97316',
+                4: '#eab308', 5: '#eab308', 6: '#eab308',
+                7: '#84cc16', 8: '#84cc16', 9: '#22c55e', 10: '#22c55e'
+            };
+            valueEl.style.background = colors[value] || '#eab308';
+        }
+        
+        // ===== PROFILE RESEARCH WEBHOOK =====
+        async function triggerProfileResearch(data) {
+            try {
+                const response = await fetch(PROFILE_RESEARCH_WEBHOOK, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        event: 'profile_research_trigger',
+                        applicantId: data.applicantId,
+                        email: data.email,
+                        timestamp: new Date().toISOString(),
+                        formData: data.formData,
+                        skillsAssessment: data.skillsAssessment,
+                        profileUrl: `https://alebauer07-collab.github.io/ss-research-x7f9k2/pages/account.html?email=${encodeURIComponent(data.email)}&id=${encodeURIComponent(data.applicantId)}`
+                    })
+                });
+                console.log('Profile research triggered:', response.ok);
+            } catch (e) {
+                console.log('Profile research webhook failed (non-blocking):', e);
+            }
+        }
         
         // ===== LOGIN MODAL FUNCTIONS =====
         function openLoginModal() {
@@ -4349,10 +4590,33 @@
                 
                 console.log('New application submitted:', data);
                 
+                // Collect skills data
+                const skillsData = {
+                    coaching: parseInt(data.skill_coaching) || 5,
+                    identity: parseInt(data.skill_identity) || 5,
+                    community: parseInt(data.skill_community) || 5,
+                    programming: parseInt(data.skill_programming) || 5,
+                    sessionflow: parseInt(data.skill_sessionflow) || 5,
+                    movement: parseInt(data.skill_movement) || 5,
+                    communication: parseInt(data.skill_communication) || 5,
+                    groupmgmt: parseInt(data.skill_groupmgmt) || 5,
+                    profstandards: parseInt(data.skill_profstandards) || 5,
+                    leadership: parseInt(data.skill_leadership) || 5
+                };
+                
                 // Send webhook only for NEW applications
                 sendWebhook('application_submitted', {
                     applicantId: currentApplicantId,
-                    formData: data
+                    formData: data,
+                    skillsAssessment: skillsData
+                });
+                
+                // Trigger deep research workflow
+                triggerProfileResearch({
+                    applicantId: currentApplicantId,
+                    email: email,
+                    formData: data,
+                    skillsAssessment: skillsData
                 });
             }
             

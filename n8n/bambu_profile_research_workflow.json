@@ -1,0 +1,318 @@
+{
+  "name": "Bambu Academy - Profile Research & Scoring",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "b6264e89-d6d7-451b-85c4-75ed97bc82c2",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [200, 300],
+      "webhookId": "b6264e89-d6d7-451b-85c4-75ed97bc82c2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse incoming application data\nconst body = $input.first().json.body || $input.first().json;\n\nreturn {\n  json: {\n    applicantId: body.applicantId,\n    email: body.email,\n    timestamp: body.timestamp,\n    formData: body.formData || {},\n    skillsAssessment: body.skillsAssessment || {},\n    profileUrl: body.profileUrl\n  }\n};"
+      },
+      "id": "parse-input",
+      "name": "Parse Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [400, 300]
+    },
+    {
+      "parameters": {
+        "model": "perplexity/sonar-deep-research",
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 4000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a thorough research agent for Bambu Training Academy. Your job is to research new applicants to verify their identity and gather relevant professional information.\n\nYou will receive applicant data including their name, location, Instagram handle, LinkedIn URL, and professional background.\n\nYour task:\n1. Verify their identity by searching for them online\n2. Confirm their Instagram and LinkedIn profiles\n3. Find their professional background and fitness experience\n4. Look for any red flags or green flags\n5. Assess their coaching potential\n\nReturn your findings as a JSON object with these fields:\n- verificationStatus: { identityVerified, instagramVerified, linkedinVerified, confidenceScore }\n- socialProfiles: { instagram: {...}, linkedin: {...} }\n- professionalBackground: { currentWorkplace, yearsInFitness, certifications, specializations }\n- redFlags: []\n- greenFlags: []\n- coachingPotentialIndicators: { evidenceOfCoaching, clientResults, teachingContent, communityEngagement }\n- researchNotes: \"Your observations\""
+            },
+            {
+              "role": "user",
+              "content": "Research this Bambu Academy applicant:\n\nName: {{ $json.formData.first_name }} {{ $json.formData.last_name }}\nEmail: {{ $json.email }}\nLocation: {{ $json.formData.location }}\nCurrent Role: {{ $json.formData.role }}\nExperience: {{ $json.formData.experience }}\nInstagram: {{ $json.formData.instagram }}\nLinkedIn: {{ $json.formData.linkedin }}\n\nMotivation: {{ $json.formData.motivation }}\nBiggest Challenge: {{ $json.formData.challenge }}\n\nPlease search for this person, verify their identity, and gather all relevant professional information. Return your findings as structured JSON."
+            }
+          ]
+        }
+      },
+      "id": "deep-research",
+      "name": "Deep Research Agent",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [600, 300],
+      "credentials": {
+        "openAiApi": {
+          "id": "openrouter-credential-id",
+          "name": "OpenRouter"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "anthropic/claude-opus-4",
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 6000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are the profile analysis agent for Bambu Training Academy. You receive deep research results about an applicant and must:\n\n1. Calculate qualification scores across 6 dimensions (0-100 each):\n   - Coaching Experience (CE): 20% weight\n   - Technical Foundation (TF): 15% weight\n   - Business Acumen (BA): 15% weight\n   - Growth Mindset (GM): 20% weight\n   - Financial Readiness (FR): 15% weight\n   - Commitment Signal (CS): 15% weight\n\n2. Determine tier: STAR (85+), STRONG (70-84), GOOD (55-69), REVIEW (40-54), DECLINE (<40)\n\n3. Match to coach:\n   - Will Henke: Business-focused, entrepreneurs, content creators\n   - Sam Richardson: Technical coaches, movement specialists\n   - Macca McDonald: Energy coaches, group fitness, community builders\n\n4. Generate user-facing profile with:\n   - Display info (avatar, tagline, experience)\n   - Skills with growth projections\n   - Coach match with explanation\n   - Next step (unlock Step 4 if score >= 80)\n\nReturn two JSON objects: crmProfile (internal) and userProfile (visible to applicant)."
+            },
+            {
+              "role": "user",
+              "content": "Analyze this applicant and generate their complete profile:\n\n## ORIGINAL APPLICATION\nApplicant ID: {{ $('Parse Input').item.json.applicantId }}\nEmail: {{ $('Parse Input').item.json.email }}\nName: {{ $('Parse Input').item.json.formData.first_name }} {{ $('Parse Input').item.json.formData.last_name }}\nLocation: {{ $('Parse Input').item.json.formData.location }}\nRole: {{ $('Parse Input').item.json.formData.role }}\nExperience: {{ $('Parse Input').item.json.formData.experience }}\nMotivation: {{ $('Parse Input').item.json.formData.motivation }}\nChallenge: {{ $('Parse Input').item.json.formData.challenge }}\nPayment Preference: {{ $('Parse Input').item.json.formData.payment_preference }}\nInstagram: {{ $('Parse Input').item.json.formData.instagram }}\nLinkedIn: {{ $('Parse Input').item.json.formData.linkedin }}\n\n## SKILLS SELF-ASSESSMENT\n{{ JSON.stringify($('Parse Input').item.json.skillsAssessment, null, 2) }}\n\n## RESEARCH RESULTS\n{{ $json.message.content }}\n\nGenerate the complete crmProfile and userProfile JSON objects."
+            }
+          ]
+        }
+      },
+      "id": "profile-parser",
+      "name": "Profile Parser (Opus 4.5)",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [850, 300],
+      "credentials": {
+        "openAiApi": {
+          "id": "openrouter-credential-id",
+          "name": "OpenRouter"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse the AI response and structure the final output\nconst response = $input.first().json.message?.content || $input.first().json;\nconst originalData = $('Parse Input').first().json;\n\n// Try to parse JSON from the response\nlet parsed;\ntry {\n  // Extract JSON from markdown code blocks if present\n  const jsonMatch = response.match(/```json\\n([\\s\\S]*?)\\n```/);\n  if (jsonMatch) {\n    parsed = JSON.parse(jsonMatch[1]);\n  } else {\n    parsed = JSON.parse(response);\n  }\n} catch (e) {\n  // Fallback structure\n  parsed = {\n    crmProfile: { error: 'Parse failed', raw: response },\n    userProfile: { profileReady: false }\n  };\n}\n\nreturn {\n  json: {\n    applicantId: originalData.applicantId,\n    email: originalData.email,\n    profileUrl: originalData.profileUrl,\n    crmProfile: parsed.crmProfile || parsed,\n    userProfile: parsed.userProfile || {},\n    generatedAt: new Date().toISOString()\n  }\n};"
+      },
+      "id": "format-output",
+      "name": "Format Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1100, 300]
+    },
+    {
+      "parameters": {
+        "operation": "updateOne",
+        "collection": "applicants",
+        "filter": "{ \"applicantId\": \"{{ $json.applicantId }}\" }",
+        "fields": {
+          "values": [
+            {
+              "name": "profile",
+              "value": "={{ $json.userProfile }}"
+            },
+            {
+              "name": "crmScoring",
+              "value": "={{ $json.crmProfile }}"
+            },
+            {
+              "name": "profileGeneratedAt",
+              "value": "={{ $json.generatedAt }}"
+            },
+            {
+              "name": "profileReady",
+              "value": true
+            }
+          ]
+        },
+        "options": {
+          "upsert": true
+        }
+      },
+      "id": "mongodb-update",
+      "name": "Update MongoDB",
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1,
+      "position": [1300, 200],
+      "credentials": {
+        "mongoDb": {
+          "id": "mongodb-credential-id",
+          "name": "MongoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://alexbauer.app.n8n.cloud/webhook/bambu-profile-ready",
+        "options": {},
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "event",
+              "value": "profile_generated"
+            },
+            {
+              "name": "applicantId",
+              "value": "={{ $json.applicantId }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.email }}"
+            },
+            {
+              "name": "finalScore",
+              "value": "={{ $json.crmProfile?.scoring?.finalScore || 0 }}"
+            },
+            {
+              "name": "tier",
+              "value": "={{ $json.crmProfile?.scoring?.tier || 'REVIEW' }}"
+            },
+            {
+              "name": "qualifiesForCall",
+              "value": "={{ $json.crmProfile?.scoring?.qualifiesForCall || false }}"
+            },
+            {
+              "name": "profileUrl",
+              "value": "={{ $json.profileUrl }}"
+            }
+          ]
+        }
+      },
+      "id": "notify-frontend",
+      "name": "Notify Frontend",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1300, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-star",
+              "leftValue": "={{ $json.crmProfile?.scoring?.tier }}",
+              "rightValue": "STAR",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "check-star",
+      "name": "Is STAR Candidate?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1500, 300]
+    },
+    {
+      "parameters": {
+        "channel": "#all-team-friends",
+        "text": "🌟 *STAR CANDIDATE ALERT!*\n\n*Name:* {{ $('Parse Input').item.json.formData.first_name }} {{ $('Parse Input').item.json.formData.last_name }}\n*Score:* {{ $json.crmProfile.scoring.finalScore }}/100\n*Tier:* {{ $json.crmProfile.scoring.tier }}\n*Recommended Coach:* {{ $json.crmProfile.coachMatching.recommendedCoach }}\n*ID:* {{ $json.applicantId }}\n\n*Profile:* {{ $json.profileUrl }}\n\n_This candidate qualifies for immediate call with Will._",
+        "otherOptions": {}
+      },
+      "id": "slack-star",
+      "name": "Slack: STAR Alert",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [1700, 200],
+      "credentials": {
+        "slackApi": {
+          "id": "slack-credential-id",
+          "name": "Slack"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Parse Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Input": {
+      "main": [
+        [
+          {
+            "node": "Deep Research Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deep Research Agent": {
+      "main": [
+        [
+          {
+            "node": "Profile Parser (Opus 4.5)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Profile Parser (Opus 4.5)": {
+      "main": [
+        [
+          {
+            "node": "Format Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Output": {
+      "main": [
+        [
+          {
+            "node": "Update MongoDB",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify Frontend",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Is STAR Candidate?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is STAR Candidate?": {
+      "main": [
+        [
+          {
+            "node": "Slack: STAR Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["bambu", "profile", "research"],
+  "pinData": {},
+  "versionId": "1"
+}

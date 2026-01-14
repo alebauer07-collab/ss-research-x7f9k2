@@ -499,6 +499,340 @@
             font-size: 0.85rem;
         }
         
+        /* Step 4 Section */
+        .step4-section {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(220, 202, 183, 0.1) 100%);
+            border: 2px solid var(--success-green);
+        }
+        
+        .step4-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .step4-badge {
+            background: var(--success-green);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        
+        .step4-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .step4-subtitle {
+            color: rgba(255,255,255,0.7);
+            margin-top: 0.5rem;
+        }
+        
+        .step4-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .coach-match-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(0,0,0,0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            max-width: 500px;
+        }
+        
+        .coach-avatar-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--bambu-tan);
+        }
+        
+        .coach-match-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .coach-role {
+            color: var(--bambu-tan);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .match-reason {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .step4-cta {
+            background: var(--success-green);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .step4-cta:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+        }
+        
+        .step4-note {
+            font-size: 0.85rem;
+            color: var(--warning-orange);
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            background: var(--bambu-dark);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--bambu-tan);
+        }
+        
+        .profile-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .profile-tagline {
+            color: var(--bambu-tan);
+            font-size: 0.95rem;
+            margin: 0.25rem 0;
+        }
+        
+        .profile-location {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+        }
+        
+        /* Skills Grid in Profile */
+        .skills-section {
+            margin-bottom: 2rem;
+        }
+        
+        .skills-header {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-subheader {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1rem;
+        }
+        
+        .skills-grid-profile {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .skills-grid-profile {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .skill-bar-item {
+            background: rgba(0,0,0,0.3);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+        }
+        
+        .skill-bar-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        .skill-bar-name {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .skill-bar-values {
+            color: var(--bambu-tan);
+            font-weight: 600;
+        }
+        
+        .skill-bar-track {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-bar-current {
+            height: 100%;
+            background: var(--bambu-tan);
+            border-radius: 4px;
+            position: absolute;
+            transition: width 0.5s;
+        }
+        
+        .skill-bar-potential {
+            height: 100%;
+            background: var(--success-green);
+            border-radius: 4px;
+            position: absolute;
+            opacity: 0.4;
+        }
+        
+        /* Coach Match Section */
+        .coach-match-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(220, 202, 183, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(220, 202, 183, 0.2);
+        }
+        
+        .coach-match-header {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .coach-match-display {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        @media (max-width: 600px) {
+            .coach-match-display {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+        
+        .match-coach-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--bambu-tan);
+        }
+        
+        .match-details h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .match-coach-role {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .match-percentage {
+            display: inline-block;
+            background: var(--success-green);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        
+        .match-reason-text {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .match-synergy {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .synergy-tag {
+            background: rgba(220, 202, 183, 0.15);
+            color: var(--bambu-tan);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+        }
+        
+        /* Insights Grid */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .insight-card {
+            background: rgba(0,0,0,0.3);
+            padding: 1.25rem;
+            border-radius: 12px;
+        }
+        
+        .insight-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .insights-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .insights-list li {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .insights-list li:last-child {
+            border-bottom: none;
+        }
+        
         /* Not Logged In State */
         .not-logged-in {
             display: flex;
@@ -658,7 +992,7 @@
                             <div class="step-icon">📊</div>
                             <h3 class="step-title">Profile Generation</h3>
                             <p class="step-description">Our AI analyzes your application and generates personalized insights.</p>
-                            <button class="step-action-btn disabled" id="viewProfileBtn" disabled>
+                            <button class="step-action-btn disabled" id="viewProfileBtn" disabled onclick="scrollToProfile()">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
                                 View Profile
                             </button>
@@ -672,7 +1006,80 @@
                         </div>
                     </div>
                 </section>
+                
+                <!-- Step 4: Book Call (Hidden until qualified) -->
+                <section class="progress-section step4-section" id="step4Section" style="display: none;">
+                    <div class="step4-header">
+                        <span class="step4-badge">🌟 YOU QUALIFY!</span>
+                        <h2 class="step4-title">Step 4: Schedule Your Call with Will</h2>
+                        <p class="step4-subtitle">Your profile stood out. Will wants to meet you personally.</p>
+                    </div>
+                    <div class="step4-content">
+                        <div class="coach-match-card">
+                            <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Will.jpg" alt="Will Henke" class="coach-avatar-large">
+                            <div class="coach-match-info">
+                                <h3>Will Henke</h3>
+                                <p class="coach-role">Co-Founder & Fitness Director</p>
+                                <p class="match-reason" id="coachMatchReason">Your entrepreneurial background makes Will the perfect mentor for your journey.</p>
+                            </div>
+                        </div>
+                        <a href="https://calendly.com/willhenke/bambu" target="_blank" class="step4-cta">
+                            📅 Book Your Call Now
+                        </a>
+                        <p class="step4-note">Only 3 spots remaining with Will this week</p>
+                    </div>
+                </section>
 
+                <!-- Generated Profile Section (Hidden until ready) -->
+                <section class="profile-section" id="profileSection" style="display: none;">
+                    <div class="profile-header">
+                        <img id="profileAvatar" src="" alt="Profile" class="profile-avatar">
+                        <div class="profile-info">
+                            <h2 id="profileName" class="profile-name">Your Name</h2>
+                            <p id="profileTagline" class="profile-tagline">Your Tagline</p>
+                            <p id="profileLocation" class="profile-location">📍 Location</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Skills Visualization -->
+                    <div class="skills-section">
+                        <h3 class="skills-header">📊 Skills Growth Projection</h3>
+                        <p class="skills-subheader">Your current level → Projected after Academy</p>
+                        <div id="skillsGrid" class="skills-grid-profile">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Coach Match -->
+                    <div class="coach-match-section" id="coachMatchSection">
+                        <h3 class="coach-match-header">🎯 Your Coach Match</h3>
+                        <div class="coach-match-display">
+                            <img id="matchCoachAvatar" src="" alt="Coach" class="match-coach-avatar">
+                            <div class="match-details">
+                                <h4 id="matchCoachName">Coach Name</h4>
+                                <p id="matchCoachRole" class="match-coach-role">Role</p>
+                                <div class="match-percentage" id="matchPercentage">92% Match</div>
+                                <p id="matchReason" class="match-reason-text">Match reason...</p>
+                                <div id="matchSynergy" class="match-synergy">
+                                    <!-- Tags populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Strengths & Growth -->
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <h4>💪 Your Strengths</h4>
+                            <ul id="strengthsList" class="insights-list"></ul>
+                        </div>
+                        <div class="insight-card">
+                            <h4>🌱 Growth Areas</h4>
+                            <ul id="growthList" class="insights-list"></ul>
+                        </div>
+                    </div>
+                </section>
+                
                 <!-- Application Details Section -->
                 <section class="details-section">
                     <div class="details-header" onclick="toggleDetails()">
@@ -1039,6 +1446,114 @@
                 console.log('Webhook failed:', e);
             }
         }
+        
+        // ===== PROFILE RENDERING =====
+        function scrollToProfile() {
+            const profileSection = document.getElementById('profileSection');
+            if (profileSection) {
+                profileSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function renderProfile(profile) {
+            if (!profile || !profile.publicProfile) return;
+            
+            const pub = profile.publicProfile;
+            
+            // Show profile section
+            document.getElementById('profileSection').style.display = 'block';
+            
+            // Header
+            document.getElementById('profileAvatar').src = pub.avatar || 'https://via.placeholder.com/100';
+            document.getElementById('profileName').textContent = pub.displayName || 'Applicant';
+            document.getElementById('profileTagline').textContent = pub.tagline || '';
+            document.getElementById('profileLocation').textContent = '📍 ' + (pub.location || 'Unknown');
+            
+            // Skills
+            if (pub.currentSkills) {
+                const skillsGrid = document.getElementById('skillsGrid');
+                skillsGrid.innerHTML = '';
+                
+                for (const [key, skill] of Object.entries(pub.currentSkills)) {
+                    const current = skill.current || 5;
+                    const potential = skill.potential || 8;
+                    const label = skill.label || key;
+                    
+                    skillsGrid.innerHTML += `
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-name">${label}</span>
+                                <span class="skill-bar-values">${current} → ${potential}</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-potential" style="width: ${potential * 10}%"></div>
+                                <div class="skill-bar-current" style="width: ${current * 10}%"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            
+            // Coach Match
+            if (pub.coachMatch) {
+                const match = pub.coachMatch;
+                document.getElementById('matchCoachAvatar').src = match.coachAvatar || 'https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Will.jpg';
+                document.getElementById('matchCoachName').textContent = match.coachName || match.recommendedCoach;
+                document.getElementById('matchCoachRole').textContent = match.coachTitle || 'Academy Coach';
+                document.getElementById('matchPercentage').textContent = (match.matchPercentage || 85) + '% Match';
+                document.getElementById('matchReason').textContent = match.matchReason || '';
+                
+                if (match.synergy && match.synergy.length) {
+                    const synergyEl = document.getElementById('matchSynergy');
+                    synergyEl.innerHTML = match.synergy.map(s => `<span class="synergy-tag">${s}</span>`).join('');
+                }
+                
+                // Also update Step 4 if shown
+                document.getElementById('coachMatchReason').textContent = match.matchReason || '';
+            }
+            
+            // Strengths & Growth
+            if (pub.strengths) {
+                const strengthsList = document.getElementById('strengthsList');
+                strengthsList.innerHTML = pub.strengths.map(s => `<li>✓ ${s}</li>`).join('');
+            }
+            
+            if (pub.growthAreas) {
+                const growthList = document.getElementById('growthList');
+                growthList.innerHTML = pub.growthAreas.map(g => `<li>→ ${g}</li>`).join('');
+            }
+        }
+        
+        function checkStep4Unlock(profile) {
+            // Check if user qualifies for Step 4 (call with Will)
+            if (profile && profile.nextStep && profile.nextStep.unlocked) {
+                document.getElementById('step4Section').style.display = 'block';
+                return true;
+            }
+            return false;
+        }
+        
+        // Check for generated profile on page load
+        function checkForProfile() {
+            if (!currentUser || !currentUser.profile) {
+                // Try to fetch from localStorage or simulate for testing
+                const testProfile = localStorage.getItem('bambuGeneratedProfile');
+                if (testProfile) {
+                    try {
+                        const profile = JSON.parse(testProfile);
+                        renderProfile(profile);
+                        checkStep4Unlock(profile);
+                    } catch (e) {}
+                }
+                return;
+            }
+            
+            renderProfile(currentUser.profile);
+            checkStep4Unlock(currentUser.profile);
+        }
+        
+        // Call after page loads
+        setTimeout(checkForProfile, 500);
     </script>
 </body>
 </html>
