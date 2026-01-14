@@ -48,6 +48,246 @@
             overflow-x: hidden;
         }
         
+        /* ===== ANIMATED BACKGROUNDS ===== */
+        
+        /* Subtle noise texture overlay */
+        .page-wrapper::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        /* Floating gradient orbs */
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(220, 202, 183, 0.3) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+            animation: floatOrb1 20s ease-in-out infinite;
+        }
+        
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(196, 167, 125, 0.25) 0%, transparent 70%);
+            bottom: 20%;
+            left: -150px;
+            animation: floatOrb2 25s ease-in-out infinite;
+        }
+        
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(131, 110, 95, 0.2) 0%, transparent 70%);
+            top: 40%;
+            right: 10%;
+            animation: floatOrb3 18s ease-in-out infinite;
+        }
+        
+        @keyframes floatOrb1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-30px, 40px) scale(1.05); }
+            50% { transform: translate(20px, -20px) scale(0.95); }
+            75% { transform: translate(-20px, -30px) scale(1.02); }
+        }
+        
+        @keyframes floatOrb2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 40px) scale(0.9); }
+        }
+        
+        @keyframes floatOrb3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-40px, 30px) rotate(180deg); }
+        }
+        
+        /* Animated gradient mesh background for hero */
+        .hero-gradient-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(220, 202, 183, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(196, 167, 125, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 30% at 50% 80%, rgba(131, 110, 95, 0.05) 0%, transparent 50%);
+            animation: gradientShift 15s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+        
+        @keyframes gradientShift {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        /* Animated line grid pattern */
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(220, 202, 183, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(220, 202, 183, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 30s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+        
+        /* Glowing accent line */
+        .glow-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--bambu-tan), transparent);
+            opacity: 0.5;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.3; transform: scaleX(0.8); }
+            50% { opacity: 0.6; transform: scaleX(1); }
+        }
+        
+        /* Particle dots */
+        .particle-field {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--bambu-tan);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat 8s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 25%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 40%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 55%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 70%; animation-delay: 4s; }
+        .particle:nth-child(6) { left: 85%; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 15%; animation-delay: 6s; }
+        .particle:nth-child(8) { left: 60%; animation-delay: 7s; }
+        
+        @keyframes particleFloat {
+            0% { 
+                bottom: -10px; 
+                opacity: 0;
+                transform: translateX(0);
+            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { 
+                bottom: 100%; 
+                opacity: 0;
+                transform: translateX(20px);
+            }
+        }
+        
+        /* Section with animated border glow */
+        .section-glow {
+            position: relative;
+        }
+        
+        .section-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--bambu-tan), transparent);
+            border-radius: 2px;
+            animation: borderGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes borderGlow {
+            0%, 100% { width: 150px; opacity: 0.4; }
+            50% { width: 250px; opacity: 0.8; }
+        }
+        
+        /* Spotlight effect for key sections */
+        .spotlight-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spotlight-bg::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(220, 202, 183, 0.05) 0%, transparent 40%);
+            animation: spotlightRotate 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes spotlightRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Shimmer effect for cards */
+        .shimmer-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shimmer-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            animation: shimmer 8s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            50%, 100% { left: 150%; }
+        }
+        
         /* Page Wrapper - Matching Bambu */
         .page-wrapper {
             opacity: 1;
@@ -2905,6 +3145,10 @@
 </head>
 <body>
     <div class="page-wrapper">
+        <!-- Animated Background Elements -->
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
         
         <!-- Navigation -->
         <nav class="navbar">
@@ -2967,12 +3211,23 @@
                 <source src="https://cdn.prod.website-files.com/6760212da41938286ecf870d/678e0e89c14a1aebeab4bd9c_Meet-the-trainers-video-transcode.webm" type="video/webm">
             </video>
             <div class="video-overlay"></div>
+            <div class="hero-gradient-bg"></div>
+            <div class="particle-field">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
             
             <div class="hero-content">
                 <div class="hero-label">Bambu Training Academy</div>
                 <h1 class="hero-title">Coach Smarter<br>Lead Better<br>Stand Out</h1>
                 <p class="hero-subtitle">
-                    Our 4-week course designed to level up your knowledge, confidence, and coaching career — the Bambu way.
+                    Our 4-week course designed to level up your knowledge, confidence, and coaching career - the Bambu way.
                 </p>
                 
                 <div class="stats-row">
@@ -2999,17 +3254,17 @@
                     <button class="carousel-nav prev" onclick="scrollCarousel('benefitCarousel', -1)">←</button>
                     <button class="carousel-nav next" onclick="scrollCarousel('benefitCarousel', 1)">→</button>
                     <div class="benefit-carousel" id="benefitCarousel">
-                        <div class="benefit-card">
+                        <div class="benefit-card shimmer-card">
                             <h3>Trainers Stuck in One Lane</h3>
                             <p>Ready to break out of your specialty and become a versatile coach who can adapt to any client.</p>
                             <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf732c3ceb3de36a00_ccfb106288f7a09bdbfbf7ca04f8864f_image%207.png" alt="Trainers">
                         </div>
-                        <div class="benefit-card">
+                        <div class="benefit-card shimmer-card">
                             <h3>Certified But Not Confident</h3>
                             <p>Got the paper but know there's a gap between theory and real coaching. Time to close it.</p>
                             <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eafef3adaadcdd5962c_6fd7694095050187a61f4bffcebd2ee6_image%209.png" alt="Certified coaches">
                         </div>
-                        <div class="benefit-card">
+                        <div class="benefit-card shimmer-card">
                             <h3>Future Leaders</h3>
                             <p>Coaching is your career, not your side hustle. Build the skills that set you apart.</p>
                             <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeef29560eaae0add2_e695d7222786983dd36e80de6cb9f139_image%208.png" alt="Future leaders">
@@ -3027,7 +3282,7 @@
         <!-- What You Leave With - SECTION 3 -->
         <section class="section" style="background: var(--bambu-dark);">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header section-glow">
                     <div class="section-label">What You Leave With</div>
                     <h2 class="section-title">Where Knowledge Becomes Applied Confidence</h2>
                     <p class="section-subtitle">Across four weeks, you'll move, coach, and grow alongside other driven coaches who share the same goal: to be better.</p>
@@ -3101,7 +3356,7 @@
                         <div class="ladder-icon"><img src="../images/icons/icon-rocket.png" alt="Own Path"></div>
                         <div class="ladder-content">
                             <h4>Build Your Own Path</h4>
-                            <p>Online coaching, your own gym, courses — this is your stepping stone</p>
+                            <p>Online coaching, your own gym, courses - this is your stepping stone</p>
                         </div>
                     </div>
                 </div>
@@ -3109,9 +3364,10 @@
         </section>
 
         <!-- Your Coaches -->
-        <section class="section" style="background: var(--bambu-dark);">
-            <div class="container">
-                <div class="section-header">
+        <section class="section spotlight-bg" style="background: var(--bambu-dark);">
+            <div class="grid-pattern"></div>
+            <div class="container" style="position: relative; z-index: 1;">
+                <div class="section-header section-glow">
                     <div class="section-label">Your Coaches</div>
                     <h2 class="section-title">Learn From the Best</h2>
                     <p class="section-subtitle">Three coaches. 15 spots. Each slot is a commitment to one-on-one mentorship.</p>
@@ -3122,7 +3378,7 @@
                     <button class="carousel-nav next" onclick="scrollCarousel('coachesCarousel', 1)">→</button>
                     <div class="coaches-carousel" id="coachesCarousel">
                         <!-- Will Henke -->
-                        <div class="coach-card">
+                        <div class="coach-card shimmer-card">
                             <div class="coach-image">
                                 <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf1ff084a2880b5bf1_image%202.png" alt="Will Henke coaching">
                             </div>
@@ -3134,7 +3390,7 @@
                         </div>
                         
                         <!-- Sam Craige -->
-                        <div class="coach-card">
+                        <div class="coach-card shimmer-card">
                             <div class="coach-image">
                                 <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeef29560eaae0add2_e695d7222786983dd36e80de6cb9f139_image%208.png" alt="Sam Craige coaching">
                             </div>
@@ -3146,7 +3402,7 @@
                         </div>
                         
                         <!-- Lewis McDonald -->
-                        <div class="coach-card">
+                        <div class="coach-card shimmer-card">
                             <div class="coach-image">
                                 <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915be350d9798f74a21b34a_Macca%20image%201.png" alt="Lewis McDonald coaching" style="object-position: center 30%;">
                             </div>
@@ -3242,7 +3498,7 @@
                             <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915c01c5adf858444509b23_Golder-circle.svg" alt="">
                         </div>
                         <div class="timeline-content">
-                            <h4>Week 1 — Foundations of Great Coaching</h4>
+                            <h4>Week 1 - Foundations of Great Coaching</h4>
                             <p>Set the standard. You'll learn the key systems, frameworks, and communication tools that define professional coaching, and start applying them from day one.</p>
                         </div>
                     </div>
@@ -3251,7 +3507,7 @@
                             <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915c01c5adf858444509b23_Golder-circle.svg" alt="">
                         </div>
                         <div class="timeline-content">
-                            <h4>Week 2 — Communication, Cueing & Class Flow</h4>
+                            <h4>Week 2 - Communication, Cueing & Class Flow</h4>
                             <p>It's not just what you know, it's how you deliver it. You'll refine how you see movement, cue efficiently, and manage individuals and groups with confidence.</p>
                         </div>
                     </div>
@@ -3260,7 +3516,7 @@
                             <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915c01c5adf858444509b23_Golder-circle.svg" alt="">
                         </div>
                         <div class="timeline-content">
-                            <h4>Week 3 — Movement, Mechanics & Program Design</h4>
+                            <h4>Week 3 - Movement, Mechanics & Program Design</h4>
                             <p>We go deep on biomechanics, energy systems, and smart programming. You'll build your ability to assess, design, and progress clients across any training goal.</p>
                         </div>
                     </div>
@@ -3269,7 +3525,7 @@
                             <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915c01c5adf858444509b23_Golder-circle.svg" alt="">
                         </div>
                         <div class="timeline-content">
-                            <h4>Week 4 — Assessment & Certification</h4>
+                            <h4>Week 4 - Assessment & Certification</h4>
                             <p>Your chance to put it all together. You'll be tested through practical coaching evaluations, a written exam, and a program design case study to earn your Bambu Training Academy certification.</p>
                         </div>
                     </div>
@@ -3279,7 +3535,7 @@
                         </div>
                         <div class="timeline-content">
                             <h4>Designed Around our 4C Pillars</h4>
-                            <p>Every module is built around the Bambu framework: Clarity, Communication, Control, and Care — the standards that guide how we coach, teach, and lead.</p>
+                            <p>Every module is built around the Bambu framework: Clarity, Communication, Control, and Care - the standards that guide how we coach, teach, and lead.</p>
                         </div>
                     </div>
                 </div>
@@ -3297,11 +3553,11 @@
         </section>
 
         <!-- The Experience -->
-        <section class="section" style="background: var(--bambu-dark);">
-            <div class="container">
-                <div class="section-header">
+        <section class="section spotlight-bg" style="background: var(--bambu-dark);">
+            <div class="container" style="position: relative; z-index: 1;">
+                <div class="section-header section-glow">
                     <div class="section-label">The Experience</div>
-                    <h2 class="section-title">More Than an Academy — You won't just learn, you'll live it.</h2>
+                    <h2 class="section-title">More Than an Academy - You won't just learn, you'll live it.</h2>
                     <p class="section-subtitle">Across four weeks, you'll move, coach, and grow alongside other driven coaches who share the same goal: to be better. Expect shared learning, challenge, laughter, and the kind of professional respect that comes from earning it together.</p>
                 </div>
                 
@@ -3324,7 +3580,7 @@
                     <div class="skill-card">
                         <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df346c5a40078a01a818_Property%201%3DLeadership.svg" alt="">
                         <h5>Movement & Biomechanics</h5>
-                        <p>Understand anatomy, positions, and mechanics — what "good" looks like and why it matters</p>
+                        <p>Understand anatomy, positions, and mechanics - what "good" looks like and why it matters</p>
                     </div>
                     <div class="skill-card">
                         <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df34cb9f6393da03b368_Property%201%3DEnergy.svg" alt="">
@@ -3339,7 +3595,7 @@
                     <div class="skill-card">
                         <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df348532e9da0ac3b452_Property%201%3DCueing.svg" alt="">
                         <h5>Communication & Cueing</h5>
-                        <p>Refine how you speak, demonstrate, and connect — both in words and body language</p>
+                        <p>Refine how you speak, demonstrate, and connect - both in words and body language</p>
                     </div>
                     <div class="skill-card">
                         <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df3413009aaeb2e670ae_Property%201%3DGroup.svg" alt="">
@@ -3349,7 +3605,7 @@
                     <div class="skill-card">
                         <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/6915df346c5a40078a01a818_Property%201%3DLeadership.svg" alt="">
                         <h5>Professional Standards & Leadership</h5>
-                        <p>Own your craft, set the tone, and lead by example — on and off the floor</p>
+                        <p>Own your craft, set the tone, and lead by example - on and off the floor</p>
                     </div>
                 </div>
             </div>
@@ -3367,7 +3623,7 @@
             <div class="container">
                 <div class="section-header">
                     <div class="section-label">Investment</div>
-                    <h2 class="section-title">Ways to Pay — We're Flexible</h2>
+                    <h2 class="section-title">Ways to Pay - We're Flexible</h2>
                     <p class="section-subtitle">Multiple options because we want the right people, not just the ones who can pay upfront.</p>
                 </div>
                 
@@ -3452,7 +3708,7 @@
                     </div>
                     <div class="join-content">
                         <h2>Your next chapter as a coach starts here</h2>
-                        <p>You've got the passion — now it's time to back it with precision, confidence, and experience. Bambu coaches are known worldwide for their professionalism, presence, and skill. This is where that standard begins.<br><br>Join the next intake of the Bambu Training Academy and take the step that turns potential into professionalism.</p>
+                        <p>You've got the passion - now it's time to back it with precision, confidence, and experience. Bambu coaches are known worldwide for their professionalism, presence, and skill. This is where that standard begins.<br><br>Join the next intake of the Bambu Training Academy and take the step that turns potential into professionalism.</p>
                         <div class="btn-group">
                             <a href="#apply" class="btn btn-primary">Apply Now</a>
                             <a href="https://calendly.com/willhenke/bambu" target="_blank" class="btn btn-secondary">Book a Call</a>
@@ -3463,9 +3719,10 @@
         </section>
 
         <!-- Application Form -->
-        <section id="apply" class="section form-section">
-            <div class="container">
-                <div class="section-header">
+        <section id="apply" class="section form-section spotlight-bg">
+            <div class="grid-pattern"></div>
+            <div class="container" style="position: relative; z-index: 1;">
+                <div class="section-header section-glow">
                     <div class="section-label">Apply Now</div>
                     <h2 class="section-title">Ready? Let's Talk.</h2>
                     <p class="section-subtitle">Fill this out. If you're a fit, we'll be in touch within 48 hours.</p>
@@ -3589,7 +3846,7 @@
                     <!-- Skills Self-Assessment Section -->
                     <div class="skills-assessment-section">
                         <h3 class="skills-title">📊 Rate Your Current Coaching Skills</h3>
-                        <p class="skills-subtitle">Be honest — this helps us personalize your Academy experience. (1 = Beginner, 10 = Expert)</p>
+                        <p class="skills-subtitle">Be honest - this helps us personalize your Academy experience. (1 = Beginner, 10 = Expert)</p>
                         
                         <div class="skills-grid">
                             <div class="skill-slider-group">
@@ -3709,7 +3966,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Yes. This is an in-person, hands-on program at Bambu Fitness Bali. You'll need to arrange your own accommodation — we can recommend options nearby.</p>
+                            <p>Yes. This is an in-person, hands-on program at Bambu Fitness Bali. You'll need to arrange your own accommodation - we can recommend options nearby.</p>
                         </div>
                     </div>
                     
@@ -3803,7 +4060,7 @@
         <!-- Footer -->
         <footer class="footer">
             <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu Fitness" class="footer-logo">
-            <p class="footer-text">Bambu Training Academy — March 2026 Cohort</p>
+            <p class="footer-text">Bambu Training Academy - March 2026 Cohort</p>
             <p class="footer-tagline">15 spots. 7 weeks. Let's fill this cohort the right way.</p>
         </footer>
 
