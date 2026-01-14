@@ -3448,24 +3448,50 @@
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label class="form-label">Where are you based? *</label>
-                        <input type="text" class="form-input" name="location" required placeholder="City, Country">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Where are you based? *</label>
+                            <input type="text" class="form-input" name="location" required placeholder="City, Country">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Age *</label>
+                            <input type="number" class="form-input" name="age" required placeholder="Your age" min="18" max="70">
+                        </div>
+                    </div>
+                    
+                    <!-- Social Profiles - Moved Up -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Instagram Handle *</label>
+                            <input type="text" class="form-input" name="instagram" placeholder="@yourhandle" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">LinkedIn Profile *</label>
+                            <input type="url" class="form-input" name="linkedin" required placeholder="https://linkedin.com/in/yourprofile">
+                        </div>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">Current Role *</label>
-                        <select class="form-select" name="role" required>
+                        <select class="form-select" name="role" required onchange="handleRoleChange(this.value)">
                             <option value="">Select your current situation...</option>
                             <option value="coach">Currently coaching</option>
                             <option value="trainer">Personal trainer</option>
-                            <option value="aspiring">Aspiring coach (not yet coaching)</option>
+                            <option value="aspiring">Not yet coaching / Career changer</option>
                             <option value="athlete">Competitive athlete</option>
-                            <option value="other">Other fitness professional</option>
+                            <option value="fitness_pro">Other fitness professional</option>
+                            <option value="other">Other (explain below)</option>
                         </select>
                     </div>
                     
-                    <div class="form-group">
+                    <!-- Custom Role Explanation (appears for "other" or "aspiring") -->
+                    <div class="form-group" id="customRoleGroup" style="display: none;">
+                        <label class="form-label">Tell us about your current situation *</label>
+                        <textarea class="form-textarea" name="custom_role" id="customRoleInput" placeholder="What do you currently do? What's your background? Why are you interested in coaching?"></textarea>
+                    </div>
+                    
+                    <!-- Experience (hidden for aspiring/other) -->
+                    <div class="form-group" id="experienceGroup">
                         <label class="form-label">How long have you been training/coaching?</label>
                         <select class="form-select" name="experience">
                             <option value="">Select...</option>
@@ -3477,13 +3503,24 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">Why do you want to become an elite coach? *</label>
-                        <textarea class="form-textarea" name="motivation" required placeholder="What's driving you? What do you want to achieve?"></textarea>
+                        <label class="form-label">Why do you want to join Bambu Academy? *</label>
+                        <textarea class="form-textarea" name="motivation" required placeholder="What's your goal? What do you want to achieve? Why this program specifically?"></textarea>
+                    </div>
+                    
+                    <!-- YC-Style Questions -->
+                    <div class="form-group">
+                        <label class="form-label">Tell us about yourself: your background, life experience, hobbies, and achievements *</label>
+                        <textarea class="form-textarea" name="about_yourself" required placeholder="Share what makes you unique. Your career path, interests, achievements in any field (sports, business, academics, etc.), and anything you think is important for us to know."></textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">What's your biggest challenge right now as a coach?</label>
-                        <textarea class="form-textarea" name="challenge" placeholder="Be honest. We all have them."></textarea>
+                        <label class="form-label">What's your biggest challenge right now? (as a coach, or in your career)</label>
+                        <textarea class="form-textarea" name="challenge" placeholder="Be honest. We all have them. What's holding you back?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">What relevant experience or achievements would you like to highlight?</label>
+                        <textarea class="form-textarea" name="achievements" placeholder="Certifications, athletic achievements, business experience, teaching experience, client success stories, etc."></textarea>
                     </div>
                     
                     <div class="form-group">
@@ -3498,20 +3535,9 @@
                         </select>
                     </div>
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Instagram Handle *</label>
-                            <input type="text" class="form-input" name="instagram" placeholder="@yourhandle" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">LinkedIn Profile</label>
-                            <input type="url" class="form-input" name="linkedin" placeholder="linkedin.com/in/yourprofile">
-                        </div>
-                    </div>
-                    
                     <div class="form-group">
-                        <label class="form-label">How did you hear about Bambu Academy?</label>
-                        <input type="text" class="form-input" name="source" placeholder="Instagram, email, friend, etc.">
+                        <label class="form-label">Have you ever been to Bambu Fitness? How did you hear about us?</label>
+                        <textarea class="form-textarea" name="source" placeholder="Visited the gym, Will's Instagram, email, friend recommendation, etc."></textarea>
                     </div>
                     
                     <!-- Skills Self-Assessment Section -->
@@ -3992,6 +4018,25 @@
                 7: '#84cc16', 8: '#84cc16', 9: '#22c55e', 10: '#22c55e'
             };
             valueEl.style.background = colors[value] || '#eab308';
+        }
+        
+        // ===== ROLE CHANGE HANDLER =====
+        function handleRoleChange(value) {
+            const customRoleGroup = document.getElementById('customRoleGroup');
+            const experienceGroup = document.getElementById('experienceGroup');
+            const customRoleInput = document.getElementById('customRoleInput');
+            
+            if (value === 'other' || value === 'aspiring') {
+                // Show custom explanation, hide experience dropdown
+                customRoleGroup.style.display = 'block';
+                experienceGroup.style.display = 'none';
+                customRoleInput.required = true;
+            } else {
+                // Hide custom explanation, show experience dropdown
+                customRoleGroup.style.display = 'none';
+                experienceGroup.style.display = 'block';
+                customRoleInput.required = false;
+            }
         }
         
         // ===== PROFILE RESEARCH WEBHOOK =====

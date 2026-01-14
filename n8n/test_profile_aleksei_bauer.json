@@ -1,0 +1,242 @@
+{
+  "applicantId": "BAMBU-2026-9XEW0SDVRZ",
+  "email": "abeliankin07@gmail.com",
+  "profileVersion": "v1",
+  "generatedAt": "2026-01-14T15:00:00Z",
+  
+  "crmProfile": {
+    "scoring": {
+      "dimensions": {
+        "coachingExperience": {
+          "score": 78,
+          "factors": [
+            "12 years martial arts experience (sambo, taekwondo, boxing, wrestling, MMA)",
+            "Candidate Master of Sports in Russian Combat Sambo at age 19",
+            "Built coaching systems at LegionFarm - trained 200+ professional esports coaches",
+            "Created academy programs where students paid to learn coaching skills"
+          ]
+        },
+        "technicalFoundation": {
+          "score": 82,
+          "factors": [
+            "Deep understanding of combat sports biomechanics",
+            "Built structured training curricula for esports professionals",
+            "Technical background from building tech platforms",
+            "Experience creating assessment and certification programs"
+          ]
+        },
+        "businessAcumen": {
+          "score": 95,
+          "factors": [
+            "Founded LegionFarm - largest gaming coaching platform",
+            "Generated tens of thousands of jobs worldwide",
+            "Built marketplaces, academies, chatbots, Discord communities",
+            "Monetized coaching through multiple revenue streams",
+            "Created paid academy model where people pay to become coaches"
+          ]
+        },
+        "growthMindset": {
+          "score": 90,
+          "factors": [
+            "Comes from curiosity - wants to learn how Bambu raises coaches",
+            "Plans to apply learnings to own business",
+            "Non-standard application shows creative thinking",
+            "Wants to understand physical training methodology to complement esports background"
+          ]
+        },
+        "financialReadiness": {
+          "score": 95,
+          "factors": [
+            "Successful entrepreneur with established business",
+            "Clear budget availability",
+            "Investment mindset - sees this as business education"
+          ]
+        },
+        "commitmentSignal": {
+          "score": 88,
+          "factors": [
+            "Detailed, thoughtful application",
+            "Clear articulation of unique goals",
+            "Transparent about non-traditional interest",
+            "Strong professional network (verified LinkedIn)"
+          ]
+        }
+      },
+      "finalScore": 88,
+      "tier": "STAR",
+      "qualifiesForCall": true
+    },
+    
+    "verification": {
+      "identityConfirmed": true,
+      "redFlags": [],
+      "greenFlags": [
+        {
+          "type": "verified_entrepreneur",
+          "description": "LegionFarm is a verifiable, successful gaming company"
+        },
+        {
+          "type": "martial_arts_background",
+          "description": "Candidate Master of Sports is a verifiable Russian athletic achievement"
+        },
+        {
+          "type": "coaching_system_builder",
+          "description": "Proven track record building coaching programs at scale"
+        },
+        {
+          "type": "unique_perspective",
+          "description": "Brings cross-industry insights from esports and tech"
+        }
+      ],
+      "confidenceLevel": 96
+    },
+    
+    "coachMatching": {
+      "recommendedCoach": "Will",
+      "compatibility": {
+        "will": {
+          "score": 95,
+          "reasons": [
+            "Both are entrepreneurs who built coaching businesses",
+            "Shared interest in business strategy and scaling",
+            "Will can learn from Alexey's tech/digital coaching experience",
+            "Alexey can learn physical coaching methodology from Will",
+            "Potential partnership/collaboration opportunity"
+          ]
+        },
+        "sam": {
+          "score": 72,
+          "reasons": [
+            "Technical movement background aligns with martial arts experience",
+            "Could benefit from biomechanics deep-dive"
+          ]
+        },
+        "macca": {
+          "score": 68,
+          "reasons": [
+            "Group dynamics experience from managing esports communities",
+            "Energy management relevant to martial arts training"
+          ]
+        }
+      }
+    },
+    
+    "internalNotes": "UNIQUE APPLICANT - Not traditional fitness coach pathway. Alexey is a tech entrepreneur who built the largest esports coaching platform (LegionFarm). His interest is studying HOW Bambu trains coaches so he can apply methodologies to his own business. 12 years martial arts with Candidate Master of Sports achievement. This is a STAR candidate but for unconventional reasons - potential strategic partnership value. Will should meet him personally to explore collaboration angles. His payment ability is not a concern. His goal is learning the methodology, not becoming a Bambu coach.",
+    "nextAction": "schedule_call"
+  },
+  
+  "userProfile": {
+    "profileReady": true,
+    
+    "publicProfile": {
+      "avatar": "https://media.licdn.com/dms/image/v2/D5603AQGJw8d9FxJJJg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1699012345678?e=1735776000&v=beta&t=xxxx",
+      "displayName": "Aleksei Beliankin Bauer",
+      "tagline": "Tech Entrepreneur × Combat Sports Athlete × Coaching System Builder",
+      "location": "San Francisco, CA",
+      
+      "experience": [
+        {
+          "role": "Founder & CEO",
+          "organization": "LegionFarm",
+          "period": "2018 - Present",
+          "highlights": [
+            "Built the largest esports coaching marketplace",
+            "Created jobs for 200+ top professional players (Call of Duty Warzone top 500)",
+            "Developed coaching academy programs where students pay to become professionals",
+            "Built tech infrastructure: marketplaces, Discord communities, chatbots"
+          ]
+        },
+        {
+          "role": "Competitive Martial Artist",
+          "organization": "Russian Combat Sambo",
+          "period": "12 years (Age 7-19)",
+          "highlights": [
+            "Candidate Master of Sports in Russian Combat Sambo",
+            "Cross-trained: Taekwondo, Boxing, Wrestling, MMA",
+            "Deep understanding of physical training methodology"
+          ]
+        }
+      ],
+      
+      "currentSkills": {
+        "coaching": { "current": 7, "potential": 9, "label": "1-on-1 Coaching" },
+        "identity": { "current": 8, "potential": 9, "label": "Coach Identity & Philosophy" },
+        "community": { "current": 9, "potential": 10, "label": "Connection & Community" },
+        "programming": { "current": 6, "potential": 8, "label": "Energy Systems & Program Design" },
+        "sessionflow": { "current": 6, "potential": 8, "label": "Coaching Intention & Session Flow" },
+        "movement": { "current": 7, "potential": 9, "label": "Movement & Biomechanics" },
+        "communication": { "current": 8, "potential": 9, "label": "Communication Skills" },
+        "groupmgmt": { "current": 8, "potential": 9, "label": "Group Management & Class Control" },
+        "profstandards": { "current": 8, "potential": 9, "label": "Professional Standards" },
+        "leadership": { "current": 9, "potential": 10, "label": "Leadership" }
+      },
+      
+      "coachMatch": {
+        "recommendedCoach": "Will",
+        "coachName": "Will Henke",
+        "coachTitle": "Co-Founder & Fitness Director",
+        "coachAvatar": "https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Will.jpg",
+        "matchPercentage": 95,
+        "matchReason": "You and Will share something rare: you've both built coaching businesses from scratch. Will scaled Bambu's physical coaching methodology while you scaled digital coaching at LegionFarm. This isn't just a student-coach match — it's a meeting of two entrepreneurs who can learn from each other. Will is excited to understand how you systematized coaching in esports, and you'll gain insights into physical coaching pedagogy you can bring back to your business.",
+        "synergy": [
+          "Entrepreneur-to-Entrepreneur",
+          "Coaching System Design",
+          "Business Strategy",
+          "Cross-Industry Innovation",
+          "Leadership Development"
+        ]
+      },
+      
+      "goals": [
+        "Learn Bambu's methodology for developing elite coaches",
+        "Apply physical coaching frameworks to esports coaching programs",
+        "Understand how to evaluate and improve coach quality at scale",
+        "Explore potential collaboration opportunities with Bambu"
+      ],
+      
+      "strengths": [
+        "Proven entrepreneur with successful coaching business",
+        "Rare combination: combat sports athlete + tech founder",
+        "Experience building and scaling coaching systems",
+        "Strong leadership and community-building track record",
+        "Strategic thinker with cross-industry perspective"
+      ],
+      
+      "growthAreas": [
+        "Physical fitness program design (energy systems, periodization)",
+        "Hands-on coaching technique for fitness specifically",
+        "Session flow structure for gym environment",
+        "Physical assessment and movement screening"
+      ]
+    },
+    
+    "followUpQuestions": [
+      {
+        "id": "q1",
+        "question": "You mentioned wanting to learn how Bambu 'raises coaches.' What specific aspects of coach development are you most interested in implementing at LegionFarm?",
+        "type": "textarea"
+      },
+      {
+        "id": "q2",
+        "question": "With your martial arts background, what's the biggest difference you see between training a combat athlete vs. coaching general fitness clients?",
+        "type": "textarea"
+      },
+      {
+        "id": "q3",
+        "question": "Would you be interested in exploring a partnership where Bambu and LegionFarm share coaching methodologies?",
+        "type": "select",
+        "options": ["Yes, definitely interested", "Maybe, let's discuss on the call", "I'm focused on learning first"]
+      }
+    ],
+    
+    "nextStep": {
+      "stepNumber": 4,
+      "unlocked": true,
+      "title": "You're In — Let's Talk Business",
+      "description": "Your profile is unlike anyone else's. Will wants to meet you not just as a potential student, but as a fellow entrepreneur who's built something remarkable in coaching. This call is about exploring how we can learn from each other.",
+      "calendlyLink": "https://calendly.com/willhenke/bambu",
+      "ctaText": "Book Your Call with Will",
+      "urgency": "Will has blocked a special slot for entrepreneur conversations"
+    }
+  }
+}
