@@ -657,6 +657,63 @@
         
         .venue-video-wrapper {
             overflow: hidden;
+            position: relative;
+        }
+        
+        .venue-video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.5rem;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+        }
+        
+        .venue-video-header {
+            text-align: left;
+        }
+        
+        .venue-video-header .section-label {
+            margin-bottom: 0.25rem;
+        }
+        
+        .venue-video-header h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .venue-video-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+        }
+        
+        .venue-mini-stats {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+        
+        @media (max-width: 600px) {
+            .venue-mini-stats {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 0.25rem;
+            }
+            .venue-mini-stats span:nth-child(2) {
+                display: none;
+            }
         }
         
         .venue-badge {
@@ -1206,6 +1263,12 @@
             margin-bottom: 0.25rem;
         }
         
+        .price-period {
+            font-size: 0.8rem;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+        
         .payment-desc {
             font-size: 0.7rem;
             color: var(--text-grey);
@@ -1223,6 +1286,80 @@
             grid-template-columns: repeat(3, 1fr);
             max-width: 900px;
             margin: 0 auto;
+        }
+        
+        /* Inline Process Steps */
+        .process-steps-inline {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .process-step-big {
+            flex: 1;
+            max-width: 280px;
+            text-align: center;
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .step-num {
+            width: 48px;
+            height: 48px;
+            background: var(--bambu-tan);
+            color: var(--bambu-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-white);
+        }
+        
+        .process-step-big p {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .step-arrow {
+            font-size: 2rem;
+            color: var(--bambu-tan);
+            opacity: 0.5;
+            margin-top: 0.75rem;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .process-steps-inline {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .step-arrow {
+                transform: rotate(90deg);
+                margin: 0;
+            }
+            .process-step-big {
+                max-width: 100%;
+            }
         }
         
         @media (max-width: 900px) {
@@ -2515,9 +2652,22 @@
                             <source src="https://cdn.prod.website-files.com/6760212da41938286ecf870d/677e78aad192958d2c3b524a_Classes-Video-transcode.mp4" type="video/mp4">
                             <source src="https://cdn.prod.website-files.com/6760212da41938286ecf870d/677e78aad192958d2c3b524a_Classes-Video-transcode.webm" type="video/webm">
                         </video>
-                        <div class="venue-badge">
-                            <span>36,000 sqft</span>
-                            <small>World-class facility</small>
+                        <div class="venue-video-overlay">
+                            <div class="venue-video-header">
+                                <div class="section-label">Where It Happens</div>
+                                <h3>Bambu Fitness Bali</h3>
+                            </div>
+                            <div class="venue-video-footer">
+                                <div class="venue-badge">
+                                    <span>36,000 sqft</span>
+                                    <small>World-class facility</small>
+                                </div>
+                                <div class="venue-mini-stats">
+                                    <span>5K+ Monthly Members</span>
+                                    <span>•</span>
+                                    <span>10+ Elite Coaches</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="venue-content">
@@ -2527,16 +2677,12 @@
                         <p>Olympic weightlifting platforms. Air-conditioned cardio and bodybuilding rooms. Rogue, Eleiko, and Torque equipment. Everything you need to master your craft in the best environment possible.</p>
                         <div class="venue-stats">
                             <div class="venue-stat">
-                                <div class="venue-stat-number">7K+</div>
-                                <div class="venue-stat-label">Members Served</div>
+                                <div class="venue-stat-number">5K+</div>
+                                <div class="venue-stat-label">Monthly Members</div>
                             </div>
                             <div class="venue-stat">
                                 <div class="venue-stat-number">10+</div>
                                 <div class="venue-stat-label">Elite Coaches</div>
-                            </div>
-                            <div class="venue-stat">
-                                <div class="venue-stat-number">4+</div>
-                                <div class="venue-stat-label">Years Running</div>
                             </div>
                         </div>
                     </div>
@@ -2683,7 +2829,6 @@
                         </div>
                     </div>
                     <p class="deadline-note">Applications close <strong>Feb 15, 2026</strong>. Early applicants get priority matching.</p>
-                    <p class="urgency-text">The earlier you apply, the better your chance of getting your preferred coach.</p>
                     <a href="#apply" class="btn btn-primary" style="margin-top: 1rem;">Apply Now</a>
                 </div>
             </div>
@@ -2697,21 +2842,29 @@
                     <h2 class="section-title">Three Steps to Start Your Journey</h2>
                 </div>
                 
-                <div class="process-grid simple">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h4>Apply</h4>
-                        <p>Fill out the form below. We'll review your background and goals.</p>
+                <div class="process-steps-inline">
+                    <div class="process-step-big">
+                        <div class="step-header">
+                            <span class="step-num">1</span>
+                            <span class="step-title">Apply</span>
                     </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h4>Call</h4>
-                        <p>Have a quick call with Will. We'll match you with the right coach.</p>
+                        <p>Fill out the form. We'll review your background.</p>
                     </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h4>Join</h4>
-                        <p>Lock your spot, choose your payment, and get ready to level up.</p>
+                    <div class="step-arrow">→</div>
+                    <div class="process-step-big">
+                        <div class="step-header">
+                            <span class="step-num">2</span>
+                            <span class="step-title">Call</span>
+                    </div>
+                        <p>Quick call with Will. Get matched with your coach.</p>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="process-step-big">
+                        <div class="step-header">
+                            <span class="step-num">3</span>
+                            <span class="step-title">Join</span>
+                        </div>
+                        <p>Lock your spot. Choose payment. Level up.</p>
                     </div>
                 </div>
             </div>
@@ -2863,10 +3016,10 @@
                 
                 <div class="payment-grid">
                     <div class="payment-card featured">
-                        <div class="payment-icon">🏆</div>
-                        <div class="payment-title">Early Bird</div>
-                        <div class="payment-price">$4,299</div>
-                        <div class="payment-desc">Pay in full<br>Save $2,700</div>
+                        <div class="payment-icon">📅</div>
+                        <div class="payment-title">Monthly</div>
+                        <div class="payment-price">$599<span class="price-period">/mo</span></div>
+                        <div class="payment-desc">7 installments<br>Total $4,193</div>
                     </div>
                     <div class="payment-card">
                         <div class="payment-icon">💵</div>
@@ -3024,9 +3177,8 @@
                         <label class="form-label">Preferred Payment Option</label>
                         <select class="form-select" name="payment_preference">
                             <option value="">Select...</option>
-                            <option value="early_bird">Early Bird ($4,299 - Save $2,700)</option>
-                            <option value="standard">Standard ($6,999)</option>
-                            <option value="monthly">Monthly installments ($599/mo)</option>
+                            <option value="monthly">Monthly ($599/mo x 7)</option>
+                            <option value="standard">Pay in Full ($6,999)</option>
                             <option value="sponsor">Looking for a sponsor</option>
                             <option value="employer">My employer may pay</option>
                             <option value="unsure">Not sure yet</option>
