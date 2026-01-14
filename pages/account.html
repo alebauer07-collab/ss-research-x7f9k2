@@ -1298,8 +1298,113 @@
         let profileTimerInterval = null;
         
         // ===== INITIALIZATION =====
+        // Test profile data for demo account
+        const TEST_PROFILES = {
+            'BAMBU-2026-9XEW0SDVRZ': {
+                "applicantId": "BAMBU-2026-9XEW0SDVRZ",
+                "email": "abeliankin07@gmail.com",
+                "profileReady": true,
+                "publicProfile": {
+                    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQGJw8d9FxJJJg/profile-displayphoto-shrink_200_200/0/1699012345678",
+                    "displayName": "Aleksei Beliankin Bauer",
+                    "tagline": "Tech Entrepreneur × Combat Sports Athlete × Coaching System Builder",
+                    "location": "San Francisco, CA",
+                    "experience": [
+                        {
+                            "role": "Founder & CEO",
+                            "organization": "LegionFarm",
+                            "period": "2018 - Present",
+                            "highlights": [
+                                "Built the largest esports coaching marketplace",
+                                "Created jobs for 200+ top professional players",
+                                "Developed coaching academy programs"
+                            ]
+                        },
+                        {
+                            "role": "Competitive Martial Artist",
+                            "organization": "Russian Combat Sambo",
+                            "period": "12 years (Age 7-19)",
+                            "highlights": [
+                                "Candidate Master of Sports in Russian Combat Sambo",
+                                "Cross-trained: Taekwondo, Boxing, Wrestling, MMA"
+                            ]
+                        }
+                    ],
+                    "currentSkills": {
+                        "coaching": { "current": 7, "potential": 9, "label": "1-on-1 Coaching" },
+                        "identity": { "current": 8, "potential": 9, "label": "Coach Identity & Philosophy" },
+                        "community": { "current": 9, "potential": 10, "label": "Connection & Community" },
+                        "programming": { "current": 6, "potential": 8, "label": "Energy Systems & Program Design" },
+                        "sessionflow": { "current": 6, "potential": 8, "label": "Coaching Intention & Session Flow" },
+                        "movement": { "current": 7, "potential": 9, "label": "Movement & Biomechanics" },
+                        "communication": { "current": 8, "potential": 9, "label": "Communication Skills" },
+                        "groupmgmt": { "current": 8, "potential": 9, "label": "Group Management & Class Control" },
+                        "profstandards": { "current": 8, "potential": 9, "label": "Professional Standards" },
+                        "leadership": { "current": 9, "potential": 10, "label": "Leadership" }
+                    },
+                    "coachMatch": {
+                        "recommendedCoach": "Will",
+                        "coachName": "Will Henke",
+                        "coachTitle": "Co-Founder & Fitness Director",
+                        "coachAvatar": "https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Will.jpg",
+                        "matchPercentage": 95,
+                        "matchReason": "You and Will share something rare: you've both built coaching businesses from scratch. Will scaled Bambu's physical coaching methodology while you scaled digital coaching at LegionFarm. This isn't just a student-coach match — it's a meeting of two entrepreneurs who can learn from each other.",
+                        "synergy": ["Entrepreneur-to-Entrepreneur", "Coaching System Design", "Business Strategy", "Cross-Industry Innovation", "Leadership Development"]
+                    },
+                    "goals": [
+                        "Learn Bambu's methodology for developing elite coaches",
+                        "Apply physical coaching frameworks to esports coaching programs",
+                        "Understand how to evaluate and improve coach quality at scale"
+                    ],
+                    "strengths": [
+                        "Proven entrepreneur with successful coaching business",
+                        "Rare combination: combat sports athlete + tech founder",
+                        "Experience building and scaling coaching systems",
+                        "Strong leadership and community-building track record"
+                    ],
+                    "growthAreas": [
+                        "Physical fitness program design (energy systems, periodization)",
+                        "Hands-on coaching technique for fitness specifically",
+                        "Session flow structure for gym environment"
+                    ]
+                },
+                "nextStep": {
+                    "stepNumber": 4,
+                    "unlocked": true,
+                    "title": "You're In — Let's Talk Business",
+                    "description": "Your profile is unlike anyone else's. Will wants to meet you not just as a potential student, but as a fellow entrepreneur.",
+                    "calendlyLink": "https://calendly.com/willhenke/bambu",
+                    "ctaText": "Book Your Call with Will"
+                },
+                "scoring": {
+                    "finalScore": 88,
+                    "tier": "STAR",
+                    "qualifiesForCall": true
+                }
+            }
+        };
+        
         document.addEventListener('DOMContentLoaded', function() {
             checkLoginStatus();
+            
+            // Load test profile if this is the demo account
+            setTimeout(() => {
+                if (currentUser && currentUser.applicant_id && TEST_PROFILES[currentUser.applicant_id]) {
+                    const testProfile = TEST_PROFILES[currentUser.applicant_id];
+                    currentUser.profile = { publicProfile: testProfile.publicProfile };
+                    currentUser.profileReady = true;
+                    currentUser.stepsCompleted = { step1: true, step2: true, step3: true };
+                    stepsCompleted = currentUser.stepsCompleted;
+                    
+                    // Update display
+                    updateProgressDisplay();
+                    renderProfile(currentUser.profile);
+                    checkStep4Unlock(currentUser.profile);
+                    
+                    // Save to storage
+                    saveUserData();
+                }
+            }, 500);
         });
         
         function checkLoginStatus() {
@@ -1633,7 +1738,28 @@
                 profileBtn.disabled = false;
                 profileBtn.classList.remove('disabled');
                 profileBtn.classList.add('primary');
-                profileBtn.onclick = () => window.location.href = `applicant-profile.html?id=${currentUser.applicant_id}`;
+                // Scroll to inline profile section instead of navigating to separate page
+                profileBtn.onclick = () => {
+                    // Expand the generated profile section if collapsed
+                    const content = document.getElementById('generatedProfileContent');
+                    const toggle = document.getElementById('profileToggle');
+                    if (content && content.style.display === 'none') {
+                        content.style.display = 'block';
+                        if (toggle) toggle.textContent = '▼';
+                    }
+                    // Show the profile section
+                    const profileSection = document.getElementById('generatedProfileSection');
+                    if (profileSection) {
+                        profileSection.style.display = 'block';
+                        profileSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                };
+                
+                // Also show the profile section
+                const profileSection = document.getElementById('generatedProfileSection');
+                if (profileSection) {
+                    profileSection.style.display = 'block';
+                }
             }
         }
         
@@ -1743,9 +1869,19 @@
         
         // ===== PROFILE RENDERING =====
         function scrollToProfile() {
-            const profileSection = document.getElementById('profileSection');
+            // Expand the generated profile section if collapsed
+            const content = document.getElementById('generatedProfileContent');
+            const toggle = document.getElementById('profileToggle');
+            if (content && content.style.display === 'none') {
+                content.style.display = 'block';
+                if (toggle) toggle.textContent = '▼';
+            }
+            
+            // Show and scroll to the generated profile section
+            const profileSection = document.getElementById('generatedProfileSection');
             if (profileSection) {
-                profileSection.scrollIntoView({ behavior: 'smooth' });
+                profileSection.style.display = 'block';
+                profileSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
         
