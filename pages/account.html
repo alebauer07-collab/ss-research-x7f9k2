@@ -744,6 +744,70 @@
         });
         
         function checkLoginStatus() {
+            // First check URL parameters for direct access
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlEmail = urlParams.get('email');
+            const urlId = urlParams.get('id');
+            
+            // Load all applications from localStorage
+            const allApps = JSON.parse(localStorage.getItem('bambuAcademyApplications') || '{}');
+            
+            // If URL has email param, try to load that user
+            if (urlEmail) {
+                const email = urlEmail.toLowerCase().trim();
+                
+                // Check in applications database
+                if (allApps[email] && allApps[email].applicant_id) {
+                    // Verify ID matches if provided
+                    if (!urlId || allApps[email].applicant_id === urlId) {
+                        currentUser = allApps[email];
+                        if (currentUser.stepsCompleted) {
+                            stepsCompleted = currentUser.stepsCompleted;
+                        }
+                        // Update current application storage
+                        localStorage.setItem('bambuAcademyApplication', JSON.stringify(currentUser));
+                        localStorage.setItem('bambuLoggedInEmail', email);
+                        
+                        showLoggedInState();
+                        populateUserData();
+                        updateProgressDisplay();
+                        
+                        // Resume timer if needed
+                        if (stepsCompleted.step2 && !stepsCompleted.step3 && !currentUser.profileReady) {
+                            startProfileTimer();
+                        }
+                        return;
+                    }
+                }
+                
+                // Also check single storage (backward compatibility)
+                const stored = localStorage.getItem('bambuAcademyApplication');
+                if (stored) {
+                    try {
+                        const data = JSON.parse(stored);
+                        if (data.email && data.email.toLowerCase() === email) {
+                            // Add to applications database for future lookups
+                            allApps[email] = data;
+                            localStorage.setItem('bambuAcademyApplications', JSON.stringify(allApps));
+                            
+                            currentUser = data;
+                            if (data.stepsCompleted) {
+                                stepsCompleted = data.stepsCompleted;
+                            }
+                            showLoggedInState();
+                            populateUserData();
+                            updateProgressDisplay();
+                            
+                            if (stepsCompleted.step2 && !stepsCompleted.step3 && !data.profileReady) {
+                                startProfileTimer();
+                            }
+                            return;
+                        }
+                    } catch (e) {}
+                }
+            }
+            
+            // No URL params - check current logged in user
             const stored = localStorage.getItem('bambuAcademyApplication');
             if (stored) {
                 try {
@@ -891,13 +955,31 @@
                 stepsCompleted.step2 = true;
                 currentUser.stepsCompleted = stepsCompleted;
                 currentUser.whatsappClicked = true;
-                localStorage.setItem('bambuAcademyApplication', JSON.stringify(currentUser));
+                
+                // Save to both storage locations
+                saveUserData();
+                
                 updateProgressDisplay();
                 startProfileTimer();
                 
                 // Send webhook
                 sendWebhook('whatsapp_clicked', { applicantId: currentUser.applicant_id });
             }, 10000);
+        }
+        
+        // ===== SAVE USER DATA TO ALL STORAGE =====
+        function saveUserData() {
+            if (!currentUser || !currentUser.email) return;
+            
+            const email = currentUser.email.toLowerCase().trim();
+            
+            // Save to single storage
+            localStorage.setItem('bambuAcademyApplication', JSON.stringify(currentUser));
+            
+            // Save to applications database
+            const allApps = JSON.parse(localStorage.getItem('bambuAcademyApplications') || '{}');
+            allApps[email] = currentUser;
+            localStorage.setItem('bambuAcademyApplications', JSON.stringify(allApps));
         }
         
         // ===== PROFILE TIMER =====
@@ -917,7 +999,10 @@
                     stepsCompleted.step3 = true;
                     currentUser.stepsCompleted = stepsCompleted;
                     currentUser.profileReady = true;
-                    localStorage.setItem('bambuAcademyApplication', JSON.stringify(currentUser));
+                    
+                    // Save to all storage locations
+                    saveUserData();
+                    
                     updateProgressDisplay();
                     
                     sendWebhook('profile_ready', { applicantId: currentUser.applicant_id });

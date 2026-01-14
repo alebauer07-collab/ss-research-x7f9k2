@@ -3810,14 +3810,27 @@
             const email = document.getElementById('loginEmail').value.trim().toLowerCase();
             if (!email) return;
             
-            // First check localStorage
+            // Check localStorage applications database (keyed by email)
+            const allApps = JSON.parse(localStorage.getItem('bambuAcademyApplications') || '{}');
+            
+            if (allApps[email] && allApps[email].applicant_id) {
+                // Found in localStorage - set as current and redirect
+                localStorage.setItem('bambuAcademyApplication', JSON.stringify(allApps[email]));
+                localStorage.setItem('bambuLoggedInEmail', email);
+                window.location.href = `account.html?email=${encodeURIComponent(email)}&id=${encodeURIComponent(allApps[email].applicant_id)}`;
+                return;
+            }
+            
+            // Fallback: check single application storage (backward compatibility)
             const stored = localStorage.getItem('bambuAcademyApplication');
             if (stored) {
                 try {
                     const data = JSON.parse(stored);
                     if (data.email && data.email.toLowerCase() === email) {
-                        // Found in localStorage - redirect to account
-                        window.location.href = 'account.html';
+                        // Found - also add to applications database
+                        allApps[email] = data;
+                        localStorage.setItem('bambuAcademyApplications', JSON.stringify(allApps));
+                        window.location.href = `account.html?email=${encodeURIComponent(email)}&id=${encodeURIComponent(data.applicant_id)}`;
                         return;
                     }
                 } catch (e) {}
@@ -3834,12 +3847,15 @@
                 if (response.ok) {
                     const result = await response.json();
                     if (result.found && result.applicant) {
-                        // Store in localStorage and redirect
-                        localStorage.setItem('bambuAcademyApplication', JSON.stringify({
+                        const appData = {
                             ...result.applicant,
                             stepsCompleted: result.applicant.stepsCompleted || { step1: true, step2: false, step3: false }
-                        }));
-                        window.location.href = 'account.html';
+                        };
+                        // Store in both places
+                        allApps[email] = appData;
+                        localStorage.setItem('bambuAcademyApplications', JSON.stringify(allApps));
+                        localStorage.setItem('bambuAcademyApplication', JSON.stringify(appData));
+                        window.location.href = `account.html?email=${encodeURIComponent(email)}&id=${encodeURIComponent(appData.applicant_id)}`;
                         return;
                     }
                 }
@@ -4297,32 +4313,60 @@
             const form = document.querySelector('.application-form');
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
+            const email = data.email.toLowerCase().trim();
             
-            // Generate unique applicant ID
-            currentApplicantId = generateApplicantId();
-            data.applicant_id = currentApplicantId;
+            // Check if this email already has an application
+            const allApps = JSON.parse(localStorage.getItem('bambuAcademyApplications') || '{}');
+            
+            if (allApps[email] && allApps[email].applicant_id) {
+                // Existing user - use their existing ID and UPDATE their data
+                currentApplicantId = allApps[email].applicant_id;
+                data.applicant_id = currentApplicantId;
+                
+                // Preserve steps completed from previous session
+                const existingSteps = allApps[email].stepsCompleted || { step1: true, step2: false, step3: false };
+                
+                // Update storage with merged data
+                allApps[email] = {
+                    ...allApps[email],
+                    ...data,
+                    updatedAt: new Date().toISOString(),
+                    stepsCompleted: existingSteps
+                };
+                
+                console.log('Updated existing application:', data);
+            } else {
+                // New user - generate new ID
+                currentApplicantId = generateApplicantId();
+                data.applicant_id = currentApplicantId;
+                
+                // Store new application
+                allApps[email] = {
+                    ...data,
+                    submittedAt: new Date().toISOString(),
+                    stepsCompleted: { step1: true, step2: false, step3: false }
+                };
+                
+                console.log('New application submitted:', data);
+                
+                // Send webhook only for NEW applications
+                sendWebhook('application_submitted', {
+                    applicantId: currentApplicantId,
+                    formData: data
+                });
+            }
+            
             currentApplicantData = data;
             
-            console.log('Application submitted:', data);
+            // Store all applications (keyed by email)
+            localStorage.setItem('bambuAcademyApplications', JSON.stringify(allApps));
             
-            // Store in localStorage for the account page
-            localStorage.setItem('bambuAcademyApplication', JSON.stringify({
-                ...data,
-                submittedAt: new Date().toISOString(),
-                stepsCompleted: { step1: true, step2: false, step3: false }
-            }));
-            
-            // Store logged in email
-            localStorage.setItem('bambuLoggedInEmail', data.email);
-            
-            // Send webhook to n8n for application submission (async, don't wait)
-            sendWebhook('application_submitted', {
-                applicantId: currentApplicantId,
-                formData: data
-            });
+            // Also store current user for backward compatibility
+            localStorage.setItem('bambuAcademyApplication', JSON.stringify(allApps[email]));
+            localStorage.setItem('bambuLoggedInEmail', email);
             
             // Redirect to personal account page
-            window.location.href = `account.html?email=${encodeURIComponent(data.email)}&id=${encodeURIComponent(currentApplicantId)}`;
+            window.location.href = `account.html?email=${encodeURIComponent(email)}&id=${encodeURIComponent(currentApplicantId)}`;
             
             return false;
         }
