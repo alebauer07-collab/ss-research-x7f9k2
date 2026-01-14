@@ -1642,8 +1642,18 @@
         }
         
         .ladder-icon {
-            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ladder-icon img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
         }
         
         .ladder-content h4 {
@@ -2873,28 +2883,28 @@
                 
                 <div class="ladder-container">
                     <div class="ladder-step">
-                        <div class="ladder-icon">🌱</div>
+                        <div class="ladder-icon"><img src="../images/icons/icon-graduate.png" alt="Graduate"></div>
                         <div class="ladder-content">
                             <h4>Academy Graduate</h4>
                             <p>Complete the 4-week program, earn certification</p>
                         </div>
                     </div>
                     <div class="ladder-step">
-                        <div class="ladder-icon">💪</div>
+                        <div class="ladder-icon"><img src="../images/icons/icon-trophy.png" alt="Elite"></div>
                         <div class="ladder-content">
                             <h4>Elite Coach</h4>
                             <p>Coach at Bambu or top gyms worldwide</p>
                         </div>
                     </div>
                     <div class="ladder-step">
-                        <div class="ladder-icon">👑</div>
+                        <div class="ladder-icon"><img src="../images/icons/icon-crown.png" alt="Head Coach"></div>
                         <div class="ladder-content">
                             <h4>Head Coach / Manager</h4>
                             <p>Lead teams, manage programs, shape culture</p>
                         </div>
                     </div>
                     <div class="ladder-step">
-                        <div class="ladder-icon">🚀</div>
+                        <div class="ladder-icon"><img src="../images/icons/icon-rocket.png" alt="Own Path"></div>
                         <div class="ladder-content">
                             <h4>Build Your Own Path</h4>
                             <p>Online coaching, your own gym, courses — this is your stepping stone</p>
@@ -2985,7 +2995,7 @@
                         <div class="coach-card">
                             <div class="coach-image">
                                 <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245abdaf3b0c971643acbd_Will.jpg" alt="Will Henke">
-                                <div class="coach-role-badge">Co-Founder</div>
+                                <div class="coach-role-badge">Program Director</div>
                                 <div class="coach-slots-badge" onclick="event.stopPropagation(); this.classList.toggle('active')">
                                     <div class="slots-mini">
                                         <div class="slot-mini filled">✓</div>
@@ -3003,14 +3013,8 @@
                             </div>
                             <div class="coach-content">
                                 <h3 class="coach-name">Will Henke</h3>
-                                <div class="coach-title">Fitness Director</div>
+                                <div class="coach-title">Program Director & Instructor</div>
                                 <p class="coach-bio">9 years US Army Special Operations. Driven to help people since day one. Natural leader who does so by example. Pretty handy athlete before shifting focus to coaching others.</p>
-                                <ul class="coach-credentials">
-                                    <li>Burgener Strength Lead Coach (Asia/AU)</li>
-                                    <li>CrossFit Level 2 Trainer</li>
-                                    <li>USA Weightlifting L1</li>
-                                    <li>200-hr Yoga Instructor</li>
-                                </ul>
                             </div>
                         </div>
                         
@@ -3018,7 +3022,7 @@
                         <div class="coach-card">
                             <div class="coach-image">
                                 <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245c7b08445f8b74a9f2c9_Sam.jpg" alt="Sam Craige">
-                                <div class="coach-role-badge">Head Coach</div>
+                                <div class="coach-role-badge">Head of Education</div>
                                 <div class="coach-slots-badge" onclick="event.stopPropagation(); this.classList.toggle('active')">
                                     <div class="slots-mini">
                                         <div class="slot-mini filled">✓</div>
@@ -3036,22 +3040,16 @@
                             </div>
                             <div class="coach-content">
                                 <h3 class="coach-name">Sam Craige</h3>
-                                <div class="coach-title">Head Coach</div>
+                                <div class="coach-title">Head of Education & Instructor</div>
                                 <p class="coach-bio">Former professional basketball player. Moved from England to Bali to pursue his passion. Obsessed with the details that make the biggest differences. Loves watching athletes develop.</p>
-                                <ul class="coach-credentials">
-                                    <li>BSc Applied Sports Coaching Science</li>
-                                    <li>CrossFit Level 2 Trainer</li>
-                                    <li>Burgener Strength L1</li>
-                                    <li>Level 3 Personal Trainer</li>
-                                </ul>
                             </div>
                         </div>
                         
-                        <!-- Macca McDonald -->
+                        <!-- Lewis McDonald -->
                         <div class="coach-card">
                             <div class="coach-image">
-                                <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Macca.jpg" alt="Macca McDonald">
-                                <div class="coach-role-badge">Senior Coach</div>
+                                <img src="https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Macca.jpg" alt="Lewis McDonald">
+                                <div class="coach-role-badge">Head of Curriculum</div>
                                 <div class="coach-slots-badge" onclick="event.stopPropagation(); this.classList.toggle('active')">
                                     <div class="slots-mini">
                                         <div class="slot-mini waiting"></div>
@@ -3063,20 +3061,14 @@
                                     <div class="slots-label">0/5</div>
                                     <div class="slot-tooltip">
                                         <h5>Cohort 1 Slots</h5>
-                                        <p>All 5 slots being reviewed. Great opportunity to work with Macca on functional training.</p>
+                                        <p>All 5 slots being reviewed. Great opportunity to work with Lewis on functional training.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="coach-content">
-                                <h3 class="coach-name">Macca McDonald</h3>
-                                <div class="coach-title">Senior Coach</div>
+                                <h3 class="coach-name">Lewis McDonald</h3>
+                                <div class="coach-title">Head of Curriculum & Instructor</div>
                                 <p class="coach-bio">Semi-pro footballer turned functional training specialist. Combines bodybuilding and performance for a balanced approach. Dedicated to education and holistic progress.</p>
-                                <ul class="coach-credentials">
-                                    <li>Burgener Strength L2</li>
-                                    <li>Level 3 Personal Training</li>
-                                    <li>Return-to-Sport Specialist</li>
-                                    <li>Hyrox Event Expert</li>
-                                </ul>
                             </div>
                         </div>
                     </div>

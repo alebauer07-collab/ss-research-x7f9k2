@@ -149,17 +149,17 @@
         <!-- TASKS TAB -->
         <div id="tab-tasks" class="tab-content active">
             <div class="stats-grid">
-                <div class="stat-card"><div class="stat-number" style="color: var(--status-done);">27</div><div class="stat-label">Completed</div></div>
-                <div class="stat-card"><div class="stat-number" style="color: var(--status-progress);">2</div><div class="stat-label">In Progress</div></div>
-                <div class="stat-card"><div class="stat-number" style="color: var(--status-pending);">4</div><div class="stat-label">Pending</div></div>
+                <div class="stat-card"><div class="stat-number" style="color: var(--status-done);">32</div><div class="stat-label">Completed</div></div>
+                <div class="stat-card"><div class="stat-number" style="color: var(--status-progress);">0</div><div class="stat-label">In Progress</div></div>
+                <div class="stat-card"><div class="stat-number" style="color: var(--status-pending);">2</div><div class="stat-label">Pending</div></div>
                 <div class="stat-card"><div class="stat-number" style="color: var(--status-blocked);">0</div><div class="stat-label">Blocked</div></div>
             </div>
 
             <div class="section">
-                <h2 class="section-title">🔥 In Progress</h2>
+                <h2 class="section-title">⏳ Pending</h2>
                 <div class="task-grid">
                     <div class="task-card">
-                        <div class="task-status status-progress"></div>
+                        <div class="task-status status-pending"></div>
                         <div class="task-content">
                             <div class="task-title">🤖 n8n Webhook Integration</div>
                             <div class="task-desc">Connect application form and WhatsApp click events to n8n webhooks. AI agent for profile generation and scoring. Workflow JSON ready for import.</div>
@@ -167,7 +167,7 @@
                         </div>
                     </div>
                     <div class="task-card">
-                        <div class="task-status status-progress"></div>
+                        <div class="task-status status-pending"></div>
                         <div class="task-content">
                             <div class="task-title">🎨 Webflow Academy Page Update</div>
                             <div class="task-desc">Webflow access granted. Comet task ready for V2 page creation. Will deploy to bamboo-training.com/academy/v2 after testing.</div>
@@ -178,7 +178,53 @@
             </div>
 
             <div class="section">
-                <h2 class="section-title">✅ Recently Completed (Jan 13)</h2>
+                <h2 class="section-title">✅ Recently Completed (Jan 14)</h2>
+                <div class="task-grid">
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">🎨 Replace emojis with beige line icons (Path Forward)</div>
+                            <div class="task-desc">Generated 4 new icons (graduation cap, trophy, crown, rocket) matching Bambu style. Replaced 🌱💪👑🚀 in career ladder.</div>
+                            <div class="task-meta"><span class="task-tag">Design</span><span class="task-tag">Meeting 3</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">👥 Update coach titles (Academy-specific)</div>
+                            <div class="task-desc">Will → Program Director & Instructor, Sam → Head of Education & Instructor, Lewis → Head of Curriculum & Instructor</div>
+                            <div class="task-meta"><span class="task-tag">Content</span><span class="task-tag">Meeting 3</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">🗑️ Remove coach qualification lists</div>
+                            <div class="task-desc">Removed certifications (CrossFit L2, Yoga cert, etc.) from coach cards. Keep focus on written experience bios.</div>
+                            <div class="task-meta"><span class="task-tag">Content</span><span class="task-tag">Meeting 3</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">📸 Add coaching class photo to project</div>
+                            <div class="task-desc">Will's coaching class photo (50+ athletes) added to /images/bambu-coaching-class.png. Ready for venue section.</div>
+                            <div class="task-meta"><span class="task-tag">Media</span><span class="task-tag">Meeting 3</span></div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-status status-done"></div>
+                        <div class="task-content">
+                            <div class="task-title">📝 Add Meeting 3 transcript to changelog</div>
+                            <div class="task-desc">Full transcript added with key quotes and decisions extracted.</div>
+                            <div class="task-meta"><span class="task-tag">Documentation</span><span class="task-tag">Meeting 3</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">✅ Completed (Jan 13)</h2>
                 <div class="task-grid">
                     <div class="task-card">
                         <div class="task-status status-done"></div>
@@ -354,10 +400,52 @@
 
         <!-- CHANGELOG TAB -->
         <div id="tab-changelog" class="tab-content">
+            <!-- Meeting 3 Changes -->
+            <div class="changelog-entry">
+                <div class="changelog-header">
+                    <div><div class="changelog-date">January 14, 2026 — Meeting 3 Updates</div><div style="font-size: 0.85rem; color: var(--text-muted);">Coach titles, icons, venue photo, UI refinements</div></div>
+                    <span class="changelog-badge">Latest</span>
+                </div>
+                <div class="changelog-body">
+                    <div class="changelog-section">
+                        <h4>🎨 Design Changes</h4>
+                        <ul class="changelog-list">
+                            <li>Replaced emoji icons (🌱💪👑🚀) with beige line icons in Path Forward section to match overall aesthetic</li>
+                            <li>Generated new icons using AI (graduation cap, trophy, crown, rocket) matching Bambu style</li>
+                            <li>Updated venue section photo to coaching class photo showing Will teaching 50+ athletes</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-section">
+                        <h4>👥 Coach Section Updates</h4>
+                        <ul class="changelog-list">
+                            <li>Will Henke: Title changed to "Program Director & Instructor" (from Fitness Director)</li>
+                            <li>Sam Craige: Title changed to "Head of Education & Instructor" (from Head Coach)</li>
+                            <li>Lewis McDonald: Title changed to "Head of Curriculum & Instructor" (from Senior Coach/Macca)</li>
+                            <li>Removed qualification lists from coach cards (e.g., CrossFit Level 2, Yoga cert) per Will's feedback</li>
+                            <li>Keeping written bio format focused on experience</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-section">
+                        <h4>📝 Key Decisions from Call</h4>
+                        <ul class="changelog-list">
+                            <li>Keep em dashes (—) as they're standard typography, not "GPT-looking"</li>
+                            <li>Venue video to be replaced with gym tour video (Will to provide)</li>
+                            <li>5K+ monthly members stat confirmed</li>
+                            <li>Clear messaging focus: course is about APPLYING knowledge, not just getting certified</li>
+                            <li>Will offered complimentary Bambu + Oasis membership to Alexey as thanks</li>
+                        </ul>
+                    </div>
+                    <div class="key-decision">
+                        <h5>🎯 Will's Core Message</h5>
+                        <p>"When people come in and look at this there's a clear messaging and understanding of like what it is they're getting... it's like coming out a better coach that can apply the theory and knowledge they've learned."</p>
+                    </div>
+                </div>
+            </div>
+            
             <div class="changelog-entry">
                 <div class="changelog-header">
                     <div><div class="changelog-date">January 13, 2026 — Application Flow Complete</div><div style="font-size: 0.85rem; color: var(--text-muted);">WhatsApp integration, 3-step progress tracker, form updates</div></div>
-                    <span class="changelog-badge">Latest</span>
+                    <span class="changelog-badge">Major</span>
                 </div>
                 <div class="changelog-body">
                     <div class="key-decision">
@@ -472,6 +560,62 @@
 
         <!-- TRANSCRIPT TAB -->
         <div id="tab-transcript" class="tab-content">
+            <!-- Meeting 3 Transcript -->
+            <div class="info-box">
+                <h4>🎙️ Meeting 3 — January 14, 2026</h4>
+                <p>Website review call with Will. Icon updates, coach titles, venue section, UI refinements.</p>
+            </div>
+            
+            <div class="transcription" style="margin-bottom: 2rem;"><span class="timestamp">[00:00:00]</span> <span class="speaker-1">Will:</span> helpful for me to just understand the thought process I know like AI is optimizing this for the calls is that right for the applications and the...
+
+<span class="timestamp">[00:00:12]</span> <span class="speaker-3">Alexey:</span> proper applications so out of like three hundred plus applications we can make proper decisions on the best applications
+
+<span class="timestamp">[00:00:23]</span> <span class="speaker-1">Will:</span> total spots that's all very understandable what do you think about...
+
+<span class="timestamp">[00:01:03]</span> <span class="speaker-3">Alexey:</span> should put it here but anyways we can edit all of that like I think that for...
+
+<span class="timestamp">[00:01:08]</span> <span class="speaker-1">Will:</span> me what I want to make sure is when people come in and look at this there's a clear messaging and understanding of like what it is they're getting and essentially it's like coming out a better coach right that can apply the theory and knowledge they've learned and I think this this to me seems like it's another certification and I think that's I think it's just very fine wording that I don't want to like unintentionally misinterpret what the course is that's how we differ from a lot of programs
+
+<span class="timestamp">[00:02:12]</span> <span class="speaker-1">Will:</span> a normal certification would say when you finish you can now you're qualified to coach... where this is like when they finish it's like you'll have the knowledge to apply actual coaching which is what top gyms are looking for
+
+<span class="timestamp">[00:02:49]</span> <span class="speaker-1">Will:</span> When it says 7k members served, what does that mean?
+
+<span class="timestamp">[00:02:52]</span> <span class="speaker-3">Alexey:</span> Yeah, it got the transcribation of one of our calls where we spoke about the monthly active visitors...
+
+<span class="timestamp">[00:03:26]</span> <span class="speaker-3">Alexey:</span> The purpose of this block was to actually show that this is a kind of world class facility, you know, big one, like, super popular. And that's, you know, it's not an Azure certification shit. It's a real deal operations.
+
+<span class="timestamp">[00:03:51]</span> <span class="speaker-1">Will:</span> Yeah, there's one photo that we use on the other the current site. It might be down here actually, This photo here is quite a really nice photo.
+
+<span class="timestamp">[00:04:05]</span> <span class="speaker-1">Will:</span> Yeah, I can for sure do that. [RE: sending photos of class with many people]
+
+<span class="timestamp">[00:05:04]</span> <span class="speaker-1">Will:</span> I kind of like the video, to be honest, because it shows a lot of the different stuff that it's talking about. But I can for sure find you a different video.
+
+<span class="timestamp">[00:06:02]</span> <span class="speaker-1">Will:</span> I just want to make sure that the website when you become on to it it's clear that it's a coaches development that's focused on applied like the application of knowledge and theory
+
+<span class="timestamp">[00:08:15]</span> <span class="speaker-3">Alexey:</span> I actually changed some of the fields in the application as well. It now allows us to really collect enough information about the applicant in order to understand what you're looking for
+
+<span class="timestamp">[00:09:18]</span> <span class="speaker-1">Will:</span> I think the biggest thing for me is I think this looks really nice and good I just want to make sure that the people reading it we're targeting the right people... there might even be a section where they're like hey you know who this course is for you know you're a coach that has a qualification but deep down knows that you don't know how to apply the knowledge
+
+<span class="timestamp">[00:10:25]</span> <span class="speaker-1">Will:</span> Yeah, maybe you can take that stuff out because it's just... I think where it happens is really nice to see... [RE: removing some venue stats]
+
+<span class="timestamp">[00:11:36]</span> <span class="speaker-1">Will:</span> We actually have a guy who's coming here to learn to be a better head coach... I don't want to disqualify someone unintentionally [RE: income ladder numbers]
+
+<span class="timestamp">[00:15:26]</span> <span class="speaker-1">Will:</span> I don't think I have anything else on there. The photos and stuff, we can make changes. Right now there's not many photos of Sam on here, other than that one and that one, whereas Macca is in most of them with me.
+
+<span class="timestamp">[00:16:40]</span> <span class="speaker-1">Will:</span> And you're saying that makes a big difference with, like, conversions and stuff [RE: slot gamification]
+
+<span class="timestamp">[00:17:24]</span> <span class="speaker-3">Alexey:</span> Right, yeah. So I tested everything on the Webflow, it's going to be easy to just switch one of the Webflow pages to refer to this application that you see right now.
+
+<span class="timestamp">[00:17:46]</span> <span class="speaker-1">Will:</span> Yeah, I mean, that's good for me. Cool. Yeah, I think it looks good. I appreciate your hard work.
+
+<span class="timestamp">[00:17:59]</span> <span class="speaker-1">Will:</span> Would you be okay if I like covered like whenever your guys's memberships end can I like just take care of your guys's membership
+
+<span class="timestamp">[00:18:35]</span> <span class="speaker-1">Will:</span> I'll put you guys on both [Gym + Oasis]. Whenever it runs out it would be there. I appreciate it man thank you.
+
+<span class="timestamp">[00:18:59]</span> <span class="speaker-1">Will:</span> Yeah, let me know what you need from me... when you're confident with it send it over and I'll have a last look. I'm excited to get this live and going.</div>
+            
+            <h3 style="color: var(--bambu-tan); margin: 2rem 0 1rem; font-size: 1.1rem;">📋 Meeting 2 — January 12, 2026</h3>
+            
             <div class="info-box">
                 <h4>🎙️ Call Recording — January 12, 2026 ~11:00</h4>
                 <p>Full transcription of review call with Will. Key decisions and action items extracted and tracked in Tasks tab.</p>
