@@ -1829,6 +1829,10 @@
             object-fit: cover;
             margin-bottom: 1.5rem;
         }
+
+        .value-card img.coaching-identity-img {
+            object-position: center 20%;
+        }
         
         @media (max-width: 600px) {
             .value-card img {
@@ -1917,9 +1921,11 @@
             text-align: center;
             border: 1px solid rgba(255,255,255,0.05);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
-        .payment-card.featured {
+        .payment-card.featured,
+        .payment-card.active {
             border-color: var(--bambu-tan);
             background: linear-gradient(180deg, rgba(220, 202, 183, 0.1) 0%, var(--bg-card) 100%);
         }
@@ -3430,14 +3436,14 @@
                     <button class="carousel-nav next" onclick="scrollCarousel('benefitCarousel', 1)">→</button>
                     <div class="benefit-carousel" id="benefitCarousel">
                         <div class="benefit-card shimmer-card">
-                            <h3>Trainers Stuck in One Lane</h3>
-                            <p>Ready to break out of your specialty and become a versatile coach who can adapt to any client.</p>
-                            <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf732c3ceb3de36a00_ccfb106288f7a09bdbfbf7ca04f8864f_image%207.png" alt="Trainers">
-                        </div>
-                        <div class="benefit-card shimmer-card">
                             <h3>Certified But Not Confident</h3>
                             <p>Got the paper but know there's a gap between theory and real coaching. Time to close it.</p>
                             <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eafef3adaadcdd5962c_6fd7694095050187a61f4bffcebd2ee6_image%209.png" alt="Certified coaches">
+                        </div>
+                        <div class="benefit-card shimmer-card">
+                            <h3>Trainers Stuck in One Lane</h3>
+                            <p>Ready to break out of your specialty and become a versatile coach who can adapt to any client.</p>
+                            <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaf732c3ceb3de36a00_ccfb106288f7a09bdbfbf7ca04f8864f_image%207.png" alt="Trainers">
                         </div>
                         <div class="benefit-card shimmer-card">
                             <h3>Future Fitness Leaders</h3>
@@ -3479,7 +3485,7 @@
                         </div>
                     </div>
                     <div class="value-card">
-                        <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeb541f55337558d26_e182f6f9fba06ca64cfef9bd3b07a4d6_Frame%201984078022.png" alt="Coaching Identity">
+                        <img class="coaching-identity-img" src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeb541f55337558d26_e182f6f9fba06ca64cfef9bd3b07a4d6_Frame%201984078022.png" alt="Coaching Identity">
                         <div class="value-card-content">
                             <h4>Coaching Identity & Clarity of Purpose</h4>
                             <p>Refine your philosophy, define your coaching style, and walk away knowing exactly who you are as a coach and where you're going next.</p>
@@ -3803,25 +3809,25 @@
                 </div>
                 
                 <div class="payment-grid">
-                    <div class="payment-card featured">
+                    <div class="payment-card featured active" data-payment="monthly">
                         <div class="payment-icon">📅</div>
                         <div class="payment-title">Monthly</div>
                         <div class="payment-price">$599<span class="price-period">/mo</span></div>
                         <div class="payment-desc">12 installments<br>Total $7,188</div>
                     </div>
-                    <div class="payment-card">
+                    <div class="payment-card" data-payment="standard">
                         <div class="payment-icon">💵</div>
                         <div class="payment-title">Standard</div>
                         <div class="payment-price">$6,999</div>
                         <div class="payment-desc">Full price<br>Pay before start</div>
                     </div>
-                    <div class="payment-card">
+                    <div class="payment-card" data-payment="sponsor">
                         <div class="payment-icon">🤝</div>
                         <div class="payment-title">Sponsor</div>
                         <div class="payment-price">TBD</div>
                         <div class="payment-desc">Revenue share<br>For rising stars</div>
                     </div>
-                    <div class="payment-card">
+                    <div class="payment-card" data-payment="employer">
                         <div class="payment-icon">🏢</div>
                         <div class="payment-title">Employer</div>
                         <div class="payment-price">Invoice</div>
@@ -3968,7 +3974,7 @@
                     
                     <div class="form-group">
                         <label class="form-label">Preferred Payment Option</label>
-                        <select class="form-select" name="payment_preference">
+                        <select class="form-select" name="payment_preference" id="paymentPreference">
                             <option value="">Select...</option>
                             <option value="monthly">Monthly ($599/mo x 12)</option>
                             <option value="standard">Pay in Full ($6,999)</option>
@@ -5217,6 +5223,34 @@
                 });
             });
         }
+
+        function initPaymentCards() {
+            const cards = document.querySelectorAll('.payment-grid .payment-card');
+            const select = document.getElementById('paymentPreference');
+            if (!cards.length) return;
+
+            const setActive = (card) => {
+                cards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+                const value = card.dataset.payment;
+                if (select && value) {
+                    select.value = value;
+                }
+            };
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => setActive(card));
+            });
+
+            // Initialize from current select or fallback to featured
+            if (select && select.value) {
+                const match = Array.from(cards).find(c => c.dataset.payment === select.value);
+                if (match) setActive(match);
+            } else {
+                const featured = document.querySelector('.payment-card.featured') || cards[0];
+                if (featured) setActive(featured);
+            }
+        }
         
         // ===== COUNTDOWN TIMER =====
         function updateCountdown() {
@@ -5248,6 +5282,7 @@
             // Initialize carousels
             initCarousel('benefitCarousel', 'benefitIndicators');
             initCarousel('coachesCarousel', 'coachIndicators');
+            initPaymentCards();
             
             // Start countdown - tick every second
             updateCountdown();
