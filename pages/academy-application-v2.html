@@ -1850,6 +1850,32 @@
             line-height: 1.7;
         }
         
+        /* MOBILE CENTER ALIGNMENT - Global styles for cohesion */
+        @media (max-width: 768px) {
+            .value-card {
+                text-align: center;
+            }
+            .value-card-content {
+                text-align: center;
+                align-items: center;
+            }
+            .section-header {
+                text-align: center !important;
+            }
+            .section-title,
+            .section-subtitle,
+            .section-label {
+                text-align: center !important;
+            }
+            /* Center all general paragraphs and headings on mobile */
+            .section p,
+            .section h2,
+            .section h3,
+            .section h4 {
+                text-align: center;
+            }
+        }
+        
         /* Payment Grid */
         .payment-grid {
             display: flex;
@@ -2004,14 +2030,36 @@
         @media (max-width: 768px) {
             .process-steps-inline {
                 flex-direction: column;
-                gap: 2rem;
+                gap: 0.5rem;
+                align-items: center;
             }
             .step-arrow {
                 transform: rotate(90deg);
-                margin: 0;
+                margin: 0.5rem 0;
+                font-size: 1.5rem;
             }
             .process-step-big {
                 max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .step-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .step-num {
+                width: 56px;
+                height: 56px;
+                font-size: 1.5rem;
+            }
+            .step-title {
+                font-size: 1.25rem;
+            }
+            .process-step-big p {
+                text-align: center;
+                max-width: 280px;
             }
         }
         
@@ -3299,7 +3347,7 @@
                 <button class="login-modal-close" onclick="closeLoginModal()">&times;</button>
                 
                 <div class="login-modal-logo">
-                    <img src="https://cdn.prod.website-files.com/636e894b5e6256215c15c62f/6734c57cd9de3eab0b5c2c1b_Bambu-Logo-white-p-500.png" alt="Bambu">
+                    <img src="https://cdn.prod.website-files.com/6351dd728c821509acefb707/6823dad4bc5c213fb787dd10_Secondary%20Logo%20-%20Bambu%20(WHITE)%202.png" alt="Bambu">
                 </div>
                 
                 <!-- Step 1: Have you applied? -->
@@ -3401,7 +3449,7 @@
                             <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eafef3adaadcdd5962c_6fd7694095050187a61f4bffcebd2ee6_image%209.png" alt="Certified coaches">
                         </div>
                         <div class="benefit-card shimmer-card">
-                            <h3>Future Leaders</h3>
+                            <h3>Future Fitness Leaders</h3>
                             <p>Coaching is your career, not your side hustle. Build the skills that set you apart.</p>
                             <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeef29560eaae0add2_e695d7222786983dd36e80de6cb9f139_image%208.png" alt="Future leaders">
                         </div>
@@ -3528,7 +3576,7 @@
                         <!-- Sam Craige -->
                         <div class="coach-card shimmer-card">
                             <div class="coach-image">
-                                <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/691c7eaeb541f55337558d26_e182f6f9fba06ca64cfef9bd3b07a4d6_Frame%201984078022.png" alt="Sam Craige coaching" style="object-fit: cover;">
+                                <img src="../images/sam-coaching.png" alt="Sam Craige coaching" style="object-fit: cover;">
                             </div>
                             <div class="coach-content">
                                 <h3 class="coach-name">Sam Craige</h3>
