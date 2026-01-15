@@ -981,6 +981,11 @@
             color: var(--text-white);
             font-weight: 700;
         }
+
+        .benefit-card h3 .leaders-line {
+            display: block;
+            text-align: center;
+        }
         
         @media (max-width: 600px) {
             .benefit-card h3 {
@@ -1405,6 +1410,7 @@
         
         .coach-content {
             padding: 1.5rem;
+            text-align: center;
         }
         
         .coach-name {
@@ -1420,6 +1426,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 1rem;
+            text-align: center;
         }
         
         .coach-bio {
@@ -1673,12 +1680,14 @@
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
             color: var(--text-white);
+            text-align: left;
         }
         
         .timeline-content p {
             font-family: 'Lato', sans-serif;
             color: var(--text-muted);
             font-size: 0.95rem;
+            text-align: left;
         }
         
         /* Skills Grid - Academy Style */
@@ -2151,7 +2160,7 @@
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            padding: 1.25rem 1.5rem;
+            padding: 1.25rem 1.5rem 1.25rem 4rem;
             background: var(--bg-card);
             border-left: 3px solid var(--bambu-tan);
             margin-bottom: 0.5rem;
@@ -2180,6 +2189,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: transparent;
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
         }
         
         .ladder-icon img {
@@ -2188,6 +2202,11 @@
             object-fit: contain;
         }
         
+        .ladder-content {
+            width: 100%;
+            text-align: center;
+        }
+
         .ladder-content h4 {
             font-size: 1rem;
             margin-bottom: 0.25rem;
@@ -3444,7 +3463,7 @@
                             <img src="../images/remote/691c7eaf732c3ceb3de36a00_ccfb106288f7a09bdbfbf7ca04f8864f_image 7-4cea76a2.jpg" alt="Trainers">
                         </div>
                         <div class="benefit-card shimmer-card">
-                            <h3>Future Fitness Leaders</h3>
+                            <h3>Future Fitness <span class="leaders-line">Leaders</span></h3>
                             <p>Coaching is your career, not your side hustle. Build the skills that set you apart.</p>
                             <img src="../images/remote/691c7eaeef29560eaae0add2_e695d7222786983dd36e80de6cb9f139_image 8-4839d59f.jpg" alt="Future leaders">
                         </div>
@@ -3564,7 +3583,8 @@
                             <div class="coach-content">
                                 <h3 class="coach-name">Will Henke</h3>
                                 <div class="coach-title">Program Director & Instructor</div>
-                                <p class="coach-bio">9 years US Army Special Operations. Driven to help people since day one. Natural leader who does so by example. Pretty handy athlete before shifting focus to coaching others.</p>
+                                <p class="coach-bio">Founder of Bambu Fitness, Will leads the development of coaches, leaders, and the businesses they operate within. His approach to leadership is shaped by nearly a decade of service in U.S. Army Special Operations, where clarity, accountability, and performance under pressure were non-negotiable.</p>
+                                <p class="coach-bio">With extensive experience building and scaling high-performing fitness operations, Will brings a rare blend of entrepreneurial insight and hands-on coaching expertise to the Academy. His teaching emphasizes standards, communication, and ownership - helping coaches develop the presence, judgment, and professionalism required to lead confidently on the gym floor and beyond.</p>
                             </div>
                         </div>
                         
@@ -3576,7 +3596,8 @@
                             <div class="coach-content">
                                 <h3 class="coach-name">Sam Craige</h3>
                                 <div class="coach-title">Head of Education & Instructor</div>
-                                <p class="coach-bio">Former professional basketball player. Moved from England to Bali to pursue his passion. Obsessed with the details that make the biggest differences. Loves watching athletes develop.</p>
+                                <p class="coach-bio">Sam leads the education framework of the Academy, ensuring every concept taught translates directly to better coaching outcomes. His focus is on movement quality, coaching clarity, and the details that separate average sessions from exceptional ones.</p>
+                                <p class="coach-bio">With extensive experience coaching in group classes, 1:1 settings, and performance environments, Sam is known for his ability to sharpen a coach’s eye - helping them see movement more clearly, cue with intent, and correct effectively in real time. His teaching helps coaches turn complexity into clarity and confidence on the floor.</p>
                             </div>
                         </div>
                         
@@ -3588,7 +3609,8 @@
                             <div class="coach-content">
                                 <h3 class="coach-name">Lewis McDonald</h3>
                                 <div class="coach-title">Head of Curriculum & Instructor</div>
-                                <p class="coach-bio">Semi-pro footballer turned functional training specialist. Combines bodybuilding and performance for a balanced approach. Dedicated to education and holistic progress.</p>
+                                <p class="coach-bio">Lewis is responsible for structuring and refining the Academy curriculum, ensuring it is progressive, practical, and rooted in real coaching environments. His work blends biomechanics, program design, and movement strategy to give coaches a deeper understanding of why decisions matter - not just how to teach movements.</p>
+                                <p class="coach-bio">Highly systems-driven and detail-oriented, Lewis helps coaches build confidence in their reasoning, improve technical consistency, and develop a well-rounded coaching skill set that holds up under pressure across different athletes, classes, and contexts.</p>
                             </div>
                         </div>
                     </div>
@@ -3913,8 +3935,8 @@
                             <input type="text" class="form-input" name="instagram" placeholder="@yourhandle" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">LinkedIn Profile *</label>
-                            <input type="url" class="form-input" name="linkedin" required placeholder="https://linkedin.com/in/yourprofile">
+                            <label class="form-label">LinkedIn Profile (optional)</label>
+                            <input type="url" class="form-input" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
                         </div>
                     </div>
                     
@@ -3924,6 +3946,7 @@
                             <option value="">Select your current situation...</option>
                             <option value="coach">Currently coaching</option>
                             <option value="trainer">Personal trainer</option>
+                            <option value="online_coach">Online coach</option>
                             <option value="aspiring">Not yet coaching / Career changer</option>
                             <option value="athlete">Competitive athlete</option>
                             <option value="fitness_pro">Other fitness professional</option>
