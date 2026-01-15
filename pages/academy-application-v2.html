@@ -1370,8 +1370,13 @@
         .coach-image {
             position: relative;
             aspect-ratio: 1/1;
-            overflow: visible;
+            overflow: hidden;
             border-radius: 20px 20px 0 0;
+        }
+
+        .coach-image.zoomed-will img {
+            transform: scale(1.12);
+            transform-origin: 50% 25%;
         }
         
         .coach-image img {
@@ -3392,20 +3397,6 @@
             </video>
             <div class="video-overlay"></div>
             <div class="hero-gradient-bg"></div>
-            <div class="particle-field">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
             
             <div class="hero-content">
                 <div class="hero-label">Bambu Training Academy</div>
@@ -3563,8 +3554,8 @@
                     <div class="coaches-carousel" id="coachesCarousel">
                         <!-- Will Henke -->
                         <div class="coach-card shimmer-card">
-                            <div class="coach-image">
-                                <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/68b27e560b1c3c636a005ad3_2d9ba624c396b9d22647efd3f9894f96_Property%201%3DCommunity%20banner.png" alt="Will Henke coaching" style="object-fit: cover; object-position: 60% 40%;">
+                            <div class="coach-image zoomed-will">
+                                <img src="https://cdn.prod.website-files.com/5f4904eaeaac9cb2d9e0a155/68b27e560b1c3c636a005ad3_2d9ba624c396b9d22647efd3f9894f96_Property%201%3DCommunity%20banner.png" alt="Will Henke coaching" style="object-fit: cover; object-position: 55% 30%;">
                             </div>
                             <div class="coach-content">
                                 <h3 class="coach-name">Will Henke</h3>
