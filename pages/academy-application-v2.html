@@ -952,6 +952,9 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(255,255,255,0.08);
             scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
         
         @media (max-width: 900px) {
@@ -980,11 +983,14 @@
             margin-bottom: 1.25rem;
             color: var(--text-white);
             font-weight: 700;
+            min-height: 2.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .benefit-card h3 .leaders-line {
-            display: block;
-            text-align: center;
+            display: inline;
         }
         
         @media (max-width: 600px) {
@@ -1000,6 +1006,7 @@
             line-height: 1.8;
             max-width: 500px;
             margin: 0 auto;
+            min-height: 4.5em;
         }
         
         .benefit-card img {
@@ -1007,7 +1014,7 @@
             height: 350px;
             object-fit: cover;
             border-radius: 20px;
-            margin-top: 2rem;
+            margin-top: auto;
         }
         
         @media (max-width: 600px) {
