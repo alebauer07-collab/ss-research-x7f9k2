@@ -162,7 +162,10 @@ Calculate compatibility % for each coach based on their self-assessed skills and
   "profileReady": true,
   
   "publicProfile": {
-    "avatar": "URL from research or placeholder",
+    "avatar": "REQUIRED - Use avatarData.primaryAvatar.url from research, or find via Firecrawl MCP",
+    "avatarSource": "research|firecrawl_instagram|firecrawl_search|firecrawl_scrape|generated",
+    "avatarQuality": "A|B|C|D|generated",
+    "avatarSearchAttempts": ["List queries if you used Firecrawl"],
     "displayName": "First Last",
     "tagline": "Generated based on role/experience",
     "location": "City, Country",
@@ -177,21 +180,23 @@ Calculate compatibility % for each coach based on their self-assessed skills and
     ],
     
     "currentSkills": {
-      "coaching": { "current": 7, "potential": 9 },
-      "identity": { "current": 5, "potential": 8 },
-      "community": { "current": 6, "potential": 9 },
-      "programming": { "current": 4, "potential": 8 },
-      "sessionflow": { "current": 5, "potential": 8 },
-      "movement": { "current": 8, "potential": 9 },
-      "communication": { "current": 6, "potential": 9 },
-      "groupmgmt": { "current": 5, "potential": 8 },
-      "profstandards": { "current": 7, "potential": 9 },
-      "leadership": { "current": 6, "potential": 9 }
+      "coaching": { "current": 7, "potential": 9, "growthReason": "Why this skill will grow" },
+      "identity": { "current": 5, "potential": 8, "growthReason": "..." },
+      "community": { "current": 6, "potential": 9, "growthReason": "..." },
+      "programming": { "current": 4, "potential": 8, "growthReason": "..." },
+      "sessionflow": { "current": 5, "potential": 8, "growthReason": "..." },
+      "movement": { "current": 8, "potential": 9, "growthReason": "..." },
+      "communication": { "current": 6, "potential": 9, "growthReason": "..." },
+      "groupmgmt": { "current": 5, "potential": 8, "growthReason": "..." },
+      "profstandards": { "current": 7, "potential": 9, "growthReason": "..." },
+      "leadership": { "current": 6, "potential": 9, "growthReason": "..." }
     },
     
     "coachMatch": {
       "recommendedCoach": "Will",
-      "coachAvatar": "URL",
+      "coachAvatar": "https://cdn.prod.website-files.com/.../Will.jpg",
+      "coachTitle": "Co-Founder & Fitness Director",
+      "coachInstagram": "@wjhenke",
       "matchReason": "Your entrepreneurial drive and content creation experience align perfectly with Will's mentorship style...",
       "synergy": ["Business strategy", "Brand building", "Leadership"]
     },
@@ -200,6 +205,15 @@ Calculate compatibility % for each coach based on their self-assessed skills and
     "strengths": ["Identified strengths"],
     "growthAreas": ["Areas to develop"]
   },
+  
+  "sourcesAnalyzed": [
+    {
+      "url": "https://...",
+      "type": "instagram|linkedin|article|gym_website|other",
+      "domain": "domain.com (for logo display)",
+      "insight": "One sentence insight from this source"
+    }
+  ],
   
   "followUpQuestions": [
     {
@@ -287,16 +301,35 @@ For applicant "Alexey Belyankin" with finalScore 85:
   },
   "userProfile": {
     "publicProfile": {
-      "avatar": "https://...",
+      "avatar": "https://imginn.com/p/alexbelyankin/profile.jpg",
+      "avatarSource": "research",
+      "avatarQuality": "A",
+      "avatarSearchAttempts": [],
       "displayName": "Alexey Belyankin",
       "tagline": "Tech Entrepreneur Turned Fitness Coach",
       "location": "San Francisco, USA",
       "coachMatch": {
         "recommendedCoach": "Will",
+        "coachAvatar": "https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245abdaf3b0c971643acbd_Will.jpg",
+        "coachTitle": "Co-Founder & Fitness Director",
         "matchReason": "Your background in tech entrepreneurship and interest in building a fitness brand makes Will the perfect mentor for your journey.",
         "synergy": ["Business strategy", "Brand building", "Digital presence"]
       }
     },
+    "sourcesAnalyzed": [
+      {
+        "url": "https://instagram.com/alexbelyankin",
+        "type": "instagram",
+        "domain": "instagram.com",
+        "insight": "Active account with 1.2K followers, posts about fitness and entrepreneurship"
+      },
+      {
+        "url": "https://crunchbase.com/person/alexey-belyankin",
+        "type": "crunchbase",
+        "domain": "crunchbase.com",
+        "insight": "Founder of LegionFarm, tech entrepreneur background"
+      }
+    ],
     "nextStep": {
       "stepNumber": 4,
       "unlocked": true,
@@ -311,13 +344,73 @@ For applicant "Alexey Belyankin" with finalScore 85:
 
 ---
 
+## AVATAR URL HANDLING — CRITICAL TASK
+
+The user profile MUST include a real avatar URL. Node #1 (Deep Research) should have found one, but if not, YOU must find it using Firecrawl MCP.
+
+### STEP 1: Check Research Results
+Check if `avatarData.primaryAvatar.url` exists in the research results.
+- If YES and quality is A or B → Use it directly
+- If YES but quality is C or D → Try to find a better one with Firecrawl
+- If NO → You MUST use Firecrawl MCP to find the avatar
+
+### STEP 2: Firecrawl MCP Fallback (If Needed)
+You have access to Firecrawl MCP tools. Use them in this order:
+
+**Priority 1: Instagram Cache Sites**
+```
+firecrawl_search: "{instagram_handle}" site:imginn.com OR site:picuki.com OR site:inflact.com
+firecrawl_scrape: Scrape the result page to extract profile image URL
+```
+
+**Priority 2: General Profile Search**
+```
+firecrawl_search: "{first_name} {last_name}" fitness coach profile photo
+firecrawl_search: "{first_name} {last_name}" personal trainer headshot
+```
+
+**Priority 3: Source-Specific Search**
+```
+firecrawl_search: site:linkedin.com "{first_name} {last_name}" photo
+firecrawl_search: "{first_name} {last_name}" trainer {gym_name} (if known from research)
+```
+
+**Priority 4: Scrape Known URLs**
+If research found any websites about this person, scrape them for images:
+```
+firecrawl_scrape: URL from sourcesAnalyzed where avatarFound was false
+```
+
+### STEP 3: Avatar Quality Validation
+When you find an avatar, assess:
+- **Is it a face photo?** Prioritize real face shots over logos/gym photos
+- **Is it high resolution?** Prefer 200x200+ images
+- **Is it definitely this person?** Cross-reference with other research data
+
+### STEP 4: Last Resort Only
+If ALL Firecrawl attempts fail, use generated avatar:
+```
+https://ui-avatars.com/api/?name={first}+{last}&background=1a1a2e&color=DCCAB7&size=200
+```
+
+**ALWAYS include:**
+- `avatar`: The URL
+- `avatarSource`: Where it came from (research, firecrawl_instagram, firecrawl_search, firecrawl_scrape, generated)
+- `avatarQuality`: A|B|C|D|generated
+- `avatarSearchAttempts`: List of searches you tried (if you used Firecrawl)
+
+---
+
 ## IMPORTANT GUIDELINES
 
-1. **Be accurate** — Scoring should reflect actual data, not inflate
-2. **Be constructive** — User profile should feel positive, not judgmental
-3. **Be specific** — Coach matching reasons should reference actual application data
-4. **Be actionable** — Follow-up questions should gather useful info
-5. **Respect privacy** — Don't expose research findings to user that feel invasive
+1. **AVATAR IS MANDATORY** — You are the last line of defense. If Node #1 didn't get an avatar, YOU must find it with Firecrawl. Use generated avatars ONLY after exhausting all search options.
+2. **Be accurate** — Scoring should reflect actual data, not inflate
+3. **Be constructive** — User profile should feel positive, not judgmental
+4. **Be specific** — Coach matching reasons should reference actual application data
+5. **Be actionable** — Follow-up questions should gather useful info
+6. **Respect privacy** — Don't expose research findings to user that feel invasive
+7. **Pass through sources** — Include all `sourcesAnalyzed` from research so users can see what was analyzed about them
+8. **Document Firecrawl attempts** — If you used Firecrawl MCP for avatar, list all search queries in `avatarSearchAttempts`
 
 ---
 
