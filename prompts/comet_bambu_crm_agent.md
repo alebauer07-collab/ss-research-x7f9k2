@@ -157,13 +157,16 @@ Cards in each column are auto-sorted by priority:
 
 **Click `📋` button on card** → JSON instantly copied to clipboard (silent, no popup!)
 
+**Alternative:** Click the applicant's **NAME** on the card to open detail modal for more info.
+
 **Parse the JSON to get:**
 - Name, email, phone (WhatsApp number)
 - Instagram handle, LinkedIn
 - Application details, skills
-- AI-generated profile (if exists)
+- AI-generated profile (if exists) - **If missing, indicates "Application 1/2" status = needs manual research!**
 - Coach match
 - Activity history
+- Tasks and their statuses
 - Current funnel status
 
 ### TASK 4: Research (LinkedIn + Instagram)
@@ -283,6 +286,14 @@ competition and Hygge training. Asked about confidence barrier.
 Instagram: liked 2 fitness posts, 539 followers, active community.
 ```
 
+**When Logging RESPONSES - Include Exact Message Text:**
+```
+Response Received - [WhatsApp] "Yes I'm interested! When's the next cohort?"
+Response Received - [Email] Asked about payment plans, budget ~$800/mo
+Response Received - [IG DM] "Saw your message, checking the website now"
+```
+This preserves communication history in the activity log!
+
 **Set Next Action:**
 - Select appropriate action from dropdown
 - Set due date based on escalating delays:
@@ -305,12 +316,12 @@ Instagram: liked 2 fitness posts, 539 followers, active community.
 
 ### TASK 11: Track Unreads (if messages received)
 
-**When opening WhatsApp/Email:**
+**When opening WhatsApp/Email/Instagram:**
 1. Check for unread responses from ANY applicant
 2. For each unread:
    - Return to dashboard
    - Find their card
-   - Click `🔔` → enter number of unreads
+   - Click `🔔` → select channel (📱 WhatsApp / 📧 Email / 📷 Instagram) → enter count → ✓
 3. This auto-prioritizes them for next processing
 
 ### TASK 12: Handle Responses
