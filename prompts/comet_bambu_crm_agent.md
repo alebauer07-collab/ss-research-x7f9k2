@@ -84,6 +84,13 @@ Click `➕` on any card to add a TASK (different from notes):
 - Click `✓` on task to mark complete
 - Full task list visible in applicant detail modal
 
+### 4b. **Date Input Handling (Automation Fix)**
+All date/time inputs now use `datetime-local` format with enhanced event handlers.
+- Format: `YYYY-MM-DDTHH:MM` (e.g., `2026-01-20T14:00`)
+- Look for `data-automation` attribute to identify fields
+- Use the native browser date picker when possible
+- If typing directly, ensure full format is entered
+
 ### 5. **Unread Message Tracking (🔔)**
 Track messages waiting for response:
 - Click `🔔` → enter unread count → submit
@@ -303,10 +310,24 @@ This preserves communication history in the activity log!
 
 ### TASK 9: Create Task (if needed)
 
-**Click `➕` on card → Create follow-up task:**
-- Title: "Follow up WhatsApp - no response"
-- Due: Based on escalation logic
-- Assigned: Comet (or Will for special cases)
+**Click `➕` on card → Task Modal opens**
+
+**Step-by-step:**
+1. Enter your name in "Your Name" field
+2. Enter task title (e.g., "Follow up WhatsApp - no response")
+3. (Optional) Add description
+4. **For Due Date (datetime-local input):**
+   - Click directly into the date field
+   - Use the native date/time picker that appears
+   - Or type in format: `YYYY-MM-DDTHH:MM` (e.g., `2026-01-20T14:00`)
+   - The field has `data-automation="task-date-input"` attribute
+5. Select Assignee from dropdown
+6. Click "Add Task" button
+
+**Due Date Logic:**
+- First follow-up: +24 hours from now
+- Second follow-up: +3 days
+- Final follow-up: +7 days
 
 ### TASK 10: Update Funnel Status
 
