@@ -84,12 +84,27 @@ Click `➕` on any card to add a TASK (different from notes):
 - Click `✓` on task to mark complete
 - Full task list visible in applicant detail modal
 
-### 4b. **Date Input Handling (Automation Fix)**
-All date/time inputs now use `datetime-local` format with enhanced event handlers.
-- Format: `YYYY-MM-DDTHH:MM` (e.g., `2026-01-20T14:00`)
-- Look for `data-automation` attribute to identify fields
-- Use the native browser date picker when possible
-- If typing directly, ensure full format is entered
+### 4b. **Clickable DateTime Picker (NEW - Automation-Friendly!)**
+Task modals and Note modals now use a fully clickable date/time picker:
+
+**Preset Buttons (fastest way):**
+- Click `+24h` → sets due date to 24 hours from now
+- Click `+3 days` → sets due date to 3 days from now  
+- Click `+7 days` → sets due date to 7 days from now
+
+**Manual Selection:**
+1. **Month Row:** Click number 1-12 to select month
+2. **Day Row:** Click number 1-31 to select day
+3. **Time Display:** Shows current HH:MM selection
+4. **Hour Digit 1 (H1):** Click 0, 1, or 2
+5. **Hour Digit 2 (H2):** Click 0-9
+6. **Minute Digit 1 (M1):** Click 0-5
+7. **Minute Digit 2 (M2):** Click 0-9
+
+**Data attributes for targeting:**
+- `data-preset="24h"`, `data-preset="3d"`, `data-preset="7d"`
+- `data-month={n}`, `data-day={n}`
+- `data-hour1={n}`, `data-hour2={n}`, `data-min1={n}`, `data-min2={n}`
 
 ### 5. **Unread Message Tracking (🔔)**
 Track messages waiting for response:
@@ -313,21 +328,23 @@ This preserves communication history in the activity log!
 **Click `➕` on card → Task Modal opens**
 
 **Step-by-step:**
-1. Enter your name in "Your Name" field
+1. Enter your name in "Your Name" field (e.g., "Comet (Automation)")
 2. Enter task title (e.g., "Follow up WhatsApp - no response")
 3. (Optional) Add description
-4. **For Due Date (datetime-local input):**
-   - Click directly into the date field
-   - Use the native date/time picker that appears
-   - Or type in format: `YYYY-MM-DDTHH:MM` (e.g., `2026-01-20T14:00`)
-   - The field has `data-automation="task-date-input"` attribute
+4. **Due Date - Use preset buttons (EASIEST):**
+   - Click `+24h` button → First follow-up
+   - Click `+3 days` button → Second follow-up
+   - Click `+7 days` button → Final follow-up
+   - Or manually click month/day/hour digits if custom time needed
 5. Select Assignee from dropdown
 6. Click "Add Task" button
 
-**Due Date Logic:**
-- First follow-up: +24 hours from now
-- Second follow-up: +3 days
-- Final follow-up: +7 days
+**Escalation Logic:**
+| Attempt | Preset | Button |
+|---------|--------|--------|
+| 1st follow-up | +24 hours | `+24h` |
+| 2nd follow-up | +3 days | `+3 days` |
+| Final follow-up | +7 days | `+7 days` |
 
 ### TASK 10: Update Funnel Status
 
