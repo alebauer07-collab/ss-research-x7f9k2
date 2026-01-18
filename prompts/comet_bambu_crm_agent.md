@@ -70,12 +70,12 @@ You (Comet) are part of a larger automation system:
 ### 2. **Silent JSON Copy**
 Click `📋` on any card - JSON is copied WITHOUT popup. Button flashes green briefly to confirm.
 
-### 3. **In-Progress Indicator (▶️)**
-Before working on any applicant, click `▶️` on their card to:
-- Mark them as "In Progress" for 20 minutes
-- Prevent other agents/humans from duplicating work
-- Shows timer countdown on card
-- Click badge to clear early if done
+### 3. **In-Progress Timer (▶️ button)**
+Before working on any applicant, click `▶️` button on their card:
+- Button turns **red** with countdown (e.g., "20m", "15m")
+- Visible to ALL dashboard viewers in real-time
+- Prevents duplicate work
+- Click the red timer button again to stop early
 
 ### 4. **Task Management System (➕)**
 Click `➕` on any card to add a TASK (different from notes):
@@ -311,10 +311,12 @@ This preserves communication history in the activity log!
 
 **Click `➕` on card → Wide Task Modal opens (form left, date picker right)**
 
-1. Enter name & select assignee (top row)
+1. Select assignee → Your Name auto-fills (or type custom name → assignee clears)
 2. Enter task title
 3. On the right side: click `+24h`, `+3 days`, or `+7 days` preset
 4. Click "Add Task"
+
+**Assignees:** AI Agent 1, Will, Sam, Macca, Rick
 
 **Escalation:** 1st follow-up = +24h | 2nd = +3 days | Final = +7 days
 
