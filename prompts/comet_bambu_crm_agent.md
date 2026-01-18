@@ -84,11 +84,12 @@ Click `➕` on any card to add a TASK (different from notes):
 - Click `✓` on task to mark complete
 - Full task list visible in applicant detail modal
 
-### 4b. **Date/Time Picker**
-Task modal has a wide two-column layout: form on left, clickable date picker on right.
-- Use preset buttons (+24h, +3 days, +7 days) for quick selection
-- Or click Month/Day/h1/h2/m1/m2 rows to set manually
-- +24h is selected by default when modal opens
+### 4b. **Task Modal Layout**
+Wide two-column design: Form (left) | Date Picker (right)
+- **Left side:** Your Name, Assigned To, Task Title, Description, **Date/Time display**, Cancel/Add buttons
+- **Right side:** Preset buttons (+24h, +3 days, +7 days), Month/Day/h1/h2/m1/m2 click-only selectors
+- **Defaults:** AI Agent 1 pre-filled, +24h selected
+- **Name/Assignee:** Selecting dropdown fills name; typing custom doesn't affect dropdown
 
 ### 5. **Unread Message Tracking (🔔)**
 Track messages waiting for response:
@@ -309,16 +310,17 @@ This preserves communication history in the activity log!
 
 ### TASK 9: Create Task (if needed)
 
-**Click `➕` on card → Wide Task Modal opens (form left, date picker right)**
+**Click `➕` on card → Wide Task Modal opens**
 
-1. Select assignee → Your Name auto-fills (or type custom name → assignee clears)
-2. Enter task title
-3. On the right side: click `+24h`, `+3 days`, or `+7 days` preset
-4. Click "Add Task"
+1. Default: "AI Agent 1" in both Name and Assignee
+2. Enter task title (e.g., "Follow up WhatsApp - no response")
+3. On right side: click `+24h`, `+3 days`, or `+7 days` (or click month/day/time digits)
+4. Gold date/time display shows on left side (e.g., "21 Jan • 23:19")
+5. Click "Add Task"
 
 **Assignees:** AI Agent 1, Will, Sam, Macca, Rick
 
-**Escalation:** 1st follow-up = +24h | 2nd = +3 days | Final = +7 days
+**Escalation:** 1st = +24h | 2nd = +3 days | Final = +7 days
 
 ### TASK 10: Update Funnel Status
 
