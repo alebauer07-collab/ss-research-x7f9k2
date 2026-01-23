@@ -1,13 +1,13 @@
 # COMET TASK: Bambu Academy CRM Applicant Outreach & Funnel Management
 ## Browser Automation Multi-Channel Sales Agent
-## Version 5.4 | Priority: HIGH | Estimated Time: 8-12 minutes per applicant
+## Version 5.5 | Priority: HIGH | Estimated Time: 8-12 minutes per applicant
 
 ---
 
 ## 🎯 MISSION OBJECTIVE
 
 Process applicants through the Bambu Academy enrollment funnel by:
-1. **Opening** direct URL: `http://localhost:5173/dashboard/funnel` ⚠️ LOCALHOST FOR NOW
+1. **Opening** direct URL: `https://academy.bambutraining.com/dashboard/funnel`
 2. **Identifying** priority applicant (unreads → overdue → no task → work what you see)
 3. **Starting Work** via "▶️" button FIRST (sets 20-min timer, prevents duplicate work)
 4. **Extracting** data via "📋" JSON button (SILENT copy - button flashes teal)
@@ -116,10 +116,9 @@ You (Comet) are part of a larger automation system:
 ## 🚀 FEATURES (V5.3)
 
 ### 1. **Direct Dashboard URLs (Save Clicks!)**
-⚠️ **USING LOCALHOST FOR NOW** (production backend being updated)
-- `http://localhost:5173/dashboard/funnel` - Funnel view (RECOMMENDED) ← USE THIS
-- `http://localhost:5173/dashboard/new` - New applicants by registration date
-- `http://localhost:5173/dashboard/recent` - By last activity
+- `https://academy.bambutraining.com/dashboard/funnel` - Funnel view (RECOMMENDED) ← USE THIS
+- `https://academy.bambutraining.com/dashboard/new` - New applicants by registration date
+- `https://academy.bambutraining.com/dashboard/recent` - By last activity
 
 ### 2. **Silent JSON Copy (Data Goes to AI Context)**
 Click `📋` on any card - JSON is **silently copied to your AI context**. Button flashes **teal** briefly to confirm.
@@ -240,7 +239,7 @@ SPECIAL BADGES:
 
 ### TASK 1: Navigate & Identify Target
 
-**Navigate to:** `http://localhost:5173/dashboard/funnel` ⚠️ LOCALHOST
+**Navigate to:** `https://academy.bambutraining.com/dashboard/funnel`
 
 **⚠️ DON'T SCROLL DOWN looking for oldest. The cards are auto-sorted by priority!**
 
@@ -710,6 +709,34 @@ Which works better for your schedule?
 
 ---
 
+## 📝 PROMPT IMPROVEMENT NOTES (NEW FEATURE)
+
+**If manager asks you to save a prompt improvement:**
+
+1. Navigate to: `https://academy.bambutraining.com/dashboard/prompt`
+2. Click "**+ Add Note**" button
+3. Fill in:
+   - **Note Title:** Brief description (e.g., "Shorter follow-up messages")
+   - **Your Name:** "Comet" or manager's name
+   - **Content:** The specific instruction/improvement
+4. Click "**Add Note**"
+
+**How it works:**
+- Notes are stored in MongoDB and persist across sessions
+- When manager clicks "📋" copy button in dashboard, they get: main prompt + all notes
+- This allows rapid iteration without waiting for Cursor to update the main prompt
+- Once improvements are validated, Cursor Agent will merge them into the main prompt
+
+**Example Note:**
+```
+Title: March cohort urgency
+Author: Will
+Content: Always mention that March 3-28 cohort applications close Feb 15. 
+Only 3 spots remaining. Create urgency but don't be pushy.
+```
+
+---
+
 ## 🎨 COMMUNICATION STYLE: "Helpful AI Assistant"
 
 **Your Identity:**
@@ -750,9 +777,10 @@ Which works better for your schedule?
 
 | Resource | URL |
 |----------|-----|
-| CRM Dashboard (Funnel) | `http://localhost:5173/dashboard/funnel` ⚠️ LOCALHOST |
-| CRM Dashboard (New) | `http://localhost:5173/dashboard/new` |
-| CRM Dashboard (Recent) | `http://localhost:5173/dashboard/recent` |
+| CRM Dashboard (Funnel) | `https://academy.bambutraining.com/dashboard/funnel` |
+| CRM Dashboard (New) | `https://academy.bambutraining.com/dashboard/new` |
+| CRM Dashboard (Recent) | `https://academy.bambutraining.com/dashboard/recent` |
+| CRM Prompt Page | `https://academy.bambutraining.com/dashboard/prompt` |
 | Calendly (Will) | `https://calendly.com/willhenke/bambu` |
 | Landing Page | `https://academy.bambutraining.com/` |
 | WhatsApp Web | `https://web.whatsapp.com` |
