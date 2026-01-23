@@ -1,0 +1,392 @@
+[
+  {
+    "output": {
+      "crmProfile": {
+        "applicantId": "BAMBU-2026-OYVLMM",
+        "profileVersion": "v2",
+        "generatedAt": "2026-01-16T11:45:00.000Z",
+        "scoring": {
+          "dimensions": {
+            "coachingExperience": {
+              "score": 88,
+              "factors": [
+                "15 years of group coaching experience in kickboxing and Muay Thai",
+                "Coached groups of all levels at Tiger Muay Thai - world's largest MMA facility",
+                "Experience training alongside UFC and Bellator-level fighters",
+                "Documented coaching of diverse groups including mixed-gender training partners",
+                "5+ years experience selected in application"
+              ]
+            },
+            "technicalFoundation": {
+              "score": 75,
+              "factors": [
+                "EREPS certified Personal Trainer since 2020",
+                "Deep technical knowledge in Muay Thai, kickboxing, and emerging MMA skills",
+                "Training at Tiger Muay Thai with world-class coaches",
+                "Understands tactical differences between fighting disciplines",
+                "Self-rated programming at 5/10 indicates room for growth",
+                "Currently developing wrestling and BJJ skills"
+              ]
+            },
+            "businessAcumen": {
+              "score": 82,
+              "factors": [
+                "27,100 Instagram followers (@magikmaiken)",
+                "15.29% engagement rate - significantly above industry average",
+                "~4,100 likes and 51 comments per post",
+                "Professional management (@Suckerpunchent)",
+                "Established micro-influencer status in fitness/fighting niche",
+                "Content spans fighting, training, and lifestyle - demonstrates brand diversity"
+              ]
+            },
+            "growthMindset": {
+              "score": 92,
+              "factors": [
+                "Explicitly identifies communication as growth area - shows self-awareness",
+                "Overcame performance anxiety through deliberate mental work",
+                "Transitioned from kickboxing to Muay Thai to MMA - continuous evolution",
+                "Left stable career in Norway to pursue professional fighting - calculated risk-taker",
+                "Articulates clear philosophy: 'Just start. You are never going to be 100% ready'",
+                "Progressed through Tiger Muay Thai levels to Professional Fighters group",
+                "Navigated imposter syndrome with cognitive reframing strategies"
+              ]
+            },
+            "financialReadiness": {
+              "score": 70,
+              "factors": [
+                "Monthly payment preference selected",
+                "Professional fighter with management representation",
+                "Based in Bali - lower cost of living",
+                "Existing Instagram income potential through influencer status",
+                "No indication of financial constraints mentioned"
+              ]
+            },
+            "commitmentSignal": {
+              "score": 85,
+              "factors": [
+                "Already visits Bambu gym frequently - 'I live in Bali and I come as often as I can'",
+                "Expressed genuine enthusiasm: 'Absolutely love the gym!'",
+                "Detailed, thoughtful application responses",
+                "Clear articulation of coaching development goals",
+                "Willing to sacrifice family proximity for career goals",
+                "Instagram shows consistent professional activity"
+              ]
+            }
+          },
+          "finalScore": 83,
+          "tier": "STRONG",
+          "qualifiesForCall": true,
+          "scoreBreakdown": "CE(88)*0.20 + TF(75)*0.15 + BA(82)*0.15 + GM(92)*0.20 + FR(70)*0.15 + CS(85)*0.15 = 83.35"
+        },
+        "verification": {
+          "identityConfirmed": true,
+          "identityConfidenceLevel": 95,
+          "redFlags": [],
+          "greenFlags": [
+            {
+              "flag": "Verified professional fighter",
+              "detail": "Sherdog fighter database confirms professional MMA record and strawweight competition"
+            },
+            {
+              "flag": "Extensive media coverage",
+              "detail": "Featured in Women Who Fight UK publication with detailed interview and photos"
+            },
+            {
+              "flag": "Strong social proof",
+              "detail": "27K Instagram followers with 15.29% engagement rate; professional management"
+            },
+            {
+              "flag": "Verified training facility",
+              "detail": "Tiger Muay Thai affiliation confirmed across multiple sources"
+            },
+            {
+              "flag": "Consistent narrative",
+              "detail": "Application details match research findings across all sources - age, background, timeline"
+            },
+            {
+              "flag": "Local community member",
+              "detail": "Already frequents Bambu Fitness Bali regularly"
+            },
+            {
+              "flag": "EREPS certification",
+              "detail": "European Register of Exercise Professionals certification verifiable since 2020"
+            }
+          ],
+          "verificationNotes": "Exceptionally strong verification. Maiken's identity and background are confirmed through multiple independent sources including Sherdog fight database, Women Who Fight feature interview, Instagram presence, and Facebook activity. Her professional fighting career, training history at Tiger Muay Thai, and coaching experience are all well-documented. No red flags identified."
+        },
+        "coachMatching": {
+          "recommendedCoach": "Macca",
+          "matchingNote": "Maiken's 15 years of group coaching experience, strong community orientation (8/10), and sports background align exceptionally well with Macca's expertise. Her high group management skills (8/10) combined with her desire to develop S&C coaching will benefit from Macca's systems-driven approach and emphasis on building confidence through repetition.",
+          "compatibility": {
+            "will": {
+              "score": 65,
+              "reasons": [
+                "Content creator with growing audience (+20)",
+                "Leadership self-rating of 8/10 (+15)",
+                "5+ years coaching experience (+15)",
+                "Monthly payment rather than pay in full (+0)",
+                "Professional athlete identity more than entrepreneur (+0)",
+                "Strong professional standards (+15)"
+              ]
+            },
+            "sam": {
+              "score": 55,
+              "reasons": [
+                "Movement knowledge from combat sports but rated 5/10 (+10)",
+                "EREPS certification shows technical interest (+15)",
+                "Combat sports background provides biomechanics foundation (+15)",
+                "Programming rated 5/10 - below threshold (+0)",
+                "Not explicitly academic or science-focused (+0)",
+                "Seeks practical coaching development more than theory (+15)"
+              ]
+            },
+            "macca": {
+              "score": 85,
+              "reasons": [
+                "Group management rated 8/10 - exceptional (+20)",
+                "15 years group fitness/coaching experience (+20)",
+                "High energy evident from fighter mentality (+15)",
+                "Community rated 8/10 (+15)",
+                "Professional sports background - MMA, Muay Thai (+15)",
+                "Programming rated 5/10 (+0) - area for growth"
+              ]
+            }
+          }
+        },
+        "internalNotes": "Exceptional candidate with rare combination of extensive coaching experience, professional athletic credibility, and strong social media presence. Her 15 years of group coaching in combat sports, EREPS certification, and training at Tiger Muay Thai alongside world champions provides authentic expertise. The Instagram following (27K) with high engagement (15.29%) indicates business acumen and content creation ability. Self-awareness about communication challenges shows maturity. Already a regular visitor to Bambu gym - existing relationship with facility. Her transition from fighter to S&C coach represents a natural career evolution. Recommended for immediate call with focus on S&C curriculum and how Academy can support her coaching development goals.",
+        "nextAction": "schedule_call",
+        "nextActionRationale": "Maiken scores 83 (STRONG tier) with no red flags, extensive verified coaching experience, strong growth mindset, and is already an engaged member of the Bambu community. She is an ideal candidate for a call with Will to discuss how the Academy can support her transition from combat sports coaching to broader S&C coaching."
+      },
+      "userProfile": {
+        "applicantId": "BAMBU-2026-OYVLMM",
+        "profileReady": true,
+        "publicProfile": {
+          "avatar": "https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.52.57.png",
+          "avatarSource": "firecrawl_scrape",
+          "avatarQuality": "B",
+          "avatarSearchAttempts": [
+            "\"magikmaiken\" site:imginn.com OR site:picuki.com OR site:inflact.com",
+            "Maiken Aannerud MMA fighter profile photo",
+            "Scraped: https://www.sherdog.com/fighter/Maiken-Aannerud-479516",
+            "Scraped: https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/"
+          ],
+          "displayName": "Maiken Aannerud",
+          "tagline": "Professional MMA Fighter & Combat Sports Coach | 15 Years Coaching Experience",
+          "location": "Bali, Indonesia",
+          "strengths": [
+            "15 years of group coaching experience in kickboxing and Muay Thai",
+            "Professional fighter training at Tiger Muay Thai alongside world champions",
+            "Exceptional mental resilience - overcame performance anxiety through deliberate work",
+            "Strong community builder with supportive coaching approach",
+            "Growing social media influence with 27K engaged followers",
+            "Authentic athlete-coach who leads by example",
+            "EREPS certified Personal Trainer",
+            "Remarkable adaptability - transitioned countries, careers, and fighting disciplines"
+          ],
+          "growthAreas": [
+            "Communication calibration - finding the right amount of explanation for each client",
+            "Program design beyond combat sports applications",
+            "Movement assessment for general fitness populations",
+            "Expanding coaching identity beyond fighting to S&C"
+          ],
+          "goals": [
+            "Develop as a coach in both group classes and 1:1 client work",
+            "Take S&C coaching to the next level beyond combat sports",
+            "Build on extensive fighting background to become a complete fitness coach"
+          ],
+          "currentSkills": {
+            "coaching": {
+              "current": 6,
+              "potential": 9,
+              "growthReason": "With 15 years group coaching experience and natural leadership, Maiken has strong fundamentals. Academy training will refine her 1:1 coaching skills and communication calibration, pushing her to elite levels."
+            },
+            "identity": {
+              "current": 6,
+              "potential": 9,
+              "growthReason": "Her fighter identity is crystal clear, and she articulates a strong 'dare to be different' philosophy. Academy will help her expand this identity to encompass broader S&C coaching. Macca bonus applied."
+            },
+            "community": {
+              "current": 8,
+              "potential": 10,
+              "growthReason": "Already exceptional at building supportive communities - evident from her description of female fighter bonds at Tiger Muay Thai. With Macca's guidance, she'll master this skill completely. Macca bonus applied."
+            },
+            "programming": {
+              "current": 5,
+              "potential": 9,
+              "growthReason": "Her combat sports programming is solid but she recognizes need to expand to general S&C. Academy curriculum will transform this into a major strength. Macca bonus applied."
+            },
+            "sessionflow": {
+              "current": 7,
+              "potential": 10,
+              "growthReason": "Running 2-hour Muay Thai sessions requires excellent flow management. Academy training will help her transfer this to fitness class formats."
+            },
+            "movement": {
+              "current": 5,
+              "potential": 8,
+              "growthReason": "Deep understanding of fighting movement patterns; will expand to general biomechanics through Academy training."
+            },
+            "communication": {
+              "current": 6,
+              "potential": 9,
+              "growthReason": "Self-identified growth area - she's aware she over or under-explains. This awareness plus focused training will dramatically improve this skill."
+            },
+            "groupmgmt": {
+              "current": 8,
+              "potential": 10,
+              "growthReason": "15 years managing groups in high-intensity combat training has made her exceptional. Macca's systems will take her to mastery. Macca bonus applied."
+            },
+            "profstandards": {
+              "current": 8,
+              "potential": 10,
+              "growthReason": "Professional athlete discipline translates directly - she shows up every day even when drained. Academy will formalize this into coaching standards."
+            },
+            "leadership": {
+              "current": 8,
+              "potential": 10,
+              "growthReason": "Natural leader who trains with world champions and inspires through her journey. Already demonstrates ownership and accountability."
+            }
+          },
+          "socialPresence": {
+            "instagramHandle": "@magikmaiken",
+            "followerCount": 27100,
+            "engagementRate": "15.29%",
+            "contentThemes": [
+              "MMA/Fighting",
+              "Training",
+              "Bali Lifestyle",
+              "Fitness",
+              "Personal Journey"
+            ],
+            "brandIdentity": "Authentic professional fighter sharing her journey from Norwegian hairdresser to full-time athlete in Southeast Asia. Content emphasizes resilience, risk-taking, and 'daring to be different.' Managed professionally by Suckerpunch Entertainment."
+          },
+          "coachMatch": {
+            "recommendedCoach": "Macca",
+            "coachAvatar": "https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245ba19458e9f9ae396765_Macca.jpg",
+            "coachTitle": "Senior Coach",
+            "coachInstagram": "@coach.macca",
+            "matchReason": "Your 15 years of group coaching experience and exceptional community-building skills align perfectly with Macca's approach. As a former semi-professional footballer who understands the athlete-to-coach transition, he'll help you channel your fighting expertise into a powerful S&C coaching career.",
+            "synergy": [
+              "Shared sports background - you'll speak the same language about athletic development",
+              "Group coaching mastery - Macca will help systematize your 15 years of experience",
+              "Community focus - both of you understand that great gyms are built on connection"
+            ],
+            "coachStrengths": [
+              "Systems-driven approach to turn your intuitive coaching into repeatable excellence",
+              "Expertise in body transformations and HYROX - expanding your S&C toolkit",
+              "Energetic style that matches your fighter intensity"
+            ],
+            "yourStrengthsForCoach": [
+              "Authentic athletic credibility from professional fighting career",
+              "Deep understanding of mental preparation and overcoming performance blocks",
+              "Proven ability to support and develop athletes at all levels"
+            ]
+          }
+        },
+        "sourcesAnalyzed": [
+          {
+            "url": "https://www.instagram.com/magikmaiken/",
+            "type": "instagram",
+            "domain": "instagram.com",
+            "insight": "27.1K followers with 15.29% engagement rate; professional fighter based in Bali with management representation"
+          },
+          {
+            "url": "https://www.sherdog.com/fighter/Maiken-Aannerud-479516",
+            "type": "other",
+            "domain": "sherdog.com",
+            "insight": "Verified professional MMA fighter database profile confirming 5'4\", 115lbs strawweight, associated with Soma Fight Club"
+          },
+          {
+            "url": "https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/",
+            "type": "news",
+            "domain": "womenwhofight.co.uk",
+            "insight": "In-depth feature interview covering her journey from Norwegian hairdresser to professional fighter at Tiger Muay Thai"
+          },
+          {
+            "url": "https://www.facebook.com/maiken.aannerud/",
+            "type": "other",
+            "domain": "facebook.com",
+            "insight": "Personal Facebook profile documenting her fighting career and life in Bali"
+          },
+          {
+            "url": "https://www.facebook.com/ChineseWushuSanda/videos/maiken-aannerud-norway-thailand-vs-liu-lingling-china/724965881194387/",
+            "type": "other",
+            "domain": "facebook.com",
+            "insight": "Fight footage confirming her kickboxing competitions and Muay Thai National Champion status"
+          }
+        ],
+        "skillDefinitions": {
+          "coaching": {
+            "name": "1:1 Coaching Skills",
+            "description": "Building deeper trust, accountability, and outcomes through individualized attention",
+            "whatGoodLooksLike": "Reading clients well, adapting on the fly, building rapport quickly"
+          },
+          "identity": {
+            "name": "Coach Identity & Philosophy",
+            "description": "Defining what kind of coach you are and making your values visible in action",
+            "whatGoodLooksLike": "Clear 'why', consistent style, can articulate approach to anyone"
+          },
+          "community": {
+            "name": "Connection & Community",
+            "description": "Growing through shared experiences, team challenges, and mentorship",
+            "whatGoodLooksLike": "Builds loyal clients, generates referrals, fosters belonging"
+          },
+          "programming": {
+            "name": "Energy Systems & Program Design",
+            "description": "Building structured, purposeful programs that deliver results",
+            "whatGoodLooksLike": "Understands energy systems, periodization, progressive overload"
+          },
+          "sessionflow": {
+            "name": "Session Flow",
+            "description": "Creating purposeful sessions with clear structure and transitions",
+            "whatGoodLooksLike": "Clients always know what's happening, why, and what's next"
+          },
+          "movement": {
+            "name": "Movement & Biomechanics",
+            "description": "Understanding anatomy, positions, and what 'good' looks like",
+            "whatGoodLooksLike": "Sees compensations instantly, understands root causes"
+          },
+          "communication": {
+            "name": "Communication & Cueing",
+            "description": "Speaking, demonstrating, and connecting effectively",
+            "whatGoodLooksLike": "Few words, maximum impact, adapts style to each client"
+          },
+          "groupmgmt": {
+            "name": "Group Management",
+            "description": "Managing groups while maintaining energy and safety",
+            "whatGoodLooksLike": "Manages multiple people effortlessly, everyone feels seen"
+          },
+          "profstandards": {
+            "name": "Professional Standards",
+            "description": "Holding yourself to the highest standards of professionalism",
+            "whatGoodLooksLike": "Always prepared, punctual, well-presented, consistent"
+          },
+          "leadership": {
+            "name": "Leadership",
+            "description": "Leading by example, inspiring through action and accountability",
+            "whatGoodLooksLike": "Takes ownership, mentors others, handles pressure gracefully"
+          }
+        },
+        "followUpQuestions": [],
+        "nextStep": {
+          "stepNumber": 4,
+          "unlocked": true,
+          "title": "Schedule Your Call with Will",
+          "description": "Your profile shows exceptional coaching potential. You've been selected to move forward to a call with Will Henke, our Founder and Program Director, to discuss how Bambu Academy can accelerate your coaching journey.",
+          "calendlyLink": "https://calendly.com/bambu-academy/discovery-call",
+          "ctaText": "Book Your Call with Will",
+          "note": "Calls typically last 20-30 minutes. Come ready to share your vision for your coaching career and any questions about the Academy."
+        },
+        "statusMessage": {
+          "headline": "Maiken, You're Moving Forward! 🎉",
+          "body": "Your 15 years of coaching experience, professional fighting career, and commitment to growth have made a strong impression. We can see you're serious about taking your S&C coaching to the next level, and we're excited to explore how Bambu Academy can help you get there. The next step is a call with Will - he's looking forward to learning more about your journey from the ring to coaching.",
+          "tone": "excited"
+        },
+        "qualificationDetails": {
+          "qualifiesForCall": true,
+          "qualificationReason": "Strong tier (83/100) with exceptional coaching experience, verified professional background, high growth mindset, and existing positive relationship with Bambu facilities. No red flags identified.",
+          "tier": "STRONG"
+        }
+      }
+    }
+  }
+]

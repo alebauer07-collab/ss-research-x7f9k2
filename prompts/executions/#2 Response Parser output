@@ -1,0 +1,333 @@
+[
+  {
+    "output": {
+      "crmProfile": {
+        "applicantId": "BAMBU-2026-XH906O",
+        "profileVersion": "v1",
+        "generatedAt": "2026-01-15T16:00:00.000Z",
+        "scoring": {
+          "dimensions": {
+            "coachingExperience": {
+              "score": 5,
+              "factors": [
+                "Claims 0-1 years experience but zero verifiable fitness coaching work found",
+                "No documented gym employment, personal training clients, or coaching practice",
+                "Full-time tech CEO since 2016 - timeline incompatible with claimed coaching experience",
+                "No client testimonials, transformation documentation, or coaching results found",
+                "No fitness-related content on any social media platforms despite extensive professional presence"
+              ]
+            },
+            "technicalFoundation": {
+              "score": 10,
+              "factors": [
+                "No documented fitness certifications (NASM, ACE, ISSA, CrossFit, etc.)",
+                "No evidence of movement training, sports science education, or technical fitness knowledge",
+                "High self-assessment scores (5-7) are completely unverified",
+                "No programming samples, training methodology documentation, or technical content found",
+                "Professional background entirely in gaming/tech with no health & wellness crossover"
+              ]
+            },
+            "businessAcumen": {
+              "score": 95,
+              "factors": [
+                "Founded Legionfarm in 2016 - Y Combinator backed gaming marketplace",
+                "Generated $45M+ in total sales revenue, $3.2M monthly revenue",
+                "Successfully raised $17.8M in venture capital from tier-one investors",
+                "Built network of 7,000+ professional coaches serving 60,000+ users",
+                "Demonstrated AI/ML implementation skills - automated 100+ operational roles",
+                "Strong investor network including Kevin Lin (Twitch founder)"
+              ]
+            },
+            "growthMindset": {
+              "score": 8,
+              "factors": [
+                "All open-ended questions answered with 'just wondering' - zero reflection",
+                "No articulated motivation, goals, or understanding of program requirements",
+                "Contradictory self-assessment: 7/7 group management but 2/7 leadership (illogical)",
+                "High self-ratings across all dimensions despite claiming minimal experience",
+                "No demonstrated self-awareness about coaching skill gaps or development needs"
+              ]
+            },
+            "financialReadiness": {
+              "score": 70,
+              "factors": [
+                "Selected monthly payment (less commitment signal than pay-in-full)",
+                "Successful entrepreneur with documented significant income/exit potential",
+                "Maintains board position at venture-backed company",
+                "Active in AI development projects suggesting ongoing income",
+                "Financial capacity likely high but payment preference suggests hesitancy"
+              ]
+            },
+            "commitmentSignal": {
+              "score": 5,
+              "factors": [
+                "Placeholder 'just wondering' responses across all narrative questions",
+                "Application completed with minimal effort despite extensive professional accomplishments",
+                "No fitness-related digital footprint despite maintaining extensive professional presence",
+                "Substantial ongoing professional commitments (Legionfarm board, AI projects)",
+                "Time availability questionable given documented full-time entrepreneurial activities",
+                "Research confidence: 90-95% that fitness experience is misrepresented"
+              ]
+            }
+          },
+          "finalScore": 25,
+          "tier": "DECLINE",
+          "qualifiesForCall": false,
+          "scoreBreakdown": {
+            "coachingExperience": "5 × 0.20 = 1.0",
+            "technicalFoundation": "10 × 0.15 = 1.5",
+            "businessAcumen": "95 × 0.15 = 14.25",
+            "growthMindset": "8 × 0.20 = 1.6",
+            "financialReadiness": "70 × 0.15 = 10.5",
+            "commitmentSignal": "5 × 0.15 = 0.75",
+            "total": "29.6 → 25 (adjusted for critical red flags)"
+          }
+        },
+        "verification": {
+          "identityConfirmed": true,
+          "identityConfidenceLevel": 95,
+          "redFlags": [
+            {
+              "severity": "CRITICAL",
+              "flag": "Experience Misrepresentation",
+              "detail": "Claims 0-1 years fitness coaching experience but zero evidence exists. Full-time tech CEO since 2016 with no documented fitness industry involvement."
+            },
+            {
+              "severity": "CRITICAL",
+              "flag": "Application Integrity Failure",
+              "detail": "All open-ended responses are identical placeholder text 'just wondering' - indicates either non-serious application or attempt to game the system."
+            },
+            {
+              "severity": "HIGH",
+              "flag": "No Coaching Digital Footprint",
+              "detail": "Despite extensive, well-documented professional presence in tech/gaming, zero fitness coaching content, client testimonials, or training documentation exists anywhere online."
+            },
+            {
+              "severity": "HIGH",
+              "flag": "Implausible Self-Assessment Pattern",
+              "detail": "High ratings (5-7) across coaching competencies by someone claiming minimal experience. Contradictory 7/7 group management with 2/7 leadership."
+            },
+            {
+              "severity": "MEDIUM",
+              "flag": "Time Availability Concerns",
+              "detail": "Active board member at Legionfarm, developing AI business ventures. Full-time professional commitments incompatible with elite coaching program requirements."
+            },
+            {
+              "severity": "MEDIUM",
+              "flag": "No Documented Certifications",
+              "detail": "No NASM, ACE, ISSA, CrossFit, or any other fitness certifications found in any public records or professional profiles."
+            }
+          ],
+          "greenFlags": [
+            {
+              "flag": "Verified Identity",
+              "detail": "Identity confirmed with high confidence through multiple independent sources - legitimate person with verifiable professional history."
+            },
+            {
+              "flag": "Exceptional Business Track Record",
+              "detail": "Proven ability to build and scale businesses, raise capital, and develop coaching platforms (albeit in gaming, not fitness)."
+            },
+            {
+              "flag": "Platform Building Experience",
+              "detail": "Built marketplace with 7,000+ coaches - understands coach development and management at scale."
+            }
+          ],
+          "confidenceLevel": 92,
+          "verificationNotes": "Identity is unquestionably verified. The concern is not who this person is, but the fundamental mismatch between their documented background (tech entrepreneur) and their claimed fitness coaching experience."
+        },
+        "coachMatching": {
+          "recommendedCoach": "Will",
+          "matchingNote": "IF applicant were qualified, business background aligns with Will. However, applicant does not meet baseline qualifications.",
+          "compatibility": {
+            "will": {
+              "score": 75,
+              "reasons": [
+                "Strong entrepreneurial background aligns with Will's business-focused mentorship",
+                "Experience building coaching platforms (gaming) transfers conceptually",
+                "Leadership experience in scaling organizations",
+                "However: No fitness coaching foundation for Will to build upon"
+              ]
+            },
+            "sam": {
+              "score": 15,
+              "reasons": [
+                "No technical fitness foundation to develop",
+                "No movement expertise or biomechanics background",
+                "Self-assessed skills unverified and likely inflated",
+                "Sam's technical deep-dives would not be appropriate without baseline competency"
+              ]
+            },
+            "macca": {
+              "score": 20,
+              "reasons": [
+                "Claims high group management (7/7) but contradicts low leadership (2/7)",
+                "No documented group fitness experience",
+                "No energy coaching or class leadership background verified",
+                "Macca's community focus requires actual coaching experience to build on"
+              ]
+            }
+          }
+        },
+        "internalNotes": "CRITICAL REVIEW REQUIRED: This application presents a clear case of either (1) intentional misrepresentation of fitness coaching experience, (2) exploratory/curiosity application with no genuine intent, or (3) fundamental misunderstanding of program requirements. The applicant is a verified, successful tech entrepreneur (Legionfarm founder, $45M revenue, $17.8M raised) with ZERO documented fitness industry experience despite extensive professional digital footprint. The 'just wondering' placeholder responses across ALL narrative questions suggest this may be a curiosity submission rather than genuine application. The email domain (legionfarm.com) directly ties to his tech company. Recommend DECLINE with professional response acknowledging his impressive tech background while clarifying Bambu Academy requires verified fitness coaching experience. Do NOT proceed to Step 4 call under any circumstances without substantial clarification and evidence of actual coaching work.",
+        "nextAction": "decline",
+        "nextActionRationale": "Multiple critical red flags, fundamental experience gap, and zero commitment signals. Application does not meet baseline requirements for Bambu Training Academy. A call would waste Will's time and potentially expose program to reputational risk if applicant is testing systems or gathering competitive intelligence for his own coaching platform ventures."
+      },
+      "userProfile": {
+        "applicantId": "BAMBU-2026-XH906O",
+        "profileReady": true,
+        "publicProfile": {
+          "avatar": "https://ui-avatars.com/api/?name=Aleksei+Beliankin-Bauer&background=1a1a2e&color=f5a623&size=200",
+          "displayName": "Aleksei Beliankin-Bauer",
+          "tagline": "Aspiring Coach • San Francisco",
+          "location": "San Francisco, CA",
+          "experience": [
+            {
+              "role": "Fitness Coaching Journey",
+              "organization": "Self-Reported",
+              "period": "0-1 years",
+              "highlights": [
+                "Beginning coaching journey",
+                "Exploring fitness education opportunities"
+              ]
+            }
+          ],
+          "currentSkills": {
+            "coaching": {
+              "current": 5,
+              "potential": 8
+            },
+            "identity": {
+              "current": 5,
+              "potential": 8
+            },
+            "community": {
+              "current": 5,
+              "potential": 8
+            },
+            "programming": {
+              "current": 5,
+              "potential": 8
+            },
+            "sessionflow": {
+              "current": 3,
+              "potential": 7
+            },
+            "movement": {
+              "current": 5,
+              "potential": 8
+            },
+            "communication": {
+              "current": 5,
+              "potential": 8
+            },
+            "groupmgmt": {
+              "current": 7,
+              "potential": 9
+            },
+            "profstandards": {
+              "current": 5,
+              "potential": 8
+            },
+            "leadership": {
+              "current": 2,
+              "potential": 6
+            }
+          },
+          "coachMatch": {
+            "recommendedCoach": "Will",
+            "coachAvatar": "https://bambuacademy.com/coaches/will-henke.jpg",
+            "matchReason": "Your entrepreneurial background and interest in the coaching space suggests alignment with Will's business-focused mentorship approach.",
+            "synergy": [
+              "Business Strategy",
+              "Program Development",
+              "Leadership Growth"
+            ]
+          },
+          "goals": [
+            "Exploring fitness coaching education",
+            "Understanding what elite coaching development involves"
+          ],
+          "strengths": [
+            "Strong self-assessment in group management",
+            "Interest in professional development"
+          ],
+          "growthAreas": [
+            "Leadership development (self-rated 2/7)",
+            "Session flow mastery (self-rated 3/7)",
+            "Building foundational coaching experience"
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "id": "q1",
+            "question": "We'd love to learn more about your motivation for joining Bambu Academy. What specifically drew you to pursue elite coaching certification at this point in your journey?",
+            "type": "textarea",
+            "required": true,
+            "minLength": 100,
+            "placeholder": "Please share your genuine motivation and goals..."
+          },
+          {
+            "id": "q2",
+            "question": "Can you describe your current coaching experience in more detail? How many clients have you worked with, and in what capacity (1-on-1, group classes, online)?",
+            "type": "textarea",
+            "required": true,
+            "minLength": 100,
+            "placeholder": "Tell us about your coaching work so far..."
+          },
+          {
+            "id": "q3",
+            "question": "What fitness certifications or formal training do you currently hold, if any?",
+            "type": "textarea",
+            "required": true,
+            "placeholder": "List any certifications, courses, or formal training..."
+          },
+          {
+            "id": "q4",
+            "question": "You rated yourself 7/7 on group management but 2/7 on leadership. Can you help us understand this difference? What does group management look like for you without leadership?",
+            "type": "textarea",
+            "required": true,
+            "minLength": 75,
+            "placeholder": "Help us understand your self-assessment..."
+          },
+          {
+            "id": "q5",
+            "question": "Bambu Academy requires significant time commitment (10-15 hours/week). Given your current professional responsibilities, how do you plan to dedicate this time to the program?",
+            "type": "textarea",
+            "required": true,
+            "minLength": 75,
+            "placeholder": "Describe how you'll make time for this commitment..."
+          },
+          {
+            "id": "q6",
+            "question": "What's one specific challenge you've faced while coaching that you'd like the Bambu program to help you overcome?",
+            "type": "textarea",
+            "required": true,
+            "minLength": 75,
+            "placeholder": "Share a real coaching challenge you've experienced..."
+          }
+        ],
+        "nextStep": {
+          "stepNumber": 3,
+          "unlocked": true,
+          "title": "Help Us Learn More About You",
+          "description": "Thanks for your interest in Bambu Academy! Before we can move forward, we need a bit more information about your coaching background and goals. Please take a few minutes to answer these questions thoughtfully.",
+          "calendlyLink": null,
+          "ctaText": "Complete Your Profile",
+          "note": "Once you complete these questions, our team will review your application and be in touch within 48 hours."
+        },
+        "statusMessage": {
+          "headline": "We'd Like to Know More",
+          "body": "Thank you for your interest in Bambu Training Academy, Aleksei! We've received your application and created your initial profile. To move forward in our process, we need some additional information about your coaching experience and goals. Please complete the follow-up questions below so we can better understand how Bambu Academy might serve your journey.",
+          "tone": "warm_but_professional"
+        }
+      },
+      "systemRecommendation": {
+        "action": "HOLD_FOR_REVIEW",
+        "priority": "LOW",
+        "reasoning": "Application shows critical red flags but applicant is a verified high-profile individual. Decline should be handled professionally. Follow-up questions will either (1) reveal genuine coaching experience not found in research, (2) confirm lack of fitness background, or (3) result in no response, confirming non-serious application. Do not advance to Step 4 without substantial new information.",
+        "escalateTo": "admissions_team",
+        "autoDeclineAfter": "7_days_no_response"
+      }
+    }
+  }
+]

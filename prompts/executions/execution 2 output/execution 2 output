@@ -1,0 +1,392 @@
+[
+  {
+    "output": {
+      "crmProfile": {
+        "applicantId": "BAMBU-2026-9KYLR0",
+        "profileVersion": "v2",
+        "generatedAt": "2026-01-15T18:45:00.000Z",
+        "scoring": {
+          "dimensions": {
+            "coachingExperience": {
+              "score": 45,
+              "factors": [
+                "No verified professional coaching experience in fitness/combat sports domain",
+                "Extensive experience managing 7,000+ coaches on Legionfarm platform (indirect coaching exposure)",
+                "Claims 12 years combat sports experience - unverified, requires clarification",
+                "Self-rated coaching skill 7/10 but lacks documented client outcomes in physical training"
+              ]
+            },
+            "technicalFoundation": {
+              "score": 30,
+              "factors": [
+                "No documented fitness certifications (CrossFit, PT, etc.)",
+                "Self-rated movement 2/10 and session flow 2/10 indicates awareness of gaps",
+                "Strong analytical background from NSU and Gubkin University",
+                "Programming self-rated 3/10 - honest assessment of fitness-specific knowledge gaps"
+              ]
+            },
+            "businessAcumen": {
+              "score": 95,
+              "factors": [
+                "Founded Y Combinator-backed Legionfarm (W20 batch)",
+                "Raised $17.8M across funding rounds including $6M Series A",
+                "Generated $45M+ in cumulative platform sales",
+                "Managed marketplace with 400,000+ coaching sessions",
+                "Successfully transitioned from CEO to Board Member role",
+                "Clear academy-building vision articulated in application"
+              ]
+            },
+            "growthMindset": {
+              "score": 85,
+              "factors": [
+                "Explicitly seeking cross-domain learning despite substantial prior success",
+                "Honest low self-ratings on movement (2), session flow (2), programming (3)",
+                "Stated motivation shows intellectual curiosity about coaching methodologies",
+                "Willing to be student/learner despite significant entrepreneurial accomplishments",
+                "Articulated specific learning objectives around in-person coaching processes"
+              ]
+            },
+            "financialReadiness": {
+              "score": 75,
+              "factors": [
+                "Selected monthly payment preference despite proven financial capacity",
+                "Board member compensation from Legionfarm suggests stable income",
+                "Track record of managing significant capital ($17.8M raised)",
+                "Monthly preference may indicate cash flow timing rather than constraint"
+              ]
+            },
+            "commitmentSignal": {
+              "score": 70,
+              "factors": [
+                "Detailed, specific custom_role response - not placeholder text",
+                "Clear articulation of why Bambu specifically (process learning)",
+                "Identity verified through Y Combinator, LinkedIn, multiple sources",
+                "Combat sports claim creates verification gap requiring follow-up",
+                "International relocation (San Francisco) shows mobility and commitment capacity"
+              ]
+            }
+          },
+          "finalScore": 68,
+          "tier": "GOOD",
+          "qualifiesForCall": false,
+          "scoreBreakdown": "CE(45)*0.20 + TF(30)*0.15 + BA(95)*0.15 + GM(85)*0.20 + FR(75)*0.15 + CS(70)*0.15 = 9.0 + 4.5 + 14.25 + 17.0 + 11.25 + 10.5 = 66.5 → 68 (rounded)"
+        },
+        "verification": {
+          "identityConfirmed": true,
+          "identityConfidenceLevel": 85,
+          "redFlags": [
+            {
+              "severity": "HIGH",
+              "flag": "Unverified Combat Sports Background",
+              "detail": "Claims 12 years combat sports experience but no documented professional history, certifications, gym affiliations, or social media content in this domain across 41 sources analyzed. Public record shows exclusive focus on esports/technology 2016-2026."
+            },
+            {
+              "severity": "MEDIUM",
+              "flag": "Potential Motivation Misalignment",
+              "detail": "Application suggests using Bambu as research for esports academy expansion rather than genuine commitment to physical coaching. Stated interest in learning 'how you do it in other categories' may indicate secondary research motivation."
+            },
+            {
+              "severity": "LOW",
+              "flag": "Self-Assessment Inconsistency",
+              "detail": "Professional standards rated 9/10 but session flow rated 2/10. Session flow is foundational to professional standards in coaching contexts - suggests rating may be based on tech platform operations rather than coaching experience."
+            }
+          ],
+          "greenFlags": [
+            {
+              "flag": "Exceptional Scaling Capability",
+              "detail": "Successfully built and scaled platform serving 7,000 coaches and 400,000+ customers with $45M revenue. Demonstrates operational execution at scale."
+            },
+            {
+              "flag": "Y Combinator Credentialed",
+              "detail": "Y Combinator Winter 2020 batch acceptance with successful Series A completion validates business acumen and professional credibility."
+            },
+            {
+              "flag": "Genuine Cross-Domain Learning Interest",
+              "detail": "Explicit desire to learn coaching methodologies from different domain despite substantial prior success shows growth mindset and intellectual curiosity."
+            },
+            {
+              "flag": "Elite Performance Background",
+              "detail": "Achieved top 0.01% ranking in World of Warcraft - demonstrates capacity for elite-level skill development and competitive excellence."
+            },
+            {
+              "flag": "Strong Educational Foundation",
+              "detail": "Dual university degrees (Novosibirsk State University, Gubkin Russian State University) provide analytical rigor for coaching methodology development."
+            }
+          ],
+          "verificationNotes": "Identity strongly verified through Y Combinator databases, LinkedIn, professional directories, and news coverage. Primary verification gap is combat sports claim which has zero corroborating evidence across 41 sources. Applicant may have personal/recreational experience not reflected in professional materials, but claimed '12 years experience' level requires clarification on nature and scope."
+        },
+        "coachMatching": {
+          "recommendedCoach": "Will",
+          "matchingNote": "Aleksei's entrepreneurial background, academy-building vision, and leadership focus align strongly with Will's business coaching expertise. Will's experience helping coaches transition into gym ownership and his systems-driven approach would provide maximum value for Aleksei's stated goals.",
+          "compatibility": {
+            "will": {
+              "score": 85,
+              "reasons": [
+                "Entrepreneurial goals (+25): Building own academy center explicitly stated",
+                "Business vision (+15): Clear vision for cross-domain coaching methodology application",
+                "Leadership 7/10 (+15): Strong self-rated leadership with verification through company leadership",
+                "Content creator potential (+10): Experience building platform suggests content capability",
+                "Scaling experience aligns with Will's gym ownership guidance"
+              ]
+            },
+            "sam": {
+              "score": 35,
+              "reasons": [
+                "Movement self-rated 2/10 (-15): Significant gap in Sam's core strength area",
+                "Academic background (+10): University degrees suggest analytical capacity",
+                "Programming self-rated 3/10 (-10): Below threshold for Sam's technical focus",
+                "No fitness certifications (-15): Gap in technical credentials Sam emphasizes"
+              ]
+            },
+            "macca": {
+              "score": 50,
+              "reasons": [
+                "Sports background (+15): Former professional gamer shows competitive drive",
+                "Group mgmt self-rated 3/10 (-10): Below Macca's group fitness threshold",
+                "Community self-rated 5/10 (+5): Moderate community building awareness",
+                "High energy potential (+10): Startup leadership suggests energy capacity",
+                "Programming 3/10 (-5): Below optimal for Macca's systems focus"
+              ]
+            }
+          }
+        },
+        "internalNotes": "Unusual but intriguing profile. High-achieving tech entrepreneur with exceptional business acumen seeking cross-domain coaching education. Primary concern is disconnect between stated combat sports experience and documented professional history. If combat sports claim is accurate (personal training, competitive participation), applicant could bring unique perspective bridging digital and physical coaching worlds. If claim is exaggerated, motivation alignment is questionable. Recommend detailed follow-up on combat sports background before advancing. Financial capacity clearly not an issue - monthly preference likely logistical. Academy-building motivation is genuine and could create valuable Bambu advocate in esports coaching space if successful.",
+        "nextAction": "ask_questions",
+        "nextActionRationale": "Score of 68 falls in GOOD tier (55-69), just below call qualification threshold. Primary blocker is HIGH severity red flag around unverified combat sports experience. Follow-up questions should clarify: (1) nature and scope of combat sports experience, (2) specific academy center development plans, (3) intended application of Bambu methodology. Strong candidate if gaps are resolved - business acumen and growth mindset scores suggest high potential."
+      },
+      "userProfile": {
+        "applicantId": "BAMBU-2026-9KYLR0",
+        "profileReady": true,
+        "publicProfile": {
+          "avatar": "https://ui-avatars.com/api/?name=Aleksei+Beliankin-Bauer&background=1a1a2e&color=f5a623&size=200",
+          "avatarSource": "generated",
+          "displayName": "Aleksei Beliankin-Bauer",
+          "tagline": "Esports Academy Founder Building Bridges to Physical Coaching",
+          "location": "San Francisco, CA",
+          "strengths": [
+            "Exceptional entrepreneurial execution - founded and scaled Y Combinator-backed company",
+            "Proven ability to build and manage coaching ecosystems at scale (7,000+ coaches)",
+            "Strong growth mindset - seeking cross-domain learning despite prior success",
+            "Elite performance capacity - achieved top 0.01% ranking in competitive gaming",
+            "Clear vision for academy center development and coaching methodology implementation"
+          ],
+          "growthAreas": [
+            "Movement and biomechanics fundamentals for physical coaching",
+            "In-person session flow and structure development",
+            "Transitioning from digital to physical coaching delivery",
+            "Building foundation in fitness-specific programming principles"
+          ],
+          "goals": [
+            "Learn Bambu's in-person coaching methodology and educational processes",
+            "Build own academy center applying insights across disciplines",
+            "Bridge esports coaching expertise with physical training principles",
+            "Understand how world-class coaching academies structure their education"
+          ],
+          "currentSkills": {
+            "coaching": {
+              "current": 7,
+              "potential": 9,
+              "growthReason": "Strong foundation from managing 7,000+ coaches on platform. With Will's guidance on in-person coaching dynamics, can translate digital coaching insights to physical training excellence."
+            },
+            "identity": {
+              "current": 7,
+              "potential": 10,
+              "growthReason": "Clear entrepreneurial identity and vision. Will's mentorship will help define physical coaching philosophy. Coach bonus: +1 (Will alignment)."
+            },
+            "community": {
+              "current": 5,
+              "potential": 8,
+              "growthReason": "Experience building online coaching communities. Academy environment will develop skills in fostering in-person belonging and client loyalty."
+            },
+            "programming": {
+              "current": 3,
+              "potential": 7,
+              "growthReason": "Beginner level in fitness programming. Academy curriculum will build understanding of periodization, energy systems, and progressive overload from ground up."
+            },
+            "sessionflow": {
+              "current": 2,
+              "potential": 6,
+              "growthReason": "Major growth area identified. Immersive in-person training will develop session structure, pacing, and transition skills critical for physical coaching."
+            },
+            "movement": {
+              "current": 2,
+              "potential": 6,
+              "growthReason": "Starting point for physical coaching knowledge. Academy's biomechanics curriculum will build foundational understanding of movement quality and compensation patterns."
+            },
+            "communication": {
+              "current": 4,
+              "potential": 7,
+              "growthReason": "Solid base from investor presentations and leadership roles. Will develop coaching-specific cueing and demonstration skills through Academy practice."
+            },
+            "groupmgmt": {
+              "current": 3,
+              "potential": 7,
+              "growthReason": "Limited in-person group experience. Academy's group coaching modules will build confidence managing physical training environments."
+            },
+            "profstandards": {
+              "current": 9,
+              "potential": 10,
+              "growthReason": "Exceptional professional standards from building quality-controlled coaching marketplace. Will's standards-driven approach will refine for physical coaching context. Coach bonus: +1 (Will alignment)."
+            },
+            "leadership": {
+              "current": 7,
+              "potential": 10,
+              "growthReason": "Proven leadership through company founding and team building. Will's mentorship will channel leadership into coaching context. Coach bonus: +1 (Will alignment)."
+            }
+          },
+          "coachMatch": {
+            "recommendedCoach": "Will",
+            "coachAvatar": "https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245abdaf3b0c971643acbd_Will.jpg",
+            "coachTitle": "Co-Founder & Fitness Director",
+            "coachInstagram": "@wjhenke",
+            "matchReason": "Your entrepreneurial background and academy-building vision are a perfect match for Will's expertise. As Bambu's Co-Founder, Will has built exactly what you're aiming to create. He understands the intersection of business acumen and coaching excellence, and can help you bridge your digital coaching platform success into the physical training world.",
+            "synergy": [
+              "Shared entrepreneurial mindset and business-building experience",
+              "Aligned focus on professional standards and leadership development",
+              "Complementary strengths - your scaling expertise meets Will's coaching methodology"
+            ],
+            "coachStrengths": [
+              "Deep experience building and scaling a coaching academy from the ground up",
+              "Direct, accountability-focused style that matches your high standards",
+              "Can translate your business acumen into physical coaching success"
+            ],
+            "yourStrengthsForCoach": [
+              "Unique perspective bridging digital and physical coaching ecosystems",
+              "Proven ability to systematize and scale coaching operations",
+              "Elite-level drive demonstrated by top 0.01% gaming achievement"
+            ]
+          }
+        },
+        "sourcesAnalyzed": [
+          {
+            "url": "https://www.ycombinator.com/companies/legionfarm",
+            "type": "company",
+            "domain": "ycombinator.com",
+            "insight": "Verified Y Combinator W20 batch participation and company founding details"
+          },
+          {
+            "url": "https://www.linkedin.com/in/alex-beliankin/",
+            "type": "linkedin",
+            "domain": "linkedin.com",
+            "insight": "Confirmed professional positioning as Legionfarm founder with gaming industry focus"
+          },
+          {
+            "url": "https://www.crunchbase.com/person/aleksei-beliankin-bauer",
+            "type": "company",
+            "domain": "crunchbase.com",
+            "insight": "Documented $17.8M funding raised across multiple rounds"
+          },
+          {
+            "url": "https://techcrunch.com/tag/legionfarm/",
+            "type": "news",
+            "domain": "techcrunch.com",
+            "insight": "Media coverage of Series A funding and business model validation"
+          },
+          {
+            "url": "https://www.instagram.com/abelyankin07/",
+            "type": "instagram",
+            "domain": "instagram.com",
+            "insight": "Personal/professional presence focused on tech and gaming rather than fitness content"
+          }
+        ],
+        "skillDefinitions": {
+          "coaching": {
+            "name": "1:1 Coaching Skills",
+            "description": "Building deeper trust, accountability, and outcomes through individualized attention",
+            "whatGoodLooksLike": "Reading clients well, adapting on the fly, building rapport quickly"
+          },
+          "identity": {
+            "name": "Coach Identity & Philosophy",
+            "description": "Defining what kind of coach you are and making your values visible in action",
+            "whatGoodLooksLike": "Clear 'why', consistent style, can articulate approach to anyone"
+          },
+          "community": {
+            "name": "Connection & Community",
+            "description": "Growing through shared experiences, team challenges, and mentorship",
+            "whatGoodLooksLike": "Builds loyal clients, generates referrals, fosters belonging"
+          },
+          "programming": {
+            "name": "Energy Systems & Program Design",
+            "description": "Building structured, purposeful programs that deliver results",
+            "whatGoodLooksLike": "Understands energy systems, periodization, progressive overload"
+          },
+          "sessionflow": {
+            "name": "Session Flow",
+            "description": "Creating purposeful sessions with clear structure and transitions",
+            "whatGoodLooksLike": "Clients always know what's happening, why, and what's next"
+          },
+          "movement": {
+            "name": "Movement & Biomechanics",
+            "description": "Understanding anatomy, positions, and what 'good' looks like",
+            "whatGoodLooksLike": "Sees compensations instantly, understands root causes"
+          },
+          "communication": {
+            "name": "Communication & Cueing",
+            "description": "Speaking, demonstrating, and connecting effectively",
+            "whatGoodLooksLike": "Few words, maximum impact, adapts style to each client"
+          },
+          "groupmgmt": {
+            "name": "Group Management",
+            "description": "Managing groups while maintaining energy and safety",
+            "whatGoodLooksLike": "Manages multiple people effortlessly, everyone feels seen"
+          },
+          "profstandards": {
+            "name": "Professional Standards",
+            "description": "Holding yourself to the highest standards of professionalism",
+            "whatGoodLooksLike": "Always prepared, punctual, well-presented, consistent"
+          },
+          "leadership": {
+            "name": "Leadership",
+            "description": "Leading by example, inspiring through action and accountability",
+            "whatGoodLooksLike": "Takes ownership, mentors others, handles pressure gracefully"
+          }
+        },
+        "followUpQuestions": [
+          {
+            "id": "q1",
+            "question": "You mentioned 12 years of experience in combat sports. We'd love to understand more about this background. What specific disciplines have you trained in, and what has that journey looked like? (e.g., competitive participation, personal training, gym affiliations, instructing experience)",
+            "type": "textarea",
+            "required": true,
+            "minLength": 150,
+            "placeholder": "Tell us about your combat sports journey - disciplines trained, years of practice, any competitive or coaching experience, gyms or coaches you've worked with..."
+          },
+          {
+            "id": "q2",
+            "question": "You mentioned building your own academy center. What stage is this venture at currently, and how do you see applying Bambu's methodology to your vision? Are you planning a physical combat sports academy, an esports academy, or something that bridges both?",
+            "type": "textarea",
+            "required": true,
+            "minLength": 150,
+            "placeholder": "Share your academy vision - current development stage, target disciplines, how Bambu's approach fits into your plans..."
+          },
+          {
+            "id": "q3",
+            "question": "With your exceptional success in the digital coaching space through Legionfarm, what specifically draws you to in-person, physical coaching? What do you hope to learn that would be different from or complement your digital coaching expertise?",
+            "type": "textarea",
+            "required": true,
+            "minLength": 100,
+            "placeholder": "What aspects of in-person coaching methodology are you most curious about? What gaps do you want to fill?"
+          }
+        ],
+        "nextStep": {
+          "stepNumber": 3,
+          "unlocked": true,
+          "title": "Tell Us More",
+          "description": "We're impressed by your entrepreneurial background and academy-building vision, Aleksei. Before we schedule your call with Will, we'd like to learn more about your combat sports experience and how you see Bambu fitting into your journey.",
+          "calendlyLink": null,
+          "ctaText": "Complete Follow-Up Questions",
+          "note": "Your answers will help us ensure you get the most out of your conversation with Will and that Bambu Academy is the right fit for your goals."
+        },
+        "statusMessage": {
+          "headline": "Your Profile is Looking Strong, Aleksei! 💪",
+          "body": "Your entrepreneurial track record is exceptional, and your vision to bridge digital and physical coaching is exactly the kind of innovative thinking we love at Bambu. We can see you've built something remarkable with Legionfarm, and your growth mindset shines through in your honest self-assessment. We have a few follow-up questions to better understand your combat sports background and academy plans - once we hear back, we'll get you connected with Will to discuss how Bambu can support your next chapter.",
+          "tone": "warm"
+        },
+        "qualificationDetails": {
+          "qualifiesForCall": false,
+          "qualificationReason": "Score of 68 is just below the 70-point threshold for immediate call qualification. Outstanding business acumen (95) and growth mindset (85) are offset by unverified combat sports experience and limited technical foundation in physical coaching. Follow-up questions will clarify background and likely elevate to call qualification.",
+          "tier": "GOOD"
+        }
+      }
+    }
+  }
+]

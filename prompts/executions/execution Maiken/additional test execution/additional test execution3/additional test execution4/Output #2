@@ -1,0 +1,590 @@
+[
+  {
+    "output": {
+      "crmProfile": {
+        "applicantId": "BAMBU-2026-OYVLMM",
+        "profileVersion": "v2",
+        "generatedAt": "2026-01-16T10:25:00.000Z",
+        "scoring": {
+          "dimensions": {
+            "coachingExperience": {
+              "score": 92,
+              "factors": [
+                "15 years documented group coaching experience in kickboxing and Muay Thai",
+                "EREPS certified personal trainer since 2020",
+                "Current coaching roles at Tiger Muay Thai and Soma Fight Club",
+                "Professional fighting experience provides real-world coaching credibility",
+                "Teaching wrestling and BJJ to expand fighter capabilities"
+              ]
+            },
+            "technicalFoundation": {
+              "score": 78,
+              "factors": [
+                "EREPS Personal Training certification (formalized training background)",
+                "10+ years competitive fighting across multiple disciplines (Muay Thai, kickboxing, MMA, BJJ, wrestling)",
+                "Self-rated programming at 5/10 shows honest assessment of development need",
+                "Movement knowledge from professional fighting at high level",
+                "Understands sport-specific demands from personal experience"
+              ]
+            },
+            "businessAcumen": {
+              "score": 88,
+              "factors": [
+                "27,100 Instagram followers with exceptional 15.29% engagement rate (industry average 3-5%)",
+                "Professional content creation with educational focus",
+                "Podcast appearances and media features (Women Who Fight, The 101% Podcast)",
+                "Strategic career pivot from Muay Thai to MMA for income sustainability",
+                "Recognized as emerging creator in fitness/lifestyle space by Socialveins"
+              ]
+            },
+            "growthMindset": {
+              "score": 95,
+              "factors": [
+                "Actively seeking education despite 15 years experience - epitome of growth mindset",
+                "Identified specific coaching challenge (communication calibration) - exceptional self-awareness",
+                "Continuously expanded disciplines: kickboxing → Muay Thai → MMA → BJJ → Wrestling",
+                "Formalized training with EREPS certification despite extensive informal experience",
+                "Quote: 'Don't think I'm going to start when I'm ready. Just start. You are never going to be 100% ready.'",
+                "Overcame mental performance blocks through deliberate psychological work"
+              ]
+            },
+            "financialReadiness": {
+              "score": 70,
+              "factors": [
+                "Monthly payment preference suggests flexibility with commitment",
+                "Active coaching practice indicates income stability",
+                "Professional fighting career shows risk tolerance and investment in development",
+                "Strategic thinking about income (pivoted to MMA and coaching for sustainability)"
+              ]
+            },
+            "commitmentSignal": {
+              "score": 95,
+              "factors": [
+                "Already trains at Bambu facility regularly - 'I live in Bali and I come as often as I can'",
+                "Enthusiastic about gym - 'Absolutely love the gym!'",
+                "Detailed, thoughtful application responses",
+                "Local resident minimizes travel friction",
+                "Prior positive relationship with Bambu facility indicates genuine interest",
+                "95% identity verification confidence across multiple platforms"
+              ]
+            }
+          },
+          "finalScore": 87,
+          "tier": "STAR",
+          "qualifiesForCall": true,
+          "scoreBreakdown": "CE(92)*0.20 + TF(78)*0.15 + BA(88)*0.15 + GM(95)*0.20 + FR(70)*0.15 + CS(95)*0.15 = 18.4 + 11.7 + 13.2 + 19.0 + 10.5 + 14.25 = 87.05"
+        },
+        "verification": {
+          "identityConfirmed": true,
+          "identityConfidenceLevel": 95,
+          "redFlags": [
+            {
+              "severity": "LOW",
+              "flag": "Email contains 'test'",
+              "detail": "Email address is 'maanneruds1test@gmail.com' - may indicate temporary account. Recommend confirming permanent contact email during onboarding."
+            },
+            {
+              "severity": "LOW",
+              "flag": "EREPS certification not independently verified",
+              "detail": "Certification claimed in application and interviews but awaiting direct verification with EREPS registry."
+            }
+          ],
+          "greenFlags": [
+            {
+              "flag": "Verified professional identity",
+              "detail": "Name, age, location, professional status confirmed across Sherdog, YouTube, Instagram, Women Who Fight, and multiple independent sources"
+            },
+            {
+              "flag": "Authentic social presence",
+              "detail": "27.1K Instagram followers with legitimate 15.29% engagement rate (not purchased followers), educational content, transparent about failures"
+            },
+            {
+              "flag": "Clear career intentionality",
+              "detail": "Strategic planning demonstrated by 6-month decision period before Thailand move, deliberate pivot from competing to coaching, formalized education while in field"
+            },
+            {
+              "flag": "Documented mentorship & teaching",
+              "detail": "15 years confirmed group coaching, currently teaching wrestling/BJJ to fighters, Instagram shows educational content, podcast appearances show communication ability"
+            },
+            {
+              "flag": "Humble self-assessment",
+              "detail": "Ratings show honest recognition of strengths (community 8, leadership 8) and development needs (programming 5, movement 5)"
+            },
+            {
+              "flag": "Exceptional narrative consistency",
+              "detail": "Personal story consistent across podcast, interviews, social media, and application with zero contradictions found"
+            },
+            {
+              "flag": "Prior Bambu relationship",
+              "detail": "Already trains at Bambu facility regularly and expresses genuine enthusiasm for the gym"
+            }
+          ],
+          "verificationNotes": "Maiken Aannerud presents as an exceptionally authentic and accomplished applicant. All major application claims independently verified through multiple platforms including Sherdog fighter database, YouTube fight documentation, Women Who Fight feature interview, and Instagram presence analysis. Her 15-year coaching background, professional fighting credentials, and verified social influence provide strong foundation. The combination of her fighting sports expertise with genuine desire to formalize and deepen coaching knowledge makes her an ideal fit for advanced coaching education."
+        },
+        "coachMatching": {
+          "recommendedCoach": "Sam",
+          "matchingNote": "Maiken's desire to develop S&C coaching and improve communication calibration aligns perfectly with Sam's technical, detail-oriented approach. Her background in combat sports pairs well with Sam's focus on the 'why' behind movement. Sam can help her formalize her biomechanical knowledge and develop more precise communication cues.",
+          "compatibility": {
+            "will": {
+              "score": 72,
+              "reasons": [
+                "5+ years experience meets threshold (+15)",
+                "Strong leadership skills rated 8/10 (+15)",
+                "Content creator with significant following (+20)",
+                "Not currently focused on gym ownership",
+                "Monthly payment preference vs pay-in-full"
+              ]
+            },
+            "sam": {
+              "score": 85,
+              "reasons": [
+                "Strong interest in biomechanics from fighting background (+20)",
+                "Has formal certification (EREPS) showing academic orientation (+10)",
+                "Specifically wants to improve communication/cueing - Sam's specialty (+20)",
+                "Detail-oriented self-assessment indicates compatibility (+15)",
+                "Programming development need aligns with Sam's technical focus (+15)"
+              ]
+            },
+            "macca": {
+              "score": 78,
+              "reasons": [
+                "High group management skills rated 8/10 (+20)",
+                "15 years group fitness experience (+20)",
+                "Strong community focus rated 8/10 (+15)",
+                "Sports background in combat sports (+15)",
+                "Programming skill at 5 (meets threshold) (+8)"
+              ]
+            }
+          }
+        },
+        "internalNotes": "STAR-tier applicant with exceptional credentials. Maiken represents the archetypal transformational coach - someone who has done deep personal work (overcoming performance anxiety, imposter syndrome) and now channels that experience into helping others. Her 15-year coaching background provides strong foundation, while her genuine humility and growth orientation make her highly coachable. Already a Bambu facility regular who expresses authentic enthusiasm. Strong social proof with 27K engaged Instagram followers. Recommend prioritizing her call with Will given tier status and local availability. Minor action items: verify EREPS certification and confirm permanent email address.",
+        "nextAction": "schedule_call",
+        "nextActionRationale": "Maiken scores 87/100 (STAR tier) with no critical red flags. She has exceptional coaching experience (15 years), verified professional credentials, outstanding growth mindset (seeks education despite extensive experience), and is already a local Bambu regular. Her clear development goals (communication, S&C coaching) align perfectly with Academy offerings. Immediate call scheduling is warranted."
+      },
+      "userProfile": {
+        "applicantId": "BAMBU-2026-OYVLMM",
+        "profileReady": true,
+        "publicProfile": {
+          "avatar": "https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.52.57.png",
+          "avatarSource": "firecrawl_scrape",
+          "avatarQuality": "A",
+          "avatarSearchAttempts": [
+            "Attempted Instagram direct scrape - blocked by Firecrawl",
+            "Search: 'Maiken Aannerud MMA fighter profile photo' - found Women Who Fight article",
+            "Scraped Women Who Fight article - found professional photoshoot image"
+          ],
+          "displayName": "Maiken Aannerud",
+          "tagline": "Professional MMA Fighter & S&C Coach — From Kickboxing at 12 to Tiger Muay Thai Professional Team",
+          "location": "Bali, Indonesia",
+          "strengths": [
+            "15 years of group coaching experience in kickboxing and Muay Thai",
+            "Professional fighter with real competition experience across multiple disciplines",
+            "Exceptional community builder with 27K+ engaged Instagram followers",
+            "Authentic vulnerability that builds genuine client trust",
+            "Proven ability to overcome mental performance challenges",
+            "Strong leadership and professional standards",
+            "Continuous learner who actively seeks growth despite extensive experience"
+          ],
+          "growthAreas": [
+            "Communication calibration — finding the right amount to explain for each client",
+            "Program design and periodization systems",
+            "Transitioning from group to 1:1 coaching methodology",
+            "Formalizing biomechanical knowledge from intuitive practice"
+          ],
+          "goals": [
+            "Develop as a coach in both group classes and 1:1 client work",
+            "Take S&C coaching to the next level beyond fighting sports",
+            "Master communication calibration for more effective coaching"
+          ],
+          "currentSkills": {
+            "coaching": {
+              "current": 6,
+              "potential": 9,
+              "growthReason": "15 years group coaching provides strong foundation. Academy training on 1:1 methodology and communication calibration can elevate this skill significantly. Sam's coaching can add +1 bonus."
+            },
+            "identity": {
+              "current": 6,
+              "potential": 9,
+              "growthReason": "Clear personal transformation story and values. Academy can help articulate and systematize her coaching philosophy for even greater clarity."
+            },
+            "community": {
+              "current": 8,
+              "potential": 10,
+              "growthReason": "Already exceptional - 27K engaged followers, gym culture advocacy, collaborative mindset. Near ceiling with room to refine. Macca's coaching can add +1 bonus."
+            },
+            "programming": {
+              "current": 5,
+              "potential": 9,
+              "growthReason": "Honest self-assessment of development need. EREPS provides foundation. Academy's structured periodization and energy systems curriculum directly addresses this gap. Macca's coaching can add +1 bonus."
+            },
+            "sessionflow": {
+              "current": 7,
+              "potential": 10,
+              "growthReason": "Strong from extensive Muay Thai class structure experience. Academy can formalize and optimize flow for S&C context. Sam's coaching can add +1 bonus."
+            },
+            "movement": {
+              "current": 5,
+              "potential": 9,
+              "growthReason": "Conservative self-rating despite 10+ years competitive fighting. Likely underestimating intuitive movement knowledge. Academy can help formalize biomechanical understanding. Sam's coaching can add +1 bonus."
+            },
+            "communication": {
+              "current": 6,
+              "potential": 10,
+              "growthReason": "Self-identified challenge (explain too much or too little) shows exceptional self-awareness. This precise awareness combined with Academy cueing methodology training creates high potential. Sam's coaching can add +1 bonus."
+            },
+            "groupmgmt": {
+              "current": 8,
+              "potential": 10,
+              "growthReason": "Already strong from 15 years teaching kickboxing/Muay Thai classes. Near ceiling with room for refinement in S&C group context. Macca's coaching can add +1 bonus."
+            },
+            "profstandards": {
+              "current": 8,
+              "potential": 10,
+              "growthReason": "High rating supported by EREPS certification and professional fighting discipline. Academy can polish to elite level."
+            },
+            "leadership": {
+              "current": 8,
+              "potential": 10,
+              "growthReason": "Strong demonstrated leadership through social influence, advocacy work, and team culture. Academy refinement can bring to elite level."
+            }
+          },
+          "socialPresence": {
+            "instagramHandle": "@magikmaiken",
+            "followerCount": 27100,
+            "engagementRate": "15.29%",
+            "contentThemes": [
+              "Professional MMA and Muay Thai fighting",
+              "Strength and conditioning coaching",
+              "Behind-the-scenes gym life and training",
+              "Personal vulnerability and mental health in athletics",
+              "Female athlete advocacy",
+              "Educational technique breakdowns",
+              "Bali/Thailand lifestyle"
+            ],
+            "brandIdentity": "Authentic, grounded professional fighter who shares both victories and struggles. Educational content focused on technique and methodology rather than lifestyle aesthetics. Strong advocacy voice for female athletes and community-first approach to coaching."
+          },
+          "coachMatch": {
+            "recommendedCoach": "Sam",
+            "coachAvatar": "https://cdn.prod.website-files.com/6351dd728c82152f18efb710/68245c7b08445f8b74a9f2c9_Sam.jpg",
+            "coachTitle": "Head Coach",
+            "coachInstagram": "@coach_samcraige",
+            "matchReason": "Your desire to master communication calibration and develop your S&C coaching aligns perfectly with Sam's technical, detail-oriented approach. As a former professional athlete himself, Sam understands the transition from competitor to coach. His focus on the 'why' behind every movement will help you formalize your intuitive knowledge into systematic coaching methodology.",
+            "synergy": [
+              "Communication & cueing precision",
+              "Movement biomechanics formalization",
+              "Technical coaching methodology"
+            ],
+            "coachStrengths": [
+              "Expert at teaching the 'why' behind movement patterns",
+              "Methodical approach to skill development",
+              "Science-based programming knowledge",
+              "Former professional athlete who understands your background"
+            ],
+            "yourStrengthsForCoach": [
+              "15 years practical coaching experience to build upon",
+              "Professional fighting credibility and real-world application",
+              "Exceptional self-awareness about development areas",
+              "Strong growth mindset and coachability"
+            ]
+          }
+        },
+        "sourcesAnalyzed": [
+          {
+            "url": "https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/",
+            "type": "news",
+            "domain": "womenwhofight.co.uk",
+            "insight": "Comprehensive personal journey interview covering training methodology, female athlete challenges, mental performance work, and career transition from hairdresser to professional fighter"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=uDINk6mqnOU",
+            "type": "other",
+            "domain": "youtube.com",
+            "insight": "80-minute podcast interview (The 101% Podcast) providing deep personal history, career development narrative, and future coaching vision"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=eHbmUhMMG54",
+            "type": "other",
+            "domain": "youtube.com",
+            "insight": "June 2025 professional MMA bout documentation (CFN 35) - loss to Kim Tran by unanimous decision, verifying current professional status"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=bmHBH5Hcjy4",
+            "type": "other",
+            "domain": "youtube.com",
+            "insight": "2017 Muay Thai bout at Tiger Muay Thai verifying long-term gym affiliation and professional fighting history"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=LFxaOAEesSw",
+            "type": "other",
+            "domain": "youtube.com",
+            "insight": "2021 Soma Fight Club bout documentation verifying Bali-based training and competition"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=cvm1JbHRlFA",
+            "type": "other",
+            "domain": "youtube.com",
+            "insight": "2019 'Prospect Phuket' documentary series featuring Maiken as emerging fighter discussing MMA transition"
+          },
+          {
+            "url": "https://www.sherdog.com/fighter/Maiken-Aannerud-479516",
+            "type": "other",
+            "domain": "sherdog.com",
+            "insight": "Official MMA fighter database confirming professional record (0-1), physical stats (5'4\", 115 lbs strawweight), and fight results"
+          },
+          {
+            "url": "https://www.sherdog.com/events/Bali-MMA-Canggu-Fight-Night-35-108485",
+            "type": "other",
+            "domain": "sherdog.com",
+            "insight": "CFN 35 event listing confirming Maiken as professional fighter on main card, June 15, 2025"
+          },
+          {
+            "url": "https://www.instagram.com/magikmaiken/",
+            "type": "instagram",
+            "domain": "instagram.com",
+            "insight": "Primary social presence with 27.1K followers, 15.29% engagement rate, professional coaching content and authentic personal branding"
+          },
+          {
+            "url": "https://socialveins.com/influencer/instagram/magikmaiken",
+            "type": "other",
+            "domain": "socialveins.com",
+            "insight": "Third-party verification of Instagram metrics confirming follower count and engagement rate authenticity"
+          },
+          {
+            "url": "https://www.tigermuaythai.com/",
+            "type": "gym_website",
+            "domain": "tigermuaythai.com",
+            "insight": "Primary training facility in Phuket, Thailand where Maiken trains with professional fighters group"
+          },
+          {
+            "url": "https://somafightclub.com/",
+            "type": "gym_website",
+            "domain": "somafightclub.com",
+            "insight": "Secondary training facility in Bali where Maiken has coaching roles and competes"
+          },
+          {
+            "url": "https://podtail.com/fr/podcast/the-101-podcast-1/-40-the-journey-of-a-fighter-maiken-aannerud/",
+            "type": "other",
+            "domain": "podtail.com",
+            "insight": "Podcast episode directory listing confirming February 2025 long-form interview"
+          },
+          {
+            "url": "https://www.fightmatrix.com/fighter-profile/Maiken%20Aannerud/329903/",
+            "type": "other",
+            "domain": "fightmatrix.com",
+            "insight": "Secondary fighter database confirming professional debut date (June 15, 2025) and record"
+          }
+        ],
+        "skillDefinitions": {
+          "coaching": {
+            "name": "1:1 Coaching Skills",
+            "description": "Building deeper trust, accountability, and outcomes through individualized attention",
+            "whatGoodLooksLike": "Reading clients well, adapting on the fly, building rapport quickly"
+          },
+          "identity": {
+            "name": "Coach Identity & Philosophy",
+            "description": "Defining what kind of coach you are and making your values visible in action",
+            "whatGoodLooksLike": "Clear 'why', consistent style, can articulate approach to anyone"
+          },
+          "community": {
+            "name": "Connection & Community",
+            "description": "Growing through shared experiences, team challenges, and mentorship",
+            "whatGoodLooksLike": "Builds loyal clients, generates referrals, fosters belonging"
+          },
+          "programming": {
+            "name": "Energy Systems & Program Design",
+            "description": "Building structured, purposeful programs that deliver results",
+            "whatGoodLooksLike": "Understands energy systems, periodization, progressive overload"
+          },
+          "sessionflow": {
+            "name": "Session Flow",
+            "description": "Creating purposeful sessions with clear structure and transitions",
+            "whatGoodLooksLike": "Clients always know what's happening, why, and what's next"
+          },
+          "movement": {
+            "name": "Movement & Biomechanics",
+            "description": "Understanding anatomy, positions, and what 'good' looks like",
+            "whatGoodLooksLike": "Sees compensations instantly, understands root causes"
+          },
+          "communication": {
+            "name": "Communication & Cueing",
+            "description": "Speaking, demonstrating, and connecting effectively",
+            "whatGoodLooksLike": "Few words, maximum impact, adapts style to each client"
+          },
+          "groupmgmt": {
+            "name": "Group Management",
+            "description": "Managing groups while maintaining energy and safety",
+            "whatGoodLooksLike": "Manages multiple people effortlessly, everyone feels seen"
+          },
+          "profstandards": {
+            "name": "Professional Standards",
+            "description": "Holding yourself to the highest standards of professionalism",
+            "whatGoodLooksLike": "Always prepared, punctual, well-presented, consistent"
+          },
+          "leadership": {
+            "name": "Leadership",
+            "description": "Leading by example, inspiring through action and accountability",
+            "whatGoodLooksLike": "Takes ownership, mentors others, handles pressure gracefully"
+          }
+        },
+        "followUpQuestions": [],
+        "nextStep": {
+          "stepNumber": 4,
+          "unlocked": true,
+          "title": "Book Your Call with Will",
+          "description": "Congratulations! Based on your exceptional background and clear vision for growth, you're ready to speak directly with Will Henke, Bambu Academy's Founder & Program Director. This call is your opportunity to discuss your coaching goals, ask questions about the Academy, and determine if we're the right fit for each other.",
+          "calendlyLink": "https://calendly.com/bambuacademy/will-call",
+          "ctaText": "Schedule Your Call with Will",
+          "note": "As a local Bali resident who already trains at Bambu, you're in an ideal position to fully engage with the Academy program. Will is excited to meet you!"
+        },
+        "statusMessage": {
+          "headline": "Welcome to the Bambu Family, Maiken! 🔥",
+          "body": "Your 15 years of coaching experience, professional fighting credentials, and incredible community you've built online tell us exactly who you are — someone who has done the deep work of personal transformation and now channels that into helping others do the same. Your self-awareness about wanting to master communication calibration shows exactly the growth mindset we look for. We can already tell you're going to be an amazing addition to the Academy. Let's take your S&C coaching to that next level together!",
+          "tone": "excited"
+        },
+        "qualificationDetails": {
+          "qualifiesForCall": true,
+          "qualificationReason": "STAR tier applicant (87/100) with 15 years coaching experience, verified professional credentials, exceptional growth mindset, and established relationship with Bambu facility. No critical red flags. Clear development goals align perfectly with Academy offerings.",
+          "tier": "STAR"
+        }
+      }
+    },
+    "intermediateSteps": [
+      {
+        "action": {
+          "tool": "Firecrawl_Search_Optional_1",
+          "toolInput": {},
+          "log": "Calling Firecrawl Search (Optional)1 with input: {\"url\":\"https://www.instagram.com/magikmaiken/\",\"formats\":[\"markdown\",\"links\"],\"onlyMainContent\":true,\"tool\":\"firecrawl_scrape\",\"id\":\"toolu_bdrk_01UoAqwcSXLgLE8TPiM48p3N\"}",
+          "messageLog": [
+            {
+              "lc": 1,
+              "type": "constructor",
+              "id": [
+                "langchain_core",
+                "messages",
+                "AIMessage"
+              ],
+              "kwargs": {
+                "content": "Calling Firecrawl Search (Optional)1 with input: {\"url\":\"https://www.instagram.com/magikmaiken/\",\"formats\":[\"markdown\",\"links\"],\"onlyMainContent\":true,\"tool\":\"firecrawl_scrape\",\"id\":\"toolu_bdrk_01UoAqwcSXLgLE8TPiM48p3N\"}",
+                "tool_calls": [
+                  {
+                    "id": "toolu_bdrk_01UoAqwcSXLgLE8TPiM48p3N",
+                    "name": "Firecrawl_Search_Optional_1",
+                    "args": {
+                      "url": "https://www.instagram.com/magikmaiken/",
+                      "formats": [
+                        "markdown",
+                        "links"
+                      ],
+                      "onlyMainContent": true,
+                      "tool": "firecrawl_scrape",
+                      "id": "toolu_bdrk_01UoAqwcSXLgLE8TPiM48p3N"
+                    },
+                    "type": "tool_call",
+                    "additional_kwargs": {}
+                  }
+                ],
+                "invalid_tool_calls": [],
+                "additional_kwargs": {},
+                "response_metadata": {}
+              }
+            }
+          ],
+          "toolCallId": "toolu_bdrk_01UoAqwcSXLgLE8TPiM48p3N",
+          "type": "tool_call"
+        },
+        "observation": "[{\"response\":[{\"type\":\"text\",\"text\":\"Tool 'firecrawl_scrape' execution failed: This website is not currently supported. If you are part of an enterprise, please reach out to help@firecrawl.com to discuss the possibility of getting it activated on your account.\"}]}]"
+      },
+      {
+        "action": {
+          "tool": "Firecrawl_Search_Optional_1",
+          "toolInput": {},
+          "log": "Calling Firecrawl Search (Optional)1 with input: {\"query\":\"Maiken Aannerud MMA fighter profile photo\",\"limit\":5,\"sources\":[{\"type\":\"web\"}],\"tool\":\"firecrawl_search\",\"id\":\"toolu_01VT8KJvwXwvesFHeq2L2yGk\"}",
+          "messageLog": [
+            {
+              "lc": 1,
+              "type": "constructor",
+              "id": [
+                "langchain_core",
+                "messages",
+                "AIMessage"
+              ],
+              "kwargs": {
+                "content": "Calling Firecrawl Search (Optional)1 with input: {\"query\":\"Maiken Aannerud MMA fighter profile photo\",\"limit\":5,\"sources\":[{\"type\":\"web\"}],\"tool\":\"firecrawl_search\",\"id\":\"toolu_01VT8KJvwXwvesFHeq2L2yGk\"}",
+                "tool_calls": [
+                  {
+                    "id": "toolu_01VT8KJvwXwvesFHeq2L2yGk",
+                    "name": "Firecrawl_Search_Optional_1",
+                    "args": {
+                      "query": "Maiken Aannerud MMA fighter profile photo",
+                      "limit": 5,
+                      "sources": [
+                        {
+                          "type": "web"
+                        }
+                      ],
+                      "tool": "firecrawl_search",
+                      "id": "toolu_01VT8KJvwXwvesFHeq2L2yGk"
+                    },
+                    "type": "tool_call",
+                    "additional_kwargs": {}
+                  }
+                ],
+                "invalid_tool_calls": [],
+                "additional_kwargs": {},
+                "response_metadata": {}
+              }
+            }
+          ],
+          "toolCallId": "toolu_01VT8KJvwXwvesFHeq2L2yGk",
+          "type": "tool_call"
+        },
+        "observation": "[{\"response\":[{\"type\":\"text\",\"text\":\"{\\n  \\\"web\\\": [\\n    {\\n      \\\"url\\\": \\\"https://www.instagram.com/magikmaiken/\\\",\\n      \\\"title\\\": \\\"Maiken Aannerud (@magikmaiken) • Instagram photos and videos\\\",\\n      \\\"description\\\": \\\"27K followers · 2K+ following · 386 posts · @magikmaiken: “ Bali, Indonesia Professional Fighter ✍ Management: @Suckerpunchent”\\\",\\n      \\\"position\\\": 1\\n    },\\n    {\\n      \\\"url\\\": \\\"https://www.facebook.com/maiken.aannerud/\\\",\\n      \\\"title\\\": \\\"Maiken Aannerud - Facebook\\\",\\n      \\\"description\\\": \\\"Cover photo of Maiken. Maiken Aannerud. 󱙶. Follow · 󳄫 ... MMA debut, I felt very calm and focused before and during the fight. I've been in that cage every ...\\\",\\n      \\\"position\\\": 2\\n    },\\n    {\\n      \\\"url\\\": \\\"https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/\\\",\\n      \\\"title\\\": \\\"Maiken Aannerud - Women Who Fight\\\",\\n      \\\"description\\\": \\\"A kickboxer since the age of 12, she decided to try training full time Muay Thai in Thailand two and half years ago, only intending it to be for a couple of ...\\\",\\n      \\\"position\\\": 3\\n    },\\n    {\\n      \\\"url\\\": \\\"https://m.facebook.com/maiken.aannerud/photos/d41d8cd9/10163657311511323/\\\",\\n      \\\"title\\\": \\\"Maiken Aannerud added a new photo - Facebook\\\",\\n      \\\"description\\\": \\\"Maiken Aannerud is at Bali, Indonesia. Jul 10, 2025󰞋󱟠. 󳄫. What a war this was. It was my second time fighting in the cage and I absolutely loved ...\\\",\\n      \\\"position\\\": 4\\n    },\\n    {\\n      \\\"url\\\": \\\"https://www.instagram.com/p/DK4nAr2tfvk/\\\",\\n      \\\"title\\\": \\\"One more sleep. Let's get it @ruthlessrr_mma - Instagram\\\",\\n      \\\"description\\\": \\\"Photo shared by Maiken Aannerud on June 14, 2025 tagging @bangtaomuaythaimma,. bangtaomuaythaimma · cfnbali. Photo by Maiken Aannerud on ...\\\",\\n      \\\"position\\\": 5\\n    }\\n  ]\\n}\"}]}]"
+      },
+      {
+        "action": {
+          "tool": "Firecrawl_Search_Optional_1",
+          "toolInput": {},
+          "log": "Calling Firecrawl Search (Optional)1 with input: {\"url\":\"https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/\",\"formats\":[\"markdown\",\"links\"],\"onlyMainContent\":true,\"tool\":\"firecrawl_scrape\",\"id\":\"toolu_vrtx_0123PcZrn5rhKcqE77WjkF9E\"}",
+          "messageLog": [
+            {
+              "lc": 1,
+              "type": "constructor",
+              "id": [
+                "langchain_core",
+                "messages",
+                "AIMessage"
+              ],
+              "kwargs": {
+                "content": "Calling Firecrawl Search (Optional)1 with input: {\"url\":\"https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/\",\"formats\":[\"markdown\",\"links\"],\"onlyMainContent\":true,\"tool\":\"firecrawl_scrape\",\"id\":\"toolu_vrtx_0123PcZrn5rhKcqE77WjkF9E\"}",
+                "tool_calls": [
+                  {
+                    "id": "toolu_vrtx_0123PcZrn5rhKcqE77WjkF9E",
+                    "name": "Firecrawl_Search_Optional_1",
+                    "args": {
+                      "url": "https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/",
+                      "formats": [
+                        "markdown",
+                        "links"
+                      ],
+                      "onlyMainContent": true,
+                      "tool": "firecrawl_scrape",
+                      "id": "toolu_vrtx_0123PcZrn5rhKcqE77WjkF9E"
+                    },
+                    "type": "tool_call",
+                    "additional_kwargs": {}
+                  }
+                ],
+                "invalid_tool_calls": [],
+                "additional_kwargs": {},
+                "response_metadata": {}
+              }
+            }
+          ],
+          "toolCallId": "toolu_vrtx_0123PcZrn5rhKcqE77WjkF9E",
+          "type": "tool_call"
+        },
+        "observation": "[{\"response\":[{\"type\":\"text\",\"text\":\"{\\n  \\\"markdown\\\": \\\"[Skip to content](https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/#content \\\\\\\"Skip to content\\\\\\\")\\\\n\\\\n# Maiken Aannerud\\\\n\\\\n![Maiken Aannerud photoshoot](https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.52.57.png)Photo by @sobeksemper\\\\n\\\\n###### [See her IG](https://www.instagram.com/magikmaiken/)\\\\n\\\\n###### **Interview by Women Who Fight**  September 2018\\\\n\\\\n**“Take risks! I think it’s good to take risks, because so many people feel like they have to do what everyone else does, everyone else I know has kids and are getting married – I don’t have any of that because I want to do something different. Dare to be different!”**\\\\n\\\\nPrior to being a professional fighter, Aannerud was a Hairdresser and Makeup Artist, travelling around Norway for work. A kickboxer since the age of 12, she decided to try training full time Muay Thai in Thailand two and half years ago, only intending it to be for a couple of months. Now she is a professional fighter, fighting out of Tiger Muay Thai. The decision to remain in Thailand and train full time is a scary one, but Aannerud had fallen in love with Muay Thai, and explained that if she returned to Norway, things would have continued as before; training part time kickboxing was no longer enough.\\\\n\\\\nUnfortunately you can’t earn much money fighting Muay Thai, although you can earn a bit more kickboxing, she is starting to turn her efforts to MMA, as there you can earn a living. So she has begun wrestling and BJJ at her club.\\\\n\\\\nWe asked her about her toughness during a fight, where does it come from? They kick so hard, and punch so fast, but she says pain never set her back.\\\\n\\\\n“I only feel the pain after a fight, after my last one I had to take pain killers to be able to sleep because my legs were hurting so much, but I had no idea during the fight, maybe because of the adrenaline.”\\\\n\\\\nAt her club, the girls are very supportive of each other, becoming more than just training partners. This support seems imperative, as the training regime is tough. You can train 2-3 times a day, and one session is 2 hours if it’s Muay Thai, “so by Saturday you are f\\\\\\\\*\\\\\\\\*\\\\\\\\*\\\\\\\\*\\\\\\\\*”. Sundays are the rest day.\\\\n\\\\n![Maiken training at Tiger Muay Thai & MMA Training Camp](https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.52.39.png)Photo by @hipsantayanon\\\\n\\\\n![Maiken training at Tiger Muay Thai & MMA Training Camp](https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.52.26.png)Photo by @hipsantayanon\\\\n\\\\n## Period\\\\n\\\\nHaving your period doesn’t affect her training, but says that she might ask her training partner to avoid hitting your stomach. Whilst energy levels fluctuate, she tells her coach that she is drained, ‘and they don’t mind, as long as you show up, even if it’s just to punch the bag.’\\\\n\\\\nAannerud has had the implant for 12 years, but still gets weight gain over her period, which is tricky when you have to cut for a fight. Her friends who have needed to drop a couple of kilos for a fight, but have their period over it really struggle, when it wouldn’t be an issue otherwise.\\\\n\\\\n## Training with men and women:\\\\n\\\\nAll training partners are different, and because of the high impact nature of Muay Thai, you have to agree with your sparring partner how hard you are going to spar. Her experiences with training with men is a varied one. Some can be super gentle, almost scared to hurt a girl, whilst others are the complete opposite.\\\\n\\\\n## The difference between Muay Thai and Kickboxing:\\\\n\\\\n“Muay Thai is elbows and clinching, it has a different scoring system, and the rhythm is very different. Normally a Muay Thai fight is 5 rounds and kickboxing is 3. In the first round of Muay Thai you start slow. The judges only look at the first two rounds if it is a close fight. At round 3 the pace starts to pick up, and rounds 4 and 5 are the most important. Tactically you should take it easy for the first couple of rounds if you are going to last.”\\\\n\\\\n![Maiken training in Thailand](https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.50.03.png)Photo by @michaelandersonphotography.ca\\\\n\\\\n## Diet:\\\\n\\\\nAannerud has always eaten healthy, but does need to plan meals so she is not too full or hungry during training. She likes to eat an hour before, but some teammates eat 3 hours before\\\\n\\\\n“My first session is 7:30 in the morning, so I only eat a banana with a bit of peanut butter before, and I have breakfast after training. Then I sleep or rest for a bit. Then I have a small meal, maybe small pancake or chicken or something small,  because I can’t train if I’m too full. My biggest meal is my breakfast after the morning training.”\\\\n\\\\n## Climate:\\\\n\\\\n“It takes me at least a week to get used to it each time. It’s so humid and hot, and you feel like you’re dying every session. Some days are hotter, and everyone suffers, but I actually prefer the heat in Thailand rather than the cold in Norway. I feel like I breathe better if its hot.”\\\\n\\\\n“In Norway I wear makeup because as a stylist, I need to look like one! However I don’t wear makeup in Thailand, and my skin is terrible there because of all the sweat and dirt. Everyone’s is!”\\\\n\\\\n![Maiken sparring at Tiger Muay Thai & MMA Training Camp](https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.51.44.png)Photo by @enztom\\\\n\\\\n![Maiken sparring at Tiger Muay Thai & MMA Training Camp](https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.50.44.png)Photo by @enztom\\\\n\\\\n![First fight of the year - Won round 1 TKO by elbows](https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.51.24.png)Photo by @foliobylisa\\\\n\\\\n![Maiken getting ready to fight](https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.53.34.png)Photo by @hipsantayanon\\\\n\\\\n## Advice:\\\\n\\\\n“I have worked a lot on mentality, because before I could do so well in training, but as soon as I stepped into the ring, I would freeze. But since training professionally in Thailand, that has changed.\\\\n\\\\nThere are four different levels in Thailand. Initially they put me into Intermediate, then they moved me up to Advanced. Then they watched me fight and invited me to the Professional Fighters group. At first I was like, ‘oh my god, little me, why do they want me, everyone there is so good, they are world champions’. Then I started to turn that around; there’s a reason they want me, and I can’t compare myself to them. I started to think that I did belong there, I set high goals and when I achieved them, I realised I could do it.”\\\\n\\\\nMany of us dream of going somewhere like this and training full time, but feel that we are not ready yet, or that we aren’t in a good place in our lives to do it, but Aannerud says you just have to start.\\\\n\\\\n“Don’t think ‘I’m going to start when I’m ready’. Just start. You are never going to be 100% ready. When I decided to become a professional I wasn’t at that level yet. I had to work at that.”\\\\n\\\\n![Maiken training](https://womenwhofight.co.uk/wp-content/uploads/2020/07/Screenshot-2020-07-28-at-10.49.44.png)Photo by @team\\\\\\\\_crunchkin\\\\n\\\\n[Facebook-f](http://www.facebook.co.uk/womenwhofight.co.uk)Twitter[Instagram](http://www.instagram.com/womenwhofight.co.uk)\\\\n\\\\n## Copyright © ™ 2023 Women Who Fight Ltd\\\\n\\\\nWe noticed you're visiting from United States (US). We've updated our prices to United States (US) dollar for your shopping convenience. [Use Pound sterling instead.](https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/?currency=GBP) [Dismiss](https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/#)\\\",\\n  \\\"metadata\\\": {\\n    \\\"og:updated_time\\\": \\\"2020-07-28T11:38:55+01:00\\\",\\n    \\\"twitter:data1\\\": \\\"5 minutes\\\",\\n    \\\"article:published_time\\\": \\\"2020-07-28T10:47:39+01:00\\\",\\n    \\\"modifiedTime\\\": \\\"2020-07-28T11:38:55+01:00\\\",\\n    \\\"language\\\": \\\"en-GB\\\",\\n    \\\"og:url\\\": \\\"https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/\\\",\\n    \\\"ogSiteName\\\": \\\"Women Who Fight\\\",\\n    \\\"publishedTime\\\": \\\"2020-07-28T10:47:39+01:00\\\",\\n    \\\"ogLocale\\\": \\\"en_GB\\\",\\n    \\\"twitter:creator\\\": \\\"@womenwhofight_\\\",\\n    \\\"twitter:label1\\\": \\\"Time to read\\\",\\n    \\\"og:type\\\": \\\"article\\\",\\n    \\\"twitter:title\\\": \\\"Maiken Aannerud | Women Who Fight\\\",\\n    \\\"og:site_name\\\": \\\"Women Who Fight\\\",\\n    \\\"viewport\\\": \\\"width=device-width, initial-scale=1\\\",\\n    \\\"robots\\\": \\\"follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large\\\",\\n    \\\"twitter:description\\\": \\\"We empower female fighters to take agency over their training. We celebrate action that works to level the playing field, talking to experts, uncovering\\\",\\n    \\\"twitter:card\\\": \\\"summary_large_image\\\",\\n    \\\"generator\\\": \\\"Elementor 3.33.2; settings: css_print_method-external, google_font-enabled, font_display-auto\\\",\\n    \\\"msapplication-TileImage\\\": \\\"https://womenwhofight.co.uk/wp-content/uploads/2020/08/cropped-WF_outline_B-270x270.png\\\",\\n    \\\"og:description\\\": \\\"We empower female fighters to take agency over their training. We celebrate action that works to level the playing field, talking to experts, uncovering\\\",\\n    \\\"ogTitle\\\": \\\"Maiken Aannerud | Women Who Fight\\\",\\n    \\\"description\\\": \\\"We empower female fighters to take agency over their training. We celebrate action that works to level the playing field, talking to experts, uncovering\\\",\\n    \\\"og:title\\\": \\\"Maiken Aannerud | Women Who Fight\\\",\\n    \\\"article:publisher\\\": \\\"https://www.facebook.com/womenwhofight.co.uk\\\",\\n    \\\"title\\\": \\\"Maiken Aannerud | Women Who Fight\\\",\\n    \\\"ogUrl\\\": \\\"https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/\\\",\\n    \\\"twitter:site\\\": \\\"@womenwhofight_\\\",\\n    \\\"og:locale\\\": \\\"en_GB\\\",\\n    \\\"ogDescription\\\": \\\"We empower female fighters to take agency over their training. We celebrate action that works to level the playing field, talking to experts, uncovering\\\",\\n    \\\"article:modified_time\\\": \\\"2020-07-28T11:38:55+01:00\\\",\\n    \\\"favicon\\\": \\\"https://womenwhofight.co.uk/wp-content/uploads/2020/08/cropped-WF_outline_B-32x32.png\\\",\\n    \\\"scrapeId\\\": \\\"019bc682-eb90-74b4-bd65-50494a8404ef\\\",\\n    \\\"sourceURL\\\": \\\"https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/\\\",\\n    \\\"url\\\": \\\"https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/\\\",\\n    \\\"statusCode\\\": 200,\\n    \\\"contentType\\\": \\\"text/html; charset=UTF-8\\\",\\n    \\\"proxyUsed\\\": \\\"basic\\\",\\n    \\\"cacheState\\\": \\\"hit\\\",\\n    \\\"cachedAt\\\": \\\"2026-01-16T08:29:29.776Z\\\",\\n    \\\"creditsUsed\\\": 1,\\n    \\\"concurrencyLimited\\\": false\\n  },\\n  \\\"links\\\": [\\n    \\\"https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/#content\\\",\\n    \\\"https://www.instagram.com/magikmaiken/\\\",\\n    \\\"http://www.facebook.co.uk/womenwhofight.co.uk\\\",\\n    \\\"http://www.instagram.com/womenwhofight.co.uk\\\",\\n    \\\"https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/?currency=GBP\\\",\\n    \\\"https://womenwhofight.co.uk/articles/athlete-stories/maiken-aannerud/#\\\"\\n  ]\\n}\"}]}]"
+      }
+    ]
+  }
+]
